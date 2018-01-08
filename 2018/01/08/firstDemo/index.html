@@ -161,12 +161,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body {
+      body{
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
         background-color: #fff;
       }
     </style>
@@ -402,6 +402,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/01/08/firstDemo/">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->
@@ -730,7 +742,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Frankl's Personal Blog
+            Copyright&nbsp;©&nbsp;2018&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Frankl's Personal Blog
             
         </div>
 
@@ -833,12 +845,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 <!-- Bing Background -->
-
-<script type="text/ls-javascript" id="Bing-Background-script">
-    queue.offer(function(){
-        $('body').attr('data-original', 'https://api.i-meto.com/bing?[object Object]');
-    });
-</script>
 
 
 <script type="text/ls-javascript" id="lazy-load">
