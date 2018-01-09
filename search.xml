@@ -8,7 +8,7 @@
       <content type="html"><![CDATA[<p><a href="https://www.baidu.com" target="_blank" rel="noopener">this is a link</a></p>
 <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
 </blockquote>
-<h1 id="header"><a href="#header" class="headerlink" title="header"></a>header</h1>]]></content>
+<h1 id="header"><a href="#header" class="headerlink" title="header"></a>header</h1><h1 id="header-2"><a href="#header-2" class="headerlink" title="header_2"></a>header_2</h1>]]></content>
       
         
     </entry>
