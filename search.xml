@@ -3,6 +3,61 @@
   
     
     <entry>
+      <title><![CDATA[remove_element]]></title>
+      <url>/2018/01/23/remove_element/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-two-Remove-Element"><a href="#Problem-two-Remove-Element" class="headerlink" title="Problem two: Remove Element"></a>Problem two: Remove Element</h2><p>Given an array and a value, remove all instances of that value in-place and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p>Given <strong>nums</strong> = [3,2,2,3], val = 3,</p>
+</blockquote>
+<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
+<p><strong>solution:</strong></p>
+<p>1.最直接的方法是使用数组自带的splice方法，需要注意的是当remove掉相符合的元素后，要将下标减一，不然会造成数组减少一个元素后，原元素后面的元素序号会提前一个，会忽略掉下一个元素。</p>
+<pre><code>var removeElement = function(nums, val) {
+    for(var i = 0; i&lt; nums.length; i++) {
+        if(nums[i] == val) {
+            nums.splice(i, 1);
+            i -= 1;
+        } 
+    } 
+    return nums.length;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<p>2.另一种方法是在遍历数组过程中，如果元素的值等于对应的value，则将当前元素与最后一个元素交换位置，然后将数组长度减1，变相的去除数组的重复项，可惜的是，这种方法和splice()消耗的时间几近相同。</p>
+<pre><code>var removeElement = function(nums, val) {
+    var i = 0;
+    var num = nums.length;
+    while (i &lt; num) {
+        if (nums[i] == val) {
+            nums[i] = nums[num - 1];
+            num--;
+        } else {
+            i++;
+        }
+    }
+    return num;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leetCode Array -- Find Pivot Index]]></title>
       <url>/2018/01/23/find_piovt_index/</url>
       <content type="html"><![CDATA[<h2 id="Problem-one-Find-Pivot-Index"><a href="#Problem-one-Find-Pivot-Index" class="headerlink" title="Problem one: Find Pivot Index"></a>Problem one: Find Pivot Index</h2><p>Given an array of integers nums, write a method that returns the “pivot” index of this array.</p>
@@ -58,7 +113,7 @@
  return -1;
 }
 </code></pre>
-<p>复杂度分析：<br>Time Complexity: O(N), n为nums的长度；</p>
+<p>复杂度分析：<br>Time Complexity: O(n), n为nums的长度；</p>
 </li>
 </ol>
 ]]></content>
