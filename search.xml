@@ -3,6 +3,82 @@
   
     
     <entry>
+      <title><![CDATA[leetCode Array Day 1]]></title>
+      <url>/2018/01/23/leetCode-array-180123/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-one-Find-Pivot-Index"><a href="#Problem-one-Find-Pivot-Index" class="headerlink" title="Problem one: Find Pivot Index"></a>Problem one: Find Pivot Index</h2><p>Given an array of integers nums, write a method that returns the “pivot” index of this array.</p>
+<p>We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index.</p>
+<p>If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br><strong>nums</strong> = [1, 7, 3, 6, 5, 6]<br><strong>Output</strong>: 3<br><strong>Explanation</strong>:<br>The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.<br>Also, 3 is the first index where this occurs.</p>
+</blockquote>
+<p><strong>Example</strong> 2:</p>
+<blockquote>
+<p><strong>Input:</strong><br><strong>nums</strong> = [1, 2, 3]<br><strong>Output</strong>: -1<br><strong>Explanation</strong>:<br>There is no index that satisfies the conditions in the problem statement.</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The length of nums will be in the range [0, 10000].</li>
+<li>Each element nums[i] will be an integer in the range [-1000, 1000].</li>
+</ul>
+<p><strong>solution:</strong></p>
+<ol>
+<li><p>直接想到的是遍历数组，将每个元素左侧的元素和与右侧元素和比较，相同则返回对应元素下标。（若第一个元素右侧和为0，则返回第一个元素下标）。否则返回-1；</p>
+<pre><code>var pivotIndex = function(nums) {
+ var leftSum = 0;
+ var rightSum = 0;
+ for(var i = 0; i &lt; nums.length; i++) {
+     if(i == 0) {
+         leftSum =0;
+     }else{
+         leftSum += nums[i-1];
+     }
+     for(var n = i+1; n &lt; nums.length; n++) {
+         rightSum += nums[n];    
+     }
+     if(leftSum == rightSum) 
+         return i;
+     rightSum = 0;
+ }
+ return -1;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为nums的长度；</p>
+</li>
+<li><p>上一种方法的问题在于要用两遍for循环，时间复杂度过高，所以尽量减少嵌套：</p>
+<pre><code class="javascript">var pivotIndex = function(nums) {
+ var leftSum =0;
+ var sum = 0;
+ for(var i = 0; i&lt; nums.length; i++) 
+     sum += nums[i];
+  for (var n = 0; n &lt; nums.length; n++) {
+     if (leftSum == (sum - leftSum - nums[n])) 
+         return n;
+     leftSum += nums[n];
+ }
+ return -1;
+}
+</code></pre>
+<p>复杂度分析：<br>Time Complexity: O(N), n为nums的长度；</p>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[搭建github博客]]></title>
       <url>/2018/01/12/%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<h2 id="搭建github博客-amp-使用hexo博客框架-amp-使用material主题"><a href="#搭建github博客-amp-使用hexo博客框架-amp-使用material主题" class="headerlink" title="搭建github博客&amp;使用hexo博客框架&amp;使用material主题"></a>搭建github博客&amp;使用hexo博客框架&amp;使用material主题</h2><p>因为原先在CSDN上有各种各样的限制和难言之隐，所以在生庆哥的帮助和怂恿下，选择使用github搭建博客并个性化设置，主要说一下大体过程和期间的问题。主要的内容可以分为以下三类：</p>
