@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[leetCode Array -- Find Pivot Index]]></title>
-      <url>/2018/01/23/leetCode-array-180123/</url>
+      <url>/2018/01/23/find_piovt_index/</url>
       <content type="html"><![CDATA[<h2 id="Problem-one-Find-Pivot-Index"><a href="#Problem-one-Find-Pivot-Index" class="headerlink" title="Problem one: Find Pivot Index"></a>Problem one: Find Pivot Index</h2><p>Given an array of integers nums, write a method that returns the “pivot” index of this array.</p>
 <p>We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index.</p>
 <p>If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index.</p>
