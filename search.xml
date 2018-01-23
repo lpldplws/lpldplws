@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[remove_element]]></title>
+      <title><![CDATA[LeetCode Array -- 2.Remove Element]]></title>
       <url>/2018/01/23/remove_element/</url>
       <content type="html"><![CDATA[<h2 id="Problem-two-Remove-Element"><a href="#Problem-two-Remove-Element" class="headerlink" title="Problem two: Remove Element"></a>Problem two: Remove Element</h2><p>Given an array and a value, remove all instances of that value in-place and return the new length.</p>
 <p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
@@ -58,7 +58,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[leetCode Array -- Find Pivot Index]]></title>
+      <title><![CDATA[leetCode Array -- 1.Find Pivot Index]]></title>
       <url>/2018/01/23/find_piovt_index/</url>
       <content type="html"><![CDATA[<h2 id="Problem-one-Find-Pivot-Index"><a href="#Problem-one-Find-Pivot-Index" class="headerlink" title="Problem one: Find Pivot Index"></a>Problem one: Find Pivot Index</h2><p>Given an array of integers nums, write a method that returns the “pivot” index of this array.</p>
 <p>We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index.</p>
