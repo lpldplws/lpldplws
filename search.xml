@@ -3,6 +3,65 @@
   
     
     <entry>
+      <title><![CDATA[leetCode Array --6.Min Cost Climbing Stairs]]></title>
+      <url>/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-six-Min-Cost-Climbing-Stairs"><a href="#Problem-six-Min-Cost-Climbing-Stairs" class="headerlink" title="Problem six: Min Cost Climbing Stairs"></a>Problem six: Min Cost Climbing Stairs</h2><p>On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).</p>
+<p>Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> cost = [10, 15, 20]<br>  <strong>Output:</strong> 15<br>  <strong>Explanation:</strong> Cheapest is start on cost[1], pay that cost and go to the top.</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]<br>  <strong>Output:</strong> 6<br>  <strong>Explanation:</strong> Cheapest is start on cost[0], and only step on 1s, skipping cost[3].</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li>cost will have a length in the range [2, 1000].</li>
+<li>Every cost[i] will be an integer in the range [0, 999].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.第一眼看这道题，显然是一道递归题，照着这个思路做很容易就做出来了。</p>
+<pre><code>var minCostClimbingStairs = function(cost) {
+    for(var i=2;i&lt;=cost.length-1;i++){
+        cost[i]=cost[i]+Math.min(cost[i-1],cost[i-2]);
+    }
+
+    return Math.min(cost[cost.length-1],cost[cost.length-2]);
+
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<ol>
+<li>同理，也有一种类似的解法，三个元素三个元素的比较，最后一个元素的最小值就是前两个元素的最小值加上对应的值。<pre><code>var minCostClimbingStairs = function(cost) {
+ var firstElement = 0, secondElement = 0, thirdElement = 0;
+  for(var i=2;i &lt;= cost.length;i++){
+      thirdElement = Math.min(secondElement + cost[i-1], firstElement + cost[i-2]);
+      firstElement = secondElement;
+      secondElement = thirdElement;
+  }
+  return thirdElement;
+};
+</code></pre>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</li>
+</ol>
+<p>```</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leetCode Array -- 5.Largest Number At Least Twice of Others]]></title>
       <url>/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/</url>
       <content type="html"><![CDATA[<h2 id="Problem-five-Largest-Number-At-Least-Twice-of-Others"><a href="#Problem-five-Largest-Number-At-Least-Twice-of-Others" class="headerlink" title="Problem five: Largest Number At Least Twice of Others"></a>Problem five: Largest Number At Least Twice of Others</h2><p>In a given integer array nums, there is always exactly one largest element.</p>
