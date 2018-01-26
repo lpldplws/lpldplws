@@ -3,6 +3,59 @@
   
     
     <entry>
+      <title><![CDATA[leetCode Array -- 10.Max Consecutive Ones]]></title>
+      <url>/2018/01/26/leetCode/10.Max_Consecutive_Ones/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-10-Max-Consecutive-Ones"><a href="#Problem-10-Max-Consecutive-Ones" class="headerlink" title="Problem 10: Max Consecutive Ones"></a>Problem 10: Max Consecutive Ones</h2><p>Given a binary array, find the maximum number of consecutive 1s in this array.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,1,0,1,1,1]<br><strong>Output:</strong> 3<br><strong>Explanation:</strong> The first two digits or the last three digits are consecutive 1s.<br>    The maximum number of consecutive 1s is 3.</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The input array will only contain 0 and 1.</li>
+<li>The length of input array is a positive integer and will not exceed 10,000</li>
+</ul>
+<p><strong>solution:</strong></p>
+<p>1.这道题算是福利题了，只要确定最长的1的长度就行了，所以直接判断即可：</p>
+<pre><code>var findMaxConsecutiveOnes = function(nums) {
+    var res = 0;
+    var cnt = 0;
+    for (var i = 0; i&lt; nums.length; i++) {
+        cnt = (nums[i] == 0) ? 0 : cnt + 1;
+        res = Math.max(res, cnt);
+    }
+    return res;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n),n为nums的长度；</p>
+<p>2.除此之外还看到一个人的另一种比较有趣的方法，因为是01串，那么连续1的和跟个数相等，所以我们可以计算和，通过加上num，再乘以num来计算，如果当前数字是0，那么sum就被重置为0，还是要更新结果res。</p>
+<pre><code>var findMaxConsecutiveOnes = function(nums) {
+    var res = 0;
+    var cnt = 0;
+    for (var i = 0; i&lt; nums.length; i++) {
+        cnt = (cnt + nums[i]) * nums[i];
+        res = Math.max(res, cnt);
+    }
+    return res;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n),n为nums的长度；</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[9.Reshape the Matrix]]></title>
       <url>/2018/01/26/leetCode/9.Reshape_the_Matrix/</url>
       <content type="html"><![CDATA[<h2 id="Problem-9-Reshape-the-Matrix"><a href="#Problem-9-Reshape-the-Matrix" class="headerlink" title="Problem 9:Reshape the Matrix"></a>Problem 9:Reshape the Matrix</h2><p>In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.</p>
