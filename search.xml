@@ -15,7 +15,7 @@
 </blockquote>
 <p><strong>Example 2:</strong></p>
 <blockquote>
-<p><strong>Input:</strong><br>nums =<br>[[1,2],<br> [3,4]]<br>r = 2, c = 4<br><strong>Output:</strong><br>[[1,2],<br> [3,4]]<br><strong>Explanation:</strong><br>There is no way to reshape a 2 <em> 2 matrix to a 2 </em> 4 matrix. So output the original matrix.</p>
+<p><strong>Input:</strong><br>nums =<br>[[1,2],<br> [3,4]]<br>r = 2, c = 4<br><strong>Output:</strong><br>[[1,2],<br> [3,4]]<br><strong>Explanation:</strong><br>There is no way to reshape a 2 X 2 matrix to a 2 X 4 matrix. So output the original matrix.</p>
 </blockquote>
 <p><strong>Note:</strong><br>The height and width of the given matrix is in range [1, 100].<br>The given r and c are all positive.</p>
 <p><strong>solution:</strong></p>
@@ -39,7 +39,7 @@
     } 
     return result;
 };
-</code></pre><p>复杂度分析：<br>Time Complexity：O(rXc), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
+</code></pre><p>复杂度分析：<br>Time Complexity：O(r X c), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
 ]]></content>
       
         <categories>
