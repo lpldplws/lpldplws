@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Fri Jan 26 2018 12:10:29 GMT+0800">
-        <meta property="article:modified_time" content="Fri Jan 26 2018 12:52:47 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jan 26 2018 16:27:15 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "www.lpldplws.cn/2018/01/26/leetCode/9.Reshape_the_Matrix/index.html",
     "headline": "9.Reshape the Matrix",
     "datePublished": "Fri Jan 26 2018 12:10:29 GMT+0800",
-    "dateModified": "Fri Jan 26 2018 12:52:47 GMT+0800",
+    "dateModified": "Fri Jan 26 2018 16:27:15 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Frankl",
@@ -557,6 +557,30 @@
     return result;
 };
 </code></pre><p>复杂度分析：<br>Time Complexity：O(r X c), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
+<p>2.经过查询过后，发现二维数组不是通过创建`var result = new Array[][]这样的形式创建，而是通过先创建一个一维数组，再对其中的元素设置为数组的形式创建多维数组。接下来就对数组中的内容进行判断，若没有到下一行，则继续对下一位内容赋值，若倒下一行，则换行输入。</p>
+<pre><code>var matrixReshape = function(nums, r, c) {
+    var result =  new Array(r);  
+    for(var n = 0; n &lt; result.length; n++){  
+        result[n] = new Array(c);   
+    }  
+    var rows = 0; 
+    var cols = 0;
+    var count = 0;
+    if(nums.length == 0 || nums.length * nums[0].length != r * c) 
+        return nums;   
+    for (var i = 0; i &lt; nums.length; i ++) {
+        for (var j = 0; j &lt; nums[0].length; j++) {
+            result[rows][cols] = nums[i][j];
+            cols++;
+            if (cols == c) {
+                rows++;
+                cols = 0;
+            }
+        }
+    }
+    return result;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(num.length X num[0].length), 与上述方法的复杂度类似，不过更直观一些。</p>
 
         
     
