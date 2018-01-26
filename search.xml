@@ -3,6 +3,153 @@
   
     
     <entry>
+      <title><![CDATA[9.Reshape the Matrix]]></title>
+      <url>/2018/01/26/leetCode/9.Reshape_the_Matrix/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-9-Reshape-the-Matrix"><a href="#Problem-9-Reshape-the-Matrix" class="headerlink" title="Problem 9:Reshape the Matrix"></a>Problem 9:Reshape the Matrix</h2><p>In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.</p>
+<p>You’re given a matrix represented by a two-dimensional array, and two <strong>positive</strong> integers <strong>r</strong> and <strong>c</strong> representing the <strong>row</strong> number and column number of the wanted reshaped matrix, respectively.</p>
+<p>The reshaped matrix need to be filled with all the elements of the original matrix in the same <strong>row-traversing</strong> order as they were.</p>
+<p>If the ‘reshape’ operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>nums =<br>[[1,2],<br> [3,4]]<br>r = 1, c = 4<br><strong>Output:</strong><br>[[1,2,3,4]]<br><strong>Explanation:</strong><br>The <strong>row-traversing</strong> of nums is [1,2,3,4]. The new reshaped matrix is a 1 * 4 matrix, fill it row by row by using the previous list.</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>nums =<br>[[1,2],<br> [3,4]]<br>r = 2, c = 4<br><strong>Output:</strong><br>[[1,2],<br> [3,4]]<br><strong>Explanation:</strong><br>There is no way to reshape a 2 <em> 2 matrix to a 2 </em> 4 matrix. So output the original matrix.</p>
+</blockquote>
+<p><strong>Note:</strong><br>The height and width of the given matrix is in range [1, 100].<br>The given r and c are all positive.</p>
+<p><strong>solution:</strong></p>
+<ol>
+<li>做这道题时主要的问题在于如何创建一个二维数组，因为js创建二维数组时出现问题，所以选择设两个一维数组，先判断是否符合要求，不符合返回原数组，然后将元素通过concat添加到一个一维数组中，然后根据所给的r,c一一赋值即可。这道题主要纠结在如何设置一个空的二维数组以及如何对二维数组进行赋值。最后回避了这个问题。</li>
+</ol>
+<pre><code>var matrixReshape = function(nums, r, c) {
+    var result_storage = [];
+    var result = []; 
+    if(nums.length * nums[0].length != r * c) {
+        return nums;
+    }    
+    for(var i=0; i &lt; nums.length; i++) {  
+            result_storage = result_storage.concat(nums[i]);  
+    }
+    for(var i = 0; i &lt; r; i++) {  
+        result.push([]);  
+        for(var j = 0; j &lt; c ; j++){  
+                result[i][j] = result_storage[i * c + j];  
+            }  
+    } 
+    return result;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(rXc), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[leetCode Array -- 8.Toeplitz Matrix]]></title>
+      <url>/2018/01/26/leetCode/8.Toeplitz_Matrix/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-8-Toeplitz-Matrix"><a href="#Problem-8-Toeplitz-Matrix" class="headerlink" title="Problem 8: Toeplitz Matrix"></a>Problem 8: Toeplitz Matrix</h2><p>A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.</p>
+<p>Now given an <code>M x N</code> matrix, return <code>True</code> if and only if the matrix is Toeplitz.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]<br><strong>Output:</strong> True<br><strong>Explanation:</strong><br>1234<br>5123<br>9512</p>
+</blockquote>
+<p>In the above grid, the diagonals are “[9]”, “[5, 5]”, “[1, 1, 1]”, “[2, 2, 2]”, “[3, 3]”, “[4]”, and in each diagonal all elements are the same, so the answer is True.</p>
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> matrix = [[1,2],[2,2]]<br><strong>Output:</strong> False<br><strong>Explanation:</strong><br>The diagonal “[1, 2]” has different elements.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>matrix will be a 2D array of integers.</li>
+<li>matrix will have a number of rows and columns in range [1, 20].</li>
+<li>matrix[i][j] will be integers in range [0, 99].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.通过画图可得，从左上角的元素开始，如果每行（最后一行除外）元素可以与右下方（每行最后一个元素除外）的元素相等，既符合要求，所以可以选择遍历得到答案。</p>
+<p>目前就只有这一种比较好的解法，所以就先写一个算法了。</p>
+<pre><code>var isToeplitzMatrix = function(matrix) {
+    for(var r = 0; r &lt; matrix.length - 1; r++) {
+        for(var c = 0; c &lt; matrix[0].length - 1; c++) {
+            if(matrix[r][c] != matrix[r+1][c+1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity: O(m X n), m为矩阵的横向长度，n为矩阵的纵向长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[leetCode Array -- 7.Array Partition I]]></title>
+      <url>/2018/01/26/leetCode/7.array_partition_I/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-7-Array-Partition-I"><a href="#Problem-7-Array-Partition-I" class="headerlink" title="Problem 7:Array Partition I"></a>Problem 7:Array Partition I</h2><p>Given an array of <strong>2n</strong> integers, your task is to group these integers into <strong>n</strong> pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,4,3,2]<br><strong>Output:</strong> 4<br><strong>Explanation:</strong> n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4).</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li><strong>n</strong> is a positive integer, which is in the range of [1, 10000].</li>
+<li>All the integers in the array will be in the range of [-10000, 10000].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.这道题比较简单的做法是对数组排序，然后隔一个数字取一个，就可以保证数组中所有的每两个数字的最小值的总和是最小值。</p>
+<p>目前也没有找到比这个更简单的算法，所以就先写一个算法了。</p>
+<pre><code>var arrayPairSum = function(nums) {
+    var sum = 0;
+    var i = 0;
+    nums.sort(function(a, b){return a-b;});
+    for(var i = 0; i&lt; nums.length; i+=2) {
+        sum+=nums[i];
+    }
+    return sum;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[1.22~1.26所遇问题]]></title>
       <url>/2018/01/25/blog/1.22~1.16_questions/</url>
       <content type="html"><![CDATA[<h2 id="1-22-1-26所遇问题"><a href="#1-22-1-26所遇问题" class="headerlink" title="1.22~1.26所遇问题"></a>1.22~1.26所遇问题</h2><h3 id="1-导入css文件时，import和link的区别"><a href="#1-导入css文件时，import和link的区别" class="headerlink" title="1.导入css文件时，import和link的区别"></a>1.导入css文件时，import和link的区别</h3><ol>
