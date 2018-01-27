@@ -3,6 +3,202 @@
   
     
     <entry>
+      <title><![CDATA[13.Move Zeroes]]></title>
+      <url>/2018/01/27/leetCode/14.Move_Zeroes/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-14-Move-Zeroes"><a href="#Problem-14-Move-Zeroes" class="headerlink" title="Problem 14: Move Zeroes"></a>Problem 14: Move Zeroes</h2><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>You must do this <strong>in-place</strong> without making a copy of the array.</li>
+<li>Minimize the total number of operations.</li>
+</ol>
+<p><strong>Credits:</strong></p>
+<p>Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.</p>
+<p><strong>solution:</strong></p>
+<ol>
+<li>这跟之前做的题很类似，只要注意在splice之后要对i减一即可。</li>
+</ol>
+<pre><code>var moveZeroes = function(nums) {
+    var sumZero = 0;
+    for(var i = 0; i &lt; nums.length; i++) {
+        if(nums[i] == 0) {
+            nums.splice(i, 1);
+            i--;
+            sumZero++;
+        }
+    }
+    for(var n = 0; n &lt; sumZero; n++) {
+        nums.push(0);
+    }
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[13.Find All Numbers Disappeared in an Array]]></title>
+      <url>/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-13-Find-All-Numbers-Disappeared-in-an-Array"><a href="#Problem-13-Find-All-Numbers-Disappeared-in-an-Array" class="headerlink" title="Problem 13: Find All Numbers Disappeared in an Array"></a>Problem 13: Find All Numbers Disappeared in an Array</h2><p>Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
+<p>Find all the elements of [1, n] inclusive that do not appear in this array.</p>
+<p>Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.</p>
+<p><strong>Example:</strong></p>
+<p><strong>Input:</strong><br>[4,3,2,7,8,2,3,1]</p>
+<p><strong>Output:</strong><br>[5,6]</p>
+<p><strong>solution:</strong></p>
+<p>1.本来想最简单的方法就是先筛选出1 ≤ a[i] ≤ n 中哪个元素不再数组里，然后push到最后一位在splice之前的内容，但是要求<code>without extra space and in O(n) runtime</code>，所以选择其他的方法。这里选择先将数组排序，然后判断哪个元素不是对应位置上的数字，最后push到数组中。</p>
+<pre><code>var findDisappearedNumbers = function(nums) {
+     var res = [];
+     for (var i = 0; i &lt; nums.length; i++) {
+        if (nums[i] != nums[nums[i] - 1]) {
+            var inchange = nums[nums[i] - 1];
+            nums[nums[i] - 1] = nums[i];
+            nums[i] = inchange;
+            i--;
+        }
+    }
+    for (var j = 0; j &lt; nums.length; j++) {
+        if (nums[j] != j + 1)
+            res.push(j + 1);
+    }
+    return res;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[12.Max Area of Island]]></title>
+      <url>/2018/01/27/leetCode/12.Max_Area_of_Island/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-12-Max-Area-of-Island"><a href="#Problem-12-Max-Area-of-Island" class="headerlink" title="Problem 12: Max Area of Island"></a>Problem 12: Max Area of Island</h2><p>Given a non-empty 2D array <code>grid</code> of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
+<p>Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p>[[0,0,1,0,0,0,0,1,0,0,0,0,0],<br> [0,0,0,0,0,0,0,1,1,1,0,0,0],<br> [0,1,1,0,1,0,0,0,0,0,0,0,0],<br> [0,1,0,0,1,1,0,0,1,0,1,0,0],<br> [0,1,0,0,1,1,0,0,1,1,1,0,0],<br> [0,0,0,0,0,0,0,0,0,0,1,0,0],<br> [0,0,0,0,0,0,0,1,1,1,0,0,0],<br> [0,0,0,0,0,0,0,1,1,0,0,0,0]]</p>
+</blockquote>
+<p>Given the above grid, return 6. Note the answer is not 11, because the island must be connected 4-directionally.</p>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p>[[0,0,0,0,0,0,0,0]]</p>
+</blockquote>
+<p>Given the above grid, return 0.</p>
+<p><strong>Note:</strong> The length of each dimension in the given grid does not exceed 50.</p>
+<p><strong>solution:</strong></p>
+<ol>
+<li>因为选取最多的相邻的1，本来打算遍历一遍，如果当前元素右边和下边为1，则对右下方元素加对应的值，但是边界条件判断比较复杂。所以，选择递归实现，虽然实现很简单，但是时间复杂度相对较高，做了比较多重复的操作。以下为对应代码：</li>
+</ol>
+<pre><code>var maxAreaOfIsland = function(grid) {
+      var res = 0;
+      for(var i = 0; i &lt; grid.length; i++){
+         for(var j = 0; j &lt; grid[0].length; j++){
+                if(grid[i][j] == 1) res = Math.max(res, helper(grid, i, j));
+            }
+        }
+        return res;
+};
+
+var helper = function(grid, r, c) {
+    if(r &lt; 0 || r &gt;= grid.length || c &lt; 0 || c &gt;= grid[0].length) return 0;
+        var res = 0;
+        if(grid[r][c] == 1){
+            grid[r][c] = 0;
+            res = 1 + helper(grid, r-1, c) + helper(grid, r+1, c) + helper(grid, r, c-1) + helper(grid, r, c+1);
+        }
+        return res;
+}
+</code></pre><p>复杂度分析：<br>Time Complexity：O(r X c), r为行的个数，c为列的个数。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[11.Shortest Word Distance]]></title>
+      <url>/2018/01/27/leetCode/11.Shortest_Word_Distance/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-11-Shortest-Word-Distance"><a href="#Problem-11-Shortest-Word-Distance" class="headerlink" title="Problem 11: Shortest Word Distance"></a>Problem 11: Shortest Word Distance</h2><p>Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.</p>
+<p>For example,<br>Assume that words = <code>[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]</code>.</p>
+<p>Given word1 = <code>&quot;coding&quot;</code>, word2 = <code>&quot;practice&quot;</code>, return 3.<br>Given word1 = <code>&quot;makes&quot;</code>, word2 = <code>&quot;coding&quot;</code>, return 1.</p>
+<p><strong>Note:</strong></p>
+<p>You may assume that word1 <strong>does not equal to</strong> word2, and word1 and word2 are both in the list.</p>
+<p><strong>solution:</strong></p>
+<ol>
+<li>根据题意，选出最近的两个对应的单词的间距，因为所选单词最短的间距即相邻间距，所以最小的匹配值间距的绝对值即是所求答案。</li>
+</ol>
+<pre><code>var shortestDistance = function(words, word1, word2) {
+    var index1 = -1, index2 = -1;
+    var minDistance = words.length;
+    var currentDistance;
+    for (var i = 0; i &lt; words.length; i++) {
+        if (words[i] == word1) {
+            index1 = i;
+        } else if (words[i] == word2) {
+            index2 = i;
+        }
+
+        if (index1 != -1 &amp;&amp; index2 != -1) {
+            minDistance = Math.min(minDistance, Math.abs(index1 - index2));
+        }
+    }
+    return minDistance;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组的长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leetCode Array -- 10.Max Consecutive Ones]]></title>
       <url>/2018/01/26/leetCode/10.Max_Consecutive_Ones/</url>
       <content type="html"><![CDATA[<h2 id="Problem-10-Max-Consecutive-Ones"><a href="#Problem-10-Max-Consecutive-Ones" class="headerlink" title="Problem 10: Max Consecutive Ones"></a>Problem 10: Max Consecutive Ones</h2><p>Given a binary array, find the maximum number of consecutive 1s in this array.</p>
