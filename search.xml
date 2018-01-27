@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[14.Move Zeroes]]></title>
+      <title><![CDATA[leetCode Array -- 14.Move Zeroes]]></title>
       <url>/2018/01/27/leetCode/14.Move_Zeroes/</url>
       <content type="html"><![CDATA[<h2 id="Problem-14-Move-Zeroes"><a href="#Problem-14-Move-Zeroes" class="headerlink" title="Problem 14: Move Zeroes"></a>Problem 14: Move Zeroes</h2><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
 <p>For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].</p>
@@ -50,7 +50,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[13.Find All Numbers Disappeared in an Array]]></title>
+      <title><![CDATA[leetCode Array -- 13.Find All Numbers Disappeared in an Array]]></title>
       <url>/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/</url>
       <content type="html"><![CDATA[<h2 id="Problem-13-Find-All-Numbers-Disappeared-in-an-Array"><a href="#Problem-13-Find-All-Numbers-Disappeared-in-an-Array" class="headerlink" title="Problem 13: Find All Numbers Disappeared in an Array"></a>Problem 13: Find All Numbers Disappeared in an Array</h2><p>Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
 <p>Find all the elements of [1, n] inclusive that do not appear in this array.</p>
@@ -95,7 +95,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[12.Max Area of Island]]></title>
+      <title><![CDATA[leetCode Array -- 12.Max Area of Island]]></title>
       <url>/2018/01/27/leetCode/12.Max_Area_of_Island/</url>
       <content type="html"><![CDATA[<h2 id="Problem-12-Max-Area-of-Island"><a href="#Problem-12-Max-Area-of-Island" class="headerlink" title="Problem 12: Max Area of Island"></a>Problem 12: Max Area of Island</h2><p>Given a non-empty 2D array <code>grid</code> of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 <p>Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)</p>
@@ -152,7 +152,7 @@ var helper = function(grid, r, c) {
     </entry>
     
     <entry>
-      <title><![CDATA[11.Shortest Word Distance]]></title>
+      <title><![CDATA[leetCode Array -- 11.Shortest Word Distance]]></title>
       <url>/2018/01/27/leetCode/11.Shortest_Word_Distance/</url>
       <content type="html"><![CDATA[<h2 id="Problem-11-Shortest-Word-Distance"><a href="#Problem-11-Shortest-Word-Distance" class="headerlink" title="Problem 11: Shortest Word Distance"></a>Problem 11: Shortest Word Distance</h2><p>Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.</p>
 <p>For example,<br>Assume that words = <code>[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]</code>.</p>
@@ -252,7 +252,7 @@ var helper = function(grid, r, c) {
     </entry>
     
     <entry>
-      <title><![CDATA[9.Reshape the Matrix]]></title>
+      <title><![CDATA[leetCode Array -- 9.Reshape the Matrix]]></title>
       <url>/2018/01/26/leetCode/9.Reshape_the_Matrix/</url>
       <content type="html"><![CDATA[<h2 id="Problem-9-Reshape-the-Matrix"><a href="#Problem-9-Reshape-the-Matrix" class="headerlink" title="Problem 9:Reshape the Matrix"></a>Problem 9:Reshape the Matrix</h2><p>In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.</p>
 <p>You’re given a matrix represented by a two-dimensional array, and two <strong>positive</strong> integers <strong>r</strong> and <strong>c</strong> representing the <strong>row</strong> number and column number of the wanted reshaped matrix, respectively.</p>
