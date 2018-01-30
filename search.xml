@@ -3,6 +3,108 @@
   
     
     <entry>
+      <title><![CDATA[leetCode Array -- 17.Majority Element]]></title>
+      <url>/2018/01/30/leetCode/17.Majority_Element/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-17-Majority-Element"><a href="#Problem-17-Majority-Element" class="headerlink" title="Problem 17: Majority Element"></a>Problem 17: Majority Element</h2><p>Given an array of size n, find the majority element. The majority element is the element that appears <strong>more than</strong> ⌊ n/2 ⌋ times.</p>
+<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
+<p><strong>Credits:</strong><br>Special thanks to @ts for adding this problem and creating all test cases.</p>
+<p><strong>solution:</strong></p>
+<p>1.这里比较取巧，因为内容全部为数字，所以sort按序排序然后选择中位数即可。</p>
+<pre><code>var majorityElement = function(nums) {
+    nums.sort(function(a,b){return a-b;});
+    return nums[Math.floor(nums.length/2)];
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[leetCode Array -- 16.Best Time to Buy and Sell Stock II]]></title>
+      <url>/2018/01/30/leetCode/16.Best_Time_to_Buy_and_Sell_Stock_II/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-16-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#Problem-16-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="Problem 16: Best Time to Buy and Sell Stock II"></a>Problem 16: Best Time to Buy and Sell Stock II</h2><p>Say you have an array for which the i<sup>th</sup> element is the price of a given stock on day i.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+<p><strong>solution:</strong></p>
+<p>1.题目信息请见之前的题目地址，这道题的思路比较奇特，因为可以选择多次，所以只要后一次大于前一次，即可以在总额上加上差值，因为若后面的数继续大于前面的数，累加的差值等于之后的差值。若后面的小，则可以跳过，因为前面的内容已经得到最多的利润。</p>
+<pre><code>var maxProfit = function(prices) {
+    var maxprofit = 0;
+    for(var i = 0; i &lt; prices.length; i++) {
+        if (prices[i] &gt; prices[i - 1])
+            maxprofit += prices[i] - prices[i - 1];
+    }
+    return maxprofit;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[leetCode Array -- 15.1-bit and 2-bit Characters]]></title>
+      <url>/2018/01/30/leetCode/15.1_bit_and_2_bit_Characters/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-15-1-bit-and-2-bit-Characters"><a href="#Problem-15-1-bit-and-2-bit-Characters" class="headerlink" title="Problem 15: 1-bit and 2-bit Characters"></a>Problem 15: 1-bit and 2-bit Characters</h2><p>We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).</p>
+<p>Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>bits = [1, 0, 0]<br><strong>Output:</strong> True<br><strong>Explanation:</strong><br>The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character.</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>bits = [1, 1, 1, 0]<br><strong>Output:</strong> False<br><strong>Explanation:</strong><br>The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character.</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li>1 &lt;= len(bits) &lt;= 1000.</li>
+<li>bits[i] is always 0 or 1.</li>
+</ul>
+<p><strong>solution:</strong></p>
+<p>1.近期因为时间比较紧，所以只用一种方法解决。本题选择递归，当前元素若为1，则删掉前两个，当前元素为0，则删除一个，直到最后长度为0或时，返回false或true。</p>
+<pre><code>var isOneBitCharacter = function(bits) {
+    if(bits.length==0) return false; 
+    else if(bits.length==1) return true;
+    if(bits[0]==0)bits.splice(0,1); 
+    else bits.splice(0,2);
+    return isOneBitCharacter(bits)
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leetCode Array -- 14.Move Zeroes]]></title>
       <url>/2018/01/27/leetCode/14.Move_Zeroes/</url>
       <content type="html"><![CDATA[<h2 id="Problem-14-Move-Zeroes"><a href="#Problem-14-Move-Zeroes" class="headerlink" title="Problem 14: Move Zeroes"></a>Problem 14: Move Zeroes</h2><p>Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.</p>
