@@ -3,9 +3,153 @@
   
     
     <entry>
+      <title><![CDATA[leetCode Array -- 23.Missing Number]]></title>
+      <url>/2018/02/02/leetCode/23.Missing_Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-23-Missing-Number"><a href="#Problem-23-Missing-Number" class="headerlink" title="Problem 23.Missing Number"></a>Problem 23.Missing Number</h2><p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
+<p><strong>Example 1</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [3,0,1]<br><strong>Output:</strong> 2</p>
+</blockquote>
+<p><strong>Example 2</strong><br><strong>Input:</strong> [9,6,4,2,3,5,7,0,1]<br><strong>Output:</strong> 8</p>
+<p><strong>Note:</strong><br>Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?</p>
+<p><strong>Credits:</strong><br>Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.</p>
+<p><strong>solution</strong></p>
+<p>1.这道题也是比较简单，只要先对数组排好序，然后跟序数进行对比，返回不相等的下标即可。</p>
+<pre><code>var missingNumber = function(nums) {
+    nums.sort(function(a,b){return a-b;});
+    for (var i = 0; i &lt; nums.length; i++) {
+        if(nums[i] != i) {
+            return i;
+        }
+    }
+    return nums.length;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为数组长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[leetCode Array -- 22.Maximum Product of Three Numbers]]></title>
+      <url>/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-22-Maximum-Product-of-Three-Numbers"><a href="#Problem-22-Maximum-Product-of-Three-Numbers" class="headerlink" title="Problem 22.Maximum Product of Three Numbers"></a>Problem 22.Maximum Product of Three Numbers</h2><p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,2,3]<br><strong>Output:</strong> 6</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,2,3,4]<br><strong>Output:</strong> 24</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The length of the given array will be in range [3,10<sup>4</sup>] and all elements are in the range [-1000, 1000].</li>
+<li>Multiplication of any three numbers in the input won’t exceed the range of 32-bit signed integer.</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.因为最短数组长度为3，所以不要考虑数组长度小于3的情况。本题的元素大小可能为负数，若都为正数或都为负数，则取前三个元素，若有正数有负数，通过查资料可以得到，此时3个数之积的最大值为max(第一大数<em>第二大数</em>第三大数， 第一大数<em>最小数</em>倒数第二小数)。这个方法可以记住。</p>
+<pre><code>var maximumProduct = function(nums) {
+    nums.sort(function(a,b){return b-a;});
+    return Math.max(nums[nums.length - 1] * nums[nums.length - 2] * nums[0], nums[0] * nums[1] * nums[2]);
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为数组长度。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[leetCode Array -- 21. Image Smoother]]></title>
+      <url>/2018/02/02/leetCode/21.Image_Smoother/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-21-Image-Smoother"><a href="#Problem-21-Image-Smoother" class="headerlink" title="Problem 21. Image Smoother"></a>Problem 21. Image Smoother</h2><p>Given a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (rounding down) of all the 8 surrounding cells and itself. If a cell has less than 8 surrounding cells, then use as many as you can.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>[[1,1,1],<br> [1,0,1],<br> [1,1,1]]<br><strong>Output:</strong><br>[[0, 0, 0],<br> [0, 0, 0],<br> [0, 0, 0]]<br><strong>Explanation:</strong><br>For the point (0,0), (0,2), (2,0), (2,2): floor(3/4) = floor(0.75) = 0<br>For the point (0,1), (1,0), (1,2), (2,1): floor(5/6) = floor(0.83333333) = 0<br>For the point (1,1): floor(8/9) = floor(0.88888889) = 0</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The value in the given matrix is in the range of [0, 255].</li>
+<li>The length and width of the given matrix are in the range of [1, 150].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.这道题想了半天没想出什么好点的方法，就用最笨的方法写了，判断周围八个位置是否正常，如果正常，就计算到总额里并得到平均值。注意，js里不满1会向上取整，所以应该用Math.floor()。代码如下：</p>
+<pre><code>var imageSmoother = function(M) {
+        var nx = M.length;
+        var ny = M[0].length;
+        var res = new Array(nx);
+        for(var n = 0; n &lt; nx; n++){
+            res[n] = new Array(ny);
+        } ;
+        for (var i = 0; i &lt; nx; i++) {
+            for (var j = 0; j &lt; ny; j++) {
+                res[i][j] = smooth(M, i, j);
+            }
+        }
+        return res;
+    }
+    var smooth = function(M, x, y) {
+        var nx = M.length;
+        var ny = M[0].length;
+        var sum = 0;
+        var count = 0;
+        for (var i = -1; i &lt;= 1; i++) {
+           for (var j = -1; j &lt;= 1; j++) {
+             if (x + i &lt; 0 || x + i &gt;= nx || y + j &lt; 0 || y + j &gt;= ny) {
+                 continue;
+             }
+             count++;
+             sum += M[x + i][y + j];
+           }
+        }
+        return Math.floor(sum / count);
+    }
+</code></pre><p>复杂度分析：<br> Time Complexity：O(r X c),r为M.length,c为M[0].length.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> leetCode </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> leetCode array </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leetCode Array -- 20.Contains Duplicate]]></title>
       <url>/2018/01/31/leetCode/20.Contains_Duplicate/</url>
-      <content type="html"><![CDATA[<h2 id="Problem-20-Contains-Duplicate"><a href="#Problem-20-Contains-Duplicate" class="headerlink" title="Problem 20.:Contains Duplicate"></a>Problem 20.:Contains Duplicate</h2><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
+      <content type="html"><![CDATA[<h2 id="Problem-20-Contains-Duplicate"><a href="#Problem-20-Contains-Duplicate" class="headerlink" title="Problem 20:Contains Duplicate"></a>Problem 20:Contains Duplicate</h2><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
 <p><strong>solution:</strong></p>
 <p>1.先对数组进行sort，然后除去特殊情况下判断只要元素周围两侧元素有一个相同，就返回true，否则为false。</p>
 <pre><code>var containsDuplicate = function(nums) {
