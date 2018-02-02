@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title><![CDATA[data structure -- graph]]></title>
+      <url>/2018/02/02/blog/3.graph/</url>
+      <content type="html"><![CDATA[<h2 id="图-graph"><a href="#图-graph" class="headerlink" title="图(graph)"></a>图(graph)</h2><h3 id="一-图的相关术语"><a href="#一-图的相关术语" class="headerlink" title="一.图的相关术语"></a>一.图的相关术语</h3><ol>
+<li>图是网络结构的抽象模型。图是一组由边连接的节点(或顶点)。学习图是重要的，因为任何二元关系都可以用图来表示。</li>
+<li>一个图G = (V, E)由以下元素组成。<br>V:一组顶点<br>E:一组边，连接V中的顶点。</li>
+<li>由一条边连接在一起的顶点称为相邻顶点。</li>
+<li>一个顶点的度是其相邻顶点的数量。</li>
+<li>路径是顶点v1, v2,…,vk的一个连续序列，其中vi和vi+1是相邻的。</li>
+<li>简单路径要求不包含重复的顶点。</li>
+<li>如果图中不存在环，则称该图是无环的。如果图中每两个顶点间都存在路径，则该图是连通的。</li>
+<li>图可以是无向的(边没有方向)或是有向的(有向图)。如果图中每两个顶点间在双向上都存在路径，则该图是强连通的。</li>
+<li>图还可以是未加权的或是加权的。<br><img src="/graph-demo.png" alt="基本图"></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> JavaScript data structure </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> data structure </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leetCode Array -- 23.Missing Number]]></title>
       <url>/2018/02/02/leetCode/23.Missing_Number/</url>
       <content type="html"><![CDATA[<h2 id="Problem-23-Missing-Number"><a href="#Problem-23-Missing-Number" class="headerlink" title="Problem 23.Missing Number"></a>Problem 23.Missing Number</h2><p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
