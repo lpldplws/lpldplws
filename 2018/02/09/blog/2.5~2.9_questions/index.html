@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Fri Feb 09 2018 20:28:10 GMT+0800">
-        <meta property="article:modified_time" content="Fri Feb 09 2018 21:18:26 GMT+0800">
+        <meta property="article:modified_time" content="Fri Feb 09 2018 21:19:53 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,7 +266,7 @@
     "mainEntityOfPage": "www.lpldplws.cn/2018/02/09/blog/2.5~2.9_questions/index.html",
     "headline": "2.5~2.9所遇问题",
     "datePublished": "Fri Feb 09 2018 20:28:10 GMT+0800",
-    "dateModified": "Fri Feb 09 2018 21:18:26 GMT+0800",
+    "dateModified": "Fri Feb 09 2018 21:19:53 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Frankl",
@@ -604,8 +604,29 @@ linear-gradient(-270deg, red, red 50%, transparent 50%) bottom left / 1px 100% n
         } 
     };
 </code></pre><h4 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4><p>深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径直到这条路径最后一个顶点被访问了，接着原路回退并探索下一条路径。换句话说，它是先深度后广度地访问顶点。</p>
-<p>this.dfs = function(callback){<br>    var color = initializeColor();<br>    for (var i=0; i&lt;vertices.length; i++){<br>        if (color[vertices[i]] === ‘white’){<br>            dfsVisit(vertices[i], color, callback);<br>        }<br>    }<br>};<br>var dfsVisit = function(u, color, callback){<br>    color[u] = ‘grey’;<br>    if (callback) {    }<br>        callback(u);<br>    }<br>    var neighbors = adjList.get(u);<br>    for (var i=0; i&lt;neighbors.length; i++){<br>        var w = neighbors[i];<br>        if (color[w] === ‘white’){<br>            dfsVisit(w, color, callback);<br>        }<br>    }<br>    color[u] = ‘black’;<br>};<br>```</p>
-<p>以上是两个基本的图的遍历方法。</p>
+<pre><code>this.dfs = function(callback){
+    var color = initializeColor(); 
+    for (var i=0; i&lt;vertices.length; i++){ 
+        if (color[vertices[i]] === &#39;white&#39;){ 
+            dfsVisit(vertices[i], color, callback); 
+        }
+    } 
+};
+var dfsVisit = function(u, color, callback){
+    color[u] = &#39;grey&#39;; 
+    if (callback) {    }
+        callback(u);
+    }
+    var neighbors = adjList.get(u);
+    for (var i=0; i&lt;neighbors.length; i++){ 
+        var w = neighbors[i];
+        if (color[w] === &#39;white&#39;){
+            dfsVisit(w, color, callback);
+        }
+    }
+    color[u] = &#39;black&#39;; 
+};
+</code></pre><p>以上是两个基本的图的遍历方法。</p>
 
         
     
