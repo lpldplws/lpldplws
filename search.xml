@@ -178,7 +178,6 @@ Calculator.prototype = BaseCalculator.prototype;
 alert(calc.add(1, 1));
 alert(calc.decimalDigits);
 </code></pre><p>先是这部分内容，看的有些部分没有懂还没有写完，等第二版到了读第二版吧。。。</p>
-<p>2.</p>
 ]]></content>
       
         <categories>
