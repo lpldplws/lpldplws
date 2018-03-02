@@ -47,7 +47,7 @@
     
     <title>
         
-            标签: leetCode array | 
+            JavaScript学习笔记（1） | 
         
         Frankl&#39;s Personal Blog
     </title>
@@ -58,7 +58,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="Frankl&#39;s Personal Blog">
-    <meta name="keywords" content="Frankl&#39;s personal blog">
+    <meta name="keywords" content="Frankl&#39;s personal blog,前端问题">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -219,7 +219,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Frankl&#39;s Personal Blog">
-    <meta name="msapplication-starturl" content="www.lpldplws.cn/tags/leetCode-array/page/3/">
+    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
@@ -234,13 +234,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="www.lpldplws.cn/tags/leetCode-array/page/3/">
+    <meta property="og:url" content="www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: leetCode array | Frankl&#39;s Personal Blog">
+    <meta property="og:title" content="JavaScript学习笔记（1） | Frankl&#39;s Personal Blog">
     <meta property="og:image" content="/img/mountains.png">
     <meta property="og:description" content="Frankl&#39;s Personal Blog">
-    
+    <meta property="og:article:tag" content="前端问题"> 
 
+    
+        <meta property="article:published_time" content="Fri Mar 02 2018 17:46:42 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 02 2018 18:33:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -248,13 +251,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="www.lpldplws.cn/tags/leetCode-array/page/3/index.html" />
+        <link rel="canonical" href="www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html",
+    "headline": "JavaScript学习笔记（1）",
+    "datePublished": "Fri Mar 02 2018 17:46:42 GMT+0800",
+    "dateModified": "Fri Mar 02 2018 18:33:48 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Frankl",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.jpeg"
+        },
+        "description": "Please Enjoy Your Time"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Frankl&#39;s Personal Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/mountains.png"
+        }
+    },
+    "keywords": ",前端问题Frankl&#39;s personal blog",
+    "description": "Frankl&#39;s Personal Blog",
+}
+</script>
 
 
     
@@ -288,227 +321,443 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
-        
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScrip学习笔记（1）"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScrip学习笔记（1）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JavaScript函数表达式和函数声明"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">JavaScript函数表达式和函数声明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数表达式的命名"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">函数表达式的命名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型和原型链"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">原型和原型链</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/">LeetCode Array -- 3.Best Time to Buy and Sell Stock</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/2.remove_element/">LeetCode Array -- 2.Remove Element</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/2.remove_element/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/1.find_pivot_index/">leetCode Array -- 1.Find Pivot Index</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/1.find_pivot_index/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/tags/leetCode-array/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/tags/leetCode-array/">1</a><a class="page-number" href="/tags/leetCode-array/page/2/">2</a><span class="page-number current">3</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                JavaScript学习笔记（1）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Frankl</strong>
+        <span>3月 02, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/前端问题/">前端问题</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/03/02/blog/JavaScript基本1/" class="leancloud-views_num" data-flag-title="JavaScript学习笔记（1）">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JavaScript学习笔记（1）&url=www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JavaScript学习笔记（1）&url=www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html&via=Frankl" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=JavaScript学习笔记（1）&summary=Frankl&#39;s Personal Blog&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="JavaScrip学习笔记（1）"><a href="#JavaScrip学习笔记（1）" class="headerlink" title="JavaScrip学习笔记（1）"></a>JavaScrip学习笔记（1）</h2><h3 id="JavaScript函数表达式和函数声明"><a href="#JavaScript函数表达式和函数声明" class="headerlink" title="JavaScript函数表达式和函数声明"></a>JavaScript函数表达式和函数声明</h3><p>首先，来了解一下函数表达式和函数声明：</p>
+<p>在ECMAScript中，创建函数的最常用的两个方法是函数表达式和函数声明，两者还是有一定的区别，在ECMA规范中提到：函数声明必须带有标示符（Identifier）（就是大家常说的函数名称），而函数表达式则可以省略这个标示符，即：</p>
+<p>函数声明:</p>
+<p>function 函数名称 (参数：可选){ 函数体 }</p>
+<p>函数表达式：</p>
+<p>function 函数名称（可选）(参数：可选){ 函数体 }</p>
+<p>所以，可以看出，如果不声明函数名称，它肯定是表达式，可如果声明了函数名称，ECMAScript是通过上下文来区分的，如果function foo(){}是作为赋值表达式的一部分的话，那它就是一个函数表达式，如果function foo(){}被包含在一个函数体内，或者位于程序的最顶部的话，那它就是一个函数声明。</p>
+<pre><code> function foo(){} // 声明，因为它是程序的一部分
+ var bar = function foo(){}; // 表达式，因为它是赋值表达式的一部分
+ new function bar(){}; // 表达式，因为它是new表达式
+ (function(){
+   function bar(){} // 声明，因为它是函数体的一部分
+ })();
+</code></pre><p>还有一种函数表达式不太常见，就是被括号括住的(function foo(){})，他是表达式的原因是因为括号 ()是一个分组操作符，它的内部只能包含表达式，我们来看几个例子：</p>
+<pre><code>function foo(){} // 函数声明
+(function foo(){}); // 函数表达式：包含在分组操作符内
+
+try {
+  (var x = 5); // 分组操作符，只能包含表达式而不能包含语句，这里的var就是语句
+} catch(err) {
+// SyntaxError
+}
+</code></pre><p>在使用eval对JSON进行执行的时候，JSON字符串通常被包含在一个圆括号里：eval(‘(‘ + json + ‘)’)，这样做的原因就是因为分组操作符，也就是这对括号，会让解析器强制将JSON的花括号解析成表达式而不是代码块。</p>
+<pre><code> try {
+    { &quot;x&quot;: 5 }; // &quot;{&quot; 和 &quot;}&quot; 做解析成代码块
+  } catch(err) {
+    // SyntaxError
+  }
+
+  ({ &quot;x&quot;: 5 }); // 分组操作符强制将&quot;{&quot; 和 &quot;}&quot;作为对象字面量来解析
+</code></pre><p>表达式和声明存在着十分微妙的区别，函数声明会在任何表达式被解析和求值之前先被解析和求值，即使你的声明在代码的最后一行，它也会在同作用域内第一个表达式之前被解析/求值，也就是所谓的函数提升。参考如下例子，函数fn是在alert之后声明的，但是在alert执行的时候，fn已经有定义了：</p>
+<pre><code>alert(fn());
+function fn() {  
+  return &#39;Hello world!&#39;;
+}
+</code></pre><p>还有一点，函数声明在条件语句内虽然可以用，但是没有被标准化，也就是说不同的环境可能有不同的执行结果，所以这样情况下，最好使用函数表达式：</p>
+<pre><code>// 千万别这样做！
+// 因为有的浏览器会返回first的这个function，而有的浏览器返回的却是第二个
+
+if (true) {
+  function foo() {
+    return &#39;first&#39;;
+  }
+}
+else {
+  function foo() {
+    return &#39;second&#39;;
+  }
+}
+foo();
+
+// 相反，这样情况，我们要用函数表达式
+var foo;
+if (true) {
+  foo = function() {
+    return &#39;first&#39;;
+  };
+}
+else {
+  foo = function() {
+    return &#39;second&#39;;
+  };
+}
+foo();
+</code></pre><p>函数声明的实际规则如下：</p>
+<p><b>函数声明只能出现在程序或函数体内。从句法上讲，它们 不能出现在Block（块）（{ … }）中，例如不能出现在 if、while 或 for 语句中。因为 Block（块） 中只能包含Statement语句， 而不能包含函数声明这样的源元素。另一方面，仔细看一看规则也会发现，唯一可能让表达式出现在Block（块）中情形，就是让它作为表达式语句的一部分。但是，规范明确规定了表达式语句不能以关键字function开头。而这实际上就是说，函数表达式同样也不能出现在Statement语句或Block（块）中（因为Block（块）就是由Statement语句构成的）。 </b></p>
+<h3 id="函数表达式的命名"><a href="#函数表达式的命名" class="headerlink" title="函数表达式的命名"></a>函数表达式的命名</h3><p>函数表达式在实际应用中还是很常见的，但由于这种方式都是在同一作用域内，所以基本上一定要用函数表达式：</p>
+<pre><code>    var contains = (function() {
+    var docEl = document.documentElement;
+
+    if (typeof docEl.compareDocumentPosition != &#39;undefined&#39;) {
+      return function(el, b) {
+        return (el.compareDocumentPosition(b) &amp; 16) !== 0;
+      };
+    }
+    else if (typeof docEl.contains != &#39;undefined&#39;) {
+      return function(el, b) {
+        return el !== b &amp;&amp; el.contains(b);
+      };
+    }
+    return function(el, b) {
+      if (el === b) return false;
+      while (el != b &amp;&amp; (b = b.parentNode) != null);
+      return el === b;
+    };
+  })();
+</code></pre><p>提到命名函数表达式，理所当然，就是它得有名字，前面的例子var bar = function foo(){};就是一个有效的命名函数表达式，但有一点需要记住：这个名字只在新定义的函数作用域内有效，因为规范规定了标示符不能在外围的作用域内有效：</p>
+<pre><code>  var f = function foo(){
+    return typeof foo; // foo是在内部作用域内有效
+  };
+  // foo在外部用于是不可见的
+  typeof foo; // &quot;undefined&quot;
+  f(); // &quot;function&quot;
+</code></pre><h3 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h3><p>首先，我们可以从这几个方面理解：</p>
+<p>1.原型使用方式1：</p>
+<pre><code>var Calculator = function (decimalDigits, tax) {
+   this.decimalDigits = decimalDigits;
+   this.tax = tax;
+};
+//然后，通过给Calculator对象的prototype属性赋值对象字面量来设定Calculator对象的原型。
+Calculator.prototype = {
+   add: function (x, y) {
+      return x + y;
+},
+   subtract: function (x, y) {
+      return x - y;
+   }
+};
+</code></pre><p>这样，就可以new Calculator对象以后，就可以调用add方法来计算结果了。</p>
+<p>2.原型使用方式2：</p>
+<pre><code>Calculator.prototype = function () {
+   add = function (x, y) {
+      return x + y;
+   },
+   subtract = function (x, y) {
+      return x - y;
+   }
+   return {
+      add: add,
+      subtract: subtract
+   }
+} ();
+</code></pre><p>这样我们可以new Calculator对象以后调用add方法来计算结果了。</p>
+<p>以上有一个限制就是一次性设置了原型对象，我们再来说一下如何分开设置原型的每个属性吧。</p>
+<pre><code>var BaseCalculator = function () {
+    //为每个实例都声明一个小数位数
+    this.decimalDigits = 2;
+};
+
+//使用原型给BaseCalculator扩展2个对象方法
+BaseCalculator.prototype.add = function (x, y) {
+    return x + y;
+};
+
+BaseCalculator.prototype.subtract = function (x, y) {
+    return x - y;
+};
+</code></pre><p>首先，声明了一个BaseCalculator对象，构造函数里会初始化一个小数位数的属性decimalDigits，然后通过原型属性设置2个function，分别是add(x,y)和subtract(x,y)，当然你也可以使用前面提到的2种方式的任何一种，我们的主要目的是看如何将BaseCalculator对象设置到真正的Calculator的原型上。</p>
+<pre><code>var BaseCalculator = function() {
+    this.decimalDigits = 2;
+};
+
+BaseCalculator.prototype = {
+    add: function(x, y) {
+        return x + y;
+    },
+    subtract: function(x, y) {
+        return x - y;
+    }
+};
+</code></pre><p>创建完上述代码以后</p>
+<pre><code>var Calculator = function () {
+    //为每个实例都声明一个税收数字
+    this.tax = 5;
+};
+
+Calculator.prototype = new BaseCalculator();
+</code></pre><p>我们可以看到Calculator的原型是指向到BaseCalculator的一个实例上，目的是让Calculator集成它的add(x,y)和subtract(x,y)这2个function，还有一点要说的是，由于它的原型是BaseCalculator的一个实例，所以不管你创建多少个Calculator对象实例，他们的原型指向的都是同一个实例。</p>
+<pre><code>var calc = new Calculator();
+alert(calc.add(1, 1));
+//BaseCalculator 里声明的decimalDigits属性，在 Calculator里是可以访问到的
+alert(calc.decimalDigits);
+</code></pre><p>上面的代码，运行以后，我们可以看到因为Calculator的原型是指向BaseCalculator的实例上的，所以可以访问他的decimalDigits属性值，如果我不想让Calculator访问BaseCalculator的构造函数里声明:</p>
+<pre><code>var Calculator = function () {
+    this.tax= 5;
+};
+
+Calculator.prototype = BaseCalculator.prototype;
+</code></pre><p>通过将BaseCalculator的原型赋给Calculator的原型，这样你在Calculator的实例上就访问不到那个decimalDigits值了，如果你访问如下代码，那将会提升出错。</p>
+<pre><code>var calc = new Calculator();
+alert(calc.add(1, 1));
+alert(calc.decimalDigits);
+</code></pre><p>先是这部分内容，看的有些部分没有懂还没有写完，等第二版到了读第二版吧。。。</p>
+<p>2.</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'true' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz",
+        appKey: "0x6VHFG6YKulI1wbgAC9xYIh",
+        placeholder: "please input some text.",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/09/blog/2.5~2.9_questions/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -687,6 +936,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
