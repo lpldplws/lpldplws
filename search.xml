@@ -3,6 +3,90 @@
   
     
     <entry>
+      <title><![CDATA[Javascript闭包及相关问题]]></title>
+      <url>/2018/03/09/blog/Javascript%E9%97%AD%E5%8C%85/</url>
+      <content type="html"><![CDATA[<h2 id="Javascript闭包及相关问题"><a href="#Javascript闭包及相关问题" class="headerlink" title="Javascript闭包及相关问题"></a>Javascript闭包及相关问题</h2><p>基本概念：闭包是指有权访问另一个函数作用域中的变量的函数。</p>
+<p>当某个函数第一次被调用时，会创建一个执行环境及相应的作用域链，并把作用域链赋值给一个特殊的内部属性[[scope]]。然后使用this，arguments和其他的值初始化函数的活动对象。</p>
+<pre><code>function compare(value1, value2) {
+    if(value1 &lt; value2) {
+        return -1;
+    } else if(value1 &gt; value2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+var result = compare(5,10);
+</code></pre><p>在全局作用域中调用了compare函数，会创建一个compare的活动对象，其中会包含this，arguments，value1，value2，而在全局执行环境中，会有this，result，arguments，位于作用域链的第二层。</p>
+<p>后台在每个执行环境中都有一个表示变量的对象–变量对象。全局环境的变量对象始终存在，而局部环境的变量对象在函数执行时存在。</p>
+<p>在创建compare函数时，会创建一个包含全局变量对象的活动对象，此时活动对象指向作用域链，而作用域链指向[[scope]]属性。当调用compare函数时，会创建一个compare的执行环境，<b>这个执行环境会复制函数的[[scope]]属性中的作用域链</b>，之后这个局部作用域链会被推入执行环境作用域链的前端，所以，对于compare函数而言，其作用域链包含本地活动对象和全局变量对象。因此，<b>作用域链的本质是一个指向变量对象的指针列表，只引用，但不包含变量对象。</b></p>
+<p>正常情况下，在函数中访问变量，会沿着作用域链搜索对应名字的变量。一般在函数执行完后，局部活动对象就会被销毁，内存中只有全局作用域。</p>
+<p>闭包：在另一个函数内部定义的函数会将包括它的函数的活动对象添加到它的作用域上。</p>
+<pre><code>function createComparisonFunction(propertyName) {
+    return function(object1, object2) {
+        var value1 = object1[propertyName];
+        var value2 = object2[propertyName];
+        if(value1 &lt; value2) {
+            return -1; 
+        } else if(value1 &gt; value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+</code></pre><p>注意，在return一个匿名函数后，要添加上’;’</p>
+<p>当执行以下两部操作时：</p>
+<pre><code>var compareName = createComparisonFunction(&#39;name&#39;);
+var result = compare({name:&#39;lpld&#39;}, {name:&#39;plws&#39;});
+</code></pre><p>在compare()时，向上面一样，会有全局活动对象和局部活动对象两个作用域链，而根据上面说的闭包的内容：在另一个函数内部定义的函数会将包括它的函数的活动对象添加到它的作用域上。对于result而言，是createComparisonFunction的返回函数，所以也包括了compare的活动对象。所以，当createComparisonFunction返回后，<b>其执行环境的作用域链会被销毁，但是其活动对象会留在内存中。因为在匿名函数中会把其活动对象添加到匿名函数的作用域链上</b>。</p>
+<p>因此，在执行compareName = null;相当于解除匿名函数的作用域链，至此该匿名函数作用域链上的活动对象（也包括外部函数内的活动对象）也都会释放。</p>
+<p>闭包缺点：闭包会携带包含它的函数的作用域，换句话说，是会保留包括它的函数的活动对象。因此会占用更多的内存。（在外部函数没有被释放时，也会在内部函数的作用域链上生成新的外部函数的活动对象，会产生新的内存）。</p>
+<p>this对象：</p>
+<p>this永远指向调用它的函数</p>
+<pre><code>1.
+var name = &#39;The Window&#39;;
+var object = {
+    name : &#39;My Object&#39;,
+    getNameFunc : function(){
+        return function() {
+            return this.name;
+        };
+    } 
+};
+alert(object.getNameFunc()());//The Window
+
+2.
+var name = &#39;The Window&#39;;
+var object = {
+    name : &#39;My Object&#39;,
+    getNameFunc : function(){
+        var that = this;
+        return function(){
+            return that.name;
+        };
+    }
+};
+alert(object.getNameFunc()());//My Object
+</code></pre><p>根据书中的内容，匿名函数的执行环境具有全局性，所以第一个返回的是window，第二个是object，在执行函数时，当执行到object.getNameFunc()时，此时的name对应的是object，这时执行匿名函数，相当于返回全局中的name，即是window。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端常见问题 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 前端问题 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript学习笔记（1）]]></title>
       <url>/2018/03/02/blog/JavaScript%E5%9F%BA%E6%9C%AC1/</url>
       <content type="html"><![CDATA[<h2 id="JavaScrip学习笔记（1）"><a href="#JavaScrip学习笔记（1）" class="headerlink" title="JavaScrip学习笔记（1）"></a>JavaScrip学习笔记（1）</h2><h3 id="JavaScript函数表达式和函数声明"><a href="#JavaScript函数表达式和函数声明" class="headerlink" title="JavaScript函数表达式和函数声明"></a>JavaScript函数表达式和函数声明</h3><p>首先，来了解一下函数表达式和函数声明：</p>
