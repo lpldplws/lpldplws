@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[JavaScript对象与继承.md]]></title>
-      <url>/2018/03/16/blog/3-12-3-16-question/</url>
+      <title><![CDATA[JavaScript对象与继承---单一继承.md]]></title>
+      <url>/2018/03/16/blog/Javascript_Objects_and_Inheritance/</url>
       <content type="html"><![CDATA[<h2 id="JavaScript对象与继承–单一对象"><a href="#JavaScript对象与继承–单一对象" class="headerlink" title="JavaScript对象与继承–单一对象"></a>JavaScript对象与继承–单一对象</h2><p>说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的问题。</p>
 <p>哈哈哈在一小时后我终于找到了这个比较符合我的情况的内容哈哈哈</p>
 <p>原文在<a href="http://speakingjs.com/es5/ch17.html#single_objects" target="_blank" rel="noopener">Objects and Inheritance</a>中,不容易呀。</p>
