@@ -563,34 +563,28 @@
                 <!-- Post Comments -->
                 
                     
-    <!-- 使用 DISQUS -->
-<div id="disqus-comment">
-    <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'www.lpldplws.cn/2018/01/26/leetCode/7.array_partition_I/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'www.lpldplws.cn/2018/01/26/leetCode/7.array_partition_I/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'true' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz",
+        appKey: "0x6VHFG6YKulI1wbgAC9xYIh",
+        placeholder: ".",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-CN'
+    });
 </script>
-<script type="text/ls-javascript" id="disqus-thread-script">
-    queue.offer(function() {
-            (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document;
-                var s = d.createElement('script');
-                s.src = '//lpldplws.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', + new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        });
-</script>
-
-</div>
-<style>
-    #disqus-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
 
                 
             </div>
@@ -1039,8 +1033,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-   <!-- 使用 DISQUS js 代码 -->
-<script id="dsq-count-scr" src="//lpldplws.disqus.com/count.js" async></script>
+   
 
 
 
