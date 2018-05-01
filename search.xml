@@ -2006,6 +2006,28 @@ var dominantIndex = function(nums) {
     </entry>
     
     <entry>
+      <title><![CDATA[leetCode Array -- 1.Find Pivot Index]]></title>
+      <url>/2018/01/23/react/1.test/</url>
+      <content type="html"><![CDATA[<p>test for sonething</p>
+<p><img src="/images/graph-demo.png"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> react </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[搭建github博客]]></title>
       <url>/2018/01/12/blog/%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<h2 id="搭建github博客-amp-使用hexo博客框架-amp-使用material主题"><a href="#搭建github博客-amp-使用hexo博客框架-amp-使用material主题" class="headerlink" title="搭建github博客&amp;使用hexo博客框架&amp;使用material主题"></a>搭建github博客&amp;使用hexo博客框架&amp;使用material主题</h2><p>因为原先在CSDN上有各种各样的限制和难言之隐，所以在生庆哥的帮助和怂恿下，选择使用github搭建博客并个性化设置，主要说一下大体过程和期间的问题。主要的内容可以分为以下三类：</p>
