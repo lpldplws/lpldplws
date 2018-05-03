@@ -3,6 +3,46 @@
   
     
     <entry>
+      <title><![CDATA[01.Try React -- 04.CDN Links]]></title>
+      <url>/2018/05/03/react/Try_React/04.CDN_Links/</url>
+      <content type="html"><![CDATA[<h2 id="CDN-Links-CDN链接"><a href="#CDN-Links-CDN链接" class="headerlink" title="CDN Links(CDN链接)"></a>CDN Links(CDN链接)</h2><p>The UMD builds of React and ReactDOM are available over a CDN.</p>
+<p>React和ReactDOM的UMD版本可通过CDN获得。</p>
+<pre><code>&lt;script crossorigin src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot;&gt;&lt;/script&gt;
+&lt;script crossorigin src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>The versions above are only meant for development, and are not suitable for production. </p>
+<p>以上版本仅用于开发，不适合生产。</p>
+<p>Minified and optimized production versions of React are available at:</p>
+<p>缩小和优化的React生产版本可以用以下方式获得：</p>
+<pre><code>&lt;script crossorigin src=&quot;https://unpkg.com/react@16/umd/react.production.min.js&quot;&gt;&lt;/script&gt;
+&lt;script crossorigin src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.production.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>To load a specific version of <code>react</code> and <code>react-dom</code>, replace <code>16</code> with the version number.</p>
+<p>如果要加载特定版本的<code>react</code>和<code>react-dom</code>，请将<code>16</code>替换为对应的版本号。</p>
+<h3 id="Why-the-crossorigin-Attribute-为什么要设置crossorigin属性"><a href="#Why-the-crossorigin-Attribute-为什么要设置crossorigin属性" class="headerlink" title="Why the crossorigin Attribute?(为什么要设置crossorigin属性?)"></a>Why the crossorigin Attribute?(为什么要设置crossorigin属性?)</h3><p>If you serve React from a CDN, we recommend to keep the crossorigin <code>attribute set</code>:</p>
+<p>如果您使用基于CDN的React，我们建议保留crossorigin<code>属性集</code>：</p>
+<pre><code>&lt;script crossorigin src=&quot;...&quot;&gt;&lt;/script&gt;
+</code></pre><p>We also recommend to verify that the CDN you are using sets the <code>Access-Control-Allow-Origin: *</code> HTTP header:</p>
+<p>我们还建议验证您使用的CDN是否设置了<code>Access-Control-Allow-Origin：* </code>HTTP标头：</p>
+<p><img src="/images/01-04-access_control_allow_origin.png" alt="Access-Control-Allow-Origin:*HTTP header"></p>
+<p>This enables a better <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank" rel="noopener">error handling experience</a> in React 16 and later.</p>
+<p>这可以保证在React16或更高的版本上有一个更好的<a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank" rel="noopener">错误处理方法</a>。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> react </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[01.Try React -- 03.Add React to an Existing Application]]></title>
       <url>/2018/05/03/react/Try_React/03.Add_React_to_an_Existing_Application/</url>
       <content type="html"><![CDATA[<h2 id="Add-React-to-an-Existing-Application-在一个已存的项目中添加React"><a href="#Add-React-to-an-Existing-Application-在一个已存的项目中添加React" class="headerlink" title="Add React to an Existing Application(在一个已存的项目中添加React)"></a>Add React to an Existing Application(在一个已存的项目中添加React)</h2><p>You don’t need to rewrite your app to start using React.</p>
