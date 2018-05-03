@@ -3,6 +3,52 @@
   
     
     <entry>
+      <title><![CDATA[01_Add_React_To_A_New_App]]></title>
+      <url>/2018/05/03/react/Try_React/01.Add_React_To_A_New_App/</url>
+      <content type="html"><![CDATA[<h2 id="Try-React"><a href="#Try-React" class="headerlink" title="Try React"></a>Try React</h2><p>Try React online or set up your local development environment.</p>
+<p>设置在线的react或您本地的react环境。</p>
+<h3 id="Online-在线"><a href="#Online-在线" class="headerlink" title="Online(在线)"></a>Online(在线)</h3><p>If you’re just interested in playing around with React, you can use an online code playground. Try a Hello World template on <a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener">CodePen</a> or <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener">CodeSandbox</a>.</p>
+<p>如果您只是对如何使用React有兴趣，您可以使用在线的编码器。您可以在<a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener">CodePen</a>或者 <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener">CodeSandbox</a>上尝试Hello World模板。</p>
+<h3 id="Minimal-HTML-Template-最小的HTML模板"><a href="#Minimal-HTML-Template-最小的HTML模板" class="headerlink" title="Minimal HTML Template(最小的HTML模板)"></a>Minimal HTML Template(最小的HTML模板)</h3><p>If you prefer to use your own text editor, you can also download this HTML file, edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so don’t use it in production.</p>
+<p>如果您倾向于使用您自己的文本编辑器，您可以下载该HTML文件，编辑它并用浏览器在您本地文件系统上打开它。它会花费比较长的时间用来进行代码转换，所以不要在应用产品层上使用它。</p>
+<h3 id="Next-Steps-下一步"><a href="#Next-Steps-下一步" class="headerlink" title="Next Steps(下一步)"></a>Next Steps(下一步)</h3><h4 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h4><ul>
+<li>Head over to the <a href="https://reactjs.org/docs/hello-world.html" target="_blank" rel="noopener">Quick Start</a> section for a step-by-step introduction to React concepts.</li>
+<li><p>Try the <a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">Tutorial</a> for a hands-on practical example.</p>
+</li>
+<li><p>从<a href="https://reactjs.org/docs/hello-world.html" target="_blank" rel="noopener">‘快速开始’</a>部分，开始一步一步地熟悉React的内容。</p>
+</li>
+<li>尝试<a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">教程</a>部分，开始上手的练习。</li>
+</ul>
+<h4 id="Complete-Development-Environment-完成开发环境"><a href="#Complete-Development-Environment-完成开发环境" class="headerlink" title="Complete Development Environment(完成开发环境)"></a>Complete Development Environment(完成开发环境)</h4><p>The lightweight solutions above are the best fit if you are new to React or just experimenting.</p>
+<p>如果您是新接触React，或者只是想尝试一下React的话，这种轻量级解决方案是最适合的。</p>
+<p>When you are ready to build your first application with React, check out the install guides below. These setups are designed to get you up and running with a great developer experience and are ready for production. They include linting, testing, and optimizations built-in; however, they require more time and disk space to set up and install.</p>
+<p>当您开始准备使用React搭建您第一个应用时，请先阅读下面的安装指南。这些步骤的目的是在让您在开发过程中获得丰富的开发体验，并且可以随时投入生产环境中使用。它们包括linting，测试和内置优化; 但是，它们需要更多时间和磁盘空间来设置和安装。</p>
+<ul>
+<li><a href="https://reactjs.org/docs/add-react-to-a-new-app.html" target="_blank" rel="noopener">Add React to a New App</a>: Create a new app with a fully-featured starter kit.</li>
+<li><p><a href="https://reactjs.org/docs/add-react-to-an-existing-app.html" target="_blank" rel="noopener">Add React to an Existing App</a>: Add React to a build system or a larger app.</p>
+</li>
+<li><p><a href="https://reactjs.org/docs/add-react-to-a-new-app.html" target="_blank" rel="noopener">Add React to a New App</a>:使用包括全套功能的入门套件来创建新应用程序。</p>
+</li>
+<li><a href="https://reactjs.org/docs/add-react-to-an-existing-app.html" target="_blank" rel="noopener">Add React to an Existing App</a>:构建系统或更大的应用程序上添加使用React。</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> react </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript对象与继承---单一继承.md]]></title>
       <url>/2018/03/16/blog/Javascript_Objects_and_Inheritance/</url>
       <content type="html"><![CDATA[<h2 id="JavaScript对象与继承–单一对象"><a href="#JavaScript对象与继承–单一对象" class="headerlink" title="JavaScript对象与继承–单一对象"></a>JavaScript对象与继承–单一对象</h2><p>说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的问题。</p>
