@@ -3,6 +3,113 @@
   
     
     <entry>
+      <title><![CDATA[01.Try React -- 03.Add React to an Existing Application]]></title>
+      <url>/2018/05/03/react/Try_React/03.Add_React_to_an_Existing_Application/</url>
+      <content type="html"><![CDATA[<h2 id="Add-React-to-an-Existing-Application-在一个已存的项目中添加React"><a href="#Add-React-to-an-Existing-Application-在一个已存的项目中添加React" class="headerlink" title="Add React to an Existing Application(在一个已存的项目中添加React)"></a>Add React to an Existing Application(在一个已存的项目中添加React)</h2><p>You don’t need to rewrite your app to start using React.</p>
+<p>您不必重写您的应用程序来开始使用React</p>
+<p>We recommend adding React to a small part of your application, such as an individual widget, so you can see if it works well for your use case.</p>
+<p>我们建议将React添加到应用程序中的一小部分中，例如单个小部件，以便您可以查看它是否适合您的用例。</p>
+<p>While React <a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="noopener">can be used</a> without a build pipeline, we recommend setting it up so you can be more productive. A modern build pipeline typically consists of:</p>
+<p>虽然<a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="noopener">可以</a>在没有构建通道的情况下使用React，但我们建议设置通道，以此来提高生产力。现代构建通道通常由以下部分组成：</p>
+<ul>
+<li>A <strong>package manager</strong>, such as <a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a> or <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.</li>
+<li>A <strong>bundler</strong>, such as <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. It lets you write modular code and bundle it together into small packages to optimize load time.</li>
+<li>A compiler such as <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>. It lets you write modern JavaScript code that still works in older browsers.</li>
+</ul>
+<hr>
+<ul>
+<li>一个<strong>包管理器</strong>，如<a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a>或<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>。它可让您充分利用第三方软件包的完整的生态系统，并轻松安装或更新它们。</li>
+<li>一个<strong>捆绑器</strong>，如<a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a>或<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>。它允许您编写模块化代码，并将它们组合在一起成为小包，以优化加载时间。</li>
+<li>一个<strong>编辑器</strong>,如<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>。它可以让你在旧版浏览器中仍然可以使用的现代JavaScript代码。</li>
+</ul>
+<h3 id="Installing-React-安装React"><a href="#Installing-React-安装React" class="headerlink" title="Installing React(安装React)"></a>Installing React(安装React)</h3><blockquote>
+<p>Note:</p>
+<h2 id="Once-installed-we-strongly-recommend-setting-up-a-production-build-process-to-ensure-you’re-using-the-fast-version-of-React-in-production"><a href="#Once-installed-we-strongly-recommend-setting-up-a-production-build-process-to-ensure-you’re-using-the-fast-version-of-React-in-production" class="headerlink" title="Once installed, we strongly recommend setting up a production build process to ensure you’re using the fast version of React in production."></a>Once installed, we strongly recommend setting up a production build process to ensure you’re using the fast version of React in production.</h2><p>注意：<br>一旦完成安装，我们强烈建议您设置生成的构建流程，以此确保您可以在开发环境中使用更快版本的React。</p>
+</blockquote>
+<p>We recommend using <a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a> or <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> for managing front-end dependencies. If you’re new to package managers, the <a href="https://yarnpkg.com/en/docs/getting-started" target="_blank" rel="noopener">Yarn documentation</a> is a good place to get started.</p>
+<p>我们建议使用<a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a>或者<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>来管理前端依赖。如果您是新接触包管理器的开发者，<a href="https://yarnpkg.com/en/docs/getting-started" target="_blank" rel="noopener">Yarn的文档</a>是一个开始学习的不错的地方。</p>
+<p>To install React with Yarn, run:</p>
+<p>使用Yarn安装React，请运行：</p>
+<pre><code>yarn init
+yarn add react react-dom
+</code></pre><p>如果使用npm安装React，请运行：</p>
+<pre><code>npm init
+npm install --save react react-dom
+</code></pre><p>Both Yarn and npm download packages from the <a href="http://npmjs.com/" target="_blank" rel="noopener">npm registry</a>.</p>
+<p>Yarn和npm都从<a href="http://npmjs.com/" target="_blank" rel="noopener">npm注册表</a>中下载软件包。</p>
+<blockquote>
+<p>Note:<br>To prevent potential incompatibilities, all react packages should use the same version. (This includes <code>react</code>, <code>react-dom</code>, <code>react-test-renderer</code>, etc.)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>注意：<br>为了避免潜在的不兼容性，所有的react包都应该使用相同的版本。（这包括<code>react</code>, <code>react-dom</code>, <code>react-test-renderer</code>等等。）</p>
+</blockquote>
+<h3 id="Enabling-ES6-and-JSX-启用ES6和JSX"><a href="#Enabling-ES6-and-JSX-启用ES6和JSX" class="headerlink" title="Enabling ES6 and JSX(启用ES6和JSX)"></a>Enabling ES6 and JSX(启用ES6和JSX)</h3><p>We recommend using React with <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> to let you use ES6 and JSX in your JavaScript code. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.</p>
+<p>我们建议在React上使用<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>以便让您在您的JavaScript代码中使用ES6和JSX。ES6包括一系列的现代化JavaScript特性，以便让开发更容易，并且JSX是一个JavaScript语言的扩展，以便让React工作更方便。</p>
+<p>The <a href="https://babeljs.io/docs/setup/" target="_blank" rel="noopener">Babel setup instructions</a> explain how to configure Babel in many different build environments. Make sure you install <a href="http://babeljs.io/docs/plugins/preset-react/#basic-setup-with-the-cli-" target="_blank" rel="noopener">babel-preset-react</a> and <a href="http://babeljs.io/docs/plugins/preset-env/" target="_blank" rel="noopener">babel-preset-env</a> and enable them in your <a href="http://babeljs.io/docs/usage/babelrc/" target="_blank" rel="noopener">.babelrc configuration</a>, and you’re good to go.</p>
+<p><a href="https://babeljs.io/docs/setup/" target="_blank" rel="noopener">Babel设置介绍</a>解释了如何在许多不同的构建环境中配置Babel。以此可以确保您安装了<a href="http://babeljs.io/docs/plugins/preset-react/#basic-setup-with-the-cli-" target="_blank" rel="noopener">babel-preset-react</a>和<a href="http://babeljs.io/docs/plugins/preset-env/" target="_blank" rel="noopener">babel-preset-env</a>，并在你的<a href="http://babeljs.io/docs/usage/babelrc/" target="_blank" rel="noopener">.babelrc configuration</a>中启用它们，并且可以方便访问。</p>
+<h3 id="Hello-World-with-ES6-and-JSX-使用ES6和JSX编写Hello-World"><a href="#Hello-World-with-ES6-and-JSX-使用ES6和JSX编写Hello-World" class="headerlink" title="Hello World with ES6 and JSX(使用ES6和JSX编写Hello World)"></a>Hello World with ES6 and JSX(使用ES6和JSX编写Hello World)</h3><p>We recommend using a bundler like <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>, so you can write modular code and bundle it together into small packages to optimize load time.</p>
+<p>我们建议使用像<a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a>或者<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>这样的捆绑器，这样您就可以编写现代化代码并将他们绑定在小的包上以优化加载时间。</p>
+<p>The smallest React example looks like this：</p>
+<p>最小的React案例如下：</p>
+<pre><code>import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+
+ReactDOM.render(
+  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre><p>This code renders into a DOM element with the id of <code>root</code>, so you need <code><div id="root"></div> </code>somewhere in your HTML file.</p>
+<p>这些代码会在一个id为<code>root</code>的DOM元素上渲染，所以您需要在您的HTML文件上有<code><div id="root"></div></code>。</p>
+<p>Similarly, you can render a React component inside a DOM element somewhere inside your existing app written with any other JavaScript UI library.</p>
+<p>相似的，您可以在现有的，由其他任何JavaScript UI库编写的应用程序内的某个DOM元素内部渲染一个React组件。</p>
+<p><a href="https://reactjs.org/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries" target="_blank" rel="noopener">Learn more about integrating React with existing code.</a></p>
+<p><a href="https://reactjs.org/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries" target="_blank" rel="noopener">了解有关将React与现有代码集成的更多信息。</a></p>
+<h3 id="A-Complete-Example-一个完整的例子"><a href="#A-Complete-Example-一个完整的例子" class="headerlink" title="A Complete Example(一个完整的例子)"></a>A Complete Example(一个完整的例子)</h3><p>You can find step-by-step instructions detailing a basic implementation from scratch, including Babel and Webpack setup <a href="https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">here</a>.</p>
+<p>您可以从零开始找到详细的说明,<a href="https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">这</a>也包括如何设置Babel和Webpack。</p>
+<h3 id="Development-and-Production-Versions-开发和生成环境的版本"><a href="#Development-and-Production-Versions-开发和生成环境的版本" class="headerlink" title="Development and Production Versions(开发和生成环境的版本)"></a>Development and Production Versions(开发和生成环境的版本)</h3><p>By default, React includes many helpful warnings. These warnings are very useful in development.</p>
+<p>通常情况下，React包括许多有用的警告。这些警告对于开发非常有用。</p>
+<p><strong>However, they make the development version of React larger and slower so you should use the production version when you deploy the app.</strong></p>
+<p><strong>但是，它们会使React的开发版本变得更大并且更慢，所以当您部署应用程序时，请使用生产版本</strong></p>
+<p>Learn <a href="https://reactjs.org/docs/optimizing-performance.html#use-the-production-build" target="_blank" rel="noopener">how to tell if your website is serving the right version of React</a>, and how to configure the production build process most efficiently:</p>
+<p>了解<a href="https://reactjs.org/docs/optimizing-performance.html#use-the-production-build" target="_blank" rel="noopener">如何判断您的网站是否提供正确版本的React</a>，以及如何最有效地配置生产构建过程：</p>
+<ul>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#create-react-app" target="_blank" rel="noopener">Creating a Production Build with Create React App</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#single-file-builds" target="_blank" rel="noopener">Creating a Production Build with Single-File Builds</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#brunch" target="_blank" rel="noopener">Creating a Production Build with Brunch</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#browserify" target="_blank" rel="noopener">Creating a Production Build with Browserify</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#rollup" target="_blank" rel="noopener">Creating a Production Build with Rollup</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#webpack" target="_blank" rel="noopener">Creating a Production Build with webpack</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#create-react-app" target="_blank" rel="noopener">使用Create React App来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#single-file-builds" target="_blank" rel="noopener">使用单个文件构建来实现生产环境构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#brunch" target="_blank" rel="noopener">使用Brunch来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#browserify" target="_blank" rel="noopener">使用Browserify来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#rollup" target="_blank" rel="noopener">使用Rollup来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#webpack" target="_blank" rel="noopener">使用webpack来实现生产环境的构建</a></li>
+</ul>
+<h3 id="Using-a-CDN-使用CDN"><a href="#Using-a-CDN-使用CDN" class="headerlink" title="Using a CDN(使用CDN)"></a>Using a CDN(使用CDN)</h3><p>If you don’t want to use npm to manage client packages, the <code>react</code> and <code>react-dom</code> npm packages also provide single-file distributions in <code>umd</code> folders. See the <a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">CDN</a> page for links.</p>
+<p>如果您不想用npm来管理客户端的包，<code>react</code>和<code>react-dom</code>的npm的包也提供在<code>umd</code>单个文件的发布。请<a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">CDN</a>查看相关链接。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> react </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[01.Try React -- 02.Add React to a New Application]]></title>
       <url>/2018/05/03/react/Try_React/02.Add_React_to_a_New_Application/</url>
       <content type="html"><![CDATA[<h2 id="Add-React-to-a-New-Application-在一个新的应用上添加React"><a href="#Add-React-to-a-New-Application-在一个新的应用上添加React" class="headerlink" title="Add React to a New Application(在一个新的应用上添加React)"></a>Add React to a New Application(在一个新的应用上添加React)</h2><p>The easiest way to get started on a new React project is by using a starter kit.</p>
