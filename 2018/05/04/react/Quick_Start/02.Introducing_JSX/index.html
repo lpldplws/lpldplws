@@ -47,7 +47,7 @@
     
     <title>
         
-            归档: 2018 | 
+            02.Quick Start -- 02.Introducing JSX | 
         
         Frankl&#39;s Personal Blog
     </title>
@@ -58,7 +58,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
-    <meta name="keywords" content="Frankl&#39;s personal blog">
+    <meta name="keywords" content="Frankl&#39;s personal blog,react document">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -85,6 +85,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify/vibrant-ink.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -221,7 +224,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Frankl&#39;s Personal Blog">
-    <meta name="msapplication-starturl" content="www.lpldplws.cn/archives/2018/page/3/">
+    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
@@ -236,13 +239,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="www.lpldplws.cn/archives/2018/page/3/">
+    <meta property="og:url" content="www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2018 | Frankl&#39;s Personal Blog">
+    <meta property="og:title" content="02.Quick Start -- 02.Introducing JSX | Frankl&#39;s Personal Blog">
     <meta property="og:image" content="/img/mountains.png">
     <meta property="og:description" content="Base on front-end, more than front-end">
-    
+    <meta property="og:article:tag" content="react document"> 
 
+    
+        <meta property="article:published_time" content="Fri May 04 2018 16:18:32 GMT+0800">
+        <meta property="article:modified_time" content="Fri May 04 2018 19:43:35 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -250,13 +256,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="www.lpldplws.cn/archives/2018/page/3/index.html" />
+        <link rel="canonical" href="www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html",
+    "headline": "02.Quick Start -- 02.Introducing JSX",
+    "datePublished": "Fri May 04 2018 16:18:32 GMT+0800",
+    "dateModified": "Fri May 04 2018 19:43:35 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Frankl",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.jpeg"
+        },
+        "description": "Front-end!  Front-end!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Frankl&#39;s Personal Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/mountains.png"
+        }
+    },
+    "keywords": ",react documentFrankl&#39;s personal blog",
+    "description": "Base on front-end, more than front-end",
+}
+</script>
 
 
     
@@ -290,654 +326,382 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
-        
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Introducing-JSX"><span class="post-toc-number">1.</span> <span class="post-toc-text">Introducing JSX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Why-JSX-为什么使用JSX"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Why JSX?(为什么使用JSX?)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Embedding-Expressions-in-JSX-在JSX中嵌入表达式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Embedding Expressions in JSX(在JSX中嵌入表达式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSX-is-an-Expression-Too-JSX也是一个表达式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">JSX is an Expression Too(JSX也是一个表达式)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Specifying-Attributes-with-JSX-使用JSX指定属性"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Specifying Attributes with JSX(使用JSX指定属性)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Specifying-Children-with-JSX-用JSX指定子元素"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Specifying Children with JSX(用JSX指定子元素)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSX-Prevents-Injection-Attacks-JSX可以防止注入攻击"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">JSX Prevents Injection Attacks(JSX可以防止注入攻击)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSX-Represents-Objects-JSX表示对象"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">JSX Represents Objects(JSX表示对象)</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/">leetCode Array -- 13.Find All Numbers Disappeared in an Array</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 27, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/27/leetCode/12.Max_Area_of_Island/">leetCode Array -- 12.Max Area of Island</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/27/leetCode/12.Max_Area_of_Island/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 27, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/27/leetCode/11.Shortest_Word_Distance/">leetCode Array -- 11.Shortest Word Distance</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/27/leetCode/11.Shortest_Word_Distance/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 27, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/10.Max_Consecutive_Ones/">leetCode Array -- 10.Max Consecutive Ones</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/10.Max_Consecutive_Ones/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/9.Reshape_the_Matrix/">leetCode Array -- 9.Reshape the Matrix</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/9.Reshape_the_Matrix/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/8.Toeplitz_Matrix/">leetCode Array -- 8.Toeplitz Matrix</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/8.Toeplitz_Matrix/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/7.array_partition_I/">leetCode Array -- 7.Array Partition I</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/7.array_partition_I/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/blog/1.22~1.16_questions/">1.22~1.26所遇问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/blog/1.22~1.16_questions/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/前端常见问题/">前端常见问题</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/">leetCode Array --6.Min Cost Climbing Stairs</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/">leetCode Array -- 5.Largest Number At Least Twice of Others</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/2018/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/page/4/">4</a><a class="extend next" rel="next" href="/archives/2018/page/4/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                02.Quick Start -- 02.Introducing JSX
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Frankl</strong>
+        <span>5月 04, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/react-document/">react document</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/05/04/react/Quick_Start/02.Introducing_JSX/" class="leancloud-views_num" data-flag-title="02.Quick Start -- 02.Introducing JSX">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=02.Quick Start -- 02.Introducing JSX&url=www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=02.Quick Start -- 02.Introducing JSX&url=www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html&via=Frankl" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=02.Quick Start -- 02.Introducing JSX&summary=Base on front-end, more than front-end&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/05/04/react/Quick_Start/02.Introducing_JSX/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Introducing-JSX"><a href="#Introducing-JSX" class="headerlink" title="Introducing JSX"></a>Introducing JSX</h2><p>Consider this variable declaration:</p>
+<p>考虑以下变量声明：</p>
+<pre><code>const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
+</code></pre><p>This funny tag syntax is neither a string nor HTML.</p>
+<p>It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.</p>
+<p>它叫做JSX，并且它是基于JavaScript的语法进行扩展的。我们建议是在React中使用它来描述UI的样式。JSX也许让您想起一些模板语言，但是它具有JavaScript的全部功能。</p>
+<p>JSX produces React “elements”. We will explore rendering them to the DOM in the <a href="https://reactjs.org/docs/rendering-elements.html" target="_blank" rel="noopener">next section</a>. Below, you can find the basics of JSX necessary to get you started.</p>
+<p>JSX生成了React“元素”。我们将在<a href="https://reactjs.org/docs/rendering-elements.html" target="_blank" rel="noopener">下一章节</a>内探索它是如果将React渲染到DOM上的。除此之外，您还可以学习到使用JSX的基本知识。</p>
+<h3 id="Why-JSX-为什么使用JSX"><a href="#Why-JSX-为什么使用JSX" class="headerlink" title="Why JSX?(为什么使用JSX?)"></a>Why JSX?(为什么使用JSX?)</h3><p>React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.</p>
+<p>React认为渲染逻辑与其他UI逻辑是有耦合的：事件如何处理，状态如何随时间变化以及数据如何准备显示。</p>
+<p>Instead of artificially separating technologies by putting markup and logic in separate files, React <a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank" rel="noopener">separates concerns</a> with loosely coupled units called “components” that contain both. We will come back to components in a <a href="https://reactjs.org/docs/components-and-props.html" target="_blank" rel="noopener">further section</a>, but if you’re not yet comfortable putting markup in JS, <a href="https://www.youtube.com/watch?v=x7cQ3mrcKaY" target="_blank" rel="noopener">this talk</a> might convince you otherwise.</p>
+<p>React不再人为地通过将标记和逻辑放在单独的文件中来分离技术，React通过将问题与“组件”–一个松散耦合的单元<a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank" rel="noopener">分隔开</a>。我们将在<a href="https://reactjs.org/docs/components-and-props.html" target="_blank" rel="noopener">接下来的章节内</a>回到组件中，但如果你不习惯在JS中添加标记，那么<a href="https://www.youtube.com/watch?v=x7cQ3mrcKaY" target="_blank" rel="noopener">这个话题</a>可能会让你习惯这个改变。</p>
+<p>React <a href="https://reactjs.org/docs/react-without-jsx.html" target="_blank" rel="noopener">doesn’t require</a> using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.</p>
+<p>React<a href="https://reactjs.org/docs/react-without-jsx.html" target="_blank" rel="noopener">不需要</a>使用JSX，但是大多数人认为在JavaScript代码中使用它时，有助于从视觉上更清晰地理解代码。它还允许React显示更多有用的错误和警告消息。</p>
+<p>With that out of the way, let’s get started!</p>
+<p>那就这样，让我们开始吧！</p>
+<h3 id="Embedding-Expressions-in-JSX-在JSX中嵌入表达式"><a href="#Embedding-Expressions-in-JSX-在JSX中嵌入表达式" class="headerlink" title="Embedding Expressions in JSX(在JSX中嵌入表达式)"></a>Embedding Expressions in JSX(在JSX中嵌入表达式)</h3><p>You can embed any <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions" target="_blank" rel="noopener">JavaScript expression</a> in JSX by wrapping it in curly braces.</p>
+<p>您可以用大括号在JSX中包括任何<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions" target="_blank" rel="noopener">JavaScript表达式</a>。</p>
+<p>For example, <code>2 + 2</code>, <code>user.firstName</code>, and <code>formatName(user)</code> are all valid expressions:</p>
+<p>例如，<code>2 + 2</code>, <code>user.firstName</code>, and <code>formatName(user)</code>都是有效的表达式：</p>
+<pre><code>function formatName(user) {
+  return user.firstName + &#39; &#39; + user.lastName;
+}
+
+const user = {
+  firstName: &#39;Harper&#39;,
+  lastName: &#39;Perez&#39;
+};
+
+const element = (
+  &lt;h1&gt;
+    Hello, {formatName(user)}!
+  &lt;/h1&gt;
+);
+
+ReactDOM.render(
+  element,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre><p><a href="https://reactjs.org/redirect-to-codepen/introducing-jsx" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<p>We split JSX over multiple lines for readability. While it isn’t required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of <a href="http://stackoverflow.com/q/2846283" target="_blank" rel="noopener">automatic semicolon insertion</a>.</p>
+<p>为了便于阅读，我们将JSX分成多行。虽然这不是必需的，但是我们还建议将其包装在括号内以避免<a href="http://stackoverflow.com/q/2846283" target="_blank" rel="noopener">自动分号插入</a>的缺陷。</p>
+<h3 id="JSX-is-an-Expression-Too-JSX也是一个表达式"><a href="#JSX-is-an-Expression-Too-JSX也是一个表达式" class="headerlink" title="JSX is an Expression Too(JSX也是一个表达式)"></a>JSX is an Expression Too(JSX也是一个表达式)</h3><p>After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.</p>
+<p>在编译完后，JSX表达式会变成常规的JavaScript方法的调用，并且会转为JavaScript对象。</p>
+<p>This means that you can use JSX inside of <code>if</code> statements and <code>for</code> loops, assign it to variables, accept it as arguments, and return it from functions:</p>
+<p>这意味着您可以在if语句和for循环中使用JSX，将其分配给变量，将其作为参数接受，并从函数中返回：</p>
+<pre><code>function getGreeting(user) {
+  if (user) {
+    return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;
+  }
+  return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;
+}
+</code></pre><h3 id="Specifying-Attributes-with-JSX-使用JSX指定属性"><a href="#Specifying-Attributes-with-JSX-使用JSX指定属性" class="headerlink" title="Specifying Attributes with JSX(使用JSX指定属性)"></a>Specifying Attributes with JSX(使用JSX指定属性)</h3><p>You may use quotes to specify string literals as attributes:</p>
+<p>您可以使用引号将字符串文字指定为属性：</p>
+<pre><code>const element = &lt;div tabIndex=&quot;0&quot;&gt;&lt;/div&gt;;
+</code></pre><p>You may also use curly braces to embed a JavaScript expression in an attribute:</p>
+<p>您也可以使用大括号包裹JavaScript表达式作为属性：</p>
+<pre><code>const element = &lt;img src={user.avatarUrl}&gt;&lt;/img&gt;;
+</code></pre><p>Don’t put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.</p>
+<p>当将JavaScript表达式作为属性时，不要在大括号外边加引号。您应该要么使用引号（对于字符串的值来说）或者大括号（对于表达式来说）,但是不能两者一起使用。</p>
+<blockquote>
+<p>Warning:<br>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.<br>For example, class becomes className in JSX, and tabindex becomes tabIndex.</p>
+<p>警告：<br>因为JSX相对于HTML来说更接近于JavaScript，React Dom使用传统的驼峰命名方法来命名，而不是像HTML属性一样命名。<br>例如，在JSX中，class应该是className，tabindex应该是tabIndex</p>
+</blockquote>
+<h3 id="Specifying-Children-with-JSX-用JSX指定子元素"><a href="#Specifying-Children-with-JSX-用JSX指定子元素" class="headerlink" title="Specifying Children with JSX(用JSX指定子元素)"></a>Specifying Children with JSX(用JSX指定子元素)</h3><p>If a tag is empty, you may close it immediately with <code>/&gt;</code>, like XML:</p>
+<p>如果一个标签是空的，您应该立即使用<code>/&gt;</code>的方式关闭它，像XML一样：</p>
+<pre><code>const element = &lt;img src={user.avatarUrl} /&gt;;
+</code></pre><p>JSX tags may contain children:</p>
+<p>JSX标签可以包含子元素：</p>
+<pre><code>const element = (
+  &lt;div&gt;
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;h2&gt;Good to see you here.&lt;/h2&gt;
+  &lt;/div&gt;
+);
+</code></pre><h3 id="JSX-Prevents-Injection-Attacks-JSX可以防止注入攻击"><a href="#JSX-Prevents-Injection-Attacks-JSX可以防止注入攻击" class="headerlink" title="JSX Prevents Injection Attacks(JSX可以防止注入攻击)"></a>JSX Prevents Injection Attacks(JSX可以防止注入攻击)</h3><p>It is safe to embed user input in JSX:</p>
+<p>将用户输入置于JSX中是安全的：</p>
+<pre><code>const title = response.potentiallyMaliciousInput;
+// This is safe:
+const element = &lt;h1&gt;{title}&lt;/h1&gt;;
+</code></pre><p>By default, React DOM <a href="http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html" target="_blank" rel="noopener">escapes</a> any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">XSS (cross-site-scripting)</a> attacks.</p>
+<p>默认情况下，React DOM在渲染之前会<a href="http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html" target="_blank" rel="noopener">转义</a>嵌入在JSX中的任何值。因此它确保您永远不会注入任何未明确的写入应用程序中的内容。在呈现之前，所有内容都会转换为字符串。这有助于防止<a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">XSS(跨站点脚本)</a>攻击。</p>
+<h3 id="JSX-Represents-Objects-JSX表示对象"><a href="#JSX-Represents-Objects-JSX表示对象" class="headerlink" title="JSX Represents Objects(JSX表示对象)"></a>JSX Represents Objects(JSX表示对象)</h3><p>Babel compiles JSX down to <code>React.createElement()</code> calls.</p>
+<p>Babel会将JSX编译成<code>React.createElement()</code>的调用。</p>
+<p>These two examples are identical:</p>
+<p>以下两个例子是一样的：</p>
+<pre><code>const element = (
+  &lt;h1 className=&quot;greeting&quot;&gt;
+    Hello, world!
+  &lt;/h1&gt;
+);
+</code></pre><pre><code>const element = React.createElement(
+  &#39;h1&#39;,
+  {className: &#39;greeting&#39;},
+  &#39;Hello, world!&#39;
+);
+</code></pre><p><code>React.createElement()</code> performs a few checks to help you write bug-free code but essentially it creates an object like this:</p>
+<p><code>React.createElement()</code>会执行一些检查来帮助您编写无错代码，但本质上它会创建一个如下所示的对象：</p>
+<pre><code>// Note: this structure is simplified
+const element = {
+  type: &#39;h1&#39;,
+  props: {
+    className: &#39;greeting&#39;,
+    children: &#39;Hello, world!&#39;
+  }
+};
+</code></pre><p>These objects are called “React elements”. You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.</p>
+<p>这些对象被称为“React元素”。你可以把它们想象成你想要在屏幕上看到的东西。React会读取这些对象并使用它们来构建DOM并使其保持最新状态。</p>
+<p>We will explore rendering React elements to the DOM in the next section.</p>
+<p>我们将会在下一章里探索如何在DOM中渲染React元素。</p>
+<blockquote>
+<p>Tip:<br>We recommend using the <a href="http://babeljs.io/docs/editors" target="_blank" rel="noopener">“Babel” language definition</a> for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the <a href="https://labs.voronianski.com/oceanic-next-color-scheme/" target="_blank" rel="noopener">Oceanic Next</a> color scheme which is compatible with it.<br>提示：<br>我们将以使用<a href="http://babeljs.io/docs/editors" target="_blank" rel="noopener">“Babel”语言定义</a>作为您的编译器，以便正确突出显示ES6和JSX代码。本网站采用与其兼容的Oceanic Next色彩方案。</p>
+</blockquote>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'true' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz",
+        appKey: "0x6VHFG6YKulI1wbgAC9xYIh",
+        placeholder: "Please leave your footprints.",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/05/04/react/Quick_Start/01.Hello_World/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -1369,6 +1133,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","https://cdn.bootcss.com/prettify/r298/prettify.min.js", true)</script>
+        
+    
 
 
 
@@ -1381,6 +1149,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
