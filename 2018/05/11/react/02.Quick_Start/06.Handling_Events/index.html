@@ -47,7 +47,7 @@
     
     <title>
         
-            分类: leetCode | 
+            02.Quick Start -- 06.Handling Events | 
         
         Frankl&#39;s Personal Blog
     </title>
@@ -58,7 +58,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
-    <meta name="keywords" content="Frankl&#39;s personal blog">
+    <meta name="keywords" content="Frankl&#39;s personal blog,react document">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -85,6 +85,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify/vibrant-ink.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -221,7 +224,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Frankl&#39;s Personal Blog">
-    <meta name="msapplication-starturl" content="www.lpldplws.cn/categories/leetCode/page/3/">
+    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
@@ -236,13 +239,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="www.lpldplws.cn/categories/leetCode/page/3/">
+    <meta property="og:url" content="www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: leetCode | Frankl&#39;s Personal Blog">
+    <meta property="og:title" content="02.Quick Start -- 06.Handling Events | Frankl&#39;s Personal Blog">
     <meta property="og:image" content="/img/mountains.png">
     <meta property="og:description" content="Base on front-end, more than front-end">
-    
+    <meta property="og:article:tag" content="react document"> 
 
+    
+        <meta property="article:published_time" content="Fri May 11 2018 17:54:05 GMT+0800">
+        <meta property="article:modified_time" content="Fri May 11 2018 18:14:12 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -250,13 +256,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="www.lpldplws.cn/categories/leetCode/page/3/index.html" />
+        <link rel="canonical" href="www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html",
+    "headline": "02.Quick Start -- 06.Handling Events",
+    "datePublished": "Fri May 11 2018 17:54:05 GMT+0800",
+    "dateModified": "Fri May 11 2018 18:14:12 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Frankl",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.jpeg"
+        },
+        "description": "Front-end!  Front-end!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Frankl&#39;s Personal Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/mountains.png"
+        }
+    },
+    "keywords": ",react documentFrankl&#39;s personal blog",
+    "description": "Base on front-end, more than front-end",
+}
+</script>
 
 
     
@@ -290,227 +326,393 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
-        
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Handling-Events-处理事件"><span class="post-toc-number">1.</span> <span class="post-toc-text">Handling Events(处理事件)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Passing-Arguments-to-Event-Handlers-将参数传递给事件处理程序"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Passing Arguments to Event Handlers(将参数传递给事件处理程序)</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/">LeetCode Array -- 3.Best Time to Buy and Sell Stock</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/2.remove_element/">LeetCode Array -- 2.Remove Element</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/2.remove_element/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/1.find_pivot_index/">leetCode Array -- 1.Find Pivot Index</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/1.find_pivot_index/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/categories/leetCode/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/categories/leetCode/">1</a><a class="page-number" href="/categories/leetCode/page/2/">2</a><span class="page-number current">3</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                02.Quick Start -- 06.Handling Events
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Frankl</strong>
+        <span>5月 11, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/react-document/">react document</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/05/11/react/02.Quick_Start/06.Handling_Events/" class="leancloud-views_num" data-flag-title="02.Quick Start -- 06.Handling Events">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=02.Quick Start -- 06.Handling Events&url=www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=02.Quick Start -- 06.Handling Events&url=www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html&via=Frankl" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=02.Quick Start -- 06.Handling Events&summary=Base on front-end, more than front-end&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/05/11/react/02.Quick_Start/06.Handling_Events/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Handling-Events-处理事件"><a href="#Handling-Events-处理事件" class="headerlink" title="Handling Events(处理事件)"></a>Handling Events(处理事件)</h2><p>Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:</p>
+<p>用React元素处理事件与在DOM元素上处理事件非常相似。这里有一些语法不同：</p>
+<ul>
+<li>React events are named using camelCase, rather than lowercase.</li>
+<li>With JSX you pass a function as the event handler, rather than a string.</li>
+</ul>
+<hr>
+<ul>
+<li>React事件使用驼峰命名法，而不是小写字母命名法。</li>
+<li>使用JSX作为您函数事件处理的参数，而不是字符串。</li>
+</ul>
+<p>For example, the HTML:</p>
+<p>例如，HTML：</p>
+<pre><code>&lt;button onclick=&quot;activateLasers()&quot;&gt;
+  Activate Lasers
+&lt;/button&gt;
+</code></pre><p>is slightly different in React:</p>
+<p>在React中有点不同：</p>
+<pre><code>&lt;button onClick={activateLasers}&gt;
+  Activate Lasers
+&lt;/button&gt;
+</code></pre><p>Another difference is that you cannot return false to prevent default behavior in React. You must call preventDefault explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:</p>
+<p>另一个不同是您不能返回false来阻止React中的默认事件。您必须明确地调用preventDefault。例如，在HTML代码中，为了阻止默认点击事件，打开一个新的页面的表现，您可以这么写：</p>
+<pre><code>&lt;a href=&quot;#&quot; onclick=&quot;console.log(&#39;The link was clicked.&#39;); return false&quot;&gt;
+  Click me
+&lt;/a&gt;
+</code></pre><p>In React, this could instead be:</p>
+<p>在React中，应当是这样的：</p>
+<pre><code>function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log(&#39;The link was clicked.&#39;);
+  }
+
+  return (
+    &lt;a href=&quot;#&quot; onClick={handleClick}&gt;
+      Click me
+    &lt;/a&gt;
+  );
+}
+</code></pre><p>Here, e is a synthetic event. React defines these synthetic events according to the <a href="https://www.w3.org/TR/DOM-Level-3-Events/" target="_blank" rel="noopener">W3C spec</a>, so you don’t need to worry about cross-browser compatibility. See the <a href="https://reactjs.org/docs/events.html" target="_blank" rel="noopener">SyntheticEvent</a> reference guide to learn more.</p>
+<p>这里，e代表了一个事件。React根据<a href="https://www.w3.org/TR/DOM-Level-3-Events/" target="_blank" rel="noopener">W3C</a>规范定义了这些事件，因此您不必担心跨浏览器兼容性。 请参阅<a href="https://reactjs.org/docs/events.html" target="_blank" rel="noopener">SyntheticEvent</a>参考指南以了解更多信息。</p>
+<p>When using React you should generally not need to call addEventListener to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.</p>
+<p>在使用React时，通常不需要调用addEventListener在创建DOM元素后向其添加监听器。相反，只需在元素初始呈现时添加监听器。</p>
+<p>When you define a component using an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="noopener">ES6 class</a>, a common pattern is for an event handler to be a method on the class. For example, this Toggle component renders a button that lets the user toggle between “ON” and “OFF” states:</p>
+<p>当您使用<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="noopener">ES6的类</a>来定义一个组件时，一个常见的模式是让一个事件处理器成为该类的一个方法。 例如，这个Toggle组件呈现一个按钮，让用户在“ON”和“OFF”状态之间切换：</p>
+<pre><code>class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState =&gt; ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      &lt;button onClick={this.handleClick}&gt;
+        {this.state.isToggleOn ? &#39;ON&#39; : &#39;OFF&#39;}
+      &lt;/button&gt;
+    );
+  }
+}
+
+ReactDOM.render(
+  &lt;Toggle /&gt;,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre><p><a href="http://codepen.io/gaearon/pen/xEmzGg?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<p>You have to be careful about the meaning of this in JSX callbacks. In JavaScript, class methods are not <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="noopener">bound</a> by default. If you forget to bind this.handleClick and pass it to onClick, this will be undefined when the function is actually called.</p>
+<p>您必须在JSX回调中注意这一点的含义。在JavaScript中，类方法默认没有<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="noopener">绑定</a>。如果您忘记绑定this.handleClick并将其传递给onClick，则在实际调用该函数时，这将是未定义的。</p>
+<p>This is not React-specific behavior; it is a part of how functions work in JavaScript. Generally, if you refer to a method without () after it, such as onClick={this.handleClick}, you should bind that method.</p>
+<p>这不是React特定的表现; 在JavaScript中它是函数的一部分。一般来说，如果你在它后面引用一个没有()的方法，比如onClick = {this.handleClick}，你就应该绑定该方法。</p>
+<p>If calling bind annoys you, there are two ways you can get around this. If you are using the experimental <a href="https://babeljs.io/docs/plugins/transform-class-properties/" target="_blank" rel="noopener">public class fields syntax</a>, you can use class fields to correctly bind callbacks:</p>
+<p>如果调用bind会让你感到困扰，那么有两种方法可以解决这个问题。 如果您使用的是尝试性的<a href="https://babeljs.io/docs/plugins/transform-class-properties/" target="_blank" rel="noopener">公共类字段语法</a>，则可以使用类字段来正确地绑定回调：</p>
+<pre><code>class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () =&gt; {
+    console.log(&#39;this is:&#39;, this);
+  }
+
+  render() {
+    return (
+      &lt;button onClick={this.handleClick}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre><p>This syntax is enabled by default in <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>.</p>
+<p>这种语法在<a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>中是默认启用的。</p>
+<p>If you aren’t using class fields syntax, you can use an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">arrow function</a> in the callback:</p>
+<p>如果您不使用类字段语法，则可以在回调中使用<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">箭头函数</a>：</p>
+<pre><code>class LoggingButton extends React.Component {
+  handleClick() {
+    console.log(&#39;this is:&#39;, this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      &lt;button onClick={(e) =&gt; this.handleClick(e)}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre><p>The problem with this syntax is that a different callback is created each time the LoggingButton renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the class fields syntax, to avoid this sort of performance problem.</p>
+<p>这个语法的问题是每次LoggingButton呈现时都会创建一个不同的回调函数。 在大多数情况下，这没有问题。但是，如果将此回调作为参数传递给较低组件，则这些组件可能会重新渲染。我们通常建议在构造函数中绑定或使用类字段语法来避免此类性能问题。</p>
+<h3 id="Passing-Arguments-to-Event-Handlers-将参数传递给事件处理程序"><a href="#Passing-Arguments-to-Event-Handlers-将参数传递给事件处理程序" class="headerlink" title="Passing Arguments to Event Handlers(将参数传递给事件处理程序)"></a>Passing Arguments to Event Handlers(将参数传递给事件处理程序)</h3><p>Inside a loop it is common to want to pass an extra parameter to an event handler. For example, if id is the row ID, either of the following would work:</p>
+<p>在循环内部，通常需要将一个额外的参数传递给事件处理程序。 例如，如果id是行ID，则以下任一项都可以工作</p>
+<pre><code>&lt;button onClick={(e) =&gt; this.deleteRow(id, e)}&gt;Delete Row&lt;/button&gt;
+&lt;button onClick={this.deleteRow.bind(this, id)}&gt;Delete Row&lt;/button&gt;
+</code></pre><p>The above two lines are equivalent, and use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">arrow functions</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="noopener">Function.prototype.bind</a> respectively.</p>
+<p>以上两行都是相等的，分别使用了<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">箭头函数</a>和<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="noopener">Function.prototype.bind</a>。</p>
+<p>In both cases, the e argument representing the React event will be passed as a second argument after the ID. With an arrow function, we have to pass it explicitly, but with bind any further arguments are automatically forwarded.</p>
+<p>在这两种情况下，e参数代表了React事件，并将作为ID之后的第二个参数传递。使用箭头函数，我们必须明确地传递它，但是任何额外的参数都会自动绑定起来，并自动转发。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'true' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz",
+        appKey: "0x6VHFG6YKulI1wbgAC9xYIh",
+        placeholder: "Please leave your footprints.",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/05/11/react/02.Quick_Start/05.State_and_Lifecycle/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -942,6 +1144,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","https://cdn.bootcss.com/prettify/r298/prettify.min.js", true)</script>
+        
+    
 
 
 
@@ -954,6 +1160,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
