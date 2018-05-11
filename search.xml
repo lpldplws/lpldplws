@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[02.Quick Start -- State and Lifecycle]]></title>
+      <title><![CDATA[02.Quick Start -- 05.State and Lifecycle]]></title>
       <url>/2018/05/11/react/02.Quick_Start/05.State_and_Lifecycle/</url>
       <content type="html"><![CDATA[<h2 id="State-and-Lifecycle"><a href="#State-and-Lifecycle" class="headerlink" title="State and Lifecycle"></a>State and Lifecycle</h2><p>Consider the ticking clock example from <a href="https://reactjs.org/docs/rendering-elements.html#updating-the-rendered-element" target="_blank" rel="noopener">one of the previous sections</a>.</p>
 <p>考虑在<a href="https://reactjs.org/docs/rendering-elements.html#updating-the-rendered-element" target="_blank" rel="noopener">前几章节</a>中涉及到的秒钟案例。</p>
