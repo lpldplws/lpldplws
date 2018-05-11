@@ -3,6 +3,46 @@
   
     
     <entry>
+      <title><![CDATA[git problem -- 1.git&gerrit邮箱不匹配]]></title>
+      <url>/2018/05/11/git/git_problem/01.git_problem/</url>
+      <content type="html"><![CDATA[<h2 id="git-problem-–-git-amp-gerrit邮箱不匹配"><a href="#git-problem-–-git-amp-gerrit邮箱不匹配" class="headerlink" title="git problem – git&amp;gerrit邮箱不匹配"></a>git problem – git&amp;gerrit邮箱不匹配</h2><p>Git邮箱不匹配问题 does not match your user account</p>
+<p>在活动比较多，使用分支开发的时候，从远端拉取分支，在完成fetch-&gt;rebase-&gt;修改代码以后，执行gerrit push指令时，提示用户信息不匹配。类似于下图所示：</p>
+<p><img src="/images/git/01.git_account.png"></p>
+<pre><code>remote: ERROR:  In commit 024c0bd88da87274f956a10dfa6b41e8c69ebd04
+remote: ERROR:  author email address xxxxx@xx.com
+remote: ERROR:  does not match your user account.
+</code></pre><p>此问题解决方法：（不仅仅限于分支，master分支出现类似问题也可以用此方法）</p>
+<pre><code>(1)git  config user.email (email地址)
+(2)git checkout -b another_branch（如果已经被占，随便再换一个）
+(3)git branch -D pre_branch(删除出现问题的分支)
+(4)git checkout --track origin/pre_branch
+(5)git push origin/pre_branch:refs/for/pre_branch  此时原先出现问题的分支就可以push成功了
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> git </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git problem </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[1]]></title>
+      <url>/2018/05/08/react/02.Quick_Start/04.Components_and_Props/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[02.Quick Start -- 03.Rendering Elements]]></title>
       <url>/2018/05/04/react/02.Quick_Start/03.Rendering_Elements/</url>
       <content type="html"><![CDATA[<h2 id="Rendering-Elements"><a href="#Rendering-Elements" class="headerlink" title="Rendering Elements"></a>Rendering Elements</h2><p>Elements are the smallest building blocks of React apps.</p>
