@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[ES6--01.let 和 const 命令]]></title>
+      <title><![CDATA[ES6 -- 01.let 和 const 命令]]></title>
       <url>/2018/06/08/ES6/01.Let_Const/</url>
       <content type="html"><![CDATA[<h2 id="Let-和-Const-命令"><a href="#Let-和-Const-命令" class="headerlink" title="Let 和 Const 命令"></a>Let 和 Const 命令</h2><h3 id="1-Let-命令"><a href="#1-Let-命令" class="headerlink" title="1. Let 命令"></a>1. Let 命令</h3><h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法:"></a>基本用法:</h4><p>ES6 新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。</p>
 <pre><code>{
