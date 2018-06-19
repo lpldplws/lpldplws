@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source"/>
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            ES6 -- 10.Symbol | 
+        
+        Frankl&#39;s Personal Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/mountains.png">
+    <link rel="icon" href="/img/mountains.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
+    <meta name="keywords" content="Frankl&#39;s personal blog,ES6">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify/vibrant-ink.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material-icons.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.1/jquery.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Frankl&#39;s Personal Blog">
+    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/06/19/ES6/10.symbol/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/mountains.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="www.lpldplws.cn/2018/06/19/ES6/10.symbol/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="ES6 -- 10.Symbol | Frankl&#39;s Personal Blog">
+    <meta property="og:image" content="/img/mountains.png">
+    <meta property="og:description" content="Base on front-end, more than front-end">
+    <meta property="og:article:tag" content="ES6"> 
+
+    
+        <meta property="article:published_time" content="Tue Jun 19 2018 13:58:01 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 19 2018 10:58:53 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html",
+    "headline": "ES6 -- 10.Symbol",
+    "datePublished": "Tue Jun 19 2018 13:58:01 GMT+0800",
+    "dateModified": "Tue Jun 19 2018 10:58:53 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Frankl",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.jpeg"
+        },
+        "description": "Front-end!  Front-end!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Frankl&#39;s Personal Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/mountains.png"
+        }
+    },
+    "keywords": ",ES6Frankl&#39;s personal blog",
+    "description": "Base on front-end, more than front-end",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Symbol"><span class="post-toc-number">1.</span> <span class="post-toc-text">Symbol</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作为属性名的-Symbol"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">作为属性名的 Symbol</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例：消除魔术字符串"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例：消除魔术字符串</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性名的遍历"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">属性名的遍历</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Symbol-for-，Symbol-keyFor"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Symbol.for()，Symbol.keyFor()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例：模块的-Singleton-模式"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">实例：模块的 Singleton 模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内置的-Symbol-值"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">内置的 Symbol 值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-hasInstance"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">Symbol.hasInstance</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-isConcatSpreadable"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">Symbol.isConcatSpreadable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-species"><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">Symbol.species</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-match"><span class="post-toc-number">1.7.4.</span> <span class="post-toc-text">Symbol.match</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-replace"><span class="post-toc-number">1.7.5.</span> <span class="post-toc-text">Symbol.replace</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-search"><span class="post-toc-number">1.7.6.</span> <span class="post-toc-text">Symbol.search</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-split"><span class="post-toc-number">1.7.7.</span> <span class="post-toc-text">Symbol.split</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-iterator"><span class="post-toc-number">1.7.8.</span> <span class="post-toc-text">Symbol.iterator</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-toPrimitive"><span class="post-toc-number">1.7.9.</span> <span class="post-toc-text">Symbol.toPrimitive</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-toStringTag"><span class="post-toc-number">1.7.10.</span> <span class="post-toc-text">Symbol.toStringTag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Symbol-unscopables"><span class="post-toc-number">1.7.11.</span> <span class="post-toc-text">Symbol.unscopables</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                ES6 -- 10.Symbol
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Frankl</strong>
+        <span>6月 19, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/06/19/ES6/10.symbol/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ES6/">ES6</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/06/19/ES6/10.symbol/" class="leancloud-views_num" data-flag-title="ES6 -- 10.Symbol">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ES6 -- 10.Symbol&url=www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ES6 -- 10.Symbol&url=www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html&via=Frankl" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=ES6 -- 10.Symbol&summary=Base on front-end, more than front-end&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/06/19/ES6/10.symbol/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入<code>Symbol</code>的原因。</p>
+<p>ES6 引入了一种新的原始数据类型<code>Symbol</code>，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：<code>undefined</code>、<code>null</code>、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
+<p>Symbol 值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p>
+<pre><code>let s = Symbol();
+
+typeof s
+// &quot;symbol&quot;
+</code></pre><p>上面代码中，变量<code>s</code>就是一个独一无二的值。<code>typeof</code>运算符的结果，表明变量<code>s</code>是 Symbol 数据类型，而不是字符串之类的其他类型。</p>
+<p>注意，<code>Symbol</code>函数前不能使用<code>new</code>命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</p>
+<p><code>Symbol</code>函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
+<pre><code>let s1 = Symbol(&#39;foo&#39;);
+let s2 = Symbol(&#39;bar&#39;);
+
+s1 // Symbol(foo)
+s2 // Symbol(bar)
+
+s1.toString() // &quot;Symbol(foo)&quot;
+s2.toString() // &quot;Symbol(bar)&quot;
+</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>是两个 Symbol 值。如果不加参数，它们在控制台的输出都是<code>Symbol()</code>，不利于区分。有了参数以后，就等于为它们加上了描述，输出的时候就能够分清，到底是哪一个值。</p>
+<p>如果 Symbol 的参数是一个对象，就会调用该对象的<code>toString</code>方法，将其转为字符串，然后才生成一个 Symbol 值。</p>
+<pre><code>const obj = {
+  toString() {
+    return &#39;abc&#39;;
+  }
+};
+const sym = Symbol(obj);
+sym // Symbol(abc)
+</code></pre><p>注意，<code>Symbol</code>函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的<code>Symbol</code>函数的返回值是不相等的。</p>
+<pre><code>// 没有参数的情况
+let s1 = Symbol();
+let s2 = Symbol();
+
+s1 === s2 // false
+
+// 有参数的情况
+let s1 = Symbol(&#39;foo&#39;);
+let s2 = Symbol(&#39;foo&#39;);
+
+s1 === s2 // false
+</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>都是<code>Symbol</code>函数的返回值，而且参数相同，但是它们是不相等的。</p>
+<p>Symbol 值不能与其他类型的值进行运算，会报错。</p>
+<pre><code>let sym = Symbol(&#39;My symbol&#39;);
+
+&quot;your symbol is &quot; + sym
+// TypeError: can&#39;t convert symbol to string
+`your symbol is ${sym}`
+// TypeError: can&#39;t convert symbol to string
+</code></pre><p>但是，Symbol 值可以显式转为字符串。</p>
+<pre><code>let sym = Symbol(&#39;My symbol&#39;);
+
+String(sym) // &#39;Symbol(My symbol)&#39;
+sym.toString() // &#39;Symbol(My symbol)&#39;
+</code></pre><p>另外，Symbol 值也可以转为布尔值，但是不能转为数值。</p>
+<pre><code>let sym = Symbol();
+Boolean(sym) // true
+!sym  // false
+
+if (sym) {
+  // ...
+}
+
+Number(sym) // TypeError
+sym + 2 // TypeError
+</code></pre><h2 id="作为属性名的-Symbol"><a href="#作为属性名的-Symbol" class="headerlink" title="作为属性名的 Symbol"></a>作为属性名的 Symbol</h2><p>由于每一个 Symbol 值都是不相等的，这意味着 Symbol 值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性。这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖。</p>
+<pre><code>let mySymbol = Symbol();
+
+// 第一种写法
+let a = {};
+a[mySymbol] = &#39;Hello!&#39;;
+
+// 第二种写法
+let a = {
+  [mySymbol]: &#39;Hello!&#39;
+};
+
+// 第三种写法
+let a = {};
+Object.defineProperty(a, mySymbol, { value: &#39;Hello!&#39; });
+
+// 以上写法都得到同样结果
+a[mySymbol] // &quot;Hello!&quot;
+</code></pre><p>上面代码通过方括号结构和<code>Object.defineProperty</code>，将对象的属性名指定为一个 Symbol 值。</p>
+<p>注意，Symbol 值作为对象属性名时，不能用点运算符。</p>
+<pre><code>const mySymbol = Symbol();
+const a = {};
+
+a.mySymbol = &#39;Hello!&#39;;
+a[mySymbol] // undefined
+a[&#39;mySymbol&#39;] // &quot;Hello!&quot;
+</code></pre><p>上面代码中，因为点运算符后面总是字符串，所以不会读取<code>mySymbol</code>作为标识名所指代的那个值，导致<code>a</code>的属性名实际上是一个字符串，而不是一个 Symbol 值。</p>
+<p>同理，在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中。</p>
+<pre><code>let s = Symbol();
+
+let obj = {
+  [s]: function (arg) { ... }
+};
+
+obj[s](123);
+</code></pre><p>上面代码中，如果<code>s</code>不放在方括号中，该属性的键名就是字符串<code>s</code>，而不是<code>s</code>所代表的那个 Symbol 值。</p>
+<p>采用增强的对象写法，上面代码的<code>obj</code>对象可以写得更简洁一些。</p>
+<pre><code>let obj = {
+  [s](arg) { ... }
+};
+</code></pre><p>Symbol 类型还可以用于定义一组常量，保证这组常量的值都是不相等的。</p>
+<pre><code>const log = {};
+
+log.levels = {
+  DEBUG: Symbol(&#39;debug&#39;),
+  INFO: Symbol(&#39;info&#39;),
+  WARN: Symbol(&#39;warn&#39;)
+};
+console.log(log.levels.DEBUG, &#39;debug message&#39;);
+console.log(log.levels.INFO, &#39;info message&#39;);
+</code></pre><p>下面是另外一个例子。</p>
+<pre><code>const COLOR_RED    = Symbol();
+const COLOR_GREEN  = Symbol();
+
+function getComplement(color) {
+  switch (color) {
+    case COLOR_RED:
+      return COLOR_GREEN;
+    case COLOR_GREEN:
+      return COLOR_RED;
+    default:
+      throw new Error(&#39;Undefined color&#39;);
+    }
+}
+</code></pre><p>常量使用 Symbol 值最大的好处，就是其他任何值都不可能有相同的值了，因此可以保证上面的<code>switch</code>语句会按设计的方式工作。</p>
+<p>还有一点需要注意，Symbol 值作为属性名时，该属性还是公开属性，不是私有属性。</p>
+<h2 id="实例：消除魔术字符串"><a href="#实例：消除魔术字符串" class="headerlink" title="实例：消除魔术字符串"></a>实例：消除魔术字符串</h2><p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的变量代替。</p>
+<pre><code>function getArea(shape, options) {
+  let area = 0;
+
+  switch (shape) {
+    case &#39;Triangle&#39;: // 魔术字符串
+      area = .5 * options.width * options.height;
+      break;
+    /* ... more code ... */
+  }
+
+  return area;
+}
+
+getArea(&#39;Triangle&#39;, { width: 100, height: 100 }); // 魔术字符串
+</code></pre><p>上面代码中，字符串<code>Triangle</code>就是一个魔术字符串。它多次出现，与代码形成“强耦合”，不利于将来的修改和维护。</p>
+<p>常用的消除魔术字符串的方法，就是把它写成一个变量。</p>
+<pre><code>const shapeType = {
+  triangle: &#39;Triangle&#39;
+};
+
+function getArea(shape, options) {
+  let area = 0;
+  switch (shape) {
+    case shapeType.triangle:
+      area = .5 * options.width * options.height;
+      break;
+  }
+  return area;
+}
+
+getArea(shapeType.triangle, { width: 100, height: 100 });
+</code></pre><p>上面代码中，我们把<code>Triangle</code>写成<code>shapeType</code>对象的<code>triangle</code>属性，这样就消除了强耦合。</p>
+<p>如果仔细分析，可以发现<code>shapeType.triangle</code>等于哪个值并不重要，只要确保不会跟其他<code>shapeType</code>属性的值冲突即可。因此，这里就很适合改用 Symbol 值。</p>
+<pre><code>const shapeType = {
+  triangle: Symbol()
+};
+</code></pre><p>上面代码中，除了将<code>shapeType.triangle</code>的值设为一个 Symbol，其他地方都不用修改。</p>
+<h2 id="属性名的遍历"><a href="#属性名的遍历" class="headerlink" title="属性名的遍历"></a>属性名的遍历</h2><p>Symbol 作为属性名，该属性不会出现在<code>for...in</code>、<code>for...of</code>循环中，也不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>、<code>JSON.stringify()</code>返回。但是，它也不是私有属性，有一个<code>Object.getOwnPropertySymbols</code>方法，可以获取指定对象的所有 Symbol 属性名。</p>
+<p><code>Object.getOwnPropertySymbols</code>方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。</p>
+<pre><code>const obj = {};
+let a = Symbol(&#39;a&#39;);
+let b = Symbol(&#39;b&#39;);
+
+obj[a] = &#39;Hello&#39;;
+obj[b] = &#39;World&#39;;
+
+const objectSymbols = Object.getOwnPropertySymbols(obj);
+
+objectSymbols
+// [Symbol(a), Symbol(b)]
+</code></pre><p>下面是另一个例子，<code>Object.getOwnPropertySymbols</code>方法与<code>for...in</code>循环、<code>Object.getOwnPropertyNames</code>方法进行对比的例子。</p>
+<pre><code>const obj = {};
+
+let foo = Symbol(&quot;foo&quot;);
+
+Object.defineProperty(obj, foo, {
+  value: &quot;foobar&quot;,
+});
+
+for (let i in obj) {
+  console.log(i); // 无输出
+}
+
+Object.getOwnPropertyNames(obj)
+// []
+
+Object.getOwnPropertySymbols(obj)
+// [Symbol(foo)]
+</code></pre><p>上面代码中，使用<code>Object.getOwnPropertyNames</code>方法得不到<code>Symbol</code>属性名，需要使用<code>Object.getOwnPropertySymbols</code>方法。</p>
+<p>另一个新的 API，<code>Reflect.ownKeys</code>方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。</p>
+<pre><code>let obj = {
+  [Symbol(&#39;my_key&#39;)]: 1,
+  enum: 2,
+  nonEnum: 3
+};
+
+Reflect.ownKeys(obj)
+//  [&quot;enum&quot;, &quot;nonEnum&quot;, Symbol(my_key)]
+</code></pre><p>由于以 Symbol 值作为名称的属性，不会被常规方法遍历得到。我们可以利用这个特性，为对象定义一些非私有的、但又希望只用于内部的方法。</p>
+<pre><code>let size = Symbol(&#39;size&#39;);
+
+class Collection {
+  constructor() {
+    this[size] = 0;
+  }
+
+  add(item) {
+    this[this[size]] = item;
+    this[size]++;
+  }
+
+  static sizeOf(instance) {
+    return instance[size];
+  }
+}
+
+let x = new Collection();
+Collection.sizeOf(x) // 0
+
+x.add(&#39;foo&#39;);
+Collection.sizeOf(x) // 1
+
+Object.keys(x) // [&#39;0&#39;]
+Object.getOwnPropertyNames(x) // [&#39;0&#39;]
+Object.getOwnPropertySymbols(x) // [Symbol(size)]
+</code></pre><p>上面代码中，对象<code>x</code>的<code>size</code>属性是一个 Symbol 值，所以<code>Object.keys(x)</code>、<code>Object.getOwnPropertyNames(x)</code>都无法获取它。这就造成了一种非私有的内部方法的效果。</p>
+<h2 id="Symbol-for-，Symbol-keyFor"><a href="#Symbol-for-，Symbol-keyFor" class="headerlink" title="Symbol.for()，Symbol.keyFor()"></a>Symbol.for()，Symbol.keyFor()</h2><p>有时，我们希望重新使用同一个 Symbol 值，<code>Symbol.for</code>方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。</p>
+<pre><code>let s1 = Symbol.for(&#39;foo&#39;);
+let s2 = Symbol.for(&#39;foo&#39;);
+
+s1 === s2 // true
+</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>都是 Symbol 值，但是它们都是同样参数的<code>Symbol.for</code>方法生成的，所以实际上是同一个值。</p>
+<p><code>Symbol.for()</code>与<code>Symbol()</code>这两种写法，都会生成新的 Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。<code>Symbol.for()</code>不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的<code>key</code>是否已经存在，如果不存在才会新建一个值。比如，如果你调用<code>Symbol.for(&quot;cat&quot;)</code>30 次，每次都会返回同一个 Symbol 值，但是调用<code>Symbol(&quot;cat&quot;)</code>30 次，会返回 30 个不同的 Symbol 值。</p>
+<pre><code>Symbol.for(&quot;bar&quot;) === Symbol.for(&quot;bar&quot;)
+// true
+
+Symbol(&quot;bar&quot;) === Symbol(&quot;bar&quot;)
+// false
+</code></pre><p>上面代码中，由于<code>Symbol()</code>写法没有登记机制，所以每次调用都会返回一个不同的值。</p>
+<p><code>Symbol.keyFor</code>方法返回一个已登记的 Symbol 类型值的<code>key</code>。</p>
+<pre><code>let s1 = Symbol.for(&quot;foo&quot;);
+Symbol.keyFor(s1) // &quot;foo&quot;
+
+let s2 = Symbol(&quot;foo&quot;);
+Symbol.keyFor(s2) // undefined
+</code></pre><p>上面代码中，变量<code>s2</code>属于未登记的 Symbol 值，所以返回<code>undefined</code>。</p>
+<p>需要注意的是，<code>Symbol.for</code>为 Symbol 值登记的名字，是全局环境的，可以在不同的 iframe 或 service worker 中取到同一个值。</p>
+<pre><code>iframe = document.createElement(&#39;iframe&#39;);
+iframe.src = String(window.location);
+document.body.appendChild(iframe);
+
+iframe.contentWindow.Symbol.for(&#39;foo&#39;) === Symbol.for(&#39;foo&#39;)
+// true
+</code></pre><p>上面代码中，iframe 窗口生成的 Symbol 值，可以在主页面得到。</p>
+<h2 id="实例：模块的-Singleton-模式"><a href="#实例：模块的-Singleton-模式" class="headerlink" title="实例：模块的 Singleton 模式"></a>实例：模块的 Singleton 模式</h2><p>Singleton 模式指的是调用一个类，任何时候返回的都是同一个实例。</p>
+<p>对于 Node 来说，模块文件可以看成是一个类。怎么保证每次执行这个模块文件，返回的都是同一个实例呢？</p>
+<p>很容易想到，可以把实例放到顶层对象<code>global</code>。</p>
+<pre><code>// mod.js
+function A() {
+  this.foo = &#39;hello&#39;;
+}
+
+if (!global._foo) {
+  global._foo = new A();
+}
+
+module.exports = global._foo;
+</code></pre><p>然后，加载上面的<code>mod.js</code>。</p>
+<pre><code>const a = require(&#39;./mod.js&#39;);
+console.log(a.foo);
+</code></pre><p>上面代码中，变量<code>a</code>任何时候加载的都是<code>A</code>的同一个实例。</p>
+<p>但是，这里有一个问题，全局变量<code>global._foo</code>是可写的，任何文件都可以修改。</p>
+<pre><code>global._foo = { foo: &#39;world&#39; };
+
+const a = require(&#39;./mod.js&#39;);
+console.log(a.foo);
+</code></pre><p>上面的代码，会使得加载<code>mod.js</code>的脚本都失真。</p>
+<p>为了防止这种情况出现，我们就可以使用 Symbol。</p>
+<pre><code>// mod.js
+const FOO_KEY = Symbol.for(&#39;foo&#39;);
+
+function A() {
+  this.foo = &#39;hello&#39;;
+}
+
+if (!global[FOO_KEY]) {
+  global[FOO_KEY] = new A();
+}
+
+module.exports = global[FOO_KEY];
+</code></pre><p>上面代码中，可以保证<code>global[FOO_KEY]</code>不会被无意间覆盖，但还是可以被改写。</p>
+<pre><code>global[Symbol.for(&#39;foo&#39;)] = { foo: &#39;world&#39; };
+
+const a = require(&#39;./mod.js&#39;);
+</code></pre><p>如果键名使用<code>Symbol</code>方法生成，那么外部将无法引用这个值，当然也就无法改写。</p>
+<pre><code>// mod.js
+const FOO_KEY = Symbol(&#39;foo&#39;);
+
+// 后面代码相同 ……
+</code></pre><p>上面代码将导致其他脚本都无法引用<code>FOO_KEY</code>。但这样也有一个问题，就是如果多次执行这个脚本，每次得到的<code>FOO_KEY</code>都是不一样的。虽然 Node 会将脚本的执行结果缓存，一般情况下，不会多次执行同一个脚本，但是用户可以手动清除缓存，所以也不是绝对可靠。</p>
+<h2 id="内置的-Symbol-值"><a href="#内置的-Symbol-值" class="headerlink" title="内置的 Symbol 值"></a>内置的 Symbol 值</h2><p>除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。</p>
+<h3 id="Symbol-hasInstance"><a href="#Symbol-hasInstance" class="headerlink" title="Symbol.hasInstance"></a>Symbol.hasInstance</h3><p>对象的<code>Symbol.hasInstance</code>属性，指向一个内部方法。当其他对象使用<code>instanceof</code>运算符，判断是否为该对象的实例时，会调用这个方法。比如，<code>foo instanceof Foo</code>在语言内部，实际调用的是<code>Foo[Symbol.hasInstance](foo)</code>。</p>
+<pre><code>class MyClass {
+  [Symbol.hasInstance](foo) {
+    return foo instanceof Array;
+  }
+}
+
+[1, 2, 3] instanceof new MyClass() // true
+</code></pre><p>上面代码中，<code>MyClass</code>是一个类，<code>new MyClass()</code>会返回一个实例。该实例的<code>Symbol.hasInstance</code>方法，会在进行<code>instanceof</code>运算时自动调用，判断左侧的运算子是否为<code>Array</code>的实例。</p>
+<p>下面是另一个例子。</p>
+<pre><code>class Even {
+  static [Symbol.hasInstance](obj) {
+    return Number(obj) % 2 === 0;
+  }
+}
+
+// 等同于
+const Even = {
+  [Symbol.hasInstance](obj) {
+    return Number(obj) % 2 === 0;
+  }
+};
+
+1 instanceof Even // false
+2 instanceof Even // true
+12345 instanceof Even // false
+</code></pre><h3 id="Symbol-isConcatSpreadable"><a href="#Symbol-isConcatSpreadable" class="headerlink" title="Symbol.isConcatSpreadable"></a>Symbol.isConcatSpreadable</h3><p>对象的<code>Symbol.isConcatSpreadable</code>属性等于一个布尔值，表示该对象用于<code>Array.prototype.concat()</code>时，是否可以展开。</p>
+<pre><code>let arr1 = [&#39;c&#39;, &#39;d&#39;];
+[&#39;a&#39;, &#39;b&#39;].concat(arr1, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+arr1[Symbol.isConcatSpreadable] // undefined
+
+let arr2 = [&#39;c&#39;, &#39;d&#39;];
+arr2[Symbol.isConcatSpreadable] = false;
+[&#39;a&#39;, &#39;b&#39;].concat(arr2, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, [&#39;c&#39;,&#39;d&#39;], &#39;e&#39;]
+</code></pre><p>上面代码说明，数组的默认行为是可以展开，<code>Symbol.isConcatSpreadable</code>默认等于<code>undefined</code>。该属性等于<code>true</code>时，也有展开的效果。</p>
+<p>类似数组的对象正好相反，默认不展开。它的<code>Symbol.isConcatSpreadable</code>属性设为<code>true</code>，才可以展开。</p>
+<pre><code>let obj = {length: 2, 0: &#39;c&#39;, 1: &#39;d&#39;};
+[&#39;a&#39;, &#39;b&#39;].concat(obj, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, obj, &#39;e&#39;]
+
+obj[Symbol.isConcatSpreadable] = true;
+[&#39;a&#39;, &#39;b&#39;].concat(obj, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+</code></pre><p><code>Symbol.isConcatSpreadable</code>属性也可以定义在类里面。</p>
+<pre><code>class A1 extends Array {
+  constructor(args) {
+    super(args);
+    this[Symbol.isConcatSpreadable] = true;
+  }
+}
+class A2 extends Array {
+  constructor(args) {
+    super(args);
+  }
+  get [Symbol.isConcatSpreadable] () {
+    return false;
+  }
+}
+let a1 = new A1();
+a1[0] = 3;
+a1[1] = 4;
+let a2 = new A2();
+a2[0] = 5;
+a2[1] = 6;
+[1, 2].concat(a1).concat(a2)
+// [1, 2, 3, 4, [5, 6]]
+</code></pre><p>上面代码中，类<code>A1</code>是可展开的，类<code>A2</code>是不可展开的，所以使用<code>concat</code>时有不一样的结果。</p>
+<p>注意，<code>Symbol.isConcatSpreadable</code>的位置差异，<code>A1</code>是定义在实例上，<code>A2</code>是定义在类本身，效果相同。</p>
+<h3 id="Symbol-species"><a href="#Symbol-species" class="headerlink" title="Symbol.species"></a>Symbol.species</h3><p>对象的<code>Symbol.species</code>属性，指向一个构造函数。创建衍生对象时，会使用该属性。</p>
+<pre><code>class MyArray extends Array {
+}
+
+const a = new MyArray(1, 2, 3);
+const b = a.map(x =&gt; x);
+const c = a.filter(x =&gt; x &gt; 1);
+
+b instanceof MyArray // true
+c instanceof MyArray // true
+</code></pre><p>上面代码中，子类<code>MyArray</code>继承了父类<code>Array</code>，<code>a</code>是<code>MyArray</code>的实例，<code>b</code>和<code>c</code>是<code>a</code>的衍生对象。你可能会认为，<code>b</code>和<code>c</code>都是调用数组方法生成的，所以应该是数组（<code>Array</code>的实例），但实际上它们也是<code>MyArray</code>的实例。</p>
+<p><code>Symbol.species</code>属性就是为了解决这个问题而提供的。现在，我们可以为<code>MyArray</code>设置<code>Symbol.species</code>属性。</p>
+<pre><code>class MyArray extends Array {
+  static get [Symbol.species]() { return Array; }
+}
+</code></pre><p>上面代码中，由于定义了<code>Symbol.species</code>属性，创建衍生对象时就会使用这个属性返回的函数，作为构造函数。这个例子也说明，定义<code>Symbol.species</code>属性要采用<code>get</code>取值器。默认的<code>Symbol.species</code>属性等同于下面的写法。</p>
+<pre><code>static get [Symbol.species]() {
+  return this;
+}
+</code></pre><p>现在，再来看前面的例子。</p>
+<pre><code>class MyArray extends Array {
+  static get [Symbol.species]() { return Array; }
+}
+
+const a = new MyArray();
+const b = a.map(x =&gt; x);
+
+b instanceof MyArray // false
+b instanceof Array // true
+</code></pre><p>上面代码中，<code>a.map(x =&gt; x)</code>生成的衍生对象，就不是<code>MyArray</code>的实例，而直接就是<code>Array</code>的实例。</p>
+<p>再看一个例子。</p>
+<pre><code>class T1 extends Promise {
+}
+
+class T2 extends Promise {
+  static get [Symbol.species]() {
+    return Promise;
+  }
+}
+
+new T1(r =&gt; r()).then(v =&gt; v) instanceof T1 // true
+new T2(r =&gt; r()).then(v =&gt; v) instanceof T2 // false
+</code></pre><p>上面代码中，<code>T2</code>定义了<code>Symbol.species</code>属性，<code>T1</code>没有。结果就导致了创建衍生对象时（<code>then</code>方法），<code>T1</code>调用的是自身的构造方法，而<code>T2</code>调用的是<code>Promise</code>的构造方法。</p>
+<p>总之，<code>Symbol.species</code>的作用在于，实例对象在运行过程中，需要再次调用自身的构造函数时，会调用该属性指定的构造函数。它主要的用途是，有些类库是在基类的基础上修改的，那么子类使用继承的方法时，作者可能希望返回基类的实例，而不是子类的实例。</p>
+<h3 id="Symbol-match"><a href="#Symbol-match" class="headerlink" title="Symbol.match"></a>Symbol.match</h3><p>对象的<code>Symbol.match</code>属性，指向一个函数。当执行<code>str.match(myObject)</code>时，如果该属性存在，会调用它，返回该方法的返回值。</p>
+<pre><code>String.prototype.match(regexp)
+// 等同于
+regexp[Symbol.match](this)
+
+class MyMatcher {
+  [Symbol.match](string) {
+    return &#39;hello world&#39;.indexOf(string);
+  }
+}
+
+&#39;e&#39;.match(new MyMatcher()) // 1
+</code></pre><h3 id="Symbol-replace"><a href="#Symbol-replace" class="headerlink" title="Symbol.replace"></a>Symbol.replace</h3><p>对象的<code>Symbol.replace</code>属性，指向一个方法，当该对象被<code>String.prototype.replace</code>方法调用时，会返回该方法的返回值。</p>
+<pre><code>String.prototype.replace(searchValue, replaceValue)
+// 等同于
+searchValue[Symbol.replace](this, replaceValue)
+</code></pre><p>下面是一个例子。</p>
+<pre><code>const x = {};
+x[Symbol.replace] = (...s) =&gt; console.log(s);
+
+&#39;Hello&#39;.replace(x, &#39;World&#39;) // [&quot;Hello&quot;, &quot;World&quot;]
+</code></pre><p><code>Symbol.replace</code>方法会收到两个参数，第一个参数是<code>replace</code>方法正在作用的对象，上面例子是<code>Hello</code>，第二个参数是替换后的值，上面例子是<code>World</code>。</p>
+<h3 id="Symbol-search"><a href="#Symbol-search" class="headerlink" title="Symbol.search"></a>Symbol.search</h3><p>对象的<code>Symbol.search</code>属性，指向一个方法，当该对象被<code>String.prototype.search</code>方法调用时，会返回该方法的返回值。</p>
+<pre><code>String.prototype.search(regexp)
+// 等同于
+regexp[Symbol.search](this)
+
+class MySearch {
+  constructor(value) {
+    this.value = value;
+  }
+  [Symbol.search](string) {
+    return string.indexOf(this.value);
+  }
+}
+&#39;foobar&#39;.search(new MySearch(&#39;foo&#39;)) // 0
+</code></pre><h3 id="Symbol-split"><a href="#Symbol-split" class="headerlink" title="Symbol.split"></a>Symbol.split</h3><p>对象的<code>Symbol.split</code>属性，指向一个方法，当该对象被<code>String.prototype.split</code>方法调用时，会返回该方法的返回值。</p>
+<pre><code>String.prototype.split(separator, limit)
+// 等同于
+separator[Symbol.split](this, limit)
+</code></pre><p>下面是一个例子。</p>
+<pre><code>class MySplitter {
+  constructor(value) {
+    this.value = value;
+  }
+  [Symbol.split](string) {
+    let index = string.indexOf(this.value);
+    if (index === -1) {
+      return string;
+    }
+    return [
+      string.substr(0, index),
+      string.substr(index + this.value.length)
+    ];
+  }
+}
+
+&#39;foobar&#39;.split(new MySplitter(&#39;foo&#39;))
+// [&#39;&#39;, &#39;bar&#39;]
+
+&#39;foobar&#39;.split(new MySplitter(&#39;bar&#39;))
+// [&#39;foo&#39;, &#39;&#39;]
+
+&#39;foobar&#39;.split(new MySplitter(&#39;baz&#39;))
+// &#39;foobar&#39;
+</code></pre><p>上面方法使用<code>Symbol.split</code>方法，重新定义了字符串对象的<code>split</code>方法的行为，</p>
+<h3 id="Symbol-iterator"><a href="#Symbol-iterator" class="headerlink" title="Symbol.iterator"></a>Symbol.iterator</h3><p>对象的<code>Symbol.iterator</code>属性，指向该对象的默认遍历器方法。</p>
+<pre><code>const myIterable = {};
+myIterable[Symbol.iterator] = function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+};
+
+[...myIterable] // [1, 2, 3]
+</code></pre><p>对象进行<code>for...of</code>循环时，会调用<code>Symbol.iterator</code>方法，返回该对象的默认遍历器，详细介绍参见《Iterator 和 for…of 循环》一章。</p>
+<pre><code>class Collection {
+  *[Symbol.iterator]() {
+    let i = 0;
+    while(this[i] !== undefined) {
+      yield this[i];
+      ++i;
+    }
+  }
+}
+
+let myCollection = new Collection();
+myCollection[0] = 1;
+myCollection[1] = 2;
+
+for(let value of myCollection) {
+  console.log(value);
+}
+// 1
+// 2
+</code></pre><h3 id="Symbol-toPrimitive"><a href="#Symbol-toPrimitive" class="headerlink" title="Symbol.toPrimitive"></a>Symbol.toPrimitive</h3><p>对象的<code>Symbol.toPrimitive</code>属性，指向一个方法。该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。</p>
+<p><code>Symbol.toPrimitive</code>被调用时，会接受一个字符串参数，表示当前运算的模式，一共有三种模式。</p>
+<ul>
+<li>Number：该场合需要转成数值</li>
+<li>String：该场合需要转成字符串</li>
+<li><p>Default：该场合可以转成数值，也可以转成字符串</p>
+<p>let obj = {<br>  <a href="hint">Symbol.toPrimitive</a> {</p>
+<pre><code>switch (hint) {
+  case &#39;number&#39;:
+    return 123;
+  case &#39;string&#39;:
+    return &#39;str&#39;;
+  case &#39;default&#39;:
+    return &#39;default&#39;;
+  default:
+    throw new Error();
+ }
+</code></pre><p>   }<br>};</p>
+<p>2 * obj // 246<br>3 + obj // ‘3default’<br>obj == ‘default’ // true<br>String(obj) // ‘str’</p>
+</li>
+</ul>
+<h3 id="Symbol-toStringTag"><a href="#Symbol-toStringTag" class="headerlink" title="Symbol.toStringTag"></a>Symbol.toStringTag</h3><p>对象的<code>Symbol.toStringTag</code>属性，指向一个方法。在该对象上面调用<code>Object.prototype.toString</code>方法时，如果这个属性存在，它的返回值会出现在<code>toString</code>方法返回的字符串之中，表示对象的类型。也就是说，这个属性可以用来定制<code>[object Object]</code>或<code>[object Array]</code>中<code>object</code>后面的那个字符串。</p>
+<pre><code>// 例一
+({[Symbol.toStringTag]: &#39;Foo&#39;}.toString())
+// &quot;[object Foo]&quot;
+
+// 例二
+class Collection {
+  get [Symbol.toStringTag]() {
+    return &#39;xxx&#39;;
+  }
+}
+let x = new Collection();
+Object.prototype.toString.call(x) // &quot;[object xxx]&quot;
+</code></pre><p>ES6 新增内置对象的<code>Symbol.toStringTag</code>属性值如下。</p>
+<ul>
+<li><code>JSON[Symbol.toStringTag]</code>：’JSON’</li>
+<li><code>Math[Symbol.toStringTag]</code>：’Math’</li>
+<li>Module 对象<code>M[Symbol.toStringTag]</code>：’Module’</li>
+<li><code>ArrayBuffer.prototype[Symbol.toStringTag]</code>：’ArrayBuffer’</li>
+<li><code>DataView.prototype[Symbol.toStringTag]</code>：’DataView’</li>
+<li><code>Map.prototype[Symbol.toStringTag]</code>：’Map’</li>
+<li><code>Promise.prototype[Symbol.toStringTag]</code>：’Promise’</li>
+<li><code>Set.prototype[Symbol.toStringTag]</code>：’Set’</li>
+<li><code>%TypedArray%.prototype[Symbol.toStringTag]</code>：’Uint8Array’等</li>
+<li><code>WeakMap.prototype[Symbol.toStringTag]</code>：’WeakMap’</li>
+<li><code>WeakSet.prototype[Symbol.toStringTag]</code>：’WeakSet’</li>
+<li><code>%MapIteratorPrototype%[Symbol.toStringTag]</code>：’Map Iterator’</li>
+<li><code>%SetIteratorPrototype%[Symbol.toStringTag]</code>：’Set Iterator’</li>
+<li><code>%StringIteratorPrototype%[Symbol.toStringTag]</code>：’String Iterator’</li>
+<li><code>Symbol.prototype[Symbol.toStringTag]</code>：’Symbol’</li>
+<li><code>Generator.prototype[Symbol.toStringTag]</code>：’Generator’</li>
+<li><code>GeneratorFunction.prototype[Symbol.toStringTag]</code>：’GeneratorFunction’</li>
+</ul>
+<h3 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h3><p>对象的<code>Symbol.unscopables</code>属性，指向一个对象。该对象指定了使用<code>with</code>关键字时，哪些属性会被<code>with</code>环境排除。</p>
+<pre><code>Array.prototype[Symbol.unscopables]
+// {
+//   copyWithin: true,
+//   entries: true,
+//   fill: true,
+//   find: true,
+//   findIndex: true,
+//   includes: true,
+//   keys: true
+// }
+
+Object.keys(Array.prototype[Symbol.unscopables])
+// [&#39;copyWithin&#39;, &#39;entries&#39;, &#39;fill&#39;, &#39;find&#39;, &#39;findIndex&#39;, &#39;includes&#39;, &#39;keys&#39;]
+</code></pre><p>上面代码说明，数组有 7 个属性，会被<code>with</code>命令排除。</p>
+<pre><code>// 没有 unscopables 时
+class MyClass {
+  foo() { return 1; }
+}
+
+var foo = function () { return 2; };
+
+with (MyClass.prototype) {
+  foo(); // 1
+}
+
+// 有 unscopables 时
+class MyClass {
+  foo() { return 1; }
+  get [Symbol.unscopables]() {
+    return { foo: true };
+  }
+}
+
+var foo = function () { return 2; };
+
+with (MyClass.prototype) {
+  foo(); // 2
+}
+</code></pre><p>上面代码通过指定<code>Symbol.unscopables</code>属性，使得<code>with</code>语法块不会在当前作用域寻找<code>foo</code>属性，即<code>foo</code>将指向外层作用域的变量。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'true' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz",
+        appKey: "0x6VHFG6YKulI1wbgAC9xYIh",
+        placeholder: "Please leave your footprints.",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/06/19/ES6/09.对象的扩展/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/logo.jpeg" alt="Frankl's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        qinhui@bupt.edu.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: qinhui@bupt.edu.cn" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">22</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/ES6/">ES6<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/git/">git<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/leetCode/">leetCode<span class="sidebar_archives-count">23</span></a></li><li><a class="sidebar_archives-link" href="/categories/react-document/">react document<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端常见问题/">前端常见问题<span class="sidebar_archives-count">6</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">50</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/lpldplws" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2018&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Frankl's Personal Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/lazyload.min.js", true)</script>
+
+
+
+    <script>lsloader.load("js_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/js.min.js", true)</script>
+
+
+
+    <script>lsloader.load("np_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/nprogress.js", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/smoothscroll.js", true)</script>
+    
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz', '0x6VHFG6YKulI1wbgAC9xYIh');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","https://cdn.bootcss.com/prettify/r298/prettify.min.js", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
