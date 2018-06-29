@@ -3,6 +3,385 @@
   
     
     <entry>
+      <title><![CDATA[03.Advanced Guides -- 01.Accessibility]]></title>
+      <url>/2018/06/29/react/03.Advanced_Guides/01.Accessibility/</url>
+      <content type="html"><![CDATA[<h2 id="Accessibility-可访问性"><a href="#Accessibility-可访问性" class="headerlink" title="Accessibility(可访问性)"></a>Accessibility(可访问性)</h2><h3 id="Why-Accessibility-为什么要考虑可访问性？"><a href="#Why-Accessibility-为什么要考虑可访问性？" class="headerlink" title="Why Accessibility?(为什么要考虑可访问性？)"></a>Why Accessibility?(为什么要考虑可访问性？)</h3><p>Web accessibility (also referred to as <a href="https://en.wiktionary.org/wiki/a11y" target="_blank" rel="noopener">a11y</a>) is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.</p>
+<p>Web可访问性（也称为<a href="https://en.wiktionary.org/wiki/a11y" target="_blank" rel="noopener">a11y</a>）是指如何设计和创建可供任何人都可以使用的网站。可访问性的支持是必须的，因为它们可以才协助辅助性技术渲染网页。</p>
+<p>React fully supports building accessible websites, often by using standard HTML techniques.</p>
+<p>React可以通过使用标准的HTML技术来完全支持构建可访问性的网站。</p>
+<h3 id="Standards-and-Guidelines（标准和指南）"><a href="#Standards-and-Guidelines（标准和指南）" class="headerlink" title="Standards and Guidelines（标准和指南）"></a>Standards and Guidelines（标准和指南）</h3><h4 id="WCAG"><a href="#WCAG" class="headerlink" title="WCAG"></a>WCAG</h4><p>The <a href="https://www.w3.org/WAI/intro/wcag" target="_blank" rel="noopener">Web Content Accessibility Guidelines</a> provides guidelines for creating accessible web sites.</p>
+<p><a href="https://www.w3.org/WAI/intro/wcag" target="_blank" rel="noopener">网站内容可访问性指南</a>为创建可访问网站的提供了指导指南。</p>
+<p>The following WCAG checklists provide an overview:</p>
+<p>以下为WCAG清单提供了一个概述：</p>
+<ul>
+<li><a href="https://www.wuhcag.com/wcag-checklist/" target="_blank" rel="noopener">WCAG checklist from Wuhcag</a></li>
+<li><a href="http://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener">WCAG checklist from WebAIM</a></li>
+<li><p><a href="http://a11yproject.com/checklist.html" target="_blank" rel="noopener">Checklist from The A11Y Project</a></p>
+</li>
+<li><p><a href="https://www.wuhcag.com/wcag-checklist/" target="_blank" rel="noopener">关于WCAG的Wuhcag概述</a></p>
+</li>
+<li><a href="http://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener">关于WCAG的WebAIM概述</a></li>
+<li><a href="http://a11yproject.com/checklist.html" target="_blank" rel="noopener">来自A11Y项目的概述</a></li>
+</ul>
+<h4 id="WAI-ARIA"><a href="#WAI-ARIA" class="headerlink" title="WAI-ARIA"></a>WAI-ARIA</h4><p>The <a href="https://www.w3.org/WAI/intro/aria" target="_blank" rel="noopener">Web Accessibility Initiative - Accessible Rich Internet Applications</a> document contains techniques for building fully accessible JavaScript widgets.</p>
+<p><a href="https://www.w3.org/WAI/intro/aria" target="_blank" rel="noopener">网页可访问性倡议 - 充分可访问性的互联网应用程序</a>文章中包含了对于构建充分可访问的JavaScript部件的技术。</p>
+<p>Note that all <code>aria-*</code> HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be lowercased:</p>
+<p>注意，JSX完全支持所有<code>aria- *</code> HTML属性。尽管React中的大多数DOM属性和特性都是camelCased的，但<code>aria-*</code>属性应该是小写的：</p>
+<pre><code>&lt;input
+  type=&quot;text&quot;
+  aria-label={labelText}
+  aria-required=&quot;true&quot;
+  onChange={onchangeHandler}
+  value={inputValue}
+  name=&quot;name&quot;
+/&gt;
+</code></pre><h3 id="Semantic-HTML-语义化的HTML"><a href="#Semantic-HTML-语义化的HTML" class="headerlink" title="Semantic HTML(语义化的HTML)"></a>Semantic HTML(语义化的HTML)</h3><p>Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information in our websites will often give us accessibility for free.</p>
+<p>语义化的HTML是一个web应用可访问性的基础。我们可以通过在网站中使用不同的HTML元素来加强想表达的信息的含义，这可以让我们的应用更具有可访问性。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener">MDN HTML elements reference(MDN HTML元素的参阅)</a></li>
+</ul>
+<p>Sometimes we break HTML semantics when we add <div> elements to our JSX to make our React code work, especially when working with lists (<ol>, <ul> and <dl>) and the HTML <table>. In these cases we should rather use React Fragments to group together multiple elements.</table></dl></ul></ol></div></p>
+<p>有时，当我们将<code>&lt;div&gt;</code>元素添加到JSX中以使我们的React代码工作时，我们会破坏HTML语义，尤其是在使用列表（<code>&lt;ol&gt;</code>，<code>&lt;ul&gt;</code>和<code>&lt;dl&gt;</code>）和HTML <code>&lt;table&gt;</code>时。 在这些情况下，我们应该使用React Fragments将多个元素组合在一起。</p>
+<p>Use <code>&lt;Fragment&gt;</code> when a key prop is required:</p>
+<p>在key的属性是必须时使用<code>&lt;Fragment&gt;</code></p>
+<pre><code>import React, { Fragment } from &#39;react&#39;;
+
+function Glossary(props) {
+  return (
+    &lt;dl&gt;
+      {props.items.map(item =&gt; (
+        // Without the `key`, React will fire a key warning
+        &lt;Fragment key={item.id}&gt;
+          &lt;dt&gt;{item.term}&lt;/dt&gt;
+          &lt;dd&gt;{item.description}&lt;/dd&gt;
+        &lt;/Fragment&gt;
+      ))}
+    &lt;/dl&gt;
+  );
+}
+</code></pre><p>Use <code>&lt;&gt;&lt;/&gt;</code> syntax everywhere else:</p>
+<p>在任何地方使用<code>&lt;&gt;&lt;/&gt;</code>语法</p>
+<pre><code>function ListItem({ item }) {
+  return (
+    &lt;&gt;
+      &lt;dt&gt;{item.term}&lt;/dt&gt;
+      &lt;dd&gt;{item.description}&lt;/dd&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre><blockquote>
+<p>即为了不破坏HTML结构的完整性和统一性，可以将React Fragment或者<code>&lt;&gt;&lt;/&gt;</code>添加到React组件返回的内容上以此来保持返回元素的可访问性。</p>
+</blockquote>
+<h3 id="Accessible-Forms-可访问性的表单"><a href="#Accessible-Forms-可访问性的表单" class="headerlink" title="Accessible Forms(可访问性的表单)"></a>Accessible Forms(可访问性的表单)</h3><h4 id="Labeling-标签"><a href="#Labeling-标签" class="headerlink" title="Labeling(标签)"></a>Labeling(标签)</h4><p>Every HTML form control, such as <code>&lt;input&gt;</code> and <code>&lt;textarea&gt;</code>, needs to be labeled accessibly. We need to provide descriptive labels that are also exposed to screen readers.</p>
+<p>每个HTML表单中的控制元件，例如<code>&lt;input&gt;</code>和<code>&lt;textarea&gt;</code>都需要有可访问性的标签。我们也需要也向屏幕阅读器提供公开的描述性标签。</p>
+<p>The following resources show us how to do this:</p>
+<p>下列资源告诉我们如何做到这些：</p>
+<ul>
+<li><a href="https://www.w3.org/WAI/tutorials/forms/labels/" target="_blank" rel="noopener">The W3C shows us how to label elements</a></li>
+<li><a href="http://webaim.org/techniques/forms/controls" target="_blank" rel="noopener">WebAIM shows us how to label elements</a></li>
+<li><p><a href="https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/" target="_blank" rel="noopener">The Paciello Group explains accessible names</a></p>
+</li>
+<li><p><a href="https://www.w3.org/WAI/tutorials/forms/labels/" target="_blank" rel="noopener">W3C 告诉我们如何标记元素</a></p>
+</li>
+<li><a href="http://webaim.org/techniques/forms/controls" target="_blank" rel="noopener">WebAIM告诉我们如何标记元素</a></li>
+<li><a href="https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/" target="_blank" rel="noopener">Paciello项目组介绍了如何让名称具有可访问性</a></li>
+</ul>
+<p>Although these standard HTML practices can be directly used in React, note that the <code>for</code> attribute is written as <code>htmlFor</code> in JSX:</p>
+<p>尽管这些标准的HTML元素可以直接在React中使用，但还要注意<code>for</code>属性在JSX中应当写成’htmlFor’:</p>
+<pre><code>&lt;label htmlFor=&quot;namedInput&quot;&gt;Name:&lt;/label&gt;
+&lt;input id=&quot;namedInput&quot; type=&quot;text&quot; name=&quot;name&quot;/&gt;
+</code></pre><h4 id="Notifying-the-user-of-errors-通知用户错误信息"><a href="#Notifying-the-user-of-errors-通知用户错误信息" class="headerlink" title="Notifying the user of errors(通知用户错误信息)"></a>Notifying the user of errors(通知用户错误信息)</h4><p>Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:</p>
+<p>所有用户都需要能够读懂错误信息。以下链接向我们展示了如何将错误文本展示给屏幕阅读器：</p>
+<ul>
+<li><a href="https://www.w3.org/WAI/tutorials/forms/notifications/" target="_blank" rel="noopener">The W3C demonstrates user notifications</a></li>
+<li><a href="http://webaim.org/techniques/formvalidation/" target="_blank" rel="noopener">WebAIM looks at form validation</a></li>
+<li><a href="https://www.w3.org/WAI/tutorials/forms/notifications/" target="_blank" rel="noopener">W3C演示用户通知示例</a></li>
+<li><a href="http://webaim.org/techniques/formvalidation/" target="_blank" rel="noopener">WebAIM演示表单验证</a></li>
+</ul>
+<h3 id="Focus-Control-焦点控制"><a href="#Focus-Control-焦点控制" class="headerlink" title="Focus Control(焦点控制)"></a>Focus Control(焦点控制)</h3><p>Ensure that your web application can be fully operated with the keyboard only:</p>
+<p>确保您的web应用只可以通过键盘进行操作：</p>
+<ul>
+<li><a href="http://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">WebAIM talks about keyboard accessibility</a></li>
+<li><a href="http://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">WebAIM讨论键盘的可访问性</a></li>
+</ul>
+<h4 id="Keyboard-focus-and-focus-outline-键盘聚焦和轮廓聚焦"><a href="#Keyboard-focus-and-focus-outline-键盘聚焦和轮廓聚焦" class="headerlink" title="Keyboard focus and focus outline(键盘聚焦和轮廓聚焦)"></a>Keyboard focus and focus outline(键盘聚焦和轮廓聚焦)</h4><p>Keyboard focus refers to the current element in the DOM that is selected to accept input from the keyboard. We see it everywhere as a focus outline similar to that shown in the following image:</p>
+<p>键盘聚焦是指选用DOM中的当前元素作为键盘中的输入。这种表现非常常见，与下图所示类似的焦点轮廓类似：</p>
+<p><img src="/images/react_document/03-01-keyboard_focus_button.png" style="margin:0 auto;display:block"></p>
+<p>Only ever use CSS that removes this outline, for example by setting <code>outline: 0</code>, if you are replacing it with another focus outline implementation.</p>
+<p>只可以通过CSS来删除外边框，如果您用另一种聚焦外边框来替换它，可以通过设置<code>outline: 0</code>来实现。</p>
+<h4 id="Mechanisms-to-skip-to-desired-content-跳转到期待的内容的机制"><a href="#Mechanisms-to-skip-to-desired-content-跳转到期待的内容的机制" class="headerlink" title="Mechanisms to skip to desired content(跳转到期待的内容的机制)"></a>Mechanisms to skip to desired content(跳转到期待的内容的机制)</h4><p>Provide a mechanism to allow users to skip past navigation sections in your application as this assists and speeds up keyboard navigation.</p>
+<p>我们提供了一种机制，允许用户在您的应用中跳过导航部分，因为这有助于通过键盘导航。</p>
+<p>Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:</p>
+<p>跳转链接或跳转导航链接通常是隐藏的，只有当用户通过键盘与页面进行交互时才会显示。通过内部页面锚点和一些样式，我们非常容易实现这种功能：</p>
+<ul>
+<li><a href="http://webaim.org/techniques/skipnav/" target="_blank" rel="noopener">WebAIM - Skip Navigation Links</a></li>
+<li><a href="http://webaim.org/techniques/skipnav/" target="_blank" rel="noopener">WebAIM - 跳转导航链接</a></li>
+</ul>
+<h4 id="Programmatically-managing-focus-用编程化的方式来管理焦点"><a href="#Programmatically-managing-focus-用编程化的方式来管理焦点" class="headerlink" title="Programmatically managing focus(用编程化的方式来管理焦点)"></a>Programmatically managing focus(用编程化的方式来管理焦点)</h4><p>Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this, we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.</p>
+<p>我们的React项目会在运行时持续的调整HTML节点，有时会导致键盘丢失焦点或设置到意想不到的元素上。为了修复这个问题，我们需要以正确的方向以编程方式来设置键盘焦点。例如，在一个模式窗口关闭后通过重置键盘焦点到一个按钮上来打开一个模式窗口。</p>
+<p>MDN Web Docs takes a look at this and describes how we can build keyboard-navigable <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets" target="_blank" rel="noopener">JavaScript widgets</a>.</p>
+<p>MDN Web文档考虑到了这方面的问题并向我们介绍了如何搭建键盘导航的<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets" target="_blank" rel="noopener">JavaScript组件</a></p>
+<p>To set focus in React, we can use <a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">Refs to DOM elements</a>.</p>
+<p>为了设置React焦点，我们可以使用<a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">DOM元素的Refs</a></p>
+<p>Using this, we first create a ref to an element in the JSX of a component class:</p>
+<p>为了介绍Refs，我们首先在组件类的JSX中创建一个元素的ref：</p>
+<pre><code>class CustomTextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    // Create a ref to store the textInput DOM element
+    this.textInput = React.createRef();
+  }
+  render() {
+  // Use the `ref` callback to store a reference to the text input DOM
+  // element in an instance field (for example, this.textInput).
+    return (
+      &lt;input
+        type=&quot;text&quot;
+        ref={this.textInput}
+      /&gt;
+    );
+  }
+}
+</code></pre><p>Then we can focus it elsewhere in our component when needed:</p>
+<p>然后当我们需要时，我们可以在组件的任何地方调用focus函数了：</p>
+<pre><code>focus() {
+  // Explicitly focus the text input using the raw DOM API
+  // Note: we&#39;re accessing &quot;current&quot; to get the DOM node
+  this.textInput.current.focus();
+}
+</code></pre><p>Sometimes a parent component needs to set focus to an element in a child component. We can do this by exposing <a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">DOM refs to parent components</a> through a special prop on the child component that forwards the parent’s ref to the child’s DOM node.</p>
+<p>有些时候父组件需要将焦点设置在子组件的一个元素上。我们可以根据<a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">向父组件传递DOM refs</a>通过在子组件上设置一个特殊的属性,然后父组件通过ref指向子组件的DOM节点。</p>
+<pre><code>function CustomTextInput(props) {
+  return (
+    &lt;div&gt;
+      &lt;input ref={props.inputRef} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inputElement = React.createRef();
+  }
+  render() {
+    return (
+      &lt;CustomTextInput inputRef={this.inputElement} /&gt;
+    );
+  }
+}
+/&gt;
+
+// Now you can set focus when required.
+this.inputElement.current.focus();
+</code></pre><p>When using a HOC to extend components, it is recommended to <a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">forward the ref</a> to the wrapped component using the <code>forwardRef</code> function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.</p>
+<p>当使用HOC扩展组件时，建议使用React的<code>forwardRef</code>函数<a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">将ref传到</a>到包装好的组件。如果第三方库HOC没有使用向下传递ref，上述模式仍然可以用作备用方案。</p>
+<p>A great focus management example is the <a href="https://github.com/davidtheclark/react-aria-modal" target="_blank" rel="noopener">react-aria-modal</a>. This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.</p>
+<p>一个很好的焦点管理的例子就是<a href="https://github.com/davidtheclark/react-aria-modal" target="_blank" rel="noopener">react-aria-modal</a>。 这是一个相当罕见的完全无障碍的窗口模式的例子。它不仅将初始焦点设置在取消按钮上以避免键盘焦点陷入该模式中（防止键盘用户意外激活成功操作）还将焦点重置回最初触发模式的元素。</p>
+<blockquote>
+<p>Note:<br>While this is a very important accessibility feature, it is also a technique that should be used judiciously. Use it to repair the keyboard focus flow when it is disturbed, not to try and anticipate how users want to use applications.</p>
+<p>提示：<br>虽然这是可访问性非常重要的一个特点，但它也是一种应该谨慎使用的技术。用它修复键盘焦点流时，不要试图预测用户是如何使用应用程序的。</p>
+</blockquote>
+<h3 id="More-Complex-Widgets-更复杂的组件"><a href="#More-Complex-Widgets-更复杂的组件" class="headerlink" title="More Complex Widgets(更复杂的组件)"></a>More Complex Widgets(更复杂的组件)</h3><p>A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible, even the most complex widget can be coded accessibly.</p>
+<p>更复杂的用户体验不应该意味着可访问性更差。尽管通过类似HTML编码最容易实现可访问性，但即使是最复杂的小部件也可以有良好的访问性。</p>
+<p>Here we require knowledge of <a href="https://www.w3.org/TR/wai-aria/#roles" target="_blank" rel="noopener">ARIA Roles</a> as well as <a href="https://www.w3.org/TR/wai-aria/#states_and_properties" target="_blank" rel="noopener">ARIA States and Properties</a>. These are toolboxes filled with HTML attributes that are fully supported in JSX and enable us to construct fully accessible, highly functional React components.</p>
+<p>在这里，我们需要知道<a href="https://www.w3.org/TR/wai-aria/#roles" target="_blank" rel="noopener">ARIA角色</a>以及<a href="https://www.w3.org/TR/wai-aria/#states_and_properties" target="_blank" rel="noopener">ARIA的状态和属性</a>。 这些工具箱包含了JSX完全支持的HTML属性，使我们能够构建可访问性良好，功能强大的React组件。</p>
+<p>Each type of widget has a specific design pattern and is expected to function in a certain way by users and user agents alike:</p>
+<p>每个类型的组件都有一个特定的设计模式，并且预计会以某种方式由用户和用户代理运行：</p>
+<ul>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/#aria_ex" target="_blank" rel="noopener">WAI-ARIA Authoring Practices - Design Patterns and Widgets</a></li>
+<li><a href="http://heydonworks.com/practical_aria_examples/" target="_blank" rel="noopener">Heydon Pickering - ARIA Examples</a></li>
+<li><p><a href="https://inclusive-components.design/" target="_blank" rel="noopener">Inclusive Components</a></p>
+</li>
+<li><p><a href="https://www.w3.org/TR/wai-aria-practices/#aria_ex" target="_blank" rel="noopener">WAI-ARIA创作实践 - 设计模式和小工具</a></p>
+</li>
+<li><a href="http://heydonworks.com/practical_aria_examples/" target="_blank" rel="noopener">Heydon Pickering - ARIA示例</a></li>
+<li><a href="https://inclusive-components.design/" target="_blank" rel="noopener">包容性组件</a></li>
+</ul>
+<h3 id="Other-Points-for-Consideration-其他需要考虑的点"><a href="#Other-Points-for-Consideration-其他需要考虑的点" class="headerlink" title="Other Points for Consideration(其他需要考虑的点)"></a>Other Points for Consideration(其他需要考虑的点)</h3><h4 id="Setting-the-language-设置语言"><a href="#Setting-the-language-设置语言" class="headerlink" title="Setting the language(设置语言)"></a>Setting the language(设置语言)</h4><p>Indicate the human language of page texts as screen reader software uses this to select the correct voice settings:</p>
+<p>当屏幕阅读器软件选择语音设置时，请指明页面上对应的语言：</p>
+<ul>
+<li><a href="http://webaim.org/techniques/screenreader/#language" target="_blank" rel="noopener">WebAIM - Document Language</a></li>
+<li><a href="http://webaim.org/techniques/screenreader/#language" target="_blank" rel="noopener">WebAIM - 文本语言</a></li>
+</ul>
+<h4 id="Setting-the-document-title-设置文本标题"><a href="#Setting-the-document-title-设置文本标题" class="headerlink" title="Setting the document title(设置文本标题)"></a>Setting the document title(设置文本标题)</h4><p>Set the document <code>&lt;title&gt;</code> to correctly describe the current page content as this ensures that the user remains aware of the current page context:</p>
+<p>设置文本的<code>&lt;title&gt;</code>来正确的描述现在页面的内容，以此来保证用户始终正确了解页面的内容：</p>
+<ul>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" target="_blank" rel="noopener">WCAG - Understanding the Document Title Requirement</a></li>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" target="_blank" rel="noopener">WCAG - 理解文档标题的需要</a></li>
+</ul>
+<p>We can set this in React using the <a href="https://github.com/gaearon/react-document-title" target="_blank" rel="noopener">React Document Title Component.</a></p>
+<p>我们可以使用<a href="https://github.com/gaearon/react-document-title" target="_blank" rel="noopener">React文档标题组件</a>在React中使用。</p>
+<h4 id="Color-contrast-颜色对比"><a href="#Color-contrast-颜色对比" class="headerlink" title="Color contrast(颜色对比)"></a>Color contrast(颜色对比)</h4><p>Ensure that all readable text on your website has sufficient color contrast to remain maximally readable by users with low vision:</p>
+<p>确保您的网站页面上所有可阅读的文本度有足够的颜色对比，以便视力不便的用户也有最好的阅读体验。</p>
+<ul>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank" rel="noopener">WCAG - Understanding the Color Contrast Requirement</a></li>
+<li><a href="https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/" target="_blank" rel="noopener">Everything About Color Contrast And Why You Should Rethink It</a></li>
+<li><p><a href="http://a11yproject.com/posts/what-is-color-contrast/" target="_blank" rel="noopener">A11yProject - What is Color Contrast</a></p>
+</li>
+<li><p><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank" rel="noopener">WCAG - 理解颜色对比的需要</a></p>
+</li>
+<li><a href="https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/" target="_blank" rel="noopener">有关颜色对比的所有事及为什么应该重新思考它</a></li>
+<li><a href="http://a11yproject.com/posts/what-is-color-contrast/" target="_blank" rel="noopener">A11yProject - 什么是颜色对比</a></li>
+</ul>
+<p>It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can <a href="http://jxnblk.com/colorable/" target="_blank" rel="noopener">calculate an entire accessible color palette with Colorable</a>.</p>
+<p>手动计算网站中所有组件适当的颜色组合可能是非常繁琐的，因此您可以<a href="http://jxnblk.com/colorable/" target="_blank" rel="noopener">使用Colorable来计算整个可访问的调色板</a>。</p>
+<p>Both the aXe and WAVE tools mentioned below also include color contrast tests and will report on contrast errors.</p>
+<p>下面提到的ax和WAVE工具都包括颜色对比测试，并会提到对比度误差。</p>
+<p>If you want to extend your contrast testing abilities you can use these tools:</p>
+<p>如果您想扩展您的颜色对比测试能力，您可以使用下列工具：</p>
+<ul>
+<li><a href="http://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM - Color Contrast Checker</a></li>
+<li><p><a href="https://www.paciellogroup.com/resources/contrastanalyser/" target="_blank" rel="noopener">The Paciello Group - Color Contrast Analyzer</a></p>
+</li>
+<li><p><a href="http://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM - 颜色对比度检查器</a></p>
+</li>
+<li><a href="https://www.paciellogroup.com/resources/contrastanalyser/" target="_blank" rel="noopener">Paciello组 - 颜色对比处理器</a></li>
+</ul>
+<h3 id="Development-and-Testing-Tools-开发及测试工具"><a href="#Development-and-Testing-Tools-开发及测试工具" class="headerlink" title="Development and Testing Tools(开发及测试工具)"></a>Development and Testing Tools(开发及测试工具)</h3><p>There are a number of tools we can use to assist in the creation of accessible web applications.</p>
+<p>下面是可以用来协助我们创建可访问性的网站的一系列的工具。</p>
+<h4 id="The-keyboard-键盘"><a href="#The-keyboard-键盘" class="headerlink" title="The keyboard(键盘)"></a>The keyboard(键盘)</h4><p>By far the easiest and also one of the most important checks is to test if your entire website can be reached and used with the keyboard alone. Do this by:</p>
+<p>到目前为止，最简单也是最重要的检查之一是测试整个网站是否可以与键盘一起使用。通过下面几步，我们可以做到这一点：</p>
+<ol>
+<li>Plugging out your mouse.</li>
+<li>Using Tab and Shift+Tab to browse.</li>
+<li>Using Enter to activate elements.</li>
+<li><p>Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.</p>
+</li>
+<li><p>拔下鼠标。</p>
+</li>
+<li>使用Tab和Shift + Tab浏览。</li>
+<li>使用Enter激活元素。</li>
+<li>根据需要，使用键盘上的箭头键与某些元素（如菜单和下拉菜单）进行交互。</li>
+</ol>
+<h4 id="Development-assistance-开发者工具"><a href="#Development-assistance-开发者工具" class="headerlink" title="Development assistance(开发者工具)"></a>Development assistance(开发者工具)</h4><p>We can check some accessibility features directly in our JSX code. Often intellisense checks are already provided in JSX aware IDE’s for the ARIA roles, states and properties. We also have access to the following tool:</p>
+<p>我们可以在我们的JSX代码中直接检测一些可访问性的因素。通常IDE会扮演ARIA的角色自动进行状态和属性的检测。 我们也可以访问以下工具：</p>
+<blockquote>
+<p>eslint-plugin-jsx-a11y</p>
+</blockquote>
+<p>The <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y" target="_blank" rel="noopener">eslint-plugin-jsx-a11y</a> plugin for ESLint provides AST linting feedback regarding accessibility issues in your JSX. Many IDE’s allow you to integrate these findings directly into code analysis and source code windows.</p>
+<p>ESLint的<a href="https://github.com/evcohen/eslint-plugin-jsx-a11y" target="_blank" rel="noopener">eslint-plugin-jsx-a11y</a>提供了JSX在AST中可访问性问题的linting反馈。许多IDE允许您将这些问题直接集成到代码分析窗口和源代码窗口中。</p>
+<p><a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a> has this plugin with a subset of rules activated. If you want to enable even more accessibility rules, you can create an <code>.eslintrc</code> file in the root of your project with this content:</p>
+<p><a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>已有这个插件并沿用其中的一些规则。如果您希望使用更多可访问性的规则，则可以使用以下指令在项目的根目录下创建<code>.eslintrc</code>文件：</p>
+<pre><code>{
+  &quot;extends&quot;: [&quot;react-app&quot;, &quot;plugin:jsx-a11y/recommended&quot;],
+  &quot;plugins&quot;: [&quot;jsx-a11y&quot;]
+}
+</code></pre><h4 id="Testing-accessibility-in-the-browser-在浏览器中测试可访问性"><a href="#Testing-accessibility-in-the-browser-在浏览器中测试可访问性" class="headerlink" title="Testing accessibility in the browser(在浏览器中测试可访问性)"></a>Testing accessibility in the browser(在浏览器中测试可访问性)</h4><p>A number of tools exist that can run accessibility audits on web pages in your browser. Please use them in combination with other accessibility checks mentioned here as they can only test the technical accessibility of your HTML.</p>
+<p>许多工具可以在浏览器的网页上测试可访问性。请将它们与其他可访问性检查结合使用，因为它们只能测试与HTML相关的可访问性。</p>
+<blockquote>
+<p>aXe, aXe-core and react-axe</p>
+</blockquote>
+<p>Deque Systems offers <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener">aXe-core</a> for automated and end-to-end accessibility tests of your applications. This module includes integrations for Selenium.</p>
+<p>Deque Systems为您的应用程序的自动化和端对端可访问性测试提供了<a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener">ax-core</a>。 该模块包含Selenium的集成。</p>
+<p><a href="https://www.deque.com/products/axe/" target="_blank" rel="noopener">The Accessibility Engine</a> or aXe, is an accessibility inspector browser extension built on <code>aXe-core</code>.</p>
+<p><a href="https://www.deque.com/products/axe/" target="_blank" rel="noopener">可访问性的引擎</a>或者aXe,是一个内嵌在<code>aXe-core</code>上的检测可访问性的浏览器插件。</p>
+<p>You can also use the <a href="https://github.com/dylanb/react-axe" target="_blank" rel="noopener">react-axe</a> module to report these accessibility findings directly to the console while developing and debugging.</p>
+<p>您也可以使用<a href="https://github.com/dylanb/react-axe" target="_blank" rel="noopener">react-axe</a>模块在开发和调试时直接向控制台报告这些可访问性结果。</p>
+<blockquote>
+<p>WebAIM WAVE</p>
+</blockquote>
+<p>The <a href="http://wave.webaim.org/extension/" target="_blank" rel="noopener">Web Accessibility Evaluation Tool</a> is another accessibility browser extension.</p>
+<p><a href="http://wave.webaim.org/extension/" target="_blank" rel="noopener">网络可访问性评估工具</a>是另一个可访问性的浏览器插件。</p>
+<blockquote>
+<p>Accessibility inspectors and the Accessibility Tree(可访问性检测器及可访问性树)</p>
+</blockquote>
+<p><a href="https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/" target="_blank" rel="noopener">The Accessibility Tree</a> is a subset of the DOM tree that contains accessible objects for every DOM element that should be exposed to assistive technology, such as screen readers.</p>
+<p><a href="https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/" target="_blank" rel="noopener">可访问性树</a>是DOM树的子集，其中包含每个DOM元素的可访问对象，这些元素会暴露给可访问的设备，例如屏幕阅读器。</p>
+<p>In some browsers we can easily view the accessibility information for each element in the accessibility tree:</p>
+<p>在一些浏览器中，我们可以轻松地查看可访问性功能树中每个元素的可访问性信息：</p>
+<ul>
+<li>Activate the Accessibility Inspector in Chrome</li>
+<li><p>Using the Accessibility Inspector in OS X Safari</p>
+</li>
+<li><p>在Chrome中激活辅助功能检查器</p>
+</li>
+<li>在OS X Safari中使用辅助功能检查器</li>
+</ul>
+<h4 id="Screen-readers-屏幕阅读器"><a href="#Screen-readers-屏幕阅读器" class="headerlink" title="Screen readers(屏幕阅读器)"></a>Screen readers(屏幕阅读器)</h4><p>Testing with a screen reader should form part of your accessibility tests.</p>
+<p>测试屏幕阅读器应该是您可访问性测试的一部分。</p>
+<p>Please note that browser / screen reader combinations matter. It is recommended that you test your application in the browser best suited to your screen reader of choice.</p>
+<p>请注意，浏览器/屏幕阅读器的组合很重要。建议您在最适合的屏幕阅读器的浏览器中测试您的应用程序。</p>
+<h4 id="Commonly-Used-Screen-Readers-通用的屏幕阅读器"><a href="#Commonly-Used-Screen-Readers-通用的屏幕阅读器" class="headerlink" title="Commonly Used Screen Readers(通用的屏幕阅读器)"></a>Commonly Used Screen Readers(通用的屏幕阅读器)</h4><blockquote>
+<p>NVDA in Firefox</p>
+</blockquote>
+<p><a href="https://www.nvaccess.org/" target="_blank" rel="noopener">NonVisual Desktop Access</a> or NVDA is an open source Windows screen reader that is widely used.</p>
+<p><a href="https://www.nvaccess.org/" target="_blank" rel="noopener">不可视的桌面访问</a>或者NVDA时一个广泛使用的开源的Windows屏幕阅读器。</p>
+<p>Refer to the following guides on how to best use NVDA:</p>
+<p>您可以参考下列的目录来学习如何最好的使用NVDA：</p>
+<ul>
+<li><a href="http://webaim.org/articles/nvda/" target="_blank" rel="noopener">WebAIM - Using NVDA to Evaluate Web Accessibility</a></li>
+<li><p><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts" target="_blank" rel="noopener">Deque - NVDA Keyboard Shortcuts</a></p>
+</li>
+<li><p><a href="http://webaim.org/articles/nvda/" target="_blank" rel="noopener">WebAIM - 使用NVDA来评估网络的可访问性</a></p>
+</li>
+<li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts" target="_blank" rel="noopener">Deque - NVDA键盘的快捷键</a></li>
+</ul>
+<blockquote>
+<p>VoiceOver in Safari</p>
+</blockquote>
+<p>VoiceOver is an integrated screen reader on Apple devices.</p>
+<p>VoiceOver是Apple设备上的集成屏幕阅读器。</p>
+<p>Refer to the following guides on how activate and use VoiceOver:</p>
+<p>您可以参考下列的目录来学习如何激活并使用VoiceOver：</p>
+<ul>
+<li><a href="http://webaim.org/articles/voiceover/" target="_blank" rel="noopener">WebAIM - Using VoiceOver to Evaluate Web Accessibility</a></li>
+<li><a href="https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts" target="_blank" rel="noopener">Deque - VoiceOver for OS X Keyboard Shortcuts</a></li>
+<li><p><a href="https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts" target="_blank" rel="noopener">Deque - VoiceOver for iOS Shortcuts</a></p>
+</li>
+<li><p><a href="http://webaim.org/articles/voiceover/" target="_blank" rel="noopener">WebAIM - 使用VoiceOver来评估Web可访问性</a></p>
+</li>
+<li><a href="https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts" target="_blank" rel="noopener">Deque- VoiceOver在OS X的快捷键</a></li>
+<li><a href="https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts" target="_blank" rel="noopener">Deque - VoiceOver在iOS上的快捷键</a></li>
+</ul>
+<blockquote>
+<p>JAWS in Internet Explorer</p>
+</blockquote>
+<p><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank" rel="noopener">Job Access With Speech</a> or JAWS, is a prolifically used screen reader on Windows.</p>
+<p><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank" rel="noopener">Job Access With Speech</a>或JAWS进行工作访问是Windows上一种多用途的屏幕阅读器。</p>
+<p>Refer to the following guides on how to best use JAWS:</p>
+<p>参考下列目录来学习如何最好的使用JAWS：</p>
+<ul>
+<li><a href="http://webaim.org/articles/jaws/" target="_blank" rel="noopener">WebAIM - Using JAWS to Evaluate Web Accessibility</a></li>
+<li><p><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts" target="_blank" rel="noopener">Deque - JAWS Keyboard Shortcuts</a></p>
+</li>
+<li><p><a href="http://webaim.org/articles/jaws/" target="_blank" rel="noopener">WebAIM - 使用JAWS来评估Web的可访问性</a></p>
+</li>
+<li><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts" target="_blank" rel="noopener">Deque - JAWS键盘快捷键</a></li>
+</ul>
+<h4 id="Other-Screen-Readers-其他的屏幕阅读器"><a href="#Other-Screen-Readers-其他的屏幕阅读器" class="headerlink" title="Other Screen Readers(其他的屏幕阅读器)"></a>Other Screen Readers(其他的屏幕阅读器)</h4><blockquote>
+<p>ChromeVox in Google Chrome</p>
+</blockquote>
+<p><a href="http://www.chromevox.com/" target="_blank" rel="noopener">ChromeVox</a> is an integrated screen reader on Chromebooks and is available as an extension for Google Chrome.</p>
+<p><a href="http://www.chromevox.com/" target="_blank" rel="noopener">ChromeVox</a>是Chromebook上的集成屏幕阅读器，可作为Google Chrome的扩展程序。</p>
+<p>Refer to the following guides on how best to use ChromeVox:</p>
+<p>参考下列目录来学习如何最好的使用ChromeVox：</p>
+<ul>
+<li><a href="https://support.google.com/chromebook/answer/7031755?hl=en" target="_blank" rel="noopener">Google Chromebook Help - Use the Built-in Screen Reader</a></li>
+<li><p><a href="http://www.chromevox.com/keyboard_shortcuts.html" target="_blank" rel="noopener">ChromeVox Classic Keyboard Shortcuts Reference</a></p>
+</li>
+<li><p><a href="https://support.google.com/chromebook/answer/7031755?hl=en" target="_blank" rel="noopener">Google Chromebook帮助 - 使用内建的屏幕阅读器</a></p>
+</li>
+<li><a href="http://www.chromevox.com/keyboard_shortcuts.html" target="_blank" rel="noopener">ChromeVox Classic传统的快捷键参阅</a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> react document </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react document </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[react组件之间的通信]]></title>
       <url>/2018/06/23/blog/react_communication/</url>
       <content type="html"><![CDATA[<h2 id="react组件之间的通信"><a href="#react组件之间的通信" class="headerlink" title="react组件之间的通信"></a>react组件之间的通信</h2><p>说 React 组件间通讯之前，我们先来讨论一下 React 组件究竟有多少种层级间的关系。假设我们开发的项目是一个纯 React 的项目，那我们项目应该有如下类似的关系：</p>
@@ -170,6 +549,636 @@ class Child_2_1 extends Component{
         <tags>
             
             <tag> 前端问题 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ES6 -- 10.Symbol]]></title>
+      <url>/2018/06/19/ES6/10.symbol/</url>
+      <content type="html"><![CDATA[<h1 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h1><h2 id="概-述"><a href="#概-述" class="headerlink" title="概 述"></a>概 述</h2><p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入<code>Symbol</code>的原因。</p>
+<p>ES6 引入了一种新的原始数据类型<code>Symbol</code>，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：<code>undefined</code>、<code>null</code>、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
+<p>Symbol 值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p>
+<pre><code>let s = Symbol();
+
+typeof s
+// &quot;symbol&quot;
+</code></pre><p>上面代码中，变量<code>s</code>就是一个独一无二的值。<code>typeof</code>运算符的结果，表明变量<code>s</code>是 Symbol 数据类型，而不是字符串之类的其他类型。</p>
+<p>注意，<code>Symbol</code>函数前不能使用<code>new</code>命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</p>
+<p><code>Symbol</code>函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
+<pre><code>let s1 = Symbol(&#39;foo&#39;);
+let s2 = Symbol(&#39;bar&#39;);
+
+s1 // Symbol(foo)
+s2 // Symbol(bar)
+
+s1.toString() // &quot;Symbol(foo)&quot;
+s2.toString() // &quot;Symbol(bar)&quot;
+</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>是两个 Symbol 值。如果不加参数，它们在控制台的输出都是<code>Symbol()</code>，不利于区分。有了参数以后，就等于为它们加上了描述，输出的时候就能够分清，到底是哪一个值。</p>
+<p>如果 Symbol 的参数是一个对象，就会调用该对象的<code>toString</code>方法，将其转为字符串，然后才生成一个 Symbol 值。</p>
+<pre><code>const obj = {
+  toString() {
+    return &#39;abc&#39;;
+  }
+};
+const sym = Symbol(obj);
+sym // Symbol(abc)
+</code></pre><p>注意，<code>Symbol</code>函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的<code>Symbol</code>函数的返回值是不相等的。</p>
+<pre><code>// 没有参数的情况
+let s1 = Symbol();
+let s2 = Symbol();
+
+s1 === s2 // false
+
+// 有参数的情况
+let s1 = Symbol(&#39;foo&#39;);
+let s2 = Symbol(&#39;foo&#39;);
+
+s1 === s2 // false
+</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>都是<code>Symbol</code>函数的返回值，而且参数相同，但是它们是不相等的。</p>
+<p>Symbol 值不能与其他类型的值进行运算，会报错。</p>
+<pre><code>let sym = Symbol(&#39;My symbol&#39;);
+
+&quot;your symbol is &quot; + sym
+// TypeError: can&#39;t convert symbol to string
+`your symbol is ${sym}`
+// TypeError: can&#39;t convert symbol to string
+</code></pre><p>但是，Symbol 值可以显式转为字符串。</p>
+<pre><code>let sym = Symbol(&#39;My symbol&#39;);
+
+String(sym) // &#39;Symbol(My symbol)&#39;
+sym.toString() // &#39;Symbol(My symbol)&#39;
+</code></pre><p>另外，Symbol 值也可以转为布尔值，但是不能转为数值。</p>
+<pre><code>let sym = Symbol();
+Boolean(sym) // true
+!sym  // false
+
+if (sym) {
+  // ...
+}
+
+Number(sym) // TypeError
+sym + 2 // TypeError
+</code></pre><h2 id="作为属性名的-Symbol"><a href="#作为属性名的-Symbol" class="headerlink" title="作为属性名的 Symbol"></a>作为属性名的 Symbol</h2><p>由于每一个 Symbol 值都是不相等的，这意味着 Symbol 值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性。这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖。</p>
+<pre><code>let mySymbol = Symbol();
+
+// 第一种写法
+let a = {};
+a[mySymbol] = &#39;Hello!&#39;;
+
+// 第二种写法
+let a = {
+  [mySymbol]: &#39;Hello!&#39;
+};
+
+// 第三种写法
+let a = {};
+Object.defineProperty(a, mySymbol, { value: &#39;Hello!&#39; });
+
+// 以上写法都得到同样结果
+a[mySymbol] // &quot;Hello!&quot;
+</code></pre><p>上面代码通过方括号结构和<code>Object.defineProperty</code>，将对象的属性名指定为一个 Symbol 值。</p>
+<p>注意，Symbol 值作为对象属性名时，不能用点运算符。</p>
+<pre><code>const mySymbol = Symbol();
+const a = {};
+
+a.mySymbol = &#39;Hello!&#39;;
+a[mySymbol] // undefined
+a[&#39;mySymbol&#39;] // &quot;Hello!&quot;
+</code></pre><p>上面代码中，因为点运算符后面总是字符串，所以不会读取<code>mySymbol</code>作为标识名所指代的那个值，导致<code>a</code>的属性名实际上是一个字符串，而不是一个 Symbol 值。</p>
+<p>同理，在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中。</p>
+<pre><code>let s = Symbol();
+
+let obj = {
+  [s]: function (arg) { ... }
+};
+
+obj[s](123);
+</code></pre><p>上面代码中，如果<code>s</code>不放在方括号中，该属性的键名就是字符串<code>s</code>，而不是<code>s</code>所代表的那个 Symbol 值。</p>
+<p>采用增强的对象写法，上面代码的<code>obj</code>对象可以写得更简洁一些。</p>
+<pre><code>let obj = {
+  [s](arg) { ... }
+};
+</code></pre><p>Symbol 类型还可以用于定义一组常量，保证这组常量的值都是不相等的。</p>
+<pre><code>const log = {};
+
+log.levels = {
+  DEBUG: Symbol(&#39;debug&#39;),
+  INFO: Symbol(&#39;info&#39;),
+  WARN: Symbol(&#39;warn&#39;)
+};
+console.log(log.levels.DEBUG, &#39;debug message&#39;);
+console.log(log.levels.INFO, &#39;info message&#39;);
+</code></pre><p>下面是另外一个例子。</p>
+<pre><code>const COLOR_RED    = Symbol();
+const COLOR_GREEN  = Symbol();
+
+function getComplement(color) {
+  switch (color) {
+    case COLOR_RED:
+      return COLOR_GREEN;
+    case COLOR_GREEN:
+      return COLOR_RED;
+    default:
+      throw new Error(&#39;Undefined color&#39;);
+    }
+}
+</code></pre><p>常量使用 Symbol 值最大的好处，就是其他任何值都不可能有相同的值了，因此可以保证上面的<code>switch</code>语句会按设计的方式工作。</p>
+<p>还有一点需要注意，Symbol 值作为属性名时，该属性还是公开属性，不是私有属性。</p>
+<h2 id="实例：消除魔术字符串"><a href="#实例：消除魔术字符串" class="headerlink" title="实例：消除魔术字符串"></a>实例：消除魔术字符串</h2><p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的变量代替。</p>
+<pre><code>function getArea(shape, options) {
+  let area = 0;
+
+  switch (shape) {
+    case &#39;Triangle&#39;: // 魔术字符串
+      area = .5 * options.width * options.height;
+      break;
+    /* ... more code ... */
+  }
+
+  return area;
+}
+
+getArea(&#39;Triangle&#39;, { width: 100, height: 100 }); // 魔术字符串
+</code></pre><p>上面代码中，字符串<code>Triangle</code>就是一个魔术字符串。它多次出现，与代码形成“强耦合”，不利于将来的修改和维护。</p>
+<p>常用的消除魔术字符串的方法，就是把它写成一个变量。</p>
+<pre><code>const shapeType = {
+  triangle: &#39;Triangle&#39;
+};
+
+function getArea(shape, options) {
+  let area = 0;
+  switch (shape) {
+    case shapeType.triangle:
+      area = .5 * options.width * options.height;
+      break;
+  }
+  return area;
+}
+
+getArea(shapeType.triangle, { width: 100, height: 100 });
+</code></pre><p>上面代码中，我们把<code>Triangle</code>写成<code>shapeType</code>对象的<code>triangle</code>属性，这样就消除了强耦合。</p>
+<p>如果仔细分析，可以发现<code>shapeType.triangle</code>等于哪个值并不重要，只要确保不会跟其他<code>shapeType</code>属性的值冲突即可。因此，这里就很适合改用 Symbol 值。</p>
+<pre><code>const shapeType = {
+  triangle: Symbol()
+};
+</code></pre><p>上面代码中，除了将<code>shapeType.triangle</code>的值设为一个 Symbol，其他地方都不用修改。</p>
+<h2 id="属性名的遍历"><a href="#属性名的遍历" class="headerlink" title="属性名的遍历"></a>属性名的遍历</h2><p>Symbol 作为属性名，该属性不会出现在<code>for...in</code>、<code>for...of</code>循环中，也不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>、<code>JSON.stringify()</code>返回。但是，它也不是私有属性，有一个<code>Object.getOwnPropertySymbols</code>方法，可以获取指定对象的所有 Symbol 属性名。</p>
+<p><code>Object.getOwnPropertySymbols</code>方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。</p>
+<pre><code>const obj = {};
+let a = Symbol(&#39;a&#39;);
+let b = Symbol(&#39;b&#39;);
+
+obj[a] = &#39;Hello&#39;;
+obj[b] = &#39;World&#39;;
+
+const objectSymbols = Object.getOwnPropertySymbols(obj);
+
+objectSymbols
+// [Symbol(a), Symbol(b)]
+</code></pre><p>下面是另一个例子，<code>Object.getOwnPropertySymbols</code>方法与<code>for...in</code>循环、<code>Object.getOwnPropertyNames</code>方法进行对比的例子。</p>
+<pre><code>const obj = {};
+
+let foo = Symbol(&quot;foo&quot;);
+
+Object.defineProperty(obj, foo, {
+  value: &quot;foobar&quot;,
+});
+
+for (let i in obj) {
+  console.log(i); // 无输出
+}
+
+Object.getOwnPropertyNames(obj)
+// []
+
+Object.getOwnPropertySymbols(obj)
+// [Symbol(foo)]
+</code></pre><p>上面代码中，使用<code>Object.getOwnPropertyNames</code>方法得不到<code>Symbol</code>属性名，需要使用<code>Object.getOwnPropertySymbols</code>方法。</p>
+<p>另一个新的 API，<code>Reflect.ownKeys</code>方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。</p>
+<pre><code>let obj = {
+  [Symbol(&#39;my_key&#39;)]: 1,
+  enum: 2,
+  nonEnum: 3
+};
+
+Reflect.ownKeys(obj)
+//  [&quot;enum&quot;, &quot;nonEnum&quot;, Symbol(my_key)]
+</code></pre><p>由于以 Symbol 值作为名称的属性，不会被常规方法遍历得到。我们可以利用这个特性，为对象定义一些非私有的、但又希望只用于内部的方法。</p>
+<pre><code>let size = Symbol(&#39;size&#39;);
+
+class Collection {
+  constructor() {
+    this[size] = 0;
+  }
+
+  add(item) {
+    this[this[size]] = item;
+    this[size]++;
+  }
+
+  static sizeOf(instance) {
+    return instance[size];
+  }
+}
+
+let x = new Collection();
+Collection.sizeOf(x) // 0
+
+x.add(&#39;foo&#39;);
+Collection.sizeOf(x) // 1
+
+Object.keys(x) // [&#39;0&#39;]
+Object.getOwnPropertyNames(x) // [&#39;0&#39;]
+Object.getOwnPropertySymbols(x) // [Symbol(size)]
+</code></pre><p>上面代码中，对象<code>x</code>的<code>size</code>属性是一个 Symbol 值，所以<code>Object.keys(x)</code>、<code>Object.getOwnPropertyNames(x)</code>都无法获取它。这就造成了一种非私有的内部方法的效果。</p>
+<h2 id="Symbol-for-，Symbol-keyFor"><a href="#Symbol-for-，Symbol-keyFor" class="headerlink" title="Symbol.for()，Symbol.keyFor()"></a>Symbol.for()，Symbol.keyFor()</h2><p>有时，我们希望重新使用同一个 Symbol 值，<code>Symbol.for</code>方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。</p>
+<pre><code>let s1 = Symbol.for(&#39;foo&#39;);
+let s2 = Symbol.for(&#39;foo&#39;);
+
+s1 === s2 // true
+</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>都是 Symbol 值，但是它们都是同样参数的<code>Symbol.for</code>方法生成的，所以实际上是同一个值。</p>
+<p><code>Symbol.for()</code>与<code>Symbol()</code>这两种写法，都会生成新的 Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。<code>Symbol.for()</code>不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的<code>key</code>是否已经存在，如果不存在才会新建一个值。比如，如果你调用<code>Symbol.for(&quot;cat&quot;)</code>30 次，每次都会返回同一个 Symbol 值，但是调用<code>Symbol(&quot;cat&quot;)</code>30 次，会返回 30 个不同的 Symbol 值。</p>
+<pre><code>Symbol.for(&quot;bar&quot;) === Symbol.for(&quot;bar&quot;)
+// true
+
+Symbol(&quot;bar&quot;) === Symbol(&quot;bar&quot;)
+// false
+</code></pre><p>上面代码中，由于<code>Symbol()</code>写法没有登记机制，所以每次调用都会返回一个不同的值。</p>
+<p><code>Symbol.keyFor</code>方法返回一个已登记的 Symbol 类型值的<code>key</code>。</p>
+<pre><code>let s1 = Symbol.for(&quot;foo&quot;);
+Symbol.keyFor(s1) // &quot;foo&quot;
+
+let s2 = Symbol(&quot;foo&quot;);
+Symbol.keyFor(s2) // undefined
+</code></pre><p>上面代码中，变量<code>s2</code>属于未登记的 Symbol 值，所以返回<code>undefined</code>。</p>
+<p>需要注意的是，<code>Symbol.for</code>为 Symbol 值登记的名字，是全局环境的，可以在不同的 iframe 或 service worker 中取到同一个值。</p>
+<pre><code>iframe = document.createElement(&#39;iframe&#39;);
+iframe.src = String(window.location);
+document.body.appendChild(iframe);
+
+iframe.contentWindow.Symbol.for(&#39;foo&#39;) === Symbol.for(&#39;foo&#39;)
+// true
+</code></pre><p>上面代码中，iframe 窗口生成的 Symbol 值，可以在主页面得到。</p>
+<h2 id="实例：模块的-Singleton-模式"><a href="#实例：模块的-Singleton-模式" class="headerlink" title="实例：模块的 Singleton 模式"></a>实例：模块的 Singleton 模式</h2><p>Singleton 模式指的是调用一个类，任何时候返回的都是同一个实例。</p>
+<p>对于 Node 来说，模块文件可以看成是一个类。怎么保证每次执行这个模块文件，返回的都是同一个实例呢？</p>
+<p>很容易想到，可以把实例放到顶层对象<code>global</code>。</p>
+<pre><code>// mod.js
+function A() {
+  this.foo = &#39;hello&#39;;
+}
+
+if (!global._foo) {
+  global._foo = new A();
+}
+
+module.exports = global._foo;
+</code></pre><p>然后，加载上面的<code>mod.js</code>。</p>
+<pre><code>const a = require(&#39;./mod.js&#39;);
+console.log(a.foo);
+</code></pre><p>上面代码中，变量<code>a</code>任何时候加载的都是<code>A</code>的同一个实例。</p>
+<p>但是，这里有一个问题，全局变量<code>global._foo</code>是可写的，任何文件都可以修改。</p>
+<pre><code>global._foo = { foo: &#39;world&#39; };
+
+const a = require(&#39;./mod.js&#39;);
+console.log(a.foo);
+</code></pre><p>上面的代码，会使得加载<code>mod.js</code>的脚本都失真。</p>
+<p>为了防止这种情况出现，我们就可以使用 Symbol。</p>
+<pre><code>// mod.js
+const FOO_KEY = Symbol.for(&#39;foo&#39;);
+
+function A() {
+  this.foo = &#39;hello&#39;;
+}
+
+if (!global[FOO_KEY]) {
+  global[FOO_KEY] = new A();
+}
+
+module.exports = global[FOO_KEY];
+</code></pre><p>上面代码中，可以保证<code>global[FOO_KEY]</code>不会被无意间覆盖，但还是可以被改写。</p>
+<pre><code>global[Symbol.for(&#39;foo&#39;)] = { foo: &#39;world&#39; };
+
+const a = require(&#39;./mod.js&#39;);
+</code></pre><p>如果键名使用<code>Symbol</code>方法生成，那么外部将无法引用这个值，当然也就无法改写。</p>
+<pre><code>// mod.js
+const FOO_KEY = Symbol(&#39;foo&#39;);
+
+// 后面代码相同 ……
+</code></pre><p>上面代码将导致其他脚本都无法引用<code>FOO_KEY</code>。但这样也有一个问题，就是如果多次执行这个脚本，每次得到的<code>FOO_KEY</code>都是不一样的。虽然 Node 会将脚本的执行结果缓存，一般情况下，不会多次执行同一个脚本，但是用户可以手动清除缓存，所以也不是绝对可靠。</p>
+<h2 id="内置的-Symbol-值"><a href="#内置的-Symbol-值" class="headerlink" title="内置的 Symbol 值"></a>内置的 Symbol 值</h2><p>除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。</p>
+<h3 id="Symbol-hasInstance"><a href="#Symbol-hasInstance" class="headerlink" title="Symbol.hasInstance"></a>Symbol.hasInstance</h3><p>对象的<code>Symbol.hasInstance</code>属性，指向一个内部方法。当其他对象使用<code>instanceof</code>运算符，判断是否为该对象的实例时，会调用这个方法。比如，<code>foo instanceof Foo</code>在语言内部，实际调用的是<code>Foo[Symbol.hasInstance](foo)</code>。</p>
+<pre><code>class MyClass {
+  [Symbol.hasInstance](foo) {
+    return foo instanceof Array;
+  }
+}
+
+[1, 2, 3] instanceof new MyClass() // true
+</code></pre><p>上面代码中，<code>MyClass</code>是一个类，<code>new MyClass()</code>会返回一个实例。该实例的<code>Symbol.hasInstance</code>方法，会在进行<code>instanceof</code>运算时自动调用，判断左侧的运算子是否为<code>Array</code>的实例。</p>
+<p>下面是另一个例子。</p>
+<pre><code>class Even {
+  static [Symbol.hasInstance](obj) {
+    return Number(obj) % 2 === 0;
+  }
+}
+
+// 等同于
+const Even = {
+  [Symbol.hasInstance](obj) {
+    return Number(obj) % 2 === 0;
+  }
+};
+
+1 instanceof Even // false
+2 instanceof Even // true
+12345 instanceof Even // false
+</code></pre><h3 id="Symbol-isConcatSpreadable"><a href="#Symbol-isConcatSpreadable" class="headerlink" title="Symbol.isConcatSpreadable"></a>Symbol.isConcatSpreadable</h3><p>对象的<code>Symbol.isConcatSpreadable</code>属性等于一个布尔值，表示该对象用于<code>Array.prototype.concat()</code>时，是否可以展开。</p>
+<pre><code>let arr1 = [&#39;c&#39;, &#39;d&#39;];
+[&#39;a&#39;, &#39;b&#39;].concat(arr1, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+arr1[Symbol.isConcatSpreadable] // undefined
+
+let arr2 = [&#39;c&#39;, &#39;d&#39;];
+arr2[Symbol.isConcatSpreadable] = false;
+[&#39;a&#39;, &#39;b&#39;].concat(arr2, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, [&#39;c&#39;,&#39;d&#39;], &#39;e&#39;]
+</code></pre><p>上面代码说明，数组的默认行为是可以展开，<code>Symbol.isConcatSpreadable</code>默认等于<code>undefined</code>。该属性等于<code>true</code>时，也有展开的效果。</p>
+<p>类似数组的对象正好相反，默认不展开。它的<code>Symbol.isConcatSpreadable</code>属性设为<code>true</code>，才可以展开。</p>
+<pre><code>let obj = {length: 2, 0: &#39;c&#39;, 1: &#39;d&#39;};
+[&#39;a&#39;, &#39;b&#39;].concat(obj, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, obj, &#39;e&#39;]
+
+obj[Symbol.isConcatSpreadable] = true;
+[&#39;a&#39;, &#39;b&#39;].concat(obj, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+</code></pre><p><code>Symbol.isConcatSpreadable</code>属性也可以定义在类里面。</p>
+<pre><code>class A1 extends Array {
+  constructor(args) {
+    super(args);
+    this[Symbol.isConcatSpreadable] = true;
+  }
+}
+class A2 extends Array {
+  constructor(args) {
+    super(args);
+  }
+  get [Symbol.isConcatSpreadable] () {
+    return false;
+  }
+}
+let a1 = new A1();
+a1[0] = 3;
+a1[1] = 4;
+let a2 = new A2();
+a2[0] = 5;
+a2[1] = 6;
+[1, 2].concat(a1).concat(a2)
+// [1, 2, 3, 4, [5, 6]]
+</code></pre><p>上面代码中，类<code>A1</code>是可展开的，类<code>A2</code>是不可展开的，所以使用<code>concat</code>时有不一样的结果。</p>
+<p>注意，<code>Symbol.isConcatSpreadable</code>的位置差异，<code>A1</code>是定义在实例上，<code>A2</code>是定义在类本身，效果相同。</p>
+<h3 id="Symbol-species"><a href="#Symbol-species" class="headerlink" title="Symbol.species"></a>Symbol.species</h3><p>对象的<code>Symbol.species</code>属性，指向一个构造函数。创建衍生对象时，会使用该属性。</p>
+<pre><code>class MyArray extends Array {
+}
+
+const a = new MyArray(1, 2, 3);
+const b = a.map(x =&gt; x);
+const c = a.filter(x =&gt; x &gt; 1);
+
+b instanceof MyArray // true
+c instanceof MyArray // true
+</code></pre><p>上面代码中，子类<code>MyArray</code>继承了父类<code>Array</code>，<code>a</code>是<code>MyArray</code>的实例，<code>b</code>和<code>c</code>是<code>a</code>的衍生对象。你可能会认为，<code>b</code>和<code>c</code>都是调用数组方法生成的，所以应该是数组（<code>Array</code>的实例），但实际上它们也是<code>MyArray</code>的实例。</p>
+<p><code>Symbol.species</code>属性就是为了解决这个问题而提供的。现在，我们可以为<code>MyArray</code>设置<code>Symbol.species</code>属性。</p>
+<pre><code>class MyArray extends Array {
+  static get [Symbol.species]() { return Array; }
+}
+</code></pre><p>上面代码中，由于定义了<code>Symbol.species</code>属性，创建衍生对象时就会使用这个属性返回的函数，作为构造函数。这个例子也说明，定义<code>Symbol.species</code>属性要采用<code>get</code>取值器。默认的<code>Symbol.species</code>属性等同于下面的写法。</p>
+<pre><code>static get [Symbol.species]() {
+  return this;
+}
+</code></pre><p>现在，再来看前面的例子。</p>
+<pre><code>class MyArray extends Array {
+  static get [Symbol.species]() { return Array; }
+}
+
+const a = new MyArray();
+const b = a.map(x =&gt; x);
+
+b instanceof MyArray // false
+b instanceof Array // true
+</code></pre><p>上面代码中，<code>a.map(x =&gt; x)</code>生成的衍生对象，就不是<code>MyArray</code>的实例，而直接就是<code>Array</code>的实例。</p>
+<p>再看一个例子。</p>
+<pre><code>class T1 extends Promise {
+}
+
+class T2 extends Promise {
+  static get [Symbol.species]() {
+    return Promise;
+  }
+}
+
+new T1(r =&gt; r()).then(v =&gt; v) instanceof T1 // true
+new T2(r =&gt; r()).then(v =&gt; v) instanceof T2 // false
+</code></pre><p>上面代码中，<code>T2</code>定义了<code>Symbol.species</code>属性，<code>T1</code>没有。结果就导致了创建衍生对象时（<code>then</code>方法），<code>T1</code>调用的是自身的构造方法，而<code>T2</code>调用的是<code>Promise</code>的构造方法。</p>
+<p>总之，<code>Symbol.species</code>的作用在于，实例对象在运行过程中，需要再次调用自身的构造函数时，会调用该属性指定的构造函数。它主要的用途是，有些类库是在基类的基础上修改的，那么子类使用继承的方法时，作者可能希望返回基类的实例，而不是子类的实例。</p>
+<h3 id="Symbol-match"><a href="#Symbol-match" class="headerlink" title="Symbol.match"></a>Symbol.match</h3><p>对象的<code>Symbol.match</code>属性，指向一个函数。当执行<code>str.match(myObject)</code>时，如果该属性存在，会调用它，返回该方法的返回值。</p>
+<pre><code>String.prototype.match(regexp)
+// 等同于
+regexp[Symbol.match](this)
+
+class MyMatcher {
+  [Symbol.match](string) {
+    return &#39;hello world&#39;.indexOf(string);
+  }
+}
+
+&#39;e&#39;.match(new MyMatcher()) // 1
+</code></pre><h3 id="Symbol-replace"><a href="#Symbol-replace" class="headerlink" title="Symbol.replace"></a>Symbol.replace</h3><p>对象的<code>Symbol.replace</code>属性，指向一个方法，当该对象被<code>String.prototype.replace</code>方法调用时，会返回该方法的返回值。</p>
+<pre><code>String.prototype.replace(searchValue, replaceValue)
+// 等同于
+searchValue[Symbol.replace](this, replaceValue)
+</code></pre><p>下面是一个例子。</p>
+<pre><code>const x = {};
+x[Symbol.replace] = (...s) =&gt; console.log(s);
+
+&#39;Hello&#39;.replace(x, &#39;World&#39;) // [&quot;Hello&quot;, &quot;World&quot;]
+</code></pre><p><code>Symbol.replace</code>方法会收到两个参数，第一个参数是<code>replace</code>方法正在作用的对象，上面例子是<code>Hello</code>，第二个参数是替换后的值，上面例子是<code>World</code>。</p>
+<h3 id="Symbol-search"><a href="#Symbol-search" class="headerlink" title="Symbol.search"></a>Symbol.search</h3><p>对象的<code>Symbol.search</code>属性，指向一个方法，当该对象被<code>String.prototype.search</code>方法调用时，会返回该方法的返回值。</p>
+<pre><code>String.prototype.search(regexp)
+// 等同于
+regexp[Symbol.search](this)
+
+class MySearch {
+  constructor(value) {
+    this.value = value;
+  }
+  [Symbol.search](string) {
+    return string.indexOf(this.value);
+  }
+}
+&#39;foobar&#39;.search(new MySearch(&#39;foo&#39;)) // 0
+</code></pre><h3 id="Symbol-split"><a href="#Symbol-split" class="headerlink" title="Symbol.split"></a>Symbol.split</h3><p>对象的<code>Symbol.split</code>属性，指向一个方法，当该对象被<code>String.prototype.split</code>方法调用时，会返回该方法的返回值。</p>
+<pre><code>String.prototype.split(separator, limit)
+// 等同于
+separator[Symbol.split](this, limit)
+</code></pre><p>下面是一个例子。</p>
+<pre><code>class MySplitter {
+  constructor(value) {
+    this.value = value;
+  }
+  [Symbol.split](string) {
+    let index = string.indexOf(this.value);
+    if (index === -1) {
+      return string;
+    }
+    return [
+      string.substr(0, index),
+      string.substr(index + this.value.length)
+    ];
+  }
+}
+
+&#39;foobar&#39;.split(new MySplitter(&#39;foo&#39;))
+// [&#39;&#39;, &#39;bar&#39;]
+
+&#39;foobar&#39;.split(new MySplitter(&#39;bar&#39;))
+// [&#39;foo&#39;, &#39;&#39;]
+
+&#39;foobar&#39;.split(new MySplitter(&#39;baz&#39;))
+// &#39;foobar&#39;
+</code></pre><p>上面方法使用<code>Symbol.split</code>方法，重新定义了字符串对象的<code>split</code>方法的行为，</p>
+<h3 id="Symbol-iterator"><a href="#Symbol-iterator" class="headerlink" title="Symbol.iterator"></a>Symbol.iterator</h3><p>对象的<code>Symbol.iterator</code>属性，指向该对象的默认遍历器方法。</p>
+<pre><code>const myIterable = {};
+myIterable[Symbol.iterator] = function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+};
+
+[...myIterable] // [1, 2, 3]
+</code></pre><p>对象进行<code>for...of</code>循环时，会调用<code>Symbol.iterator</code>方法，返回该对象的默认遍历器，详细介绍参见《Iterator 和 for…of 循环》一章。</p>
+<pre><code>class Collection {
+  *[Symbol.iterator]() {
+    let i = 0;
+    while(this[i] !== undefined) {
+      yield this[i];
+      ++i;
+    }
+  }
+}
+
+let myCollection = new Collection();
+myCollection[0] = 1;
+myCollection[1] = 2;
+
+for(let value of myCollection) {
+  console.log(value);
+}
+// 1
+// 2
+</code></pre><h3 id="Symbol-toPrimitive"><a href="#Symbol-toPrimitive" class="headerlink" title="Symbol.toPrimitive"></a>Symbol.toPrimitive</h3><p>对象的<code>Symbol.toPrimitive</code>属性，指向一个方法。该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。</p>
+<p><code>Symbol.toPrimitive</code>被调用时，会接受一个字符串参数，表示当前运算的模式，一共有三种模式。</p>
+<ul>
+<li>Number：该场合需要转成数值</li>
+<li>String：该场合需要转成字符串</li>
+<li><p>Default：该场合可以转成数值，也可以转成字符串</p>
+<p>let obj = {<br>  <a href="hint">Symbol.toPrimitive</a> {</p>
+<pre><code>switch (hint) {
+  case &#39;number&#39;:
+    return 123;
+  case &#39;string&#39;:
+    return &#39;str&#39;;
+  case &#39;default&#39;:
+    return &#39;default&#39;;
+  default:
+    throw new Error();
+ }
+</code></pre><p>   }<br>};</p>
+<p>2 * obj // 246<br>3 + obj // ‘3default’<br>obj == ‘default’ // true<br>String(obj) // ‘str’</p>
+</li>
+</ul>
+<h3 id="Symbol-toStringTag"><a href="#Symbol-toStringTag" class="headerlink" title="Symbol.toStringTag"></a>Symbol.toStringTag</h3><p>对象的<code>Symbol.toStringTag</code>属性，指向一个方法。在该对象上面调用<code>Object.prototype.toString</code>方法时，如果这个属性存在，它的返回值会出现在<code>toString</code>方法返回的字符串之中，表示对象的类型。也就是说，这个属性可以用来定制<code>[object Object]</code>或<code>[object Array]</code>中<code>object</code>后面的那个字符串。</p>
+<pre><code>// 例一
+({[Symbol.toStringTag]: &#39;Foo&#39;}.toString())
+// &quot;[object Foo]&quot;
+
+// 例二
+class Collection {
+  get [Symbol.toStringTag]() {
+    return &#39;xxx&#39;;
+  }
+}
+let x = new Collection();
+Object.prototype.toString.call(x) // &quot;[object xxx]&quot;
+</code></pre><p>ES6 新增内置对象的<code>Symbol.toStringTag</code>属性值如下。</p>
+<ul>
+<li><code>JSON[Symbol.toStringTag]</code>：’JSON’</li>
+<li><code>Math[Symbol.toStringTag]</code>：’Math’</li>
+<li>Module 对象<code>M[Symbol.toStringTag]</code>：’Module’</li>
+<li><code>ArrayBuffer.prototype[Symbol.toStringTag]</code>：’ArrayBuffer’</li>
+<li><code>DataView.prototype[Symbol.toStringTag]</code>：’DataView’</li>
+<li><code>Map.prototype[Symbol.toStringTag]</code>：’Map’</li>
+<li><code>Promise.prototype[Symbol.toStringTag]</code>：’Promise’</li>
+<li><code>Set.prototype[Symbol.toStringTag]</code>：’Set’</li>
+<li><code>%TypedArray%.prototype[Symbol.toStringTag]</code>：’Uint8Array’等</li>
+<li><code>WeakMap.prototype[Symbol.toStringTag]</code>：’WeakMap’</li>
+<li><code>WeakSet.prototype[Symbol.toStringTag]</code>：’WeakSet’</li>
+<li><code>%MapIteratorPrototype%[Symbol.toStringTag]</code>：’Map Iterator’</li>
+<li><code>%SetIteratorPrototype%[Symbol.toStringTag]</code>：’Set Iterator’</li>
+<li><code>%StringIteratorPrototype%[Symbol.toStringTag]</code>：’String Iterator’</li>
+<li><code>Symbol.prototype[Symbol.toStringTag]</code>：’Symbol’</li>
+<li><code>Generator.prototype[Symbol.toStringTag]</code>：’Generator’</li>
+<li><code>GeneratorFunction.prototype[Symbol.toStringTag]</code>：’GeneratorFunction’</li>
+</ul>
+<h3 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h3><p>对象的<code>Symbol.unscopables</code>属性，指向一个对象。该对象指定了使用<code>with</code>关键字时，哪些属性会被<code>with</code>环境排除。</p>
+<pre><code>Array.prototype[Symbol.unscopables]
+// {
+//   copyWithin: true,
+//   entries: true,
+//   fill: true,
+//   find: true,
+//   findIndex: true,
+//   includes: true,
+//   keys: true
+// }
+
+Object.keys(Array.prototype[Symbol.unscopables])
+// [&#39;copyWithin&#39;, &#39;entries&#39;, &#39;fill&#39;, &#39;find&#39;, &#39;findIndex&#39;, &#39;includes&#39;, &#39;keys&#39;]
+</code></pre><p>上面代码说明，数组有 7 个属性，会被<code>with</code>命令排除。</p>
+<pre><code>// 没有 unscopables 时
+class MyClass {
+  foo() { return 1; }
+}
+
+var foo = function () { return 2; };
+
+with (MyClass.prototype) {
+  foo(); // 1
+}
+
+// 有 unscopables 时
+class MyClass {
+  foo() { return 1; }
+  get [Symbol.unscopables]() {
+    return { foo: true };
+  }
+}
+
+var foo = function () { return 2; };
+
+with (MyClass.prototype) {
+  foo(); // 2
+}
+</code></pre><p>上面代码通过指定<code>Symbol.unscopables</code>属性，使得<code>with</code>语法块不会在当前作用域寻找<code>foo</code>属性，即<code>foo</code>将指向外层作用域的变量。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> ES6 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ES6 </tag>
             
         </tags>
         
@@ -1111,636 +2120,6 @@ let runtimeError = {
   }
 };
 </code></pre>]]></content>
-      
-        <categories>
-            
-            <category> ES6 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> ES6 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[ES6 -- 10.Symbol]]></title>
-      <url>/2018/06/19/ES6/10.symbol/</url>
-      <content type="html"><![CDATA[<h1 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h1><h2 id="概-述"><a href="#概-述" class="headerlink" title="概 述"></a>概 述</h2><p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入<code>Symbol</code>的原因。</p>
-<p>ES6 引入了一种新的原始数据类型<code>Symbol</code>，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：<code>undefined</code>、<code>null</code>、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
-<p>Symbol 值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p>
-<pre><code>let s = Symbol();
-
-typeof s
-// &quot;symbol&quot;
-</code></pre><p>上面代码中，变量<code>s</code>就是一个独一无二的值。<code>typeof</code>运算符的结果，表明变量<code>s</code>是 Symbol 数据类型，而不是字符串之类的其他类型。</p>
-<p>注意，<code>Symbol</code>函数前不能使用<code>new</code>命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</p>
-<p><code>Symbol</code>函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
-<pre><code>let s1 = Symbol(&#39;foo&#39;);
-let s2 = Symbol(&#39;bar&#39;);
-
-s1 // Symbol(foo)
-s2 // Symbol(bar)
-
-s1.toString() // &quot;Symbol(foo)&quot;
-s2.toString() // &quot;Symbol(bar)&quot;
-</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>是两个 Symbol 值。如果不加参数，它们在控制台的输出都是<code>Symbol()</code>，不利于区分。有了参数以后，就等于为它们加上了描述，输出的时候就能够分清，到底是哪一个值。</p>
-<p>如果 Symbol 的参数是一个对象，就会调用该对象的<code>toString</code>方法，将其转为字符串，然后才生成一个 Symbol 值。</p>
-<pre><code>const obj = {
-  toString() {
-    return &#39;abc&#39;;
-  }
-};
-const sym = Symbol(obj);
-sym // Symbol(abc)
-</code></pre><p>注意，<code>Symbol</code>函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的<code>Symbol</code>函数的返回值是不相等的。</p>
-<pre><code>// 没有参数的情况
-let s1 = Symbol();
-let s2 = Symbol();
-
-s1 === s2 // false
-
-// 有参数的情况
-let s1 = Symbol(&#39;foo&#39;);
-let s2 = Symbol(&#39;foo&#39;);
-
-s1 === s2 // false
-</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>都是<code>Symbol</code>函数的返回值，而且参数相同，但是它们是不相等的。</p>
-<p>Symbol 值不能与其他类型的值进行运算，会报错。</p>
-<pre><code>let sym = Symbol(&#39;My symbol&#39;);
-
-&quot;your symbol is &quot; + sym
-// TypeError: can&#39;t convert symbol to string
-`your symbol is ${sym}`
-// TypeError: can&#39;t convert symbol to string
-</code></pre><p>但是，Symbol 值可以显式转为字符串。</p>
-<pre><code>let sym = Symbol(&#39;My symbol&#39;);
-
-String(sym) // &#39;Symbol(My symbol)&#39;
-sym.toString() // &#39;Symbol(My symbol)&#39;
-</code></pre><p>另外，Symbol 值也可以转为布尔值，但是不能转为数值。</p>
-<pre><code>let sym = Symbol();
-Boolean(sym) // true
-!sym  // false
-
-if (sym) {
-  // ...
-}
-
-Number(sym) // TypeError
-sym + 2 // TypeError
-</code></pre><h2 id="作为属性名的-Symbol"><a href="#作为属性名的-Symbol" class="headerlink" title="作为属性名的 Symbol"></a>作为属性名的 Symbol</h2><p>由于每一个 Symbol 值都是不相等的，这意味着 Symbol 值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性。这对于一个对象由多个模块构成的情况非常有用，能防止某一个键被不小心改写或覆盖。</p>
-<pre><code>let mySymbol = Symbol();
-
-// 第一种写法
-let a = {};
-a[mySymbol] = &#39;Hello!&#39;;
-
-// 第二种写法
-let a = {
-  [mySymbol]: &#39;Hello!&#39;
-};
-
-// 第三种写法
-let a = {};
-Object.defineProperty(a, mySymbol, { value: &#39;Hello!&#39; });
-
-// 以上写法都得到同样结果
-a[mySymbol] // &quot;Hello!&quot;
-</code></pre><p>上面代码通过方括号结构和<code>Object.defineProperty</code>，将对象的属性名指定为一个 Symbol 值。</p>
-<p>注意，Symbol 值作为对象属性名时，不能用点运算符。</p>
-<pre><code>const mySymbol = Symbol();
-const a = {};
-
-a.mySymbol = &#39;Hello!&#39;;
-a[mySymbol] // undefined
-a[&#39;mySymbol&#39;] // &quot;Hello!&quot;
-</code></pre><p>上面代码中，因为点运算符后面总是字符串，所以不会读取<code>mySymbol</code>作为标识名所指代的那个值，导致<code>a</code>的属性名实际上是一个字符串，而不是一个 Symbol 值。</p>
-<p>同理，在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中。</p>
-<pre><code>let s = Symbol();
-
-let obj = {
-  [s]: function (arg) { ... }
-};
-
-obj[s](123);
-</code></pre><p>上面代码中，如果<code>s</code>不放在方括号中，该属性的键名就是字符串<code>s</code>，而不是<code>s</code>所代表的那个 Symbol 值。</p>
-<p>采用增强的对象写法，上面代码的<code>obj</code>对象可以写得更简洁一些。</p>
-<pre><code>let obj = {
-  [s](arg) { ... }
-};
-</code></pre><p>Symbol 类型还可以用于定义一组常量，保证这组常量的值都是不相等的。</p>
-<pre><code>const log = {};
-
-log.levels = {
-  DEBUG: Symbol(&#39;debug&#39;),
-  INFO: Symbol(&#39;info&#39;),
-  WARN: Symbol(&#39;warn&#39;)
-};
-console.log(log.levels.DEBUG, &#39;debug message&#39;);
-console.log(log.levels.INFO, &#39;info message&#39;);
-</code></pre><p>下面是另外一个例子。</p>
-<pre><code>const COLOR_RED    = Symbol();
-const COLOR_GREEN  = Symbol();
-
-function getComplement(color) {
-  switch (color) {
-    case COLOR_RED:
-      return COLOR_GREEN;
-    case COLOR_GREEN:
-      return COLOR_RED;
-    default:
-      throw new Error(&#39;Undefined color&#39;);
-    }
-}
-</code></pre><p>常量使用 Symbol 值最大的好处，就是其他任何值都不可能有相同的值了，因此可以保证上面的<code>switch</code>语句会按设计的方式工作。</p>
-<p>还有一点需要注意，Symbol 值作为属性名时，该属性还是公开属性，不是私有属性。</p>
-<h2 id="实例：消除魔术字符串"><a href="#实例：消除魔术字符串" class="headerlink" title="实例：消除魔术字符串"></a>实例：消除魔术字符串</h2><p>魔术字符串指的是，在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的变量代替。</p>
-<pre><code>function getArea(shape, options) {
-  let area = 0;
-
-  switch (shape) {
-    case &#39;Triangle&#39;: // 魔术字符串
-      area = .5 * options.width * options.height;
-      break;
-    /* ... more code ... */
-  }
-
-  return area;
-}
-
-getArea(&#39;Triangle&#39;, { width: 100, height: 100 }); // 魔术字符串
-</code></pre><p>上面代码中，字符串<code>Triangle</code>就是一个魔术字符串。它多次出现，与代码形成“强耦合”，不利于将来的修改和维护。</p>
-<p>常用的消除魔术字符串的方法，就是把它写成一个变量。</p>
-<pre><code>const shapeType = {
-  triangle: &#39;Triangle&#39;
-};
-
-function getArea(shape, options) {
-  let area = 0;
-  switch (shape) {
-    case shapeType.triangle:
-      area = .5 * options.width * options.height;
-      break;
-  }
-  return area;
-}
-
-getArea(shapeType.triangle, { width: 100, height: 100 });
-</code></pre><p>上面代码中，我们把<code>Triangle</code>写成<code>shapeType</code>对象的<code>triangle</code>属性，这样就消除了强耦合。</p>
-<p>如果仔细分析，可以发现<code>shapeType.triangle</code>等于哪个值并不重要，只要确保不会跟其他<code>shapeType</code>属性的值冲突即可。因此，这里就很适合改用 Symbol 值。</p>
-<pre><code>const shapeType = {
-  triangle: Symbol()
-};
-</code></pre><p>上面代码中，除了将<code>shapeType.triangle</code>的值设为一个 Symbol，其他地方都不用修改。</p>
-<h2 id="属性名的遍历"><a href="#属性名的遍历" class="headerlink" title="属性名的遍历"></a>属性名的遍历</h2><p>Symbol 作为属性名，该属性不会出现在<code>for...in</code>、<code>for...of</code>循环中，也不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>、<code>JSON.stringify()</code>返回。但是，它也不是私有属性，有一个<code>Object.getOwnPropertySymbols</code>方法，可以获取指定对象的所有 Symbol 属性名。</p>
-<p><code>Object.getOwnPropertySymbols</code>方法返回一个数组，成员是当前对象的所有用作属性名的 Symbol 值。</p>
-<pre><code>const obj = {};
-let a = Symbol(&#39;a&#39;);
-let b = Symbol(&#39;b&#39;);
-
-obj[a] = &#39;Hello&#39;;
-obj[b] = &#39;World&#39;;
-
-const objectSymbols = Object.getOwnPropertySymbols(obj);
-
-objectSymbols
-// [Symbol(a), Symbol(b)]
-</code></pre><p>下面是另一个例子，<code>Object.getOwnPropertySymbols</code>方法与<code>for...in</code>循环、<code>Object.getOwnPropertyNames</code>方法进行对比的例子。</p>
-<pre><code>const obj = {};
-
-let foo = Symbol(&quot;foo&quot;);
-
-Object.defineProperty(obj, foo, {
-  value: &quot;foobar&quot;,
-});
-
-for (let i in obj) {
-  console.log(i); // 无输出
-}
-
-Object.getOwnPropertyNames(obj)
-// []
-
-Object.getOwnPropertySymbols(obj)
-// [Symbol(foo)]
-</code></pre><p>上面代码中，使用<code>Object.getOwnPropertyNames</code>方法得不到<code>Symbol</code>属性名，需要使用<code>Object.getOwnPropertySymbols</code>方法。</p>
-<p>另一个新的 API，<code>Reflect.ownKeys</code>方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。</p>
-<pre><code>let obj = {
-  [Symbol(&#39;my_key&#39;)]: 1,
-  enum: 2,
-  nonEnum: 3
-};
-
-Reflect.ownKeys(obj)
-//  [&quot;enum&quot;, &quot;nonEnum&quot;, Symbol(my_key)]
-</code></pre><p>由于以 Symbol 值作为名称的属性，不会被常规方法遍历得到。我们可以利用这个特性，为对象定义一些非私有的、但又希望只用于内部的方法。</p>
-<pre><code>let size = Symbol(&#39;size&#39;);
-
-class Collection {
-  constructor() {
-    this[size] = 0;
-  }
-
-  add(item) {
-    this[this[size]] = item;
-    this[size]++;
-  }
-
-  static sizeOf(instance) {
-    return instance[size];
-  }
-}
-
-let x = new Collection();
-Collection.sizeOf(x) // 0
-
-x.add(&#39;foo&#39;);
-Collection.sizeOf(x) // 1
-
-Object.keys(x) // [&#39;0&#39;]
-Object.getOwnPropertyNames(x) // [&#39;0&#39;]
-Object.getOwnPropertySymbols(x) // [Symbol(size)]
-</code></pre><p>上面代码中，对象<code>x</code>的<code>size</code>属性是一个 Symbol 值，所以<code>Object.keys(x)</code>、<code>Object.getOwnPropertyNames(x)</code>都无法获取它。这就造成了一种非私有的内部方法的效果。</p>
-<h2 id="Symbol-for-，Symbol-keyFor"><a href="#Symbol-for-，Symbol-keyFor" class="headerlink" title="Symbol.for()，Symbol.keyFor()"></a>Symbol.for()，Symbol.keyFor()</h2><p>有时，我们希望重新使用同一个 Symbol 值，<code>Symbol.for</code>方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。</p>
-<pre><code>let s1 = Symbol.for(&#39;foo&#39;);
-let s2 = Symbol.for(&#39;foo&#39;);
-
-s1 === s2 // true
-</code></pre><p>上面代码中，<code>s1</code>和<code>s2</code>都是 Symbol 值，但是它们都是同样参数的<code>Symbol.for</code>方法生成的，所以实际上是同一个值。</p>
-<p><code>Symbol.for()</code>与<code>Symbol()</code>这两种写法，都会生成新的 Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。<code>Symbol.for()</code>不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的<code>key</code>是否已经存在，如果不存在才会新建一个值。比如，如果你调用<code>Symbol.for(&quot;cat&quot;)</code>30 次，每次都会返回同一个 Symbol 值，但是调用<code>Symbol(&quot;cat&quot;)</code>30 次，会返回 30 个不同的 Symbol 值。</p>
-<pre><code>Symbol.for(&quot;bar&quot;) === Symbol.for(&quot;bar&quot;)
-// true
-
-Symbol(&quot;bar&quot;) === Symbol(&quot;bar&quot;)
-// false
-</code></pre><p>上面代码中，由于<code>Symbol()</code>写法没有登记机制，所以每次调用都会返回一个不同的值。</p>
-<p><code>Symbol.keyFor</code>方法返回一个已登记的 Symbol 类型值的<code>key</code>。</p>
-<pre><code>let s1 = Symbol.for(&quot;foo&quot;);
-Symbol.keyFor(s1) // &quot;foo&quot;
-
-let s2 = Symbol(&quot;foo&quot;);
-Symbol.keyFor(s2) // undefined
-</code></pre><p>上面代码中，变量<code>s2</code>属于未登记的 Symbol 值，所以返回<code>undefined</code>。</p>
-<p>需要注意的是，<code>Symbol.for</code>为 Symbol 值登记的名字，是全局环境的，可以在不同的 iframe 或 service worker 中取到同一个值。</p>
-<pre><code>iframe = document.createElement(&#39;iframe&#39;);
-iframe.src = String(window.location);
-document.body.appendChild(iframe);
-
-iframe.contentWindow.Symbol.for(&#39;foo&#39;) === Symbol.for(&#39;foo&#39;)
-// true
-</code></pre><p>上面代码中，iframe 窗口生成的 Symbol 值，可以在主页面得到。</p>
-<h2 id="实例：模块的-Singleton-模式"><a href="#实例：模块的-Singleton-模式" class="headerlink" title="实例：模块的 Singleton 模式"></a>实例：模块的 Singleton 模式</h2><p>Singleton 模式指的是调用一个类，任何时候返回的都是同一个实例。</p>
-<p>对于 Node 来说，模块文件可以看成是一个类。怎么保证每次执行这个模块文件，返回的都是同一个实例呢？</p>
-<p>很容易想到，可以把实例放到顶层对象<code>global</code>。</p>
-<pre><code>// mod.js
-function A() {
-  this.foo = &#39;hello&#39;;
-}
-
-if (!global._foo) {
-  global._foo = new A();
-}
-
-module.exports = global._foo;
-</code></pre><p>然后，加载上面的<code>mod.js</code>。</p>
-<pre><code>const a = require(&#39;./mod.js&#39;);
-console.log(a.foo);
-</code></pre><p>上面代码中，变量<code>a</code>任何时候加载的都是<code>A</code>的同一个实例。</p>
-<p>但是，这里有一个问题，全局变量<code>global._foo</code>是可写的，任何文件都可以修改。</p>
-<pre><code>global._foo = { foo: &#39;world&#39; };
-
-const a = require(&#39;./mod.js&#39;);
-console.log(a.foo);
-</code></pre><p>上面的代码，会使得加载<code>mod.js</code>的脚本都失真。</p>
-<p>为了防止这种情况出现，我们就可以使用 Symbol。</p>
-<pre><code>// mod.js
-const FOO_KEY = Symbol.for(&#39;foo&#39;);
-
-function A() {
-  this.foo = &#39;hello&#39;;
-}
-
-if (!global[FOO_KEY]) {
-  global[FOO_KEY] = new A();
-}
-
-module.exports = global[FOO_KEY];
-</code></pre><p>上面代码中，可以保证<code>global[FOO_KEY]</code>不会被无意间覆盖，但还是可以被改写。</p>
-<pre><code>global[Symbol.for(&#39;foo&#39;)] = { foo: &#39;world&#39; };
-
-const a = require(&#39;./mod.js&#39;);
-</code></pre><p>如果键名使用<code>Symbol</code>方法生成，那么外部将无法引用这个值，当然也就无法改写。</p>
-<pre><code>// mod.js
-const FOO_KEY = Symbol(&#39;foo&#39;);
-
-// 后面代码相同 ……
-</code></pre><p>上面代码将导致其他脚本都无法引用<code>FOO_KEY</code>。但这样也有一个问题，就是如果多次执行这个脚本，每次得到的<code>FOO_KEY</code>都是不一样的。虽然 Node 会将脚本的执行结果缓存，一般情况下，不会多次执行同一个脚本，但是用户可以手动清除缓存，所以也不是绝对可靠。</p>
-<h2 id="内置的-Symbol-值"><a href="#内置的-Symbol-值" class="headerlink" title="内置的 Symbol 值"></a>内置的 Symbol 值</h2><p>除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。</p>
-<h3 id="Symbol-hasInstance"><a href="#Symbol-hasInstance" class="headerlink" title="Symbol.hasInstance"></a>Symbol.hasInstance</h3><p>对象的<code>Symbol.hasInstance</code>属性，指向一个内部方法。当其他对象使用<code>instanceof</code>运算符，判断是否为该对象的实例时，会调用这个方法。比如，<code>foo instanceof Foo</code>在语言内部，实际调用的是<code>Foo[Symbol.hasInstance](foo)</code>。</p>
-<pre><code>class MyClass {
-  [Symbol.hasInstance](foo) {
-    return foo instanceof Array;
-  }
-}
-
-[1, 2, 3] instanceof new MyClass() // true
-</code></pre><p>上面代码中，<code>MyClass</code>是一个类，<code>new MyClass()</code>会返回一个实例。该实例的<code>Symbol.hasInstance</code>方法，会在进行<code>instanceof</code>运算时自动调用，判断左侧的运算子是否为<code>Array</code>的实例。</p>
-<p>下面是另一个例子。</p>
-<pre><code>class Even {
-  static [Symbol.hasInstance](obj) {
-    return Number(obj) % 2 === 0;
-  }
-}
-
-// 等同于
-const Even = {
-  [Symbol.hasInstance](obj) {
-    return Number(obj) % 2 === 0;
-  }
-};
-
-1 instanceof Even // false
-2 instanceof Even // true
-12345 instanceof Even // false
-</code></pre><h3 id="Symbol-isConcatSpreadable"><a href="#Symbol-isConcatSpreadable" class="headerlink" title="Symbol.isConcatSpreadable"></a>Symbol.isConcatSpreadable</h3><p>对象的<code>Symbol.isConcatSpreadable</code>属性等于一个布尔值，表示该对象用于<code>Array.prototype.concat()</code>时，是否可以展开。</p>
-<pre><code>let arr1 = [&#39;c&#39;, &#39;d&#39;];
-[&#39;a&#39;, &#39;b&#39;].concat(arr1, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
-arr1[Symbol.isConcatSpreadable] // undefined
-
-let arr2 = [&#39;c&#39;, &#39;d&#39;];
-arr2[Symbol.isConcatSpreadable] = false;
-[&#39;a&#39;, &#39;b&#39;].concat(arr2, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, [&#39;c&#39;,&#39;d&#39;], &#39;e&#39;]
-</code></pre><p>上面代码说明，数组的默认行为是可以展开，<code>Symbol.isConcatSpreadable</code>默认等于<code>undefined</code>。该属性等于<code>true</code>时，也有展开的效果。</p>
-<p>类似数组的对象正好相反，默认不展开。它的<code>Symbol.isConcatSpreadable</code>属性设为<code>true</code>，才可以展开。</p>
-<pre><code>let obj = {length: 2, 0: &#39;c&#39;, 1: &#39;d&#39;};
-[&#39;a&#39;, &#39;b&#39;].concat(obj, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, obj, &#39;e&#39;]
-
-obj[Symbol.isConcatSpreadable] = true;
-[&#39;a&#39;, &#39;b&#39;].concat(obj, &#39;e&#39;) // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
-</code></pre><p><code>Symbol.isConcatSpreadable</code>属性也可以定义在类里面。</p>
-<pre><code>class A1 extends Array {
-  constructor(args) {
-    super(args);
-    this[Symbol.isConcatSpreadable] = true;
-  }
-}
-class A2 extends Array {
-  constructor(args) {
-    super(args);
-  }
-  get [Symbol.isConcatSpreadable] () {
-    return false;
-  }
-}
-let a1 = new A1();
-a1[0] = 3;
-a1[1] = 4;
-let a2 = new A2();
-a2[0] = 5;
-a2[1] = 6;
-[1, 2].concat(a1).concat(a2)
-// [1, 2, 3, 4, [5, 6]]
-</code></pre><p>上面代码中，类<code>A1</code>是可展开的，类<code>A2</code>是不可展开的，所以使用<code>concat</code>时有不一样的结果。</p>
-<p>注意，<code>Symbol.isConcatSpreadable</code>的位置差异，<code>A1</code>是定义在实例上，<code>A2</code>是定义在类本身，效果相同。</p>
-<h3 id="Symbol-species"><a href="#Symbol-species" class="headerlink" title="Symbol.species"></a>Symbol.species</h3><p>对象的<code>Symbol.species</code>属性，指向一个构造函数。创建衍生对象时，会使用该属性。</p>
-<pre><code>class MyArray extends Array {
-}
-
-const a = new MyArray(1, 2, 3);
-const b = a.map(x =&gt; x);
-const c = a.filter(x =&gt; x &gt; 1);
-
-b instanceof MyArray // true
-c instanceof MyArray // true
-</code></pre><p>上面代码中，子类<code>MyArray</code>继承了父类<code>Array</code>，<code>a</code>是<code>MyArray</code>的实例，<code>b</code>和<code>c</code>是<code>a</code>的衍生对象。你可能会认为，<code>b</code>和<code>c</code>都是调用数组方法生成的，所以应该是数组（<code>Array</code>的实例），但实际上它们也是<code>MyArray</code>的实例。</p>
-<p><code>Symbol.species</code>属性就是为了解决这个问题而提供的。现在，我们可以为<code>MyArray</code>设置<code>Symbol.species</code>属性。</p>
-<pre><code>class MyArray extends Array {
-  static get [Symbol.species]() { return Array; }
-}
-</code></pre><p>上面代码中，由于定义了<code>Symbol.species</code>属性，创建衍生对象时就会使用这个属性返回的函数，作为构造函数。这个例子也说明，定义<code>Symbol.species</code>属性要采用<code>get</code>取值器。默认的<code>Symbol.species</code>属性等同于下面的写法。</p>
-<pre><code>static get [Symbol.species]() {
-  return this;
-}
-</code></pre><p>现在，再来看前面的例子。</p>
-<pre><code>class MyArray extends Array {
-  static get [Symbol.species]() { return Array; }
-}
-
-const a = new MyArray();
-const b = a.map(x =&gt; x);
-
-b instanceof MyArray // false
-b instanceof Array // true
-</code></pre><p>上面代码中，<code>a.map(x =&gt; x)</code>生成的衍生对象，就不是<code>MyArray</code>的实例，而直接就是<code>Array</code>的实例。</p>
-<p>再看一个例子。</p>
-<pre><code>class T1 extends Promise {
-}
-
-class T2 extends Promise {
-  static get [Symbol.species]() {
-    return Promise;
-  }
-}
-
-new T1(r =&gt; r()).then(v =&gt; v) instanceof T1 // true
-new T2(r =&gt; r()).then(v =&gt; v) instanceof T2 // false
-</code></pre><p>上面代码中，<code>T2</code>定义了<code>Symbol.species</code>属性，<code>T1</code>没有。结果就导致了创建衍生对象时（<code>then</code>方法），<code>T1</code>调用的是自身的构造方法，而<code>T2</code>调用的是<code>Promise</code>的构造方法。</p>
-<p>总之，<code>Symbol.species</code>的作用在于，实例对象在运行过程中，需要再次调用自身的构造函数时，会调用该属性指定的构造函数。它主要的用途是，有些类库是在基类的基础上修改的，那么子类使用继承的方法时，作者可能希望返回基类的实例，而不是子类的实例。</p>
-<h3 id="Symbol-match"><a href="#Symbol-match" class="headerlink" title="Symbol.match"></a>Symbol.match</h3><p>对象的<code>Symbol.match</code>属性，指向一个函数。当执行<code>str.match(myObject)</code>时，如果该属性存在，会调用它，返回该方法的返回值。</p>
-<pre><code>String.prototype.match(regexp)
-// 等同于
-regexp[Symbol.match](this)
-
-class MyMatcher {
-  [Symbol.match](string) {
-    return &#39;hello world&#39;.indexOf(string);
-  }
-}
-
-&#39;e&#39;.match(new MyMatcher()) // 1
-</code></pre><h3 id="Symbol-replace"><a href="#Symbol-replace" class="headerlink" title="Symbol.replace"></a>Symbol.replace</h3><p>对象的<code>Symbol.replace</code>属性，指向一个方法，当该对象被<code>String.prototype.replace</code>方法调用时，会返回该方法的返回值。</p>
-<pre><code>String.prototype.replace(searchValue, replaceValue)
-// 等同于
-searchValue[Symbol.replace](this, replaceValue)
-</code></pre><p>下面是一个例子。</p>
-<pre><code>const x = {};
-x[Symbol.replace] = (...s) =&gt; console.log(s);
-
-&#39;Hello&#39;.replace(x, &#39;World&#39;) // [&quot;Hello&quot;, &quot;World&quot;]
-</code></pre><p><code>Symbol.replace</code>方法会收到两个参数，第一个参数是<code>replace</code>方法正在作用的对象，上面例子是<code>Hello</code>，第二个参数是替换后的值，上面例子是<code>World</code>。</p>
-<h3 id="Symbol-search"><a href="#Symbol-search" class="headerlink" title="Symbol.search"></a>Symbol.search</h3><p>对象的<code>Symbol.search</code>属性，指向一个方法，当该对象被<code>String.prototype.search</code>方法调用时，会返回该方法的返回值。</p>
-<pre><code>String.prototype.search(regexp)
-// 等同于
-regexp[Symbol.search](this)
-
-class MySearch {
-  constructor(value) {
-    this.value = value;
-  }
-  [Symbol.search](string) {
-    return string.indexOf(this.value);
-  }
-}
-&#39;foobar&#39;.search(new MySearch(&#39;foo&#39;)) // 0
-</code></pre><h3 id="Symbol-split"><a href="#Symbol-split" class="headerlink" title="Symbol.split"></a>Symbol.split</h3><p>对象的<code>Symbol.split</code>属性，指向一个方法，当该对象被<code>String.prototype.split</code>方法调用时，会返回该方法的返回值。</p>
-<pre><code>String.prototype.split(separator, limit)
-// 等同于
-separator[Symbol.split](this, limit)
-</code></pre><p>下面是一个例子。</p>
-<pre><code>class MySplitter {
-  constructor(value) {
-    this.value = value;
-  }
-  [Symbol.split](string) {
-    let index = string.indexOf(this.value);
-    if (index === -1) {
-      return string;
-    }
-    return [
-      string.substr(0, index),
-      string.substr(index + this.value.length)
-    ];
-  }
-}
-
-&#39;foobar&#39;.split(new MySplitter(&#39;foo&#39;))
-// [&#39;&#39;, &#39;bar&#39;]
-
-&#39;foobar&#39;.split(new MySplitter(&#39;bar&#39;))
-// [&#39;foo&#39;, &#39;&#39;]
-
-&#39;foobar&#39;.split(new MySplitter(&#39;baz&#39;))
-// &#39;foobar&#39;
-</code></pre><p>上面方法使用<code>Symbol.split</code>方法，重新定义了字符串对象的<code>split</code>方法的行为，</p>
-<h3 id="Symbol-iterator"><a href="#Symbol-iterator" class="headerlink" title="Symbol.iterator"></a>Symbol.iterator</h3><p>对象的<code>Symbol.iterator</code>属性，指向该对象的默认遍历器方法。</p>
-<pre><code>const myIterable = {};
-myIterable[Symbol.iterator] = function* () {
-  yield 1;
-  yield 2;
-  yield 3;
-};
-
-[...myIterable] // [1, 2, 3]
-</code></pre><p>对象进行<code>for...of</code>循环时，会调用<code>Symbol.iterator</code>方法，返回该对象的默认遍历器，详细介绍参见《Iterator 和 for…of 循环》一章。</p>
-<pre><code>class Collection {
-  *[Symbol.iterator]() {
-    let i = 0;
-    while(this[i] !== undefined) {
-      yield this[i];
-      ++i;
-    }
-  }
-}
-
-let myCollection = new Collection();
-myCollection[0] = 1;
-myCollection[1] = 2;
-
-for(let value of myCollection) {
-  console.log(value);
-}
-// 1
-// 2
-</code></pre><h3 id="Symbol-toPrimitive"><a href="#Symbol-toPrimitive" class="headerlink" title="Symbol.toPrimitive"></a>Symbol.toPrimitive</h3><p>对象的<code>Symbol.toPrimitive</code>属性，指向一个方法。该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。</p>
-<p><code>Symbol.toPrimitive</code>被调用时，会接受一个字符串参数，表示当前运算的模式，一共有三种模式。</p>
-<ul>
-<li>Number：该场合需要转成数值</li>
-<li>String：该场合需要转成字符串</li>
-<li><p>Default：该场合可以转成数值，也可以转成字符串</p>
-<p>let obj = {<br>  <a href="hint">Symbol.toPrimitive</a> {</p>
-<pre><code>switch (hint) {
-  case &#39;number&#39;:
-    return 123;
-  case &#39;string&#39;:
-    return &#39;str&#39;;
-  case &#39;default&#39;:
-    return &#39;default&#39;;
-  default:
-    throw new Error();
- }
-</code></pre><p>   }<br>};</p>
-<p>2 * obj // 246<br>3 + obj // ‘3default’<br>obj == ‘default’ // true<br>String(obj) // ‘str’</p>
-</li>
-</ul>
-<h3 id="Symbol-toStringTag"><a href="#Symbol-toStringTag" class="headerlink" title="Symbol.toStringTag"></a>Symbol.toStringTag</h3><p>对象的<code>Symbol.toStringTag</code>属性，指向一个方法。在该对象上面调用<code>Object.prototype.toString</code>方法时，如果这个属性存在，它的返回值会出现在<code>toString</code>方法返回的字符串之中，表示对象的类型。也就是说，这个属性可以用来定制<code>[object Object]</code>或<code>[object Array]</code>中<code>object</code>后面的那个字符串。</p>
-<pre><code>// 例一
-({[Symbol.toStringTag]: &#39;Foo&#39;}.toString())
-// &quot;[object Foo]&quot;
-
-// 例二
-class Collection {
-  get [Symbol.toStringTag]() {
-    return &#39;xxx&#39;;
-  }
-}
-let x = new Collection();
-Object.prototype.toString.call(x) // &quot;[object xxx]&quot;
-</code></pre><p>ES6 新增内置对象的<code>Symbol.toStringTag</code>属性值如下。</p>
-<ul>
-<li><code>JSON[Symbol.toStringTag]</code>：’JSON’</li>
-<li><code>Math[Symbol.toStringTag]</code>：’Math’</li>
-<li>Module 对象<code>M[Symbol.toStringTag]</code>：’Module’</li>
-<li><code>ArrayBuffer.prototype[Symbol.toStringTag]</code>：’ArrayBuffer’</li>
-<li><code>DataView.prototype[Symbol.toStringTag]</code>：’DataView’</li>
-<li><code>Map.prototype[Symbol.toStringTag]</code>：’Map’</li>
-<li><code>Promise.prototype[Symbol.toStringTag]</code>：’Promise’</li>
-<li><code>Set.prototype[Symbol.toStringTag]</code>：’Set’</li>
-<li><code>%TypedArray%.prototype[Symbol.toStringTag]</code>：’Uint8Array’等</li>
-<li><code>WeakMap.prototype[Symbol.toStringTag]</code>：’WeakMap’</li>
-<li><code>WeakSet.prototype[Symbol.toStringTag]</code>：’WeakSet’</li>
-<li><code>%MapIteratorPrototype%[Symbol.toStringTag]</code>：’Map Iterator’</li>
-<li><code>%SetIteratorPrototype%[Symbol.toStringTag]</code>：’Set Iterator’</li>
-<li><code>%StringIteratorPrototype%[Symbol.toStringTag]</code>：’String Iterator’</li>
-<li><code>Symbol.prototype[Symbol.toStringTag]</code>：’Symbol’</li>
-<li><code>Generator.prototype[Symbol.toStringTag]</code>：’Generator’</li>
-<li><code>GeneratorFunction.prototype[Symbol.toStringTag]</code>：’GeneratorFunction’</li>
-</ul>
-<h3 id="Symbol-unscopables"><a href="#Symbol-unscopables" class="headerlink" title="Symbol.unscopables"></a>Symbol.unscopables</h3><p>对象的<code>Symbol.unscopables</code>属性，指向一个对象。该对象指定了使用<code>with</code>关键字时，哪些属性会被<code>with</code>环境排除。</p>
-<pre><code>Array.prototype[Symbol.unscopables]
-// {
-//   copyWithin: true,
-//   entries: true,
-//   fill: true,
-//   find: true,
-//   findIndex: true,
-//   includes: true,
-//   keys: true
-// }
-
-Object.keys(Array.prototype[Symbol.unscopables])
-// [&#39;copyWithin&#39;, &#39;entries&#39;, &#39;fill&#39;, &#39;find&#39;, &#39;findIndex&#39;, &#39;includes&#39;, &#39;keys&#39;]
-</code></pre><p>上面代码说明，数组有 7 个属性，会被<code>with</code>命令排除。</p>
-<pre><code>// 没有 unscopables 时
-class MyClass {
-  foo() { return 1; }
-}
-
-var foo = function () { return 2; };
-
-with (MyClass.prototype) {
-  foo(); // 1
-}
-
-// 有 unscopables 时
-class MyClass {
-  foo() { return 1; }
-  get [Symbol.unscopables]() {
-    return { foo: true };
-  }
-}
-
-var foo = function () { return 2; };
-
-with (MyClass.prototype) {
-  foo(); // 2
-}
-</code></pre><p>上面代码通过指定<code>Symbol.unscopables</code>属性，使得<code>with</code>语法块不会在当前作用域寻找<code>foo</code>属性，即<code>foo</code>将指向外层作用域的变量。</p>
-]]></content>
       
         <categories>
             

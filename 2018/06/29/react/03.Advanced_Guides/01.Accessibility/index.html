@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source"/>
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            03.Advanced Guides -- 01.Accessibility | 
+        
+        Frankl&#39;s Personal Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/mountains.png">
+    <link rel="icon" href="/img/mountains.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
+    <meta name="keywords" content="Frankl&#39;s personal blog,react document">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/prettify/vibrant-ink.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material-icons.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.1/jquery.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Frankl&#39;s Personal Blog">
+    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/mountains.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="03.Advanced Guides -- 01.Accessibility | Frankl&#39;s Personal Blog">
+    <meta property="og:image" content="/img/mountains.png">
+    <meta property="og:description" content="Base on front-end, more than front-end">
+    <meta property="og:article:tag" content="react document"> 
+
+    
+        <meta property="article:published_time" content="Fri Jun 29 2018 15:55:32 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jun 29 2018 19:03:50 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html",
+    "headline": "03.Advanced Guides -- 01.Accessibility",
+    "datePublished": "Fri Jun 29 2018 15:55:32 GMT+0800",
+    "dateModified": "Fri Jun 29 2018 19:03:50 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Frankl",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/logo.jpeg"
+        },
+        "description": "Front-end!  Front-end!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Frankl&#39;s Personal Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/mountains.png"
+        }
+    },
+    "keywords": ",react documentFrankl&#39;s personal blog",
+    "description": "Base on front-end, more than front-end",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Accessibility-可访问性"><span class="post-toc-number">1.</span> <span class="post-toc-text">Accessibility(可访问性)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Why-Accessibility-为什么要考虑可访问性？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Why Accessibility?(为什么要考虑可访问性？)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Standards-and-Guidelines（标准和指南）"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Standards and Guidelines（标准和指南）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WCAG"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">WCAG</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WAI-ARIA"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">WAI-ARIA</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Semantic-HTML-语义化的HTML"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Semantic HTML(语义化的HTML)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Accessible-Forms-可访问性的表单"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Accessible Forms(可访问性的表单)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Labeling-标签"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">Labeling(标签)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Notifying-the-user-of-errors-通知用户错误信息"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">Notifying the user of errors(通知用户错误信息)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Focus-Control-焦点控制"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Focus Control(焦点控制)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Keyboard-focus-and-focus-outline-键盘聚焦和轮廓聚焦"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">Keyboard focus and focus outline(键盘聚焦和轮廓聚焦)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Mechanisms-to-skip-to-desired-content-跳转到期待的内容的机制"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">Mechanisms to skip to desired content(跳转到期待的内容的机制)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Programmatically-managing-focus-用编程化的方式来管理焦点"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">Programmatically managing focus(用编程化的方式来管理焦点)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#More-Complex-Widgets-更复杂的组件"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">More Complex Widgets(更复杂的组件)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Other-Points-for-Consideration-其他需要考虑的点"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Other Points for Consideration(其他需要考虑的点)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Setting-the-language-设置语言"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">Setting the language(设置语言)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Setting-the-document-title-设置文本标题"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">Setting the document title(设置文本标题)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Color-contrast-颜色对比"><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">Color contrast(颜色对比)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Development-and-Testing-Tools-开发及测试工具"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">Development and Testing Tools(开发及测试工具)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#The-keyboard-键盘"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">The keyboard(键盘)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Development-assistance-开发者工具"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">Development assistance(开发者工具)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Testing-accessibility-in-the-browser-在浏览器中测试可访问性"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">Testing accessibility in the browser(在浏览器中测试可访问性)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Screen-readers-屏幕阅读器"><span class="post-toc-number">1.8.4.</span> <span class="post-toc-text">Screen readers(屏幕阅读器)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Commonly-Used-Screen-Readers-通用的屏幕阅读器"><span class="post-toc-number">1.8.5.</span> <span class="post-toc-text">Commonly Used Screen Readers(通用的屏幕阅读器)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Other-Screen-Readers-其他的屏幕阅读器"><span class="post-toc-number">1.8.6.</span> <span class="post-toc-text">Other Screen Readers(其他的屏幕阅读器)</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                03.Advanced Guides -- 01.Accessibility
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Frankl</strong>
+        <span>6月 29, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/react-document/">react document</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/06/29/react/03.Advanced_Guides/01.Accessibility/" class="leancloud-views_num" data-flag-title="03.Advanced Guides -- 01.Accessibility">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=03.Advanced Guides -- 01.Accessibility&url=www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=03.Advanced Guides -- 01.Accessibility&url=www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html&via=Frankl" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=03.Advanced Guides -- 01.Accessibility&summary=Base on front-end, more than front-end&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/06/29/react/03.Advanced_Guides/01.Accessibility/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Accessibility-可访问性"><a href="#Accessibility-可访问性" class="headerlink" title="Accessibility(可访问性)"></a>Accessibility(可访问性)</h2><h3 id="Why-Accessibility-为什么要考虑可访问性？"><a href="#Why-Accessibility-为什么要考虑可访问性？" class="headerlink" title="Why Accessibility?(为什么要考虑可访问性？)"></a>Why Accessibility?(为什么要考虑可访问性？)</h3><p>Web accessibility (also referred to as <a href="https://en.wiktionary.org/wiki/a11y" target="_blank" rel="noopener">a11y</a>) is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.</p>
+<p>Web可访问性（也称为<a href="https://en.wiktionary.org/wiki/a11y" target="_blank" rel="noopener">a11y</a>）是指如何设计和创建可供任何人都可以使用的网站。可访问性的支持是必须的，因为它们可以才协助辅助性技术渲染网页。</p>
+<p>React fully supports building accessible websites, often by using standard HTML techniques.</p>
+<p>React可以通过使用标准的HTML技术来完全支持构建可访问性的网站。</p>
+<h3 id="Standards-and-Guidelines（标准和指南）"><a href="#Standards-and-Guidelines（标准和指南）" class="headerlink" title="Standards and Guidelines（标准和指南）"></a>Standards and Guidelines（标准和指南）</h3><h4 id="WCAG"><a href="#WCAG" class="headerlink" title="WCAG"></a>WCAG</h4><p>The <a href="https://www.w3.org/WAI/intro/wcag" target="_blank" rel="noopener">Web Content Accessibility Guidelines</a> provides guidelines for creating accessible web sites.</p>
+<p><a href="https://www.w3.org/WAI/intro/wcag" target="_blank" rel="noopener">网站内容可访问性指南</a>为创建可访问网站的提供了指导指南。</p>
+<p>The following WCAG checklists provide an overview:</p>
+<p>以下为WCAG清单提供了一个概述：</p>
+<ul>
+<li><a href="https://www.wuhcag.com/wcag-checklist/" target="_blank" rel="noopener">WCAG checklist from Wuhcag</a></li>
+<li><a href="http://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener">WCAG checklist from WebAIM</a></li>
+<li><p><a href="http://a11yproject.com/checklist.html" target="_blank" rel="noopener">Checklist from The A11Y Project</a></p>
+</li>
+<li><p><a href="https://www.wuhcag.com/wcag-checklist/" target="_blank" rel="noopener">关于WCAG的Wuhcag概述</a></p>
+</li>
+<li><a href="http://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener">关于WCAG的WebAIM概述</a></li>
+<li><a href="http://a11yproject.com/checklist.html" target="_blank" rel="noopener">来自A11Y项目的概述</a></li>
+</ul>
+<h4 id="WAI-ARIA"><a href="#WAI-ARIA" class="headerlink" title="WAI-ARIA"></a>WAI-ARIA</h4><p>The <a href="https://www.w3.org/WAI/intro/aria" target="_blank" rel="noopener">Web Accessibility Initiative - Accessible Rich Internet Applications</a> document contains techniques for building fully accessible JavaScript widgets.</p>
+<p><a href="https://www.w3.org/WAI/intro/aria" target="_blank" rel="noopener">网页可访问性倡议 - 充分可访问性的互联网应用程序</a>文章中包含了对于构建充分可访问的JavaScript部件的技术。</p>
+<p>Note that all <code>aria-*</code> HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be lowercased:</p>
+<p>注意，JSX完全支持所有<code>aria- *</code> HTML属性。尽管React中的大多数DOM属性和特性都是camelCased的，但<code>aria-*</code>属性应该是小写的：</p>
+<pre><code>&lt;input
+  type=&quot;text&quot;
+  aria-label={labelText}
+  aria-required=&quot;true&quot;
+  onChange={onchangeHandler}
+  value={inputValue}
+  name=&quot;name&quot;
+/&gt;
+</code></pre><h3 id="Semantic-HTML-语义化的HTML"><a href="#Semantic-HTML-语义化的HTML" class="headerlink" title="Semantic HTML(语义化的HTML)"></a>Semantic HTML(语义化的HTML)</h3><p>Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information in our websites will often give us accessibility for free.</p>
+<p>语义化的HTML是一个web应用可访问性的基础。我们可以通过在网站中使用不同的HTML元素来加强想表达的信息的含义，这可以让我们的应用更具有可访问性。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener">MDN HTML elements reference(MDN HTML元素的参阅)</a></li>
+</ul>
+<p>Sometimes we break HTML semantics when we add <div> elements to our JSX to make our React code work, especially when working with lists (<ol>, <ul> and <dl>) and the HTML <table>. In these cases we should rather use React Fragments to group together multiple elements.</table></dl></ul></ol></div></p>
+<p>有时，当我们将<code>&lt;div&gt;</code>元素添加到JSX中以使我们的React代码工作时，我们会破坏HTML语义，尤其是在使用列表（<code>&lt;ol&gt;</code>，<code>&lt;ul&gt;</code>和<code>&lt;dl&gt;</code>）和HTML <code>&lt;table&gt;</code>时。 在这些情况下，我们应该使用React Fragments将多个元素组合在一起。</p>
+<p>Use <code>&lt;Fragment&gt;</code> when a key prop is required:</p>
+<p>在key的属性是必须时使用<code>&lt;Fragment&gt;</code></p>
+<pre><code>import React, { Fragment } from &#39;react&#39;;
+
+function Glossary(props) {
+  return (
+    &lt;dl&gt;
+      {props.items.map(item =&gt; (
+        // Without the `key`, React will fire a key warning
+        &lt;Fragment key={item.id}&gt;
+          &lt;dt&gt;{item.term}&lt;/dt&gt;
+          &lt;dd&gt;{item.description}&lt;/dd&gt;
+        &lt;/Fragment&gt;
+      ))}
+    &lt;/dl&gt;
+  );
+}
+</code></pre><p>Use <code>&lt;&gt;&lt;/&gt;</code> syntax everywhere else:</p>
+<p>在任何地方使用<code>&lt;&gt;&lt;/&gt;</code>语法</p>
+<pre><code>function ListItem({ item }) {
+  return (
+    &lt;&gt;
+      &lt;dt&gt;{item.term}&lt;/dt&gt;
+      &lt;dd&gt;{item.description}&lt;/dd&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre><blockquote>
+<p>即为了不破坏HTML结构的完整性和统一性，可以将React Fragment或者<code>&lt;&gt;&lt;/&gt;</code>添加到React组件返回的内容上以此来保持返回元素的可访问性。</p>
+</blockquote>
+<h3 id="Accessible-Forms-可访问性的表单"><a href="#Accessible-Forms-可访问性的表单" class="headerlink" title="Accessible Forms(可访问性的表单)"></a>Accessible Forms(可访问性的表单)</h3><h4 id="Labeling-标签"><a href="#Labeling-标签" class="headerlink" title="Labeling(标签)"></a>Labeling(标签)</h4><p>Every HTML form control, such as <code>&lt;input&gt;</code> and <code>&lt;textarea&gt;</code>, needs to be labeled accessibly. We need to provide descriptive labels that are also exposed to screen readers.</p>
+<p>每个HTML表单中的控制元件，例如<code>&lt;input&gt;</code>和<code>&lt;textarea&gt;</code>都需要有可访问性的标签。我们也需要也向屏幕阅读器提供公开的描述性标签。</p>
+<p>The following resources show us how to do this:</p>
+<p>下列资源告诉我们如何做到这些：</p>
+<ul>
+<li><a href="https://www.w3.org/WAI/tutorials/forms/labels/" target="_blank" rel="noopener">The W3C shows us how to label elements</a></li>
+<li><a href="http://webaim.org/techniques/forms/controls" target="_blank" rel="noopener">WebAIM shows us how to label elements</a></li>
+<li><p><a href="https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/" target="_blank" rel="noopener">The Paciello Group explains accessible names</a></p>
+</li>
+<li><p><a href="https://www.w3.org/WAI/tutorials/forms/labels/" target="_blank" rel="noopener">W3C 告诉我们如何标记元素</a></p>
+</li>
+<li><a href="http://webaim.org/techniques/forms/controls" target="_blank" rel="noopener">WebAIM告诉我们如何标记元素</a></li>
+<li><a href="https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/" target="_blank" rel="noopener">Paciello项目组介绍了如何让名称具有可访问性</a></li>
+</ul>
+<p>Although these standard HTML practices can be directly used in React, note that the <code>for</code> attribute is written as <code>htmlFor</code> in JSX:</p>
+<p>尽管这些标准的HTML元素可以直接在React中使用，但还要注意<code>for</code>属性在JSX中应当写成’htmlFor’:</p>
+<pre><code>&lt;label htmlFor=&quot;namedInput&quot;&gt;Name:&lt;/label&gt;
+&lt;input id=&quot;namedInput&quot; type=&quot;text&quot; name=&quot;name&quot;/&gt;
+</code></pre><h4 id="Notifying-the-user-of-errors-通知用户错误信息"><a href="#Notifying-the-user-of-errors-通知用户错误信息" class="headerlink" title="Notifying the user of errors(通知用户错误信息)"></a>Notifying the user of errors(通知用户错误信息)</h4><p>Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:</p>
+<p>所有用户都需要能够读懂错误信息。以下链接向我们展示了如何将错误文本展示给屏幕阅读器：</p>
+<ul>
+<li><a href="https://www.w3.org/WAI/tutorials/forms/notifications/" target="_blank" rel="noopener">The W3C demonstrates user notifications</a></li>
+<li><a href="http://webaim.org/techniques/formvalidation/" target="_blank" rel="noopener">WebAIM looks at form validation</a></li>
+<li><a href="https://www.w3.org/WAI/tutorials/forms/notifications/" target="_blank" rel="noopener">W3C演示用户通知示例</a></li>
+<li><a href="http://webaim.org/techniques/formvalidation/" target="_blank" rel="noopener">WebAIM演示表单验证</a></li>
+</ul>
+<h3 id="Focus-Control-焦点控制"><a href="#Focus-Control-焦点控制" class="headerlink" title="Focus Control(焦点控制)"></a>Focus Control(焦点控制)</h3><p>Ensure that your web application can be fully operated with the keyboard only:</p>
+<p>确保您的web应用只可以通过键盘进行操作：</p>
+<ul>
+<li><a href="http://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">WebAIM talks about keyboard accessibility</a></li>
+<li><a href="http://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">WebAIM讨论键盘的可访问性</a></li>
+</ul>
+<h4 id="Keyboard-focus-and-focus-outline-键盘聚焦和轮廓聚焦"><a href="#Keyboard-focus-and-focus-outline-键盘聚焦和轮廓聚焦" class="headerlink" title="Keyboard focus and focus outline(键盘聚焦和轮廓聚焦)"></a>Keyboard focus and focus outline(键盘聚焦和轮廓聚焦)</h4><p>Keyboard focus refers to the current element in the DOM that is selected to accept input from the keyboard. We see it everywhere as a focus outline similar to that shown in the following image:</p>
+<p>键盘聚焦是指选用DOM中的当前元素作为键盘中的输入。这种表现非常常见，与下图所示类似的焦点轮廓类似：</p>
+<p><img src="/images/react_document/03-01-keyboard_focus_button.png" style="margin:0 auto;display:block"></p>
+<p>Only ever use CSS that removes this outline, for example by setting <code>outline: 0</code>, if you are replacing it with another focus outline implementation.</p>
+<p>只可以通过CSS来删除外边框，如果您用另一种聚焦外边框来替换它，可以通过设置<code>outline: 0</code>来实现。</p>
+<h4 id="Mechanisms-to-skip-to-desired-content-跳转到期待的内容的机制"><a href="#Mechanisms-to-skip-to-desired-content-跳转到期待的内容的机制" class="headerlink" title="Mechanisms to skip to desired content(跳转到期待的内容的机制)"></a>Mechanisms to skip to desired content(跳转到期待的内容的机制)</h4><p>Provide a mechanism to allow users to skip past navigation sections in your application as this assists and speeds up keyboard navigation.</p>
+<p>我们提供了一种机制，允许用户在您的应用中跳过导航部分，因为这有助于通过键盘导航。</p>
+<p>Skiplinks or Skip Navigation Links are hidden navigation links that only become visible when keyboard users interact with the page. They are very easy to implement with internal page anchors and some styling:</p>
+<p>跳转链接或跳转导航链接通常是隐藏的，只有当用户通过键盘与页面进行交互时才会显示。通过内部页面锚点和一些样式，我们非常容易实现这种功能：</p>
+<ul>
+<li><a href="http://webaim.org/techniques/skipnav/" target="_blank" rel="noopener">WebAIM - Skip Navigation Links</a></li>
+<li><a href="http://webaim.org/techniques/skipnav/" target="_blank" rel="noopener">WebAIM - 跳转导航链接</a></li>
+</ul>
+<h4 id="Programmatically-managing-focus-用编程化的方式来管理焦点"><a href="#Programmatically-managing-focus-用编程化的方式来管理焦点" class="headerlink" title="Programmatically managing focus(用编程化的方式来管理焦点)"></a>Programmatically managing focus(用编程化的方式来管理焦点)</h4><p>Our React applications continuously modify the HTML DOM during runtime, sometimes leading to keyboard focus being lost or set to an unexpected element. In order to repair this, we need to programmatically nudge the keyboard focus in the right direction. For example, by resetting keyboard focus to a button that opened a modal window after that modal window is closed.</p>
+<p>我们的React项目会在运行时持续的调整HTML节点，有时会导致键盘丢失焦点或设置到意想不到的元素上。为了修复这个问题，我们需要以正确的方向以编程方式来设置键盘焦点。例如，在一个模式窗口关闭后通过重置键盘焦点到一个按钮上来打开一个模式窗口。</p>
+<p>MDN Web Docs takes a look at this and describes how we can build keyboard-navigable <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets" target="_blank" rel="noopener">JavaScript widgets</a>.</p>
+<p>MDN Web文档考虑到了这方面的问题并向我们介绍了如何搭建键盘导航的<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets" target="_blank" rel="noopener">JavaScript组件</a></p>
+<p>To set focus in React, we can use <a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">Refs to DOM elements</a>.</p>
+<p>为了设置React焦点，我们可以使用<a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">DOM元素的Refs</a></p>
+<p>Using this, we first create a ref to an element in the JSX of a component class:</p>
+<p>为了介绍Refs，我们首先在组件类的JSX中创建一个元素的ref：</p>
+<pre><code>class CustomTextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    // Create a ref to store the textInput DOM element
+    this.textInput = React.createRef();
+  }
+  render() {
+  // Use the `ref` callback to store a reference to the text input DOM
+  // element in an instance field (for example, this.textInput).
+    return (
+      &lt;input
+        type=&quot;text&quot;
+        ref={this.textInput}
+      /&gt;
+    );
+  }
+}
+</code></pre><p>Then we can focus it elsewhere in our component when needed:</p>
+<p>然后当我们需要时，我们可以在组件的任何地方调用focus函数了：</p>
+<pre><code>focus() {
+  // Explicitly focus the text input using the raw DOM API
+  // Note: we&#39;re accessing &quot;current&quot; to get the DOM node
+  this.textInput.current.focus();
+}
+</code></pre><p>Sometimes a parent component needs to set focus to an element in a child component. We can do this by exposing <a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">DOM refs to parent components</a> through a special prop on the child component that forwards the parent’s ref to the child’s DOM node.</p>
+<p>有些时候父组件需要将焦点设置在子组件的一个元素上。我们可以根据<a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">向父组件传递DOM refs</a>通过在子组件上设置一个特殊的属性,然后父组件通过ref指向子组件的DOM节点。</p>
+<pre><code>function CustomTextInput(props) {
+  return (
+    &lt;div&gt;
+      &lt;input ref={props.inputRef} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inputElement = React.createRef();
+  }
+  render() {
+    return (
+      &lt;CustomTextInput inputRef={this.inputElement} /&gt;
+    );
+  }
+}
+/&gt;
+
+// Now you can set focus when required.
+this.inputElement.current.focus();
+</code></pre><p>When using a HOC to extend components, it is recommended to <a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">forward the ref</a> to the wrapped component using the <code>forwardRef</code> function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.</p>
+<p>当使用HOC扩展组件时，建议使用React的<code>forwardRef</code>函数<a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">将ref传到</a>到包装好的组件。如果第三方库HOC没有使用向下传递ref，上述模式仍然可以用作备用方案。</p>
+<p>A great focus management example is the <a href="https://github.com/davidtheclark/react-aria-modal" target="_blank" rel="noopener">react-aria-modal</a>. This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.</p>
+<p>一个很好的焦点管理的例子就是<a href="https://github.com/davidtheclark/react-aria-modal" target="_blank" rel="noopener">react-aria-modal</a>。 这是一个相当罕见的完全无障碍的窗口模式的例子。它不仅将初始焦点设置在取消按钮上以避免键盘焦点陷入该模式中（防止键盘用户意外激活成功操作）还将焦点重置回最初触发模式的元素。</p>
+<blockquote>
+<p>Note:<br>While this is a very important accessibility feature, it is also a technique that should be used judiciously. Use it to repair the keyboard focus flow when it is disturbed, not to try and anticipate how users want to use applications.</p>
+<p>提示：<br>虽然这是可访问性非常重要的一个特点，但它也是一种应该谨慎使用的技术。用它修复键盘焦点流时，不要试图预测用户是如何使用应用程序的。</p>
+</blockquote>
+<h3 id="More-Complex-Widgets-更复杂的组件"><a href="#More-Complex-Widgets-更复杂的组件" class="headerlink" title="More Complex Widgets(更复杂的组件)"></a>More Complex Widgets(更复杂的组件)</h3><p>A more complex user experience should not mean a less accessible one. Whereas accessibility is most easily achieved by coding as close to HTML as possible, even the most complex widget can be coded accessibly.</p>
+<p>更复杂的用户体验不应该意味着可访问性更差。尽管通过类似HTML编码最容易实现可访问性，但即使是最复杂的小部件也可以有良好的访问性。</p>
+<p>Here we require knowledge of <a href="https://www.w3.org/TR/wai-aria/#roles" target="_blank" rel="noopener">ARIA Roles</a> as well as <a href="https://www.w3.org/TR/wai-aria/#states_and_properties" target="_blank" rel="noopener">ARIA States and Properties</a>. These are toolboxes filled with HTML attributes that are fully supported in JSX and enable us to construct fully accessible, highly functional React components.</p>
+<p>在这里，我们需要知道<a href="https://www.w3.org/TR/wai-aria/#roles" target="_blank" rel="noopener">ARIA角色</a>以及<a href="https://www.w3.org/TR/wai-aria/#states_and_properties" target="_blank" rel="noopener">ARIA的状态和属性</a>。 这些工具箱包含了JSX完全支持的HTML属性，使我们能够构建可访问性良好，功能强大的React组件。</p>
+<p>Each type of widget has a specific design pattern and is expected to function in a certain way by users and user agents alike:</p>
+<p>每个类型的组件都有一个特定的设计模式，并且预计会以某种方式由用户和用户代理运行：</p>
+<ul>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/#aria_ex" target="_blank" rel="noopener">WAI-ARIA Authoring Practices - Design Patterns and Widgets</a></li>
+<li><a href="http://heydonworks.com/practical_aria_examples/" target="_blank" rel="noopener">Heydon Pickering - ARIA Examples</a></li>
+<li><p><a href="https://inclusive-components.design/" target="_blank" rel="noopener">Inclusive Components</a></p>
+</li>
+<li><p><a href="https://www.w3.org/TR/wai-aria-practices/#aria_ex" target="_blank" rel="noopener">WAI-ARIA创作实践 - 设计模式和小工具</a></p>
+</li>
+<li><a href="http://heydonworks.com/practical_aria_examples/" target="_blank" rel="noopener">Heydon Pickering - ARIA示例</a></li>
+<li><a href="https://inclusive-components.design/" target="_blank" rel="noopener">包容性组件</a></li>
+</ul>
+<h3 id="Other-Points-for-Consideration-其他需要考虑的点"><a href="#Other-Points-for-Consideration-其他需要考虑的点" class="headerlink" title="Other Points for Consideration(其他需要考虑的点)"></a>Other Points for Consideration(其他需要考虑的点)</h3><h4 id="Setting-the-language-设置语言"><a href="#Setting-the-language-设置语言" class="headerlink" title="Setting the language(设置语言)"></a>Setting the language(设置语言)</h4><p>Indicate the human language of page texts as screen reader software uses this to select the correct voice settings:</p>
+<p>当屏幕阅读器软件选择语音设置时，请指明页面上对应的语言：</p>
+<ul>
+<li><a href="http://webaim.org/techniques/screenreader/#language" target="_blank" rel="noopener">WebAIM - Document Language</a></li>
+<li><a href="http://webaim.org/techniques/screenreader/#language" target="_blank" rel="noopener">WebAIM - 文本语言</a></li>
+</ul>
+<h4 id="Setting-the-document-title-设置文本标题"><a href="#Setting-the-document-title-设置文本标题" class="headerlink" title="Setting the document title(设置文本标题)"></a>Setting the document title(设置文本标题)</h4><p>Set the document <code>&lt;title&gt;</code> to correctly describe the current page content as this ensures that the user remains aware of the current page context:</p>
+<p>设置文本的<code>&lt;title&gt;</code>来正确的描述现在页面的内容，以此来保证用户始终正确了解页面的内容：</p>
+<ul>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" target="_blank" rel="noopener">WCAG - Understanding the Document Title Requirement</a></li>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" target="_blank" rel="noopener">WCAG - 理解文档标题的需要</a></li>
+</ul>
+<p>We can set this in React using the <a href="https://github.com/gaearon/react-document-title" target="_blank" rel="noopener">React Document Title Component.</a></p>
+<p>我们可以使用<a href="https://github.com/gaearon/react-document-title" target="_blank" rel="noopener">React文档标题组件</a>在React中使用。</p>
+<h4 id="Color-contrast-颜色对比"><a href="#Color-contrast-颜色对比" class="headerlink" title="Color contrast(颜色对比)"></a>Color contrast(颜色对比)</h4><p>Ensure that all readable text on your website has sufficient color contrast to remain maximally readable by users with low vision:</p>
+<p>确保您的网站页面上所有可阅读的文本度有足够的颜色对比，以便视力不便的用户也有最好的阅读体验。</p>
+<ul>
+<li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank" rel="noopener">WCAG - Understanding the Color Contrast Requirement</a></li>
+<li><a href="https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/" target="_blank" rel="noopener">Everything About Color Contrast And Why You Should Rethink It</a></li>
+<li><p><a href="http://a11yproject.com/posts/what-is-color-contrast/" target="_blank" rel="noopener">A11yProject - What is Color Contrast</a></p>
+</li>
+<li><p><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank" rel="noopener">WCAG - 理解颜色对比的需要</a></p>
+</li>
+<li><a href="https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/" target="_blank" rel="noopener">有关颜色对比的所有事及为什么应该重新思考它</a></li>
+<li><a href="http://a11yproject.com/posts/what-is-color-contrast/" target="_blank" rel="noopener">A11yProject - 什么是颜色对比</a></li>
+</ul>
+<p>It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can <a href="http://jxnblk.com/colorable/" target="_blank" rel="noopener">calculate an entire accessible color palette with Colorable</a>.</p>
+<p>手动计算网站中所有组件适当的颜色组合可能是非常繁琐的，因此您可以<a href="http://jxnblk.com/colorable/" target="_blank" rel="noopener">使用Colorable来计算整个可访问的调色板</a>。</p>
+<p>Both the aXe and WAVE tools mentioned below also include color contrast tests and will report on contrast errors.</p>
+<p>下面提到的ax和WAVE工具都包括颜色对比测试，并会提到对比度误差。</p>
+<p>If you want to extend your contrast testing abilities you can use these tools:</p>
+<p>如果您想扩展您的颜色对比测试能力，您可以使用下列工具：</p>
+<ul>
+<li><a href="http://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM - Color Contrast Checker</a></li>
+<li><p><a href="https://www.paciellogroup.com/resources/contrastanalyser/" target="_blank" rel="noopener">The Paciello Group - Color Contrast Analyzer</a></p>
+</li>
+<li><p><a href="http://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM - 颜色对比度检查器</a></p>
+</li>
+<li><a href="https://www.paciellogroup.com/resources/contrastanalyser/" target="_blank" rel="noopener">Paciello组 - 颜色对比处理器</a></li>
+</ul>
+<h3 id="Development-and-Testing-Tools-开发及测试工具"><a href="#Development-and-Testing-Tools-开发及测试工具" class="headerlink" title="Development and Testing Tools(开发及测试工具)"></a>Development and Testing Tools(开发及测试工具)</h3><p>There are a number of tools we can use to assist in the creation of accessible web applications.</p>
+<p>下面是可以用来协助我们创建可访问性的网站的一系列的工具。</p>
+<h4 id="The-keyboard-键盘"><a href="#The-keyboard-键盘" class="headerlink" title="The keyboard(键盘)"></a>The keyboard(键盘)</h4><p>By far the easiest and also one of the most important checks is to test if your entire website can be reached and used with the keyboard alone. Do this by:</p>
+<p>到目前为止，最简单也是最重要的检查之一是测试整个网站是否可以与键盘一起使用。通过下面几步，我们可以做到这一点：</p>
+<ol>
+<li>Plugging out your mouse.</li>
+<li>Using Tab and Shift+Tab to browse.</li>
+<li>Using Enter to activate elements.</li>
+<li><p>Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.</p>
+</li>
+<li><p>拔下鼠标。</p>
+</li>
+<li>使用Tab和Shift + Tab浏览。</li>
+<li>使用Enter激活元素。</li>
+<li>根据需要，使用键盘上的箭头键与某些元素（如菜单和下拉菜单）进行交互。</li>
+</ol>
+<h4 id="Development-assistance-开发者工具"><a href="#Development-assistance-开发者工具" class="headerlink" title="Development assistance(开发者工具)"></a>Development assistance(开发者工具)</h4><p>We can check some accessibility features directly in our JSX code. Often intellisense checks are already provided in JSX aware IDE’s for the ARIA roles, states and properties. We also have access to the following tool:</p>
+<p>我们可以在我们的JSX代码中直接检测一些可访问性的因素。通常IDE会扮演ARIA的角色自动进行状态和属性的检测。 我们也可以访问以下工具：</p>
+<blockquote>
+<p>eslint-plugin-jsx-a11y</p>
+</blockquote>
+<p>The <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y" target="_blank" rel="noopener">eslint-plugin-jsx-a11y</a> plugin for ESLint provides AST linting feedback regarding accessibility issues in your JSX. Many IDE’s allow you to integrate these findings directly into code analysis and source code windows.</p>
+<p>ESLint的<a href="https://github.com/evcohen/eslint-plugin-jsx-a11y" target="_blank" rel="noopener">eslint-plugin-jsx-a11y</a>提供了JSX在AST中可访问性问题的linting反馈。许多IDE允许您将这些问题直接集成到代码分析窗口和源代码窗口中。</p>
+<p><a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a> has this plugin with a subset of rules activated. If you want to enable even more accessibility rules, you can create an <code>.eslintrc</code> file in the root of your project with this content:</p>
+<p><a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>已有这个插件并沿用其中的一些规则。如果您希望使用更多可访问性的规则，则可以使用以下指令在项目的根目录下创建<code>.eslintrc</code>文件：</p>
+<pre><code>{
+  &quot;extends&quot;: [&quot;react-app&quot;, &quot;plugin:jsx-a11y/recommended&quot;],
+  &quot;plugins&quot;: [&quot;jsx-a11y&quot;]
+}
+</code></pre><h4 id="Testing-accessibility-in-the-browser-在浏览器中测试可访问性"><a href="#Testing-accessibility-in-the-browser-在浏览器中测试可访问性" class="headerlink" title="Testing accessibility in the browser(在浏览器中测试可访问性)"></a>Testing accessibility in the browser(在浏览器中测试可访问性)</h4><p>A number of tools exist that can run accessibility audits on web pages in your browser. Please use them in combination with other accessibility checks mentioned here as they can only test the technical accessibility of your HTML.</p>
+<p>许多工具可以在浏览器的网页上测试可访问性。请将它们与其他可访问性检查结合使用，因为它们只能测试与HTML相关的可访问性。</p>
+<blockquote>
+<p>aXe, aXe-core and react-axe</p>
+</blockquote>
+<p>Deque Systems offers <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener">aXe-core</a> for automated and end-to-end accessibility tests of your applications. This module includes integrations for Selenium.</p>
+<p>Deque Systems为您的应用程序的自动化和端对端可访问性测试提供了<a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener">ax-core</a>。 该模块包含Selenium的集成。</p>
+<p><a href="https://www.deque.com/products/axe/" target="_blank" rel="noopener">The Accessibility Engine</a> or aXe, is an accessibility inspector browser extension built on <code>aXe-core</code>.</p>
+<p><a href="https://www.deque.com/products/axe/" target="_blank" rel="noopener">可访问性的引擎</a>或者aXe,是一个内嵌在<code>aXe-core</code>上的检测可访问性的浏览器插件。</p>
+<p>You can also use the <a href="https://github.com/dylanb/react-axe" target="_blank" rel="noopener">react-axe</a> module to report these accessibility findings directly to the console while developing and debugging.</p>
+<p>您也可以使用<a href="https://github.com/dylanb/react-axe" target="_blank" rel="noopener">react-axe</a>模块在开发和调试时直接向控制台报告这些可访问性结果。</p>
+<blockquote>
+<p>WebAIM WAVE</p>
+</blockquote>
+<p>The <a href="http://wave.webaim.org/extension/" target="_blank" rel="noopener">Web Accessibility Evaluation Tool</a> is another accessibility browser extension.</p>
+<p><a href="http://wave.webaim.org/extension/" target="_blank" rel="noopener">网络可访问性评估工具</a>是另一个可访问性的浏览器插件。</p>
+<blockquote>
+<p>Accessibility inspectors and the Accessibility Tree(可访问性检测器及可访问性树)</p>
+</blockquote>
+<p><a href="https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/" target="_blank" rel="noopener">The Accessibility Tree</a> is a subset of the DOM tree that contains accessible objects for every DOM element that should be exposed to assistive technology, such as screen readers.</p>
+<p><a href="https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/" target="_blank" rel="noopener">可访问性树</a>是DOM树的子集，其中包含每个DOM元素的可访问对象，这些元素会暴露给可访问的设备，例如屏幕阅读器。</p>
+<p>In some browsers we can easily view the accessibility information for each element in the accessibility tree:</p>
+<p>在一些浏览器中，我们可以轻松地查看可访问性功能树中每个元素的可访问性信息：</p>
+<ul>
+<li>Activate the Accessibility Inspector in Chrome</li>
+<li><p>Using the Accessibility Inspector in OS X Safari</p>
+</li>
+<li><p>在Chrome中激活辅助功能检查器</p>
+</li>
+<li>在OS X Safari中使用辅助功能检查器</li>
+</ul>
+<h4 id="Screen-readers-屏幕阅读器"><a href="#Screen-readers-屏幕阅读器" class="headerlink" title="Screen readers(屏幕阅读器)"></a>Screen readers(屏幕阅读器)</h4><p>Testing with a screen reader should form part of your accessibility tests.</p>
+<p>测试屏幕阅读器应该是您可访问性测试的一部分。</p>
+<p>Please note that browser / screen reader combinations matter. It is recommended that you test your application in the browser best suited to your screen reader of choice.</p>
+<p>请注意，浏览器/屏幕阅读器的组合很重要。建议您在最适合的屏幕阅读器的浏览器中测试您的应用程序。</p>
+<h4 id="Commonly-Used-Screen-Readers-通用的屏幕阅读器"><a href="#Commonly-Used-Screen-Readers-通用的屏幕阅读器" class="headerlink" title="Commonly Used Screen Readers(通用的屏幕阅读器)"></a>Commonly Used Screen Readers(通用的屏幕阅读器)</h4><blockquote>
+<p>NVDA in Firefox</p>
+</blockquote>
+<p><a href="https://www.nvaccess.org/" target="_blank" rel="noopener">NonVisual Desktop Access</a> or NVDA is an open source Windows screen reader that is widely used.</p>
+<p><a href="https://www.nvaccess.org/" target="_blank" rel="noopener">不可视的桌面访问</a>或者NVDA时一个广泛使用的开源的Windows屏幕阅读器。</p>
+<p>Refer to the following guides on how to best use NVDA:</p>
+<p>您可以参考下列的目录来学习如何最好的使用NVDA：</p>
+<ul>
+<li><a href="http://webaim.org/articles/nvda/" target="_blank" rel="noopener">WebAIM - Using NVDA to Evaluate Web Accessibility</a></li>
+<li><p><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts" target="_blank" rel="noopener">Deque - NVDA Keyboard Shortcuts</a></p>
+</li>
+<li><p><a href="http://webaim.org/articles/nvda/" target="_blank" rel="noopener">WebAIM - 使用NVDA来评估网络的可访问性</a></p>
+</li>
+<li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts" target="_blank" rel="noopener">Deque - NVDA键盘的快捷键</a></li>
+</ul>
+<blockquote>
+<p>VoiceOver in Safari</p>
+</blockquote>
+<p>VoiceOver is an integrated screen reader on Apple devices.</p>
+<p>VoiceOver是Apple设备上的集成屏幕阅读器。</p>
+<p>Refer to the following guides on how activate and use VoiceOver:</p>
+<p>您可以参考下列的目录来学习如何激活并使用VoiceOver：</p>
+<ul>
+<li><a href="http://webaim.org/articles/voiceover/" target="_blank" rel="noopener">WebAIM - Using VoiceOver to Evaluate Web Accessibility</a></li>
+<li><a href="https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts" target="_blank" rel="noopener">Deque - VoiceOver for OS X Keyboard Shortcuts</a></li>
+<li><p><a href="https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts" target="_blank" rel="noopener">Deque - VoiceOver for iOS Shortcuts</a></p>
+</li>
+<li><p><a href="http://webaim.org/articles/voiceover/" target="_blank" rel="noopener">WebAIM - 使用VoiceOver来评估Web可访问性</a></p>
+</li>
+<li><a href="https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts" target="_blank" rel="noopener">Deque- VoiceOver在OS X的快捷键</a></li>
+<li><a href="https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts" target="_blank" rel="noopener">Deque - VoiceOver在iOS上的快捷键</a></li>
+</ul>
+<blockquote>
+<p>JAWS in Internet Explorer</p>
+</blockquote>
+<p><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank" rel="noopener">Job Access With Speech</a> or JAWS, is a prolifically used screen reader on Windows.</p>
+<p><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank" rel="noopener">Job Access With Speech</a>或JAWS进行工作访问是Windows上一种多用途的屏幕阅读器。</p>
+<p>Refer to the following guides on how to best use JAWS:</p>
+<p>参考下列目录来学习如何最好的使用JAWS：</p>
+<ul>
+<li><a href="http://webaim.org/articles/jaws/" target="_blank" rel="noopener">WebAIM - Using JAWS to Evaluate Web Accessibility</a></li>
+<li><p><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts" target="_blank" rel="noopener">Deque - JAWS Keyboard Shortcuts</a></p>
+</li>
+<li><p><a href="http://webaim.org/articles/jaws/" target="_blank" rel="noopener">WebAIM - 使用JAWS来评估Web的可访问性</a></p>
+</li>
+<li><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts" target="_blank" rel="noopener">Deque - JAWS键盘快捷键</a></li>
+</ul>
+<h4 id="Other-Screen-Readers-其他的屏幕阅读器"><a href="#Other-Screen-Readers-其他的屏幕阅读器" class="headerlink" title="Other Screen Readers(其他的屏幕阅读器)"></a>Other Screen Readers(其他的屏幕阅读器)</h4><blockquote>
+<p>ChromeVox in Google Chrome</p>
+</blockquote>
+<p><a href="http://www.chromevox.com/" target="_blank" rel="noopener">ChromeVox</a> is an integrated screen reader on Chromebooks and is available as an extension for Google Chrome.</p>
+<p><a href="http://www.chromevox.com/" target="_blank" rel="noopener">ChromeVox</a>是Chromebook上的集成屏幕阅读器，可作为Google Chrome的扩展程序。</p>
+<p>Refer to the following guides on how best to use ChromeVox:</p>
+<p>参考下列目录来学习如何最好的使用ChromeVox：</p>
+<ul>
+<li><a href="https://support.google.com/chromebook/answer/7031755?hl=en" target="_blank" rel="noopener">Google Chromebook Help - Use the Built-in Screen Reader</a></li>
+<li><p><a href="http://www.chromevox.com/keyboard_shortcuts.html" target="_blank" rel="noopener">ChromeVox Classic Keyboard Shortcuts Reference</a></p>
+</li>
+<li><p><a href="https://support.google.com/chromebook/answer/7031755?hl=en" target="_blank" rel="noopener">Google Chromebook帮助 - 使用内建的屏幕阅读器</a></p>
+</li>
+<li><a href="http://www.chromevox.com/keyboard_shortcuts.html" target="_blank" rel="noopener">ChromeVox Classic传统的快捷键参阅</a></li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'true' == true;
+    var verify = 'true' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz",
+        appKey: "0x6VHFG6YKulI1wbgAC9xYIh",
+        placeholder: "Please leave your footprints.",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/06/23/blog/react_communication/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/logo.jpeg" alt="Frankl's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        qinhui@bupt.edu.cn
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: qinhui@bupt.edu.cn" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">22</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/ES6/">ES6<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/git/">git<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/leetCode/">leetCode<span class="sidebar_archives-count">23</span></a></li><li><a class="sidebar_archives-link" href="/categories/react-document/">react document<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端常见问题/">前端常见问题<span class="sidebar_archives-count">7</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">52</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
+-->
+
+<!-- Feedback -->
+<!--
+
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/lpldplws" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2018&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Frankl's Personal Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/lazyload.min.js", true)</script>
+
+
+
+    <script>lsloader.load("js_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/js.min.js", true)</script>
+
+
+
+    <script>lsloader.load("np_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/nprogress.js", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/smoothscroll.js", true)</script>
+    
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz', '0x6VHFG6YKulI1wbgAC9xYIh');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","https://cdn.bootcss.com/prettify/r298/prettify.min.js", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
