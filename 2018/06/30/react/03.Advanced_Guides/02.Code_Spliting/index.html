@@ -47,7 +47,7 @@
     
     <title>
         
-            leetCode Array -- 13.Find All Numbers Disappeared in an Array | 
+            03.Advanced Guides -- 02.Code-Splitting | 
         
         Frankl&#39;s Personal Blog
     </title>
@@ -58,7 +58,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
-    <meta name="keywords" content="Frankl&#39;s personal blog,leetCode array">
+    <meta name="keywords" content="Frankl&#39;s personal blog,react document">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -224,7 +224,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Frankl&#39;s Personal Blog">
-    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/">
+    <meta name="msapplication-starturl" content="www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
@@ -239,16 +239,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/">
+    <meta property="og:url" content="www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="leetCode Array -- 13.Find All Numbers Disappeared in an Array | Frankl&#39;s Personal Blog">
+    <meta property="og:title" content="03.Advanced Guides -- 02.Code-Splitting | Frankl&#39;s Personal Blog">
     <meta property="og:image" content="/img/mountains.png">
     <meta property="og:description" content="Base on front-end, more than front-end">
-    <meta property="og:article:tag" content="leetCode array"> 
+    <meta property="og:article:tag" content="react document"> 
 
     
-        <meta property="article:published_time" content="Sat Jan 27 2018 16:09:23 GMT+0800">
-        <meta property="article:modified_time" content="Sat Jan 27 2018 16:24:12 GMT+0800">
+        <meta property="article:published_time" content="Sat Jun 30 2018 17:25:32 GMT+0800">
+        <meta property="article:modified_time" content="Sat Jun 30 2018 17:57:27 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -256,7 +256,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html" />
+        <link rel="canonical" href="www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -268,10 +268,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html",
-    "headline": "leetCode Array -- 13.Find All Numbers Disappeared in an Array",
-    "datePublished": "Sat Jan 27 2018 16:09:23 GMT+0800",
-    "dateModified": "Sat Jan 27 2018 16:24:12 GMT+0800",
+    "mainEntityOfPage": "www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html",
+    "headline": "03.Advanced Guides -- 02.Code-Splitting",
+    "datePublished": "Sat Jun 30 2018 17:25:32 GMT+0800",
+    "dateModified": "Sat Jun 30 2018 17:57:27 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Frankl",
@@ -289,7 +289,7 @@
             "url": "/img/mountains.png"
         }
     },
-    "keywords": ",leetCode arrayFrankl&#39;s personal blog",
+    "keywords": ",react documentFrankl&#39;s personal blog",
     "description": "Base on front-end, more than front-end",
 }
 </script>
@@ -355,7 +355,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Problem-13-Find-All-Numbers-Disappeared-in-an-Array"><span class="post-toc-number">1.</span> <span class="post-toc-text">Problem 13: Find All Numbers Disappeared in an Array</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Code-Splitting-代码拆分"><span class="post-toc-number">1.</span> <span class="post-toc-text">Code-Splitting(代码拆分)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bundling-打包"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Bundling(打包)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#App"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">App:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Bundle"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Bundle:</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code-Splitting-代码拆分-1"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Code Splitting(代码拆分)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#import"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">import()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Libraries-库"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Libraries(库)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ReactLoadable-React的可加载性"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">ReactLoadable(React的可加载性)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Route-based-code-splitting-基于路由的代码拆分"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Route-based code splitting(基于路由的代码拆分)</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -387,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                leetCode Array -- 13.Find All Numbers Disappeared in an Array
+                03.Advanced Guides -- 02.Code-Splitting
             </p>
         </div>
 
@@ -406,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Frankl</strong>
-        <span>1月 27, 2018</span>
+        <span>6月 30, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -428,7 +428,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/">
     
 </ul>
 
@@ -442,7 +442,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/leetCode-array/">leetCode array</a>
+        <a class="post_tag-link" href="/tags/react-document/">react document</a>
     </ul>
     
 
@@ -457,7 +457,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/" class="leancloud-views_num" data-flag-title="leetCode Array -- 13.Find All Numbers Disappeared in an Array">
+                <span id="/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/" class="leancloud-views_num" data-flag-title="03.Advanced Guides -- 02.Code-Splitting">
      &nbsp;浏览量
 </span>
 
@@ -469,7 +469,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=leetCode Array -- 13.Find All Numbers Disappeared in an Array&url=www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=03.Advanced Guides -- 02.Code-Splitting&url=www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html&pic=www.lpldplws.cn/img/mountains.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -478,7 +478,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=leetCode Array -- 13.Find All Numbers Disappeared in an Array&url=www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html&via=Frankl" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=03.Advanced Guides -- 02.Code-Splitting&url=www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html&via=Frankl" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -487,7 +487,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -496,7 +496,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -508,7 +508,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=leetCode Array -- 13.Find All Numbers Disappeared in an Array&summary=Base on front-end, more than front-end&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/01/27/leetCode/13.Find_All_Numbers_Disappeared_in_an_Array/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Frankl&#39;s Personal Blog&title=03.Advanced Guides -- 02.Code-Splitting&summary=Base on front-end, more than front-end&pics=www.lpldplws.cn/img/mountains.png&url=www.lpldplws.cn/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -527,32 +527,115 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="Problem-13-Find-All-Numbers-Disappeared-in-an-Array"><a href="#Problem-13-Find-All-Numbers-Disappeared-in-an-Array" class="headerlink" title="Problem 13: Find All Numbers Disappeared in an Array"></a>Problem 13: Find All Numbers Disappeared in an Array</h2><p>Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
-<p>Find all the elements of [1, n] inclusive that do not appear in this array.</p>
-<p>Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.</p>
-<p><strong>Example:</strong></p>
-<p><strong>Input:</strong><br>[4,3,2,7,8,2,3,1]</p>
-<p><strong>Output:</strong><br>[5,6]</p>
-<p><strong>solution:</strong></p>
-<p>1.本来想最简单的方法就是先筛选出1 ≤ a[i] ≤ n 中哪个元素不再数组里，然后push到最后一位在splice之前的内容，但是要求<code>without extra space and in O(n) runtime</code>，所以选择其他的方法。这里选择先将数组排序，然后判断哪个元素不是对应位置上的数字，最后push到数组中。</p>
-<pre><code>var findDisappearedNumbers = function(nums) {
-     var res = [];
-     for (var i = 0; i &lt; nums.length; i++) {
-        if (nums[i] != nums[nums[i] - 1]) {
-            var inchange = nums[nums[i] - 1];
-            nums[nums[i] - 1] = nums[i];
-            nums[i] = inchange;
-            i--;
-        }
-    }
-    for (var j = 0; j &lt; nums.length; j++) {
-        if (nums[j] != j + 1)
-            res.push(j + 1);
-    }
-    return res;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+        <h2 id="Code-Splitting-代码拆分"><a href="#Code-Splitting-代码拆分" class="headerlink" title="Code-Splitting(代码拆分)"></a>Code-Splitting(代码拆分)</h2><h3 id="Bundling-打包"><a href="#Bundling-打包" class="headerlink" title="Bundling(打包)"></a>Bundling(打包)</h3><p>Most React apps will have their files “bundled” using tools like <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. Bundling is the process of following imported files and merging them into a single file: a “bundle”. This bundle can then be included on a webpage to load an entire app at once.</p>
+<p>大多数React应用程序都有它们自己的“打包”工具，例如<a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> 或者<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>。打包是指跟踪导入的文件并将它们合并到单个文件–“bundle”中的过程。然后，可以将打包后的文件加载到网页上，以立即加载整个应用。</p>
+<blockquote>
+<p>Example(举例)</p>
+</blockquote>
+<h4 id="App"><a href="#App" class="headerlink" title="App:"></a>App:</h4><pre><code>// app.js
+import { add } from &#39;./math.js&#39;;
 
+console.log(add(16, 26)); // 42
+</code></pre><pre><code>// math.js
+export function add(a, b) {
+  return a + b;
+}
+</code></pre><h4 id="Bundle"><a href="#Bundle" class="headerlink" title="Bundle:"></a>Bundle:</h4><pre><code>function add(a, b) {
+  return a + b;
+}
+
+console.log(add(16, 26)); // 42
+</code></pre><blockquote>
+<p>Note(注意):<br>Your bundles will end up looking a lot different than this.<br>您打包后的文件可能跟上述代码有所不同。</p>
+</blockquote>
+<p>If you’re using <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>, <a href="https://github.com/zeit/next.js/" target="_blank" rel="noopener">Next.js</a>, <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener">Gatsby</a>, or a similar tool, you will have a Webpack setup out of the box to bundle your app.</p>
+<p>如果您正在使用<a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>, <a href="https://github.com/zeit/next.js/" target="_blank" rel="noopener">Next.js</a>, <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener">Gatsby</a>或者其他相似的工具，您可以使用开箱即用的Webpack设置来捆绑您的应用。</p>
+<p>If you aren’t, you’ll need to setup bundling yourself. For example, see the <a href="https://webpack.js.org/guides/installation/" target="_blank" rel="noopener">Installation</a> and <a href="https://webpack.js.org/guides/getting-started/" target="_blank" rel="noopener">Getting Started</a> guides on the Webpack docs.</p>
+<p>如果您不是什么样的上述工具，您就得自己安装打包工具了。例如，请看webpack文档的<a href="https://webpack.js.org/guides/installation/" target="_blank" rel="noopener">安装</a>和<a href="https://webpack.js.org/guides/getting-started/" target="_blank" rel="noopener">开始</a>目录。</p>
+<h3 id="Code-Splitting-代码拆分-1"><a href="#Code-Splitting-代码拆分-1" class="headerlink" title="Code Splitting(代码拆分)"></a>Code Splitting(代码拆分)</h3><p>Bundling is great, but as your app grows, your bundle will grow too. Especially if you are including large third-party libraries. You need to keep an eye on the code you are including in your bundle so that you don’t accidentally make it so large that your app takes a long time to load.</p>
+<p>打包工具虽然很棒，但随着您的应用程序的扩展，您捆绑的包也会随之增长。特别是如果您包含第三方大型的库。您需要密切关注打完的包中的代码，这样您就不会将其编写的过大，以至于您的应用需要很长时间才能加载完成。</p>
+<p>To avoid winding up with a large bundle, it’s good to get ahead of the problem and start “splitting” your bundle. <a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">Code-Splitting</a> is a feature supported by bundlers like Webpack and Browserify (via <a href="https://github.com/browserify/factor-bundle" target="_blank" rel="noopener">factor-bundle</a>) which can create multiple bundles that can be dynamically loaded at runtime.</p>
+<p>为了避免大量捆绑的发生，最好从最开始就解决问题，并开始“拆分”打过的包。<a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">Code-Splitting</a>是Webpack和Browserify等打包软件支持的一项功能，（通过<a href="https://github.com/browserify/factor-bundle" target="_blank" rel="noopener">factor-bundle</a>）可以创建多个可在运行时动态加载的bundle。</p>
+<p>Code-splitting your app can help you “lazy-load” just the things that are currently needed by the user, which can dramatically improve the performance of your app. While you haven’t reduced the overall amount of code in your app, you’ve avoided loading code that the user may never need, and reduced the amount of code needed during the initial load.</p>
+<p>拆分您应用程序的代码可以帮助您在当前用户需要的时候实现“懒加载”，这样可以提高您应用程序的性能。当您没有减少您应用程序整体代码量的时候，您可以避免加载用户可能从来不需要的代码，并且减少在初次加载时的代码量。</p>
+<h3 id="import"><a href="#import" class="headerlink" title="import()"></a>import()</h3><p>The best way to introduce code-splitting into your app is through the dynamic <code>import()</code> syntax.</p>
+<p>在您的应用程序中介绍分隔代码最好的方式就是动态的使用<code>import()</code>语法。</p>
+<blockquote>
+<p>Before(之前):</p>
+</blockquote>
+<pre><code>import { add } from &#39;./math&#39;;
+
+console.log(add(16, 26));
+</code></pre><blockquote>
+<p>After(之后):</p>
+</blockquote>
+<pre><code>import(&quot;./math&quot;).then(math =&gt; {
+  console.log(math.add(16, 26));
+});
+</code></pre><blockquote>
+<p>Note(注意):<br>The dynamic <code>import()</code> syntax is a ECMAScript (JavaScript) proposal not currently part of the language standard. It is expected to be accepted in the near future.<br>动态的<code>import()</code>语法只是ECMAScript (JavaScript)的一个建议，并非语法标准。它也许会在以后的版本中被接受。</p>
+</blockquote>
+<p>When Webpack comes across this syntax, it automatically starts code-splitting your app. If you’re using Create React App, this is already configured for you and you can <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting" target="_blank" rel="noopener">start using it</a> immediately. It’s also supported out of the box in <a href="https://github.com/zeit/next.js/#dynamic-import" target="_blank" rel="noopener">Next.js</a>.</p>
+<p>当Webpack遇到这种语法时，它会自动启动拆分代码的部分来拆分您的应用程序。如果您正在使用Create React App，那么您已经配置好了这个并可以<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting" target="_blank" rel="noopener">立即开始使用它</a>。在<a href="https://github.com/zeit/next.js/#dynamic-import" target="_blank" rel="noopener">Next.js</a>中也支持开箱即用。</p>
+<p>If you’re setting up Webpack yourself, you’ll probably want to read Webpack’s <a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">guide on code splitting</a>. Your Webpack config should look vaguely <a href="https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269" target="_blank" rel="noopener">like this</a>.</p>
+<p>如何您自己正在设置Webpack，您可能需要阅读Webpack的<a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">拆分代码指南</a>。您的Webpack配置大体看上去应该<a href="https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269" target="_blank" rel="noopener">像这样</a>。</p>
+<p>When using <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>, you’ll need to make sure that Babel can parse the dynamic import syntax but is not transforming it. For that you will need <a href="https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import" target="_blank" rel="noopener">babel-plugin-syntax-dynamic-import</a>.</p>
+<p>当使用<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>，您需要确保Babel能够解析动态导入的语法，但不会对其进行转换。为此，您需要使用<a href="https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import" target="_blank" rel="noopener">babel-plugin-syntax-dynamic-import</a>。</p>
+<h3 id="Libraries-库"><a href="#Libraries-库" class="headerlink" title="Libraries(库)"></a>Libraries(库)</h3><h4 id="ReactLoadable-React的可加载性"><a href="#ReactLoadable-React的可加载性" class="headerlink" title="ReactLoadable(React的可加载性)"></a>ReactLoadable(React的可加载性)</h4><p><a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a> wraps dynamic imports in a nice, React-friendly API for introducing code splitting into your app at a given component.</p>
+<p><a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>包装在一个良好的，对React友好的API中，这个API用于拆分的代码引入到给定组件的应用程序中。</p>
+<blockquote>
+<p>Before(之前):</p>
+</blockquote>
+<pre><code>import OtherComponent from &#39;./OtherComponent&#39;;
+
+const MyComponent = () =&gt; (
+  &lt;OtherComponent/&gt;
+);
+</code></pre><blockquote>
+<p>After:</p>
+</blockquote>
+<pre><code>import Loadable from &#39;react-loadable&#39;;
+
+const LoadableOtherComponent = Loadable({
+  loader: () =&gt; import(&#39;./OtherComponent&#39;),
+  loading: () =&gt; &lt;div&gt;Loading...&lt;/div&gt;,
+});
+
+const MyComponent = () =&gt; (
+  &lt;LoadableOtherComponent/&gt;
+);
+</code></pre><p>React Loadable helps you create <a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">loading states</a>, <a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">error states</a>, <a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">timeouts</a>, <a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">preloading</a>, and more. It can even help you <a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">server-side render</a> an app with lots of code-splitting.</p>
+<p>React Loadable可帮助您创建<a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">加载状态</a>，<a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">错误状态</a>，<a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">超时</a>，<a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">预加载</a>等。 它甚至可以帮助您在<a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">服务器端渲染</a>具有大量代码拆分的应用程序。</p>
+<h3 id="Route-based-code-splitting-基于路由的代码拆分"><a href="#Route-based-code-splitting-基于路由的代码拆分" class="headerlink" title="Route-based code splitting(基于路由的代码拆分)"></a>Route-based code splitting(基于路由的代码拆分)</h3><p>Deciding where in your app to introduce code splitting can be a bit tricky. You want to make sure you choose places that will split bundles evenly, but won’t disrupt the user experience.</p>
+<p>在你的应用中选择哪里引入代码拆分的位置可能有点棘手。引入代码拆分的位置要确保位于拆分合理的地方，并且不会破坏用户体验。</p>
+<p>A good place to start is with routes. Most people on the web are used to page transitions taking some amount of time to load. You also tend to be re-rendering the entire page at once so your users are unlikely to be interacting with other elements on the page at the same time.</p>
+<p>引用代码拆分的一个好的位置是路由。大多数人在网页上都习惯于页面切换，这需要花费一些时间来加载。您还可以重新渲染整个页面，这样您的用户就不可能同时与页面上的其他元素进行交互。</p>
+<p>Here’s an example of how to setup route-based code splitting into your app using libraries like <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener">React Router</a> and <a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>.</p>
+<p>以下是如何使用<a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener">React Router</a>和<a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>等库将基于路由的代码拆分到应用程序的示例。</p>
+<pre><code>import { BrowserRouter as Router, Route, Switch } from &#39;react-router-dom&#39;;
+import Loadable from &#39;react-loadable&#39;;
+
+const Loading = () =&gt; &lt;div&gt;Loading...&lt;/div&gt;;
+
+const Home = Loadable({
+  loader: () =&gt; import(&#39;./routes/Home&#39;),
+  loading: Loading,
+});
+
+const About = Loadable({
+  loader: () =&gt; import(&#39;./routes/About&#39;),
+  loading: Loading,
+});
+
+const App = () =&gt; (
+  &lt;Router&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path=&quot;/&quot; component={Home}/&gt;
+      &lt;Route path=&quot;/about&quot; component={About}/&gt;
+    &lt;/Switch&gt;
+  &lt;/Router&gt;
+);
+</code></pre>
         
     
 
@@ -595,21 +678,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/01/27/leetCode/14.Move_Zeroes/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/01/27/leetCode/12.Max_Area_of_Island/" id="post_nav-older" class="next-content">
+        <a href="/2018/06/29/react/03.Advanced_Guides/01.Accessibility/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

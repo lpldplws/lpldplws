@@ -3,6 +3,134 @@
   
     
     <entry>
+      <title><![CDATA[03.Advanced Guides -- 02.Code-Splitting]]></title>
+      <url>/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/</url>
+      <content type="html"><![CDATA[<h2 id="Code-Splitting-代码拆分"><a href="#Code-Splitting-代码拆分" class="headerlink" title="Code-Splitting(代码拆分)"></a>Code-Splitting(代码拆分)</h2><h3 id="Bundling-打包"><a href="#Bundling-打包" class="headerlink" title="Bundling(打包)"></a>Bundling(打包)</h3><p>Most React apps will have their files “bundled” using tools like <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. Bundling is the process of following imported files and merging them into a single file: a “bundle”. This bundle can then be included on a webpage to load an entire app at once.</p>
+<p>大多数React应用程序都有它们自己的“打包”工具，例如<a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> 或者<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>。打包是指跟踪导入的文件并将它们合并到单个文件–“bundle”中的过程。然后，可以将打包后的文件加载到网页上，以立即加载整个应用。</p>
+<blockquote>
+<p>Example(举例)</p>
+</blockquote>
+<h4 id="App"><a href="#App" class="headerlink" title="App:"></a>App:</h4><pre><code>// app.js
+import { add } from &#39;./math.js&#39;;
+
+console.log(add(16, 26)); // 42
+</code></pre><pre><code>// math.js
+export function add(a, b) {
+  return a + b;
+}
+</code></pre><h4 id="Bundle"><a href="#Bundle" class="headerlink" title="Bundle:"></a>Bundle:</h4><pre><code>function add(a, b) {
+  return a + b;
+}
+
+console.log(add(16, 26)); // 42
+</code></pre><blockquote>
+<p>Note(注意):<br>Your bundles will end up looking a lot different than this.<br>您打包后的文件可能跟上述代码有所不同。</p>
+</blockquote>
+<p>If you’re using <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>, <a href="https://github.com/zeit/next.js/" target="_blank" rel="noopener">Next.js</a>, <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener">Gatsby</a>, or a similar tool, you will have a Webpack setup out of the box to bundle your app.</p>
+<p>如果您正在使用<a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>, <a href="https://github.com/zeit/next.js/" target="_blank" rel="noopener">Next.js</a>, <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener">Gatsby</a>或者其他相似的工具，您可以使用开箱即用的Webpack设置来捆绑您的应用。</p>
+<p>If you aren’t, you’ll need to setup bundling yourself. For example, see the <a href="https://webpack.js.org/guides/installation/" target="_blank" rel="noopener">Installation</a> and <a href="https://webpack.js.org/guides/getting-started/" target="_blank" rel="noopener">Getting Started</a> guides on the Webpack docs.</p>
+<p>如果您不是什么样的上述工具，您就得自己安装打包工具了。例如，请看webpack文档的<a href="https://webpack.js.org/guides/installation/" target="_blank" rel="noopener">安装</a>和<a href="https://webpack.js.org/guides/getting-started/" target="_blank" rel="noopener">开始</a>目录。</p>
+<h3 id="Code-Splitting-代码拆分-1"><a href="#Code-Splitting-代码拆分-1" class="headerlink" title="Code Splitting(代码拆分)"></a>Code Splitting(代码拆分)</h3><p>Bundling is great, but as your app grows, your bundle will grow too. Especially if you are including large third-party libraries. You need to keep an eye on the code you are including in your bundle so that you don’t accidentally make it so large that your app takes a long time to load.</p>
+<p>打包工具虽然很棒，但随着您的应用程序的扩展，您捆绑的包也会随之增长。特别是如果您包含第三方大型的库。您需要密切关注打完的包中的代码，这样您就不会将其编写的过大，以至于您的应用需要很长时间才能加载完成。</p>
+<p>To avoid winding up with a large bundle, it’s good to get ahead of the problem and start “splitting” your bundle. <a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">Code-Splitting</a> is a feature supported by bundlers like Webpack and Browserify (via <a href="https://github.com/browserify/factor-bundle" target="_blank" rel="noopener">factor-bundle</a>) which can create multiple bundles that can be dynamically loaded at runtime.</p>
+<p>为了避免大量捆绑的发生，最好从最开始就解决问题，并开始“拆分”打过的包。<a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">Code-Splitting</a>是Webpack和Browserify等打包软件支持的一项功能，（通过<a href="https://github.com/browserify/factor-bundle" target="_blank" rel="noopener">factor-bundle</a>）可以创建多个可在运行时动态加载的bundle。</p>
+<p>Code-splitting your app can help you “lazy-load” just the things that are currently needed by the user, which can dramatically improve the performance of your app. While you haven’t reduced the overall amount of code in your app, you’ve avoided loading code that the user may never need, and reduced the amount of code needed during the initial load.</p>
+<p>拆分您应用程序的代码可以帮助您在当前用户需要的时候实现“懒加载”，这样可以提高您应用程序的性能。当您没有减少您应用程序整体代码量的时候，您可以避免加载用户可能从来不需要的代码，并且减少在初次加载时的代码量。</p>
+<h3 id="import"><a href="#import" class="headerlink" title="import()"></a>import()</h3><p>The best way to introduce code-splitting into your app is through the dynamic <code>import()</code> syntax.</p>
+<p>在您的应用程序中介绍分隔代码最好的方式就是动态的使用<code>import()</code>语法。</p>
+<blockquote>
+<p>Before(之前):</p>
+</blockquote>
+<pre><code>import { add } from &#39;./math&#39;;
+
+console.log(add(16, 26));
+</code></pre><blockquote>
+<p>After(之后):</p>
+</blockquote>
+<pre><code>import(&quot;./math&quot;).then(math =&gt; {
+  console.log(math.add(16, 26));
+});
+</code></pre><blockquote>
+<p>Note(注意):<br>The dynamic <code>import()</code> syntax is a ECMAScript (JavaScript) proposal not currently part of the language standard. It is expected to be accepted in the near future.<br>动态的<code>import()</code>语法只是ECMAScript (JavaScript)的一个建议，并非语法标准。它也许会在以后的版本中被接受。</p>
+</blockquote>
+<p>When Webpack comes across this syntax, it automatically starts code-splitting your app. If you’re using Create React App, this is already configured for you and you can <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting" target="_blank" rel="noopener">start using it</a> immediately. It’s also supported out of the box in <a href="https://github.com/zeit/next.js/#dynamic-import" target="_blank" rel="noopener">Next.js</a>.</p>
+<p>当Webpack遇到这种语法时，它会自动启动拆分代码的部分来拆分您的应用程序。如果您正在使用Create React App，那么您已经配置好了这个并可以<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting" target="_blank" rel="noopener">立即开始使用它</a>。在<a href="https://github.com/zeit/next.js/#dynamic-import" target="_blank" rel="noopener">Next.js</a>中也支持开箱即用。</p>
+<p>If you’re setting up Webpack yourself, you’ll probably want to read Webpack’s <a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">guide on code splitting</a>. Your Webpack config should look vaguely <a href="https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269" target="_blank" rel="noopener">like this</a>.</p>
+<p>如何您自己正在设置Webpack，您可能需要阅读Webpack的<a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">拆分代码指南</a>。您的Webpack配置大体看上去应该<a href="https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269" target="_blank" rel="noopener">像这样</a>。</p>
+<p>When using <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>, you’ll need to make sure that Babel can parse the dynamic import syntax but is not transforming it. For that you will need <a href="https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import" target="_blank" rel="noopener">babel-plugin-syntax-dynamic-import</a>.</p>
+<p>当使用<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>，您需要确保Babel能够解析动态导入的语法，但不会对其进行转换。为此，您需要使用<a href="https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import" target="_blank" rel="noopener">babel-plugin-syntax-dynamic-import</a>。</p>
+<h3 id="Libraries-库"><a href="#Libraries-库" class="headerlink" title="Libraries(库)"></a>Libraries(库)</h3><h4 id="ReactLoadable-React的可加载性"><a href="#ReactLoadable-React的可加载性" class="headerlink" title="ReactLoadable(React的可加载性)"></a>ReactLoadable(React的可加载性)</h4><p><a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a> wraps dynamic imports in a nice, React-friendly API for introducing code splitting into your app at a given component.</p>
+<p><a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>包装在一个良好的，对React友好的API中，这个API用于拆分的代码引入到给定组件的应用程序中。</p>
+<blockquote>
+<p>Before(之前):</p>
+</blockquote>
+<pre><code>import OtherComponent from &#39;./OtherComponent&#39;;
+
+const MyComponent = () =&gt; (
+  &lt;OtherComponent/&gt;
+);
+</code></pre><blockquote>
+<p>After:</p>
+</blockquote>
+<pre><code>import Loadable from &#39;react-loadable&#39;;
+
+const LoadableOtherComponent = Loadable({
+  loader: () =&gt; import(&#39;./OtherComponent&#39;),
+  loading: () =&gt; &lt;div&gt;Loading...&lt;/div&gt;,
+});
+
+const MyComponent = () =&gt; (
+  &lt;LoadableOtherComponent/&gt;
+);
+</code></pre><p>React Loadable helps you create <a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">loading states</a>, <a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">error states</a>, <a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">timeouts</a>, <a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">preloading</a>, and more. It can even help you <a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">server-side render</a> an app with lots of code-splitting.</p>
+<p>React Loadable可帮助您创建<a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">加载状态</a>，<a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">错误状态</a>，<a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">超时</a>，<a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">预加载</a>等。 它甚至可以帮助您在<a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">服务器端渲染</a>具有大量代码拆分的应用程序。</p>
+<h3 id="Route-based-code-splitting-基于路由的代码拆分"><a href="#Route-based-code-splitting-基于路由的代码拆分" class="headerlink" title="Route-based code splitting(基于路由的代码拆分)"></a>Route-based code splitting(基于路由的代码拆分)</h3><p>Deciding where in your app to introduce code splitting can be a bit tricky. You want to make sure you choose places that will split bundles evenly, but won’t disrupt the user experience.</p>
+<p>在你的应用中选择哪里引入代码拆分的位置可能有点棘手。引入代码拆分的位置要确保位于拆分合理的地方，并且不会破坏用户体验。</p>
+<p>A good place to start is with routes. Most people on the web are used to page transitions taking some amount of time to load. You also tend to be re-rendering the entire page at once so your users are unlikely to be interacting with other elements on the page at the same time.</p>
+<p>引用代码拆分的一个好的位置是路由。大多数人在网页上都习惯于页面切换，这需要花费一些时间来加载。您还可以重新渲染整个页面，这样您的用户就不可能同时与页面上的其他元素进行交互。</p>
+<p>Here’s an example of how to setup route-based code splitting into your app using libraries like <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener">React Router</a> and <a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>.</p>
+<p>以下是如何使用<a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener">React Router</a>和<a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>等库将基于路由的代码拆分到应用程序的示例。</p>
+<pre><code>import { BrowserRouter as Router, Route, Switch } from &#39;react-router-dom&#39;;
+import Loadable from &#39;react-loadable&#39;;
+
+const Loading = () =&gt; &lt;div&gt;Loading...&lt;/div&gt;;
+
+const Home = Loadable({
+  loader: () =&gt; import(&#39;./routes/Home&#39;),
+  loading: Loading,
+});
+
+const About = Loadable({
+  loader: () =&gt; import(&#39;./routes/About&#39;),
+  loading: Loading,
+});
+
+const App = () =&gt; (
+  &lt;Router&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path=&quot;/&quot; component={Home}/&gt;
+      &lt;Route path=&quot;/about&quot; component={About}/&gt;
+    &lt;/Switch&gt;
+  &lt;/Router&gt;
+);
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> react document </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> react document </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[03.Advanced Guides -- 01.Accessibility]]></title>
       <url>/2018/06/29/react/03.Advanced_Guides/01.Accessibility/</url>
       <content type="html"><![CDATA[<h2 id="Accessibility-可访问性"><a href="#Accessibility-可访问性" class="headerlink" title="Accessibility(可访问性)"></a>Accessibility(可访问性)</h2><h3 id="Why-Accessibility-为什么要考虑可访问性？"><a href="#Why-Accessibility-为什么要考虑可访问性？" class="headerlink" title="Why Accessibility?(为什么要考虑可访问性？)"></a>Why Accessibility?(为什么要考虑可访问性？)</h3><p>Web accessibility (also referred to as <a href="https://en.wiktionary.org/wiki/a11y" target="_blank" rel="noopener">a11y</a>) is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.</p>
