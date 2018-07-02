@@ -45,6 +45,50 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -81,14 +125,14 @@
 
 <meta name="description" content="Base on front-end, more than front-end">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
+<meta property="og:title" content="分类">
 <meta property="og:url" content="www.lpldplws.cn/categories/index.html">
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Base on front-end, more than front-end">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T15:42:03.763Z">
+<meta property="og:updated_time" content="2018-07-02T15:48:03.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="分类">
 <meta name="twitter:description" content="Base on front-end, more than front-end">
 
 
@@ -125,7 +169,7 @@
 
 
 
-  <title>categories | Frankl's Personal Blog</title>
+  <title>分类 | Frankl's Personal Blog</title>
   
 
 
@@ -271,7 +315,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline">分类</h1>
 
 
 
@@ -283,7 +327,14 @@
       <div class="post-body">
         
         
-          
+          <div class="category-all-page">
+            <div class="category-all-title">
+                目前共计 5 个分类
+            </div>
+            <div class="category-all">
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetCode/">leetCode</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react-document/">react document</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端常见问题/">前端常见问题</a><span class="category-list-count">7</span></li></ul>
+            </div>
+          </div>
         
       </div>
       
@@ -365,10 +416,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -376,10 +427,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -567,7 +618,13 @@ $(function() {
 
 
 
+  
+  
 
+
+
+  
+  
 
 
 
@@ -603,6 +660,21 @@ $(function() {
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
   
 
 
@@ -652,7 +724,7 @@ $(function() {
         var disqus_config = function () {
           this.page.url = 'www.lpldplws.cn/categories/index.html';
           this.page.identifier = 'categories/index.html';
-          this.page.title = 'categories';
+          this.page.title = '分类';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lpldplws.disqus.com/embed.js';
