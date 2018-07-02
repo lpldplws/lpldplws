@@ -1,1429 +1,3054 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.2 -->
-    <script>
-        window.materialVersion = "1.5.2"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1',
-            '1.5.0'
-        ]
-    </script>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source"/>
-
-
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!-- Title -->
-    
-    <title>
-        
-        Frankl&#39;s Personal Blog
-    </title>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/mountains.png">
-    <link rel="icon" href="/img/mountains.png">
-
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
-    <meta name="keywords" content="Frankl&#39;s personal blog">
-    <meta name="theme-color" content="#0097A7">
-
-    <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-            
-        
-
-    
-
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
   
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
 
 
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
 
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icons -->
-
-
-    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material-icons.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
 
 
 
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.1/jquery.js", true)</script>
-    
 
-    <!-- WebAPP Icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Frankl&#39;s Personal Blog">
-    <meta name="msapplication-starturl" content="www.lpldplws.cn/page/3/">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/img/mountains.png">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="www.lpldplws.cn/page/3/">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Frankl&#39;s Personal Blog">
-    <meta property="og:image" content="/img/mountains.png">
-    <meta property="og:description" content="Base on front-end, more than front-end">
-    
-
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="www.lpldplws.cn/page/3/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-    
 
-    <!-- Analytics -->
-    
-    
-    
 
-    <!-- Custom Head -->
-    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Base on front-end, more than front-end">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frankl&#39;s Personal Blog">
+<meta property="og:url" content="www.lpldplws.cn/page/3/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="Base on front-end, more than front-end">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Frankl&#39;s Personal Blog">
+<meta name="twitter:description" content="Base on front-end, more than front-end">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/page/3/"/>
+
+
+
+
+
+  <title>Frankl's Personal Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d093c12303d4a743548946b3dd3ab3a1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  
+  
     
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
+  
 
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-        
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/03/react/01.Try_React/04.CDN_Links/">01.Try React -- 04.CDN Links</a></p>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/03/react/01.Try_React/04.CDN_Links/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>5月 03, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/react-document/">react document</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/">01.Try React -- 03.Add React to an Existing Application</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>5月 03, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/react-document/">react document</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/">01.Try React -- 02.Add React to a New Application</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>5月 03, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/react-document/">react document</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/">01.Try React -- 01.Add React To A New App</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>5月 03, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/react-document/">react document</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/16/blog/Javascript_Objects_and_Inheritance/">JavaScript对象与继承---单一继承.md</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/16/blog/Javascript_Objects_and_Inheritance/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>3月 16, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/前端常见问题/">前端常见问题</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/09/blog/Javascript闭包/">Javascript闭包及相关问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/09/blog/Javascript闭包/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>3月 09, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/前端常见问题/">前端常见问题</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/02/blog/JavaScript基本1/">JavaScript学习笔记（1）</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/02/blog/JavaScript基本1/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>3月 02, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/前端常见问题/">前端常见问题</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/02/09/blog/2.5~2.9_questions/">2.5~2.9所遇问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/02/09/blog/2.5~2.9_questions/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>2月 09, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/前端常见问题/">前端常见问题</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/02/02/leetCode/23.Missing_Number/">leetCode Array -- 23.Missing Number</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/02/02/leetCode/23.Missing_Number/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>2月 02, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/">leetCode Array -- 22.Maximum Product of Three Numbers</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>2月 02, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
     </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/logo.jpeg" alt="Frankl's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        qinhui@bupt.edu.cn
-        <b class="caret"></b>
-    </a>
+  </div>
 </div>
 
+<nav class="site-nav">
+  
 
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-                <li>
-                    <a href="mailto: qinhui@bupt.edu.cn" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
+            Kategorien
+          </a>
         </li>
+      
         
-            <li class="divider"></li>
-        
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">22</span></a>
-            </ul>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
         </li>
+      
         
-            <li class="divider"></li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/ES6/">ES6<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/git/">git<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/leetCode/">leetCode<span class="sidebar_archives-count">23</span></a></li><li><a class="sidebar_archives-link" href="/categories/react-document/">react document<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端常见问题/">前端常见问题<span class="sidebar_archives-count">7</span></a>
-            </ul>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
         </li>
+      
         
-    
-
-    <!-- Pages  -->
-    
-
-    <!-- Article Number  -->
-    
-        <li>
-            <a href="/archives">
-                文章总数
-                <span class="sidebar-badge">53</span>
-            </a>
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
         </li>
+      
         
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/05/03/react/01.Try_React/04.CDN_Links/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/react/01.Try_React/04.CDN_Links/" itemprop="url">01.Try React -- 04.CDN Links</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T16:30:00+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-document/" itemprop="url" rel="index">
+                    <span itemprop="name">react document</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/03/react/01.Try_React/04.CDN_Links/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/05/03/react/01.Try_React/04.CDN_Links/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/03/react/01.Try_React/04.CDN_Links/" class="leancloud_visitors" data-flag-title="01.Try React -- 04.CDN Links">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="CDN-Links-CDN链接"><a href="#CDN-Links-CDN链接" class="headerlink" title="CDN Links(CDN链接)"></a>CDN Links(CDN链接)</h2><p>The UMD builds of React and ReactDOM are available over a CDN.</p>
+<p>React和ReactDOM的UMD版本可通过CDN获得。</p>
+<pre><code>&lt;script crossorigin src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot;&gt;&lt;/script&gt;
+&lt;script crossorigin src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>The versions above are only meant for development, and are not suitable for production. </p>
+<p>以上版本仅用于开发，不适合生产。</p>
+<p>Minified and optimized production versions of React are available at:</p>
+<p>缩小和优化的React生产版本可以用以下方式获得：</p>
+<pre><code>&lt;script crossorigin src=&quot;https://unpkg.com/react@16/umd/react.production.min.js&quot;&gt;&lt;/script&gt;
+&lt;script crossorigin src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.production.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>To load a specific version of <code>react</code> and <code>react-dom</code>, replace <code>16</code> with the version number.</p>
+<p>如果要加载特定版本的<code>react</code>和<code>react-dom</code>，请将<code>16</code>替换为对应的版本号。</p>
+<h3 id="Why-the-crossorigin-Attribute-为什么要设置crossorigin属性"><a href="#Why-the-crossorigin-Attribute-为什么要设置crossorigin属性" class="headerlink" title="Why the crossorigin Attribute?(为什么要设置crossorigin属性?)"></a>Why the crossorigin Attribute?(为什么要设置crossorigin属性?)</h3><p>If you serve React from a CDN, we recommend to keep the crossorigin <code>attribute set</code>:</p>
+<p>如果您使用基于CDN的React，我们建议保留crossorigin<code>属性集</code>：</p>
+<pre><code>&lt;script crossorigin src=&quot;...&quot;&gt;&lt;/script&gt;
+</code></pre><p>We also recommend to verify that the CDN you are using sets the <code>Access-Control-Allow-Origin: *</code> HTTP header:</p>
+<p>我们还建议验证您使用的CDN是否设置了<code>Access-Control-Allow-Origin：* </code>HTTP标头：</p>
+<p><img src="/images/react_document/01-04-access_control_allow_origin.png" alt="Access-Control-Allow-Origin:*HTTP header"></p>
+<p>This enables a better <a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank" rel="noopener">error handling experience</a> in React 16 and later.</p>
+<p>这可以保证在React16或更高的版本上有一个更好的<a href="https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html" target="_blank" rel="noopener">错误处理方法</a>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/" itemprop="url">01.Try React -- 03.Add React to an Existing Application</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T15:28:00+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-document/" itemprop="url" rel="index">
+                    <span itemprop="name">react document</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/03/react/01.Try_React/03.Add_React_to_an_Existing_Application/" class="leancloud_visitors" data-flag-title="01.Try React -- 03.Add React to an Existing Application">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Add-React-to-an-Existing-Application-在一个已存的项目中添加React"><a href="#Add-React-to-an-Existing-Application-在一个已存的项目中添加React" class="headerlink" title="Add React to an Existing Application(在一个已存的项目中添加React)"></a>Add React to an Existing Application(在一个已存的项目中添加React)</h2><p>You don’t need to rewrite your app to start using React.</p>
+<p>您不必重写您的应用程序来开始使用React</p>
+<p>We recommend adding React to a small part of your application, such as an individual widget, so you can see if it works well for your use case.</p>
+<p>我们建议将React添加到应用程序中的一小部分中，例如单个小部件，以便您可以查看它是否适合您的用例。</p>
+<p>While React <a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="noopener">can be used</a> without a build pipeline, we recommend setting it up so you can be more productive. A modern build pipeline typically consists of:</p>
+<p>虽然<a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="noopener">可以</a>在没有构建通道的情况下使用React，但我们建议设置通道，以此来提高生产力。现代构建通道通常由以下部分组成：</p>
+<ul>
+<li>A <strong>package manager</strong>, such as <a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a> or <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.</li>
+<li>A <strong>bundler</strong>, such as <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. It lets you write modular code and bundle it together into small packages to optimize load time.</li>
+<li>A compiler such as <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>. It lets you write modern JavaScript code that still works in older browsers.</li>
+</ul>
+<hr>
+<ul>
+<li>一个<strong>包管理器</strong>，如<a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a>或<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>。它可让您充分利用第三方软件包的完整的生态系统，并轻松安装或更新它们。</li>
+<li>一个<strong>捆绑器</strong>，如<a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a>或<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>。它允许您编写模块化代码，并将它们组合在一起成为小包，以优化加载时间。</li>
+<li>一个<strong>编辑器</strong>,如<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>。它可以让你在旧版浏览器中仍然可以使用的现代JavaScript代码。</li>
+</ul>
+<h3 id="Installing-React-安装React"><a href="#Installing-React-安装React" class="headerlink" title="Installing React(安装React)"></a>Installing React(安装React)</h3><blockquote>
+<p>Note:  </p>
+<h2 id="Once-installed-we-strongly-recommend-setting-up-a-production-build-process-to-ensure-you’re-using-the-fast-version-of-React-in-production"><a href="#Once-installed-we-strongly-recommend-setting-up-a-production-build-process-to-ensure-you’re-using-the-fast-version-of-React-in-production" class="headerlink" title="Once installed, we strongly recommend setting up a production build process to ensure you’re using the fast version of React in production."></a><p style="margin:0px">Once installed, we strongly recommend setting up a production build process to ensure you’re using the fast version of React in production.</p></h2><p>注意:<br>一旦完成安装，我们强烈建议您设置生成的构建流程，以此确保您可以在开发环境中使用更快版本的React。</p>
+</blockquote>
+<p>We recommend using <a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a> or <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> for managing front-end dependencies. If you’re new to package managers, the <a href="https://yarnpkg.com/en/docs/getting-started" target="_blank" rel="noopener">Yarn documentation</a> is a good place to get started.</p>
+<p>我们建议使用<a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a>或者<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>来管理前端依赖。如果您是新接触包管理器的开发者，<a href="https://yarnpkg.com/en/docs/getting-started" target="_blank" rel="noopener">Yarn的文档</a>是一个开始学习的不错的地方。</p>
+<p>To install React with Yarn, run:</p>
+<p>使用Yarn安装React，请运行：</p>
+<pre><code>yarn init
+yarn add react react-dom
+</code></pre><p>如果使用npm安装React，请运行：</p>
+<pre><code>npm init
+npm install --save react react-dom
+</code></pre><p>Both Yarn and npm download packages from the <a href="http://npmjs.com/" target="_blank" rel="noopener">npm registry</a>.</p>
+<p>Yarn和npm都从<a href="http://npmjs.com/" target="_blank" rel="noopener">npm注册表</a>中下载软件包。</p>
+<blockquote>
+<p>Note:<br>To prevent potential incompatibilities, all react packages should use the same version. (This includes <code>react</code>, <code>react-dom</code>, <code>react-test-renderer</code>, etc.)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>注意：<br>为了避免潜在的不兼容性，所有的react包都应该使用相同的版本。（这包括<code>react</code>, <code>react-dom</code>, <code>react-test-renderer</code>等等。）</p>
+</blockquote>
+<h3 id="Enabling-ES6-and-JSX-启用ES6和JSX"><a href="#Enabling-ES6-and-JSX-启用ES6和JSX" class="headerlink" title="Enabling ES6 and JSX(启用ES6和JSX)"></a>Enabling ES6 and JSX(启用ES6和JSX)</h3><p>We recommend using React with <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> to let you use ES6 and JSX in your JavaScript code. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.</p>
+<p>我们建议在React上使用<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>以便让您在您的JavaScript代码中使用ES6和JSX。ES6包括一系列的现代化JavaScript特性，以便让开发更容易，并且JSX是一个JavaScript语言的扩展，以便让React工作更方便。</p>
+<p>The <a href="https://babeljs.io/docs/setup/" target="_blank" rel="noopener">Babel setup instructions</a> explain how to configure Babel in many different build environments. Make sure you install <a href="http://babeljs.io/docs/plugins/preset-react/#basic-setup-with-the-cli-" target="_blank" rel="noopener">babel-preset-react</a> and <a href="http://babeljs.io/docs/plugins/preset-env/" target="_blank" rel="noopener">babel-preset-env</a> and enable them in your <a href="http://babeljs.io/docs/usage/babelrc/" target="_blank" rel="noopener">.babelrc configuration</a>, and you’re good to go.</p>
+<p><a href="https://babeljs.io/docs/setup/" target="_blank" rel="noopener">Babel设置介绍</a>解释了如何在许多不同的构建环境中配置Babel。以此可以确保您安装了<a href="http://babeljs.io/docs/plugins/preset-react/#basic-setup-with-the-cli-" target="_blank" rel="noopener">babel-preset-react</a>和<a href="http://babeljs.io/docs/plugins/preset-env/" target="_blank" rel="noopener">babel-preset-env</a>，并在你的<a href="http://babeljs.io/docs/usage/babelrc/" target="_blank" rel="noopener">.babelrc configuration</a>中启用它们，并且可以方便访问。</p>
+<h3 id="Hello-World-with-ES6-and-JSX-使用ES6和JSX编写Hello-World"><a href="#Hello-World-with-ES6-and-JSX-使用ES6和JSX编写Hello-World" class="headerlink" title="Hello World with ES6 and JSX(使用ES6和JSX编写Hello World)"></a>Hello World with ES6 and JSX(使用ES6和JSX编写Hello World)</h3><p>We recommend using a bundler like <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>, so you can write modular code and bundle it together into small packages to optimize load time.</p>
+<p>我们建议使用像<a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a>或者<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>这样的捆绑器，这样您就可以编写现代化代码并将他们绑定在小的包上以优化加载时间。</p>
+<p>The smallest React example looks like this：</p>
+<p>最小的React案例如下：</p>
+<pre><code>import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+
+ReactDOM.render(
+  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre><p>This code renders into a DOM element with the id of <code>root</code>, so you need <code><div id="root"></div> </code>somewhere in your HTML file.</p>
+<p>这些代码会在一个id为<code>root</code>的DOM元素上渲染，所以您需要在您的HTML文件上有<code><div id="root"></div></code>。</p>
+<p>Similarly, you can render a React component inside a DOM element somewhere inside your existing app written with any other JavaScript UI library.</p>
+<p>相似的，您可以在现有的，由其他任何JavaScript UI库编写的应用程序内的某个DOM元素内部渲染一个React组件。</p>
+<p><a href="https://reactjs.org/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries" target="_blank" rel="noopener">Learn more about integrating React with existing code.</a></p>
+<p><a href="https://reactjs.org/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries" target="_blank" rel="noopener">了解有关将React与现有代码集成的更多信息。</a></p>
+<h3 id="A-Complete-Example-一个完整的例子"><a href="#A-Complete-Example-一个完整的例子" class="headerlink" title="A Complete Example(一个完整的例子)"></a>A Complete Example(一个完整的例子)</h3><p>You can find step-by-step instructions detailing a basic implementation from scratch, including Babel and Webpack setup <a href="https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">here</a>.</p>
+<p>您可以从零开始找到详细的说明,<a href="https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658" target="_blank" rel="noopener">这</a>也包括如何设置Babel和Webpack。</p>
+<h3 id="Development-and-Production-Versions-开发和生成环境的版本"><a href="#Development-and-Production-Versions-开发和生成环境的版本" class="headerlink" title="Development and Production Versions(开发和生成环境的版本)"></a>Development and Production Versions(开发和生成环境的版本)</h3><p>By default, React includes many helpful warnings. These warnings are very useful in development.</p>
+<p>通常情况下，React包括许多有用的警告。这些警告对于开发非常有用。</p>
+<p><strong>However, they make the development version of React larger and slower so you should use the production version when you deploy the app.</strong></p>
+<p><strong>但是，它们会使React的开发版本变得更大并且更慢，所以当您部署应用程序时，请使用生产版本</strong></p>
+<p>Learn <a href="https://reactjs.org/docs/optimizing-performance.html#use-the-production-build" target="_blank" rel="noopener">how to tell if your website is serving the right version of React</a>, and how to configure the production build process most efficiently:</p>
+<p>了解<a href="https://reactjs.org/docs/optimizing-performance.html#use-the-production-build" target="_blank" rel="noopener">如何判断您的网站是否提供正确版本的React</a>，以及如何最有效地配置生产构建过程：</p>
+<ul>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#create-react-app" target="_blank" rel="noopener">Creating a Production Build with Create React App</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#single-file-builds" target="_blank" rel="noopener">Creating a Production Build with Single-File Builds</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#brunch" target="_blank" rel="noopener">Creating a Production Build with Brunch</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#browserify" target="_blank" rel="noopener">Creating a Production Build with Browserify</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#rollup" target="_blank" rel="noopener">Creating a Production Build with Rollup</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#webpack" target="_blank" rel="noopener">Creating a Production Build with webpack</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#create-react-app" target="_blank" rel="noopener">使用Create React App来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#single-file-builds" target="_blank" rel="noopener">使用单个文件构建来实现生产环境构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#brunch" target="_blank" rel="noopener">使用Brunch来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#browserify" target="_blank" rel="noopener">使用Browserify来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#rollup" target="_blank" rel="noopener">使用Rollup来实现生产环境的构建</a></li>
+<li><a href="https://reactjs.org/docs/optimizing-performance.html#webpack" target="_blank" rel="noopener">使用webpack来实现生产环境的构建</a></li>
+</ul>
+<h3 id="Using-a-CDN-使用CDN"><a href="#Using-a-CDN-使用CDN" class="headerlink" title="Using a CDN(使用CDN)"></a>Using a CDN(使用CDN)</h3><p>If you don’t want to use npm to manage client packages, the <code>react</code> and <code>react-dom</code> npm packages also provide single-file distributions in <code>umd</code> folders. See the <a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">CDN</a> page for links.</p>
+<p>如果您不想用npm来管理客户端的包，<code>react</code>和<code>react-dom</code>的npm的包也提供在<code>umd</code>单个文件的发布。请<a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">CDN</a>查看相关链接。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/" itemprop="url">01.Try React -- 02.Add React to a New Application</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T14:54:20+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-document/" itemprop="url" rel="index">
+                    <span itemprop="name">react document</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/03/react/01.Try_React/02.Add_React_to_a_New_Application/" class="leancloud_visitors" data-flag-title="01.Try React -- 02.Add React to a New Application">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Add-React-to-a-New-Application-在一个新的应用上添加React"><a href="#Add-React-to-a-New-Application-在一个新的应用上添加React" class="headerlink" title="Add React to a New Application(在一个新的应用上添加React)"></a>Add React to a New Application(在一个新的应用上添加React)</h2><p>The easiest way to get started on a new React project is by using a starter kit.</p>
+<p>最简单的开始一个新的React项目的方式是使用一个入门套件。</p>
+<blockquote>
+<p>Note:<br>This page describes setting up a single-page application with everything you need for a comfortable development workflow, including linting, testing, production optimizations, and more. Full-featured tools like these require some time and disk space to install.<br>If you are looking for a lightweight environment to experiment with React, check out the <a href="https://reactjs.org/docs/try-react.html" target="_blank" rel="noopener">Try React</a> page instead. <strong>A <a href="https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html" target="_blank" rel="noopener">single HTML file</a> is enough to get you started!</strong><br>Finally, if you’re not building a single-page application, you can either <a href="https://reactjs.org/docs/add-react-to-an-existing-app.html" target="_blank" rel="noopener">add React to your existing build pipeline</a> or <a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">use it from CDN</a> and <a href="https://reactjs.org/docs/react-without-jsx.html" target="_blank" rel="noopener">without a build step</a>.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>注意:<br>本页面介绍如何设置一个单页面应用程序，其中包含您需要的所有功能以实现完整的开发工作流程，包括linting，测试，生产优化等。像这些包括全功能的工具需要一些时间和磁盘空间来安装。<br>如果您在寻找一个轻量级的环境来使用React，请查看<a href="https://reactjs.org/docs/try-react.html" target="_blank" rel="noopener">尝试React</a>页面。<strong><a href="https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html" target="_blank" rel="noopener">一个简单的HTML文件</a>足以让您开始入门！</strong><br>最后，如果您不是在搭建一个单页面的应用，您可以查看<a href="https://reactjs.org/docs/add-react-to-an-existing-app.html" target="_blank" rel="noopener">将React添加到您现存的环境上</a> or <a href="https://reactjs.org/docs/cdn-links.html" target="_blank" rel="noopener">从CDN使用React</a> and <a href="https://reactjs.org/docs/react-without-jsx.html" target="_blank" rel="noopener">不适用搭建步骤</a>.</p>
+</blockquote>
+<h3 id="Create-React-App-创建React应用"><a href="#Create-React-App-创建React应用" class="headerlink" title="Create React App(创建React应用)"></a>Create React App(创建React应用)</h3><p><a href="http://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a> is the best way to start building a new React single page application. It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have Node &gt;= 6 on your machine.</p>
+<p><a href="http://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">创建React应用</a>是开始构建新的React单页应用程序的最佳方式。 它为您设置好了开发环境，以便您可以使用最新的JavaScript功能，为开发者提供了良好的体验并从生产环境上优化了您的应用程序。注意您需要保证您的开发机上的node版本大于等于6。</p>
+<pre><code>npm install -g create-react-app
+create-react-app my-app
+
+cd my-app
+npm start
+</code></pre><p>If you have npm 5.2.0+ installed, you may use <a href="https://www.npmjs.com/package/npx" target="_blank" rel="noopener">npx</a> instead.</p>
+<p>如果您安装的npm版本号为5.2.0+，您也可以使用<a href="https://www.npmjs.com/package/npx" target="_blank" rel="noopener">npx</a>。</p>
+<pre><code>npx create-react-app my-app
+
+cd my-app
+npm start
+</code></pre><p>Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. It uses build tools like <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> and <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> under the hood, but works with zero configuration.</p>
+<p>创建React应用不会处理后端逻辑或者数据库；它只是创建了一个前端构建通道，所以您可以使用任何您相适应的后端语言。它基于钩子上使用像<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>和<a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a>这样的构建工具，但是在使用是时为不需要配置。</p>
+<p>When you’re ready to deploy to production, running npm run build will create an optimized build of your app in the build folder. You can learn more about Create React App from its <a href="https://github.com/facebookincubator/create-react-app#create-react-app-" target="_blank" rel="noopener">README</a> and the <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents" target="_blank" rel="noopener">User Guide</a>.</p>
+<p>当您准备部署到生产环境时，您可以运行<code>npm run build</code>，在<code>build</code>文件夹中创建一个优化的应用程序版本。您可以从<a href="https://github.com/facebookincubator/create-react-app#create-react-app-" target="_blank" rel="noopener">README</a>和<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents" target="_blank" rel="noopener">用户指南</a>中了解有关创建React应用程序的更多信息。</p>
+<h3 id="Other-Starter-Kits-其他的入门套件"><a href="#Other-Starter-Kits-其他的入门套件" class="headerlink" title="Other Starter Kits(其他的入门套件)"></a>Other Starter Kits(其他的入门套件)</h3><p>We have created <a href="https://reactjs.org/community/starter-kits.html" target="_blank" rel="noopener">a curated list of third-party starter kits that we officially recommend</a>.</p>
+<p>我们已经创建了<a href="https://reactjs.org/community/starter-kits.html" target="_blank" rel="noopener">我们正式推荐的第三方入门套件的策划清单</a>。</p>
+<p>They slightly differ in their focus but are all production-ready, well-maintained, and don’t require configuration to get started.</p>
+<p>他们的重点略有不同，但在生成环境上准备就绪，并且维护良好的，不需要配置即可开始使用。</p>
+<p>You can also check out a list of <a href="https://reactjs.org/community/starter-kits.html#other-starter-kits" target="_blank" rel="noopener">other kits</a> contributed by the community.</p>
+<p>您还可以查看社区贡献的<a href="https://reactjs.org/community/starter-kits.html#other-starter-kits" target="_blank" rel="noopener">其他工具包列表</a>。</p>
+<h3 id="Advanced-高级"><a href="#Advanced-高级" class="headerlink" title="Advanced(高级)"></a>Advanced(高级)</h3><p>If you prefer to configure a project manually, see <a href="https://reactjs.org/docs/add-react-to-an-existing-app.html#installing-react" target="_blank" rel="noopener">Installing React</a> in the next section.</p>
+<p>如果您想人工配置一个项目，请在下一章节中查看<a href="https://reactjs.org/docs/add-react-to-an-existing-app.html#installing-react" target="_blank" rel="noopener">安装React</a>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/" itemprop="url">01.Try React -- 01.Add React To A New App</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T14:27:16+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-document/" itemprop="url" rel="index">
+                    <span itemprop="name">react document</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/03/react/01.Try_React/01.Add_React_To_A_New_App/" class="leancloud_visitors" data-flag-title="01.Try React -- 01.Add React To A New App">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Try-React-尝试使用React"><a href="#Try-React-尝试使用React" class="headerlink" title="Try React(尝试使用React)"></a>Try React(尝试使用React)</h2><p>Try React online or set up your local development environment.</p>
+<p>设置在线的react或您本地的react环境。</p>
+<h3 id="Online-在线"><a href="#Online-在线" class="headerlink" title="Online(在线)"></a>Online(在线)</h3><p>If you’re just interested in playing around with React, you can use an online code playground. Try a Hello World template on <a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener">CodePen</a> or <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener">CodeSandbox</a>.</p>
+<p>如果您只是对如何使用React有兴趣，您可以使用在线的编码器。您可以在<a href="https://reactjs.org/redirect-to-codepen/hello-world" target="_blank" rel="noopener">CodePen</a>或者 <a href="https://codesandbox.io/s/new" target="_blank" rel="noopener">CodeSandbox</a>上尝试Hello World模板。</p>
+<h3 id="Minimal-HTML-Template-最小的HTML模板"><a href="#Minimal-HTML-Template-最小的HTML模板" class="headerlink" title="Minimal HTML Template(最小的HTML模板)"></a>Minimal HTML Template(最小的HTML模板)</h3><p>If you prefer to use your own text editor, you can also download this HTML file, edit it, and open it from the local filesystem in your browser. It does a slow runtime code transformation, so don’t use it in production.</p>
+<p>如果您倾向于使用您自己的文本编辑器，您可以下载该HTML文件，编辑它并用浏览器在您本地文件系统上打开它。它会花费比较长的时间用来进行代码转换，所以不要在应用产品层上使用它。</p>
+<h3 id="Next-Steps-下一步"><a href="#Next-Steps-下一步" class="headerlink" title="Next Steps(下一步)"></a>Next Steps(下一步)</h3><h4 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h4><ul>
+<li>Head over to the <a href="https://reactjs.org/docs/hello-world.html" target="_blank" rel="noopener">Quick Start</a> section for a step-by-step introduction to React concepts.</li>
+<li><p>Try the <a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">Tutorial</a> for a hands-on practical example.</p>
+</li>
+<li><p>从<a href="https://reactjs.org/docs/hello-world.html" target="_blank" rel="noopener">快速开始</a>部分，开始一步一步地熟悉React的内容。</p>
+</li>
+<li>尝试<a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">教程</a>部分，开始上手的练习。</li>
+</ul>
+<h4 id="Complete-Development-Environment-完成开发环境"><a href="#Complete-Development-Environment-完成开发环境" class="headerlink" title="Complete Development Environment(完成开发环境)"></a>Complete Development Environment(完成开发环境)</h4><p>The lightweight solutions above are the best fit if you are new to React or just experimenting.</p>
+<p>如果您是新接触React，或者只是想尝试一下React的话，这种轻量级解决方案是最适合的。</p>
+<p>When you are ready to build your first application with React, check out the install guides below. These setups are designed to get you up and running with a great developer experience and are ready for production. They include linting, testing, and optimizations built-in; however, they require more time and disk space to set up and install.</p>
+<p>当您开始准备使用React搭建您第一个应用时，请先阅读下面的安装指南。这些步骤的目的是在让您在开发过程中获得丰富的开发体验，并且可以随时投入生产环境中使用。它们包括linting，测试和内置优化; 但是，它们需要更多时间和磁盘空间来设置和安装。</p>
+<ul>
+<li><a href="https://reactjs.org/docs/add-react-to-a-new-app.html" target="_blank" rel="noopener">Add React to a New App</a>: Create a new app with a fully-featured starter kit.</li>
+<li><p><a href="https://reactjs.org/docs/add-react-to-an-existing-app.html" target="_blank" rel="noopener">Add React to an Existing App</a>: Add React to a build system or a larger app.</p>
+</li>
+<li><p><a href="https://reactjs.org/docs/add-react-to-a-new-app.html" target="_blank" rel="noopener">Add React to a New App</a>:使用包括全套功能的入门套件来创建新应用程序。</p>
+</li>
+<li><a href="https://reactjs.org/docs/add-react-to-an-existing-app.html" target="_blank" rel="noopener">Add React to an Existing App</a>:构建系统或更大的应用程序上添加使用React。</li>
 </ul>
 
+          
+        
+      
+    </div>
+    
+    
+    
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
+    
 
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
+    
 
-<!-- Sidebar Divider -->
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<!-- Theme Material -->
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/03/16/blog/Javascript_Objects_and_Inheritance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/16/blog/Javascript_Objects_and_Inheritance/" itemprop="url">JavaScript对象与继承---单一继承.md</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T23:29:05+08:00">
+                2018-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端常见问题/" itemprop="url" rel="index">
+                    <span itemprop="name">前端常见问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/16/blog/Javascript_Objects_and_Inheritance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/03/16/blog/Javascript_Objects_and_Inheritance/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/16/blog/Javascript_Objects_and_Inheritance/" class="leancloud_visitors" data-flag-title="JavaScript对象与继承---单一继承.md">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JavaScript对象与继承–单一对象"><a href="#JavaScript对象与继承–单一对象" class="headerlink" title="JavaScript对象与继承–单一对象"></a>JavaScript对象与继承–单一对象</h2><p>说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的问题。</p>
+<p>哈哈哈在一小时后我终于找到了这个比较符合我的情况的内容哈哈哈</p>
+<p>原文在<a href="http://speakingjs.com/es5/ch17.html#single_objects" target="_blank" rel="noopener">Objects and Inheritance</a>中,不容易呀。</p>
+<p>概括的讲所有的js对象都是从字符串到值的映射，一个对象中的某一项（键，值对）称作对象的属性。属性的key始终是一个字符串而值可以是任何js值，包括函数。方法是指值为函数的属性。</p>
+<h3 id="属性的种类"><a href="#属性的种类" class="headerlink" title="属性的种类"></a>属性的种类</h3><p>三种属性:</p>
+<ol>
+<li>属性（Properties，或称为数据属性） 普通属性，在一个对象里面的一个键值对包括方法，最常用属性。</li>
+<li>访问器(Accessors，或者叫访问属性) 类似于读写属性的特殊方法。属性值存在普通属性中，而访问属性可以计算他们的值。你可以把他们看作是虚拟的属性，比如（getter 和 setter）.</li>
+<li>内置属性(Internal property) 只存在于ECMAscript规范当中，他们不能被js直接访问，但可以间接的方式访问到。规范里规定将这种属性放在[[]]当中，比如[[Property]]吃有一个对象的原型，它可以通过Object.getPrototypeOf() 访问到。</li>
+</ol>
+<h3 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h3><p>JavaScript对象字面量允许你直接的创建简单的对象（Object直接实例）。</p>
+<p>EX:</p>
+<pre><code>var jane = {
+    name: &#39;Jane&#39;,
+    describe: function () {
+        return &#39;Person named &#39;+this.name;  // (1)
+    },  // (2)
+};
+</code></pre><p>你可能有这样的印象，对象仅仅是字符串到值的映射。事实上远不止这些，有一些真正意义上的通用对象。</p>
+<p>比如你可以做对象的继承，还可以保护对象不被修改。直接创建对象的功能是标准的js特性之一：你可以在没有类的前提下创建一个正确的对象，然后再对他进行抽象。</p>
+<p>例如：构造函数（constructors）大体和其他语言的类相似，我们在后面会讲到。</p>
+<h3 id="点运算符-通过固定值来访问属性"><a href="#点运算符-通过固定值来访问属性" class="headerlink" title="点运算符 (.): 通过固定值来访问属性"></a>点运算符 (.): 通过固定值来访问属性</h3><p>点运算符提供了一种简洁的语法来访问属性,属性的名称必须是合法标识符. 你可以用中括号来读写任意名称的属性.</p>
+<pre><code>var jane = {
+    name: &#39;Jane&#39;,
+
+    describe: function () {
+        return &#39;Person named &#39;+this.name;
+    }
+};
+</code></pre><h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><p>点操作符获取属性 (读值).例如:</p>
+<pre><code>&gt; jane.name  // get property `name`
+&#39;Jane&#39;
+&gt; jane.describe  // get property `describe`
+[Function]
+</code></pre><p>如果属性不存在则返回 undefined:</p>
+<pre><code>&gt; jane.unknownProperty
+undefined
+</code></pre><h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><p>也可以调用方法:</p>
+<pre><code>&gt; jane.describe()  // call method `describe`
+&#39;Person named Jane&#39;
+</code></pre><h3 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h3><p>可以用赋值符=来给.指向的属性赋值:</p>
+<pre><code>&gt; jane.name = &#39;John&#39;;  // set property `name`
+&gt; jane.describe()
+&#39;Person named John&#39;
+</code></pre><p>如果设置的属性不存在在赋值的时候就自动创建一个属性.如果存在就修改该属性。</p>
+<h3 id="删除属性"><a href="#删除属性" class="headerlink" title="删除属性"></a>删除属性</h3><p>delete操作符可以完全的从对象里面删除一个属性（键值对）：</p>
+<pre><code>&gt; var obj = { hello: &#39;world&#39; };
+&gt; delete obj.hello
+true
+&gt; obj.hello
+undefined
+</code></pre><p>如果你仅仅给一个属性设置为undefined，这个属性会仍然存在，而且这个对象包含这个键：</p>
+<pre><code>&gt; var obj = { foo: &#39;a&#39;, bar: &#39;b&#39; };
+&gt; obj.foo = undefined;
+&gt; Object.keys(obj)
+[ &#39;foo&#39;, &#39;bar&#39; ]
+</code></pre><p>但是如果你将属性删除那么他的键就不存在了</p>
+<pre><code>&gt; delete obj.foo
+true
+&gt; Object.keys(obj)
+[ &#39;bar&#39; ]
+</code></pre><p>delete只影响一个对象的直接属性（非继承的，自有属性）。并不会删除对象的原型。</p>
+<p>Tip:慎用delete操作符，大多数现代化js引擎都会针对构造函数的创建实例进行优化，前提是这些实例不会发生形态改变（就是说没有删除或者添加属性的），但是删除属性会破坏这种优化。</p>
+<h3 id="delete的返回值"><a href="#delete的返回值" class="headerlink" title="delete的返回值"></a>delete的返回值</h3><p>如果属性是一个自有属性且不能删除，那么delete会反回false，其他情况返回true。<br>例子：<br>作为准备，我们用Object.defineProperty创建一个不被删除自有属性</p>
+<pre><code>var obj = {};
+Object.defineProperty(obj, &#39;canBeDeleted&#39;, {
+    value: 123,
+    configurable: true
+});
+Object.defineProperty(obj, &#39;cannotBeDeleted&#39;, {
+    value: 456,
+    configurable: false
+});
+</code></pre><p>delete cannotBeDeleted 时候返回 false :</p>
+<pre><code>&gt; delete obj.cannotBeDeleted
+false
+</code></pre><p>其他情况下delete 返回 true:</p>
+<pre><code>&gt; delete obj.doesNotExist
+true
+&gt; delete obj.canBeDeleted
+true
+</code></pre><p>即使delete没有起作用也会返回true (继承的属性是不会被移除的):</p>
+<pre><code>&gt; delete obj.toString
+true
+&gt; obj.toString // still there
+[Function: toString]
+</code></pre><h3 id="特殊属性键"><a href="#特殊属性键" class="headerlink" title="特殊属性键"></a>特殊属性键</h3><p>虽然你不能使用保留字作为变量名，但是你可以把他们作为属性键。</p>
+<pre><code>&gt; var obj = { var: &#39;a&#39;, function: &#39;b&#39; };
+&gt; obj.var
+&#39;a&#39;
+&gt; obj.function
+&#39;b&#39;
+</code></pre><h3 id="数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用-来访问："><a href="#数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用-来访问：" class="headerlink" title="数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用[]来访问："></a>数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用[]来访问：</h3><pre><code>&gt; var obj = { 0.7: &#39;abc&#39; };
+&gt; Object.keys(obj)
+[ &#39;0.7&#39; ]
+&gt; obj[&#39;0.7&#39;]
+&#39;abc&#39;
+</code></pre><h3 id="对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用-来访问。"><a href="#对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用-来访问。" class="headerlink" title="对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用[]来访问。"></a>对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用[]来访问。</h3><pre><code>&gt; var obj = { &#39;not an identifier&#39;: 123 };
+&gt; Object.keys(obj)
+[ &#39;not an identifier&#39; ]
+&gt; obj[&#39;not an identifier&#39;]
+123
+</code></pre><p>中括号 ([]): 通过计算出来的键访问属性<br>中括号可以通过表达式引用一个属性。</p>
+<h3 id="用中括号获取属性："><a href="#用中括号获取属性：" class="headerlink" title="用中括号获取属性："></a>用中括号获取属性：</h3><pre><code>&gt; var obj = { someProperty: &#39;abc&#39; };
+
+&gt; obj[&#39;some&#39; + &#39;Property&#39;]
+&#39;abc&#39;
+
+&gt; var propKey = &#39;someProperty&#39;;
+&gt; obj[propKey]
+&#39;abc&#39;
+</code></pre><h3 id="非标识符"><a href="#非标识符" class="headerlink" title="非标识符:"></a>非标识符:</h3><pre><code>&gt; var obj = { &#39;not an identifier&#39;: 123 };
+&gt; obj[&#39;not an identifier&#39;]
+123
+</code></pre><h3 id="表达式，转换成字符串"><a href="#表达式，转换成字符串" class="headerlink" title="表达式，转换成字符串:"></a>表达式，转换成字符串:</h3><pre><code>&gt; var obj = { &#39;6&#39;: &#39;bar&#39; };
+&gt; obj[3+3]  // key: the string &#39;6&#39;
+&#39;bar&#39;
+</code></pre><h3 id="用中括号调用方法"><a href="#用中括号调用方法" class="headerlink" title="用中括号调用方法"></a>用中括号调用方法</h3><pre><code>&gt; var obj = { myMethod: function () { return true } };
+&gt; obj[&#39;myMethod&#39;]()
+true
+</code></pre><h3 id="用中括号设置属性"><a href="#用中括号设置属性" class="headerlink" title="用中括号设置属性"></a>用中括号设置属性</h3><pre><code>&gt; var obj = {};
+&gt; obj[&#39;anotherProperty&#39;] = &#39;def&#39;;
+&gt; obj.anotherProperty
+&#39;def&#39;
+</code></pre><h3 id="用中括号删除属性"><a href="#用中括号删除属性" class="headerlink" title="用中括号删除属性"></a>用中括号删除属性</h3><pre><code>&gt; var obj = { &#39;not an identifier&#39;: 1, prop: 2 };
+&gt; Object.keys(obj)
+[ &#39;not an identifier&#39;, &#39;prop&#39; ]
+&gt; delete obj[&#39;not an identifier&#39;]
+true
+&gt; Object.keys(obj)
+[ &#39;prop&#39; ]
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<!-- Help & Support -->
-<!--
+    
+      
 
-    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-        sidebar.help
-        <span class="mdl-button__ripple-container">
-          <span class="mdl-ripple"></span>
-        </span>
-      </div>
-    </a>
+  
 
--->
+  
+  
+  
 
-<!-- Feedback -->
-<!--
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/03/09/blog/Javascript闭包/">
 
-    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-        sidebar.feedback
-        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
-    </a>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
 
--->
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
 
-<!-- About Theme -->
-<!--
+    
+      <header class="post-header">
 
--->
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/09/blog/Javascript闭包/" itemprop="url">Javascript闭包及相关问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T11:18:10+08:00">
+                2018-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端常见问题/" itemprop="url" rel="index">
+                    <span itemprop="name">前端常见问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/09/blog/Javascript闭包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/03/09/blog/Javascript闭包/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/09/blog/Javascript闭包/" class="leancloud_visitors" data-flag-title="Javascript闭包及相关问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Javascript闭包及相关问题"><a href="#Javascript闭包及相关问题" class="headerlink" title="Javascript闭包及相关问题"></a>Javascript闭包及相关问题</h2><p>基本概念：闭包是指有权访问另一个函数作用域中的变量的函数。</p>
+<p>当某个函数第一次被调用时，会创建一个执行环境及相应的作用域链，并把作用域链赋值给一个特殊的内部属性[[scope]]。然后使用this，arguments和其他的值初始化函数的活动对象。</p>
+<pre><code>function compare(value1, value2) {
+    if(value1 &lt; value2) {
+        return -1;
+    } else if(value1 &gt; value2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+var result = compare(5,10);
+</code></pre><p>在全局作用域中调用了compare函数，会创建一个compare的活动对象，其中会包含this，arguments，value1，value2，而在全局执行环境中，会有this，result，arguments，位于作用域链的第二层。</p>
+<p>后台在每个执行环境中都有一个表示变量的对象–变量对象。全局环境的变量对象始终存在，而局部环境的变量对象在函数执行时存在。</p>
+<p>在创建compare函数时，会创建一个包含全局变量对象的活动对象，此时活动对象指向作用域链，而作用域链指向[[scope]]属性。当调用compare函数时，会创建一个compare的执行环境，<b>这个执行环境会复制函数的[[scope]]属性中的作用域链</b>，之后这个局部作用域链会被推入执行环境作用域链的前端，所以，对于compare函数而言，其作用域链包含本地活动对象和全局变量对象。因此，<b>作用域链的本质是一个指向变量对象的指针列表，只引用，但不包含变量对象。</b></p>
+<p>正常情况下，在函数中访问变量，会沿着作用域链搜索对应名字的变量。一般在函数执行完后，局部活动对象就会被销毁，内存中只有全局作用域。</p>
+<p>闭包：在另一个函数内部定义的函数会将包括它的函数的活动对象添加到它的作用域上。</p>
+<pre><code>function createComparisonFunction(propertyName) {
+    return function(object1, object2) {
+        var value1 = object1[propertyName];
+        var value2 = object2[propertyName];
+        if(value1 &lt; value2) {
+            return -1; 
+        } else if(value1 &gt; value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+</code></pre><p>注意，在return一个匿名函数后，要添加上’;’</p>
+<p>当执行以下两部操作时：</p>
+<pre><code>var compareName = createComparisonFunction(&#39;name&#39;);
+var result = compare({name:&#39;lpld&#39;}, {name:&#39;plws&#39;});
+</code></pre><p>在compare()时，向上面一样，会有全局活动对象和局部活动对象两个作用域链，而根据上面说的闭包的内容：在另一个函数内部定义的函数会将包括它的函数的活动对象添加到它的作用域上。对于result而言，是createComparisonFunction的返回函数，所以也包括了compare的活动对象。所以，当createComparisonFunction返回后，<b>其执行环境的作用域链会被销毁，但是其活动对象会留在内存中。因为在匿名函数中会把其活动对象添加到匿名函数的作用域链上</b>。</p>
+<p>因此，在执行compareName = null;相当于解除匿名函数的作用域链，至此该匿名函数作用域链上的活动对象（也包括外部函数内的活动对象）也都会释放。</p>
+<p>闭包缺点：闭包会携带包含它的函数的作用域，换句话说，是会保留包括它的函数的活动对象。因此会占用更多的内存。（在外部函数没有被释放时，也会在内部函数的作用域链上生成新的外部函数的活动对象，会产生新的内存）。</p>
+<p>this对象：</p>
+<p>this永远指向调用它的函数</p>
+<pre><code>1.
+var name = &#39;The Window&#39;;
+var object = {
+    name : &#39;My Object&#39;,
+    getNameFunc : function(){
+        return function() {
+            return this.name;
+        };
+    } 
+};
+alert(object.getNameFunc()());//The Window
+
+2.
+var name = &#39;The Window&#39;;
+var object = {
+    name : &#39;My Object&#39;,
+    getNameFunc : function(){
+        var that = this;
+        return function(){
+            return that.name;
+        };
+    }
+};
+alert(object.getNameFunc()());//My Object
+</code></pre><p>根据书中的内容，匿名函数的执行环境具有全局性，所以第一个返回的是window，第二个是object，在执行函数时，当执行到object.getNameFunc()时，此时的name对应的是object，这时执行匿名函数，相当于返回全局中的name，即是window。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/02/blog/JavaScript基本1/" itemprop="url">JavaScript学习笔记（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T17:46:42+08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端常见问题/" itemprop="url" rel="index">
+                    <span itemprop="name">前端常见问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/02/blog/JavaScript基本1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/03/02/blog/JavaScript基本1/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/02/blog/JavaScript基本1/" class="leancloud_visitors" data-flag-title="JavaScript学习笔记（1）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JavaScrip学习笔记（1）"><a href="#JavaScrip学习笔记（1）" class="headerlink" title="JavaScrip学习笔记（1）"></a>JavaScrip学习笔记（1）</h2><h3 id="JavaScript函数表达式和函数声明"><a href="#JavaScript函数表达式和函数声明" class="headerlink" title="JavaScript函数表达式和函数声明"></a>JavaScript函数表达式和函数声明</h3><p>首先，来了解一下函数表达式和函数声明：</p>
+<p>在ECMAScript中，创建函数的最常用的两个方法是函数表达式和函数声明，两者还是有一定的区别，在ECMA规范中提到：函数声明必须带有标示符（Identifier）（就是大家常说的函数名称），而函数表达式则可以省略这个标示符，即：</p>
+<p>函数声明:</p>
+<p>function 函数名称 (参数：可选){ 函数体 }</p>
+<p>函数表达式：</p>
+<p>function 函数名称（可选）(参数：可选){ 函数体 }</p>
+<p>所以，可以看出，如果不声明函数名称，它肯定是表达式，可如果声明了函数名称，ECMAScript是通过上下文来区分的，如果function foo(){}是作为赋值表达式的一部分的话，那它就是一个函数表达式，如果function foo(){}被包含在一个函数体内，或者位于程序的最顶部的话，那它就是一个函数声明。</p>
+<pre><code> function foo(){} // 声明，因为它是程序的一部分
+ var bar = function foo(){}; // 表达式，因为它是赋值表达式的一部分
+ new function bar(){}; // 表达式，因为它是new表达式
+ (function(){
+   function bar(){} // 声明，因为它是函数体的一部分
+ })();
+</code></pre><p>还有一种函数表达式不太常见，就是被括号括住的(function foo(){})，他是表达式的原因是因为括号 ()是一个分组操作符，它的内部只能包含表达式，我们来看几个例子：</p>
+<pre><code>function foo(){} // 函数声明
+(function foo(){}); // 函数表达式：包含在分组操作符内
+
+try {
+  (var x = 5); // 分组操作符，只能包含表达式而不能包含语句，这里的var就是语句
+} catch(err) {
+// SyntaxError
+}
+</code></pre><p>在使用eval对JSON进行执行的时候，JSON字符串通常被包含在一个圆括号里：eval(‘(‘ + json + ‘)’)，这样做的原因就是因为分组操作符，也就是这对括号，会让解析器强制将JSON的花括号解析成表达式而不是代码块。</p>
+<pre><code> try {
+    { &quot;x&quot;: 5 }; // &quot;{&quot; 和 &quot;}&quot; 做解析成代码块
+  } catch(err) {
+    // SyntaxError
+  }
+
+  ({ &quot;x&quot;: 5 }); // 分组操作符强制将&quot;{&quot; 和 &quot;}&quot;作为对象字面量来解析
+</code></pre><p>表达式和声明存在着十分微妙的区别，函数声明会在任何表达式被解析和求值之前先被解析和求值，即使你的声明在代码的最后一行，它也会在同作用域内第一个表达式之前被解析/求值，也就是所谓的函数提升。参考如下例子，函数fn是在alert之后声明的，但是在alert执行的时候，fn已经有定义了：</p>
+<pre><code>alert(fn());
+function fn() {  
+  return &#39;Hello world!&#39;;
+}
+</code></pre><p>还有一点，函数声明在条件语句内虽然可以用，但是没有被标准化，也就是说不同的环境可能有不同的执行结果，所以这样情况下，最好使用函数表达式：</p>
+<pre><code>// 千万别这样做！
+// 因为有的浏览器会返回first的这个function，而有的浏览器返回的却是第二个
+
+if (true) {
+  function foo() {
+    return &#39;first&#39;;
+  }
+}
+else {
+  function foo() {
+    return &#39;second&#39;;
+  }
+}
+foo();
+
+// 相反，这样情况，我们要用函数表达式
+var foo;
+if (true) {
+  foo = function() {
+    return &#39;first&#39;;
+  };
+}
+else {
+  foo = function() {
+    return &#39;second&#39;;
+  };
+}
+foo();
+</code></pre><p>函数声明的实际规则如下：</p>
+<p><b>函数声明只能出现在程序或函数体内。从句法上讲，它们 不能出现在Block（块）（{ … }）中，例如不能出现在 if、while 或 for 语句中。因为 Block（块） 中只能包含Statement语句， 而不能包含函数声明这样的源元素。另一方面，仔细看一看规则也会发现，唯一可能让表达式出现在Block（块）中情形，就是让它作为表达式语句的一部分。但是，规范明确规定了表达式语句不能以关键字function开头。而这实际上就是说，函数表达式同样也不能出现在Statement语句或Block（块）中（因为Block（块）就是由Statement语句构成的）。 </b></p>
+<h3 id="函数表达式的命名"><a href="#函数表达式的命名" class="headerlink" title="函数表达式的命名"></a>函数表达式的命名</h3><p>函数表达式在实际应用中还是很常见的，但由于这种方式都是在同一作用域内，所以基本上一定要用函数表达式：</p>
+<pre><code>    var contains = (function() {
+    var docEl = document.documentElement;
+
+    if (typeof docEl.compareDocumentPosition != &#39;undefined&#39;) {
+      return function(el, b) {
+        return (el.compareDocumentPosition(b) &amp; 16) !== 0;
+      };
+    }
+    else if (typeof docEl.contains != &#39;undefined&#39;) {
+      return function(el, b) {
+        return el !== b &amp;&amp; el.contains(b);
+      };
+    }
+    return function(el, b) {
+      if (el === b) return false;
+      while (el != b &amp;&amp; (b = b.parentNode) != null);
+      return el === b;
+    };
+  })();
+</code></pre><p>提到命名函数表达式，理所当然，就是它得有名字，前面的例子var bar = function foo(){};就是一个有效的命名函数表达式，但有一点需要记住：这个名字只在新定义的函数作用域内有效，因为规范规定了标示符不能在外围的作用域内有效：</p>
+<pre><code>  var f = function foo(){
+    return typeof foo; // foo是在内部作用域内有效
+  };
+  // foo在外部用于是不可见的
+  typeof foo; // &quot;undefined&quot;
+  f(); // &quot;function&quot;
+</code></pre><h3 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h3><p>首先，我们可以从这几个方面理解：</p>
+<p>1.原型使用方式1：</p>
+<pre><code>var Calculator = function (decimalDigits, tax) {
+   this.decimalDigits = decimalDigits;
+   this.tax = tax;
+};
+//然后，通过给Calculator对象的prototype属性赋值对象字面量来设定Calculator对象的原型。
+Calculator.prototype = {
+   add: function (x, y) {
+      return x + y;
+},
+   subtract: function (x, y) {
+      return x - y;
+   }
+};
+</code></pre><p>这样，就可以new Calculator对象以后，就可以调用add方法来计算结果了。</p>
+<p>2.原型使用方式2：</p>
+<pre><code>Calculator.prototype = function () {
+   add = function (x, y) {
+      return x + y;
+   },
+   subtract = function (x, y) {
+      return x - y;
+   }
+   return {
+      add: add,
+      subtract: subtract
+   }
+} ();
+</code></pre><p>这样我们可以new Calculator对象以后调用add方法来计算结果了。</p>
+<p>以上有一个限制就是一次性设置了原型对象，我们再来说一下如何分开设置原型的每个属性吧。</p>
+<pre><code>var BaseCalculator = function () {
+    //为每个实例都声明一个小数位数
+    this.decimalDigits = 2;
+};
+
+//使用原型给BaseCalculator扩展2个对象方法
+BaseCalculator.prototype.add = function (x, y) {
+    return x + y;
+};
+
+BaseCalculator.prototype.subtract = function (x, y) {
+    return x - y;
+};
+</code></pre><p>首先，声明了一个BaseCalculator对象，构造函数里会初始化一个小数位数的属性decimalDigits，然后通过原型属性设置2个function，分别是add(x,y)和subtract(x,y)，当然你也可以使用前面提到的2种方式的任何一种，我们的主要目的是看如何将BaseCalculator对象设置到真正的Calculator的原型上。</p>
+<pre><code>var BaseCalculator = function() {
+    this.decimalDigits = 2;
+};
+
+BaseCalculator.prototype = {
+    add: function(x, y) {
+        return x + y;
+    },
+    subtract: function(x, y) {
+        return x - y;
+    }
+};
+</code></pre><p>创建完上述代码以后</p>
+<pre><code>var Calculator = function () {
+    //为每个实例都声明一个税收数字
+    this.tax = 5;
+};
+
+Calculator.prototype = new BaseCalculator();
+</code></pre><p>我们可以看到Calculator的原型是指向到BaseCalculator的一个实例上，目的是让Calculator集成它的add(x,y)和subtract(x,y)这2个function，还有一点要说的是，由于它的原型是BaseCalculator的一个实例，所以不管你创建多少个Calculator对象实例，他们的原型指向的都是同一个实例。</p>
+<pre><code>var calc = new Calculator();
+alert(calc.add(1, 1));
+//BaseCalculator 里声明的decimalDigits属性，在 Calculator里是可以访问到的
+alert(calc.decimalDigits);
+</code></pre><p>上面的代码，运行以后，我们可以看到因为Calculator的原型是指向BaseCalculator的实例上的，所以可以访问他的decimalDigits属性值，如果我不想让Calculator访问BaseCalculator的构造函数里声明:</p>
+<pre><code>var Calculator = function () {
+    this.tax= 5;
+};
+
+Calculator.prototype = BaseCalculator.prototype;
+</code></pre><p>通过将BaseCalculator的原型赋给Calculator的原型，这样你在Calculator的实例上就访问不到那个decimalDigits值了，如果你访问如下代码，那将会提升出错。</p>
+<pre><code>var calc = new Calculator();
+alert(calc.add(1, 1));
+alert(calc.decimalDigits);
+</code></pre><p>先是这部分内容，看的有些部分没有懂还没有写完，等第二版到了读第二版吧。。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/02/09/blog/2.5~2.9_questions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/09/blog/2.5~2.9_questions/" itemprop="url">2.5~2.9所遇问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T20:28:10+08:00">
+                2018-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端常见问题/" itemprop="url" rel="index">
+                    <span itemprop="name">前端常见问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/09/blog/2.5~2.9_questions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/02/09/blog/2.5~2.9_questions/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/09/blog/2.5~2.9_questions/" class="leancloud_visitors" data-flag-title="2.5~2.9所遇问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="2-5-2-9所遇问题"><a href="#2-5-2-9所遇问题" class="headerlink" title="2.5~2.9所遇问题"></a>2.5~2.9所遇问题</h2><h3 id="一-开发所遇问题"><a href="#一-开发所遇问题" class="headerlink" title="一.开发所遇问题"></a>一.开发所遇问题</h3><p>在这次开发过程中，是真正自己做的第一个迭代版本，在开发中主要遇到的问题有：从理清思路到代码的实现；代码的格式规范与模块化；如何与后台人员沟通好。</p>
+<p>1.从理清思路到代码的实现</p>
+<p>这部分内容主要是因为自己以前写的代码只考虑到最后呈现的效果，没有具体深入探讨如何高效的写代码，拿生庆哥的话讲就是：没有真正明白要做什么。这个做什么不仅仅是你要实现的效果是什么，还包括你对整体项目的思路。之前我写代码都是只想到大概有哪些代码块，但是几个代码块传参是什么，怎么传，情况考虑全不全，整体的逻辑也是只有个大概的印象就开始动手，造成的结果就是每个代码块之间都有一定的耦合，没有全部拆分开，这造成的结果就是会有很多重复的代码，本来能拆分成函数的内容都没有抽象出来，每个函数功能目的不明确，有很多“胶水代码”，归根结底是因为一开始太着急动手，写代码时又没有细究逻辑，功能是完成了，但过不了组内review的关卡，所以总结一句话：解决问题从源头开始，这次实现代码后发现，原本想象的多复杂多复杂的代码，其实并没有想象中那么难，只要逻辑正确，思路正确其实还是很好解决的。</p>
+<p>2.代码的格式规范与模块化</p>
+<p>这次写代码的过程真真切切的明白了一个道理：良好的命名的重要性，因为一开始想的功能不全，所以在中途添加了不少变量，这就造成了不断添加变量，但是因为函数的功能性不清晰，所以在定义变量的时候又会有代码名称比较接近的结果，一开始还没觉得什么，但是写的稍微多一点就会发现，自己不知道当时为什么要用这个变量名定义了，虽然名称有一定的含义，但是有一个变量名跟预期的函数功能还是有偏差，还得重新看一遍代码的过程，也是一个不好的习惯。</p>
+<p>3.如何与后台人员沟通</p>
+<p>因为这次的后台是千仪哥提供的，自己刚刚来，总是觉得千仪哥做的肯定没问题，所以在看接口的时候当不满足自己这边的需求时，在检查完对应的接口功能发现有问题时，先自己偷偷的看能不能自己生产这样的过程。在中间造成了不小的麻烦，经过这件事懂得了：尊重规范，按规范办事，这样才是解决问题最有效也是最便捷的方法。</p>
+<h3 id="二-如何生成一个比1px更短的边框"><a href="#二-如何生成一个比1px更短的边框" class="headerlink" title="二.如何生成一个比1px更短的边框"></a>二.如何生成一个比1px更短的边框</h3><p>因为css提供最短的就是1px的长度，这也是屏幕的最短像素，所以要生成1px的边框长度也是有一定的技巧的；</p>
+<p>1.使用rgba，通过添加透明度来在视觉上减少边框的长度。</p>
+<p>这个是没什么好说的，效果虽然有，但是不是一个好的解决方法。</p>
+<p>2.利用box-shadow实现窄边框</p>
+<pre><code>box-shadow:0 0 1px 0 red
+</code></pre><p>利用了盒子阴影绘制。可以用于各种场景。但是最后的颜色会变暗，而且box-shadow不占位置，语义化不符合标准。不是实际意义的边框。</p>
+<p>3.多背景渐变实现</p>
+<pre><code>background:
+linear-gradient(180deg, red, red 50%, transparent 50%) top left / 100% 1px no-repeat, 
+linear-gradient(90deg, red, red 50%, transparent 50%) top right / 1px 100% no-repeat, 
+linear-gradient(0deg, red, red 50%, transparent 50%) bottom right / 100% 1px no-repeat, 
+linear-gradient(-270deg, red, red 50%, transparent 50%) bottom left / 1px 100% no-repeat;
+</code></pre><p>可以通过不同的四种角度的渐变，实现边框，颜色可以自定义。缺点是代码比较多，而且不能实现圆角。</p>
+<p>4.伪类 + transform 实现</p>
+<pre><code>:after{
+    content: &#39;&#39;; 
+    position: absolute; 
+    top: 0; left: 0; 
+    border: 1px solid red; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+    width: 200%; 
+    height: 200%; 
+    -webkit-transform: scale(0.5); 
+    transform: scale(0.5); 
+    -webkit-transform-origin: left top; 
+    transform-origin: left top; 
+}
+</code></pre><p>利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半， 然后进行绝对定位，这种方法现在没有发现问题。</p>
+<h3 id="三-图的遍历"><a href="#三-图的遍历" class="headerlink" title="三.图的遍历"></a>三.图的遍历</h3><p>这部分是上次分享没有添加的内容：</p>
+<p>广度优先 搜索(Breadth-First Search，BFS)和深度优先搜索(Depth-First Search，DFS)。图遍历可以用来寻找特定的顶点或寻找两个顶点之间的路径，检查图是否连通等。</p>
+<p>图遍历算法的思想是必须追踪每个第一次访问的节点，并且追踪有哪些节点还没有被完全探索。对于两种图遍历算法，都需要明确指出第一个被访问的顶点。完全探索一个顶点要求我们查看该顶点的每一条边。对于每一条边所连接的没有被访问过的顶点，将其标注为被发现的，并将其加进待访问顶点列表中。</p>
+<h4 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h4><p>广度优先搜索算法会从指定的第一个顶点开始遍历图，先访问其所有的相邻点，就像一次访问图的一层。换句话说，就是先宽后深地访问顶点。</p>
+<p>以下是从顶点v开始的广度优先搜索算法所遵循的步骤。<br>(1) 创建一个队列Q。<br>(2) 将v标注为被发现的(灰色)，并将v入队列Q。<br>(3) 如果Q非空，则运行以下步骤:<br>    (a) 将u从Q中出队列;<br>    (b) 将标注u为被发现的(灰色);<br>    (c) 将u所有未被访问过的邻点(白色)入队列;<br>    (d) 将u标注为已被探索的(黑色)。</p>
+<pre><code>var initializeColor = function(){ 
+    var color = [];
+    for (var i=0; i&lt;vertices.length; i++){
+         color[vertices[i]] = &#39;white&#39;; 
+    }
+    return color; 
+};
+    this.bfs = function(v, callback){
+        var color = initializeColor(),  
+        queue = new Queue();
+        queue.enqueue(v);
+        while (!queue.isEmpty()){
+            var u = queue.dequeue(), neighbors = adjList.get(u); 
+            color[u] = &#39;grey&#39;;                    
+            for (var i=0; i&lt;neighbors.length; i++){ 
+            var w = neighbors[i];
+            if (color[w] === &#39;white&#39;){
+                color[w] = &#39;grey&#39;;
+                queue.enqueue(w);
+            } }
+            color[u] = &#39;black&#39;; 
+            if (callback) {    
+                callback(u);
+            }
+        } 
+    };
+</code></pre><h4 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4><p>深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径直到这条路径最后一个顶点被访问了，接着原路回退并探索下一条路径。换句话说，它是先深度后广度地访问顶点。</p>
+<pre><code>this.dfs = function(callback){
+    var color = initializeColor(); 
+    for (var i=0; i&lt;vertices.length; i++){ 
+        if (color[vertices[i]] === &#39;white&#39;){ 
+            dfsVisit(vertices[i], color, callback); 
+        }
+    } 
+};
+var dfsVisit = function(u, color, callback){
+    color[u] = &#39;grey&#39;; 
+    if (callback) {    }
+        callback(u);
+    }
+    var neighbors = adjList.get(u);
+    for (var i=0; i&lt;neighbors.length; i++){ 
+        var w = neighbors[i];
+        if (color[w] === &#39;white&#39;){
+            dfsVisit(w, color, callback);
+        }
+    }
+    color[u] = &#39;black&#39;; 
+};
+</code></pre><p>以上是两个基本的图的遍历方法。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/02/02/leetCode/23.Missing_Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/leetCode/23.Missing_Number/" itemprop="url">leetCode Array -- 23.Missing Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T19:46:00+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/02/leetCode/23.Missing_Number/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/02/02/leetCode/23.Missing_Number/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/02/leetCode/23.Missing_Number/" class="leancloud_visitors" data-flag-title="leetCode Array -- 23.Missing Number">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-23-Missing-Number"><a href="#Problem-23-Missing-Number" class="headerlink" title="Problem 23.Missing Number"></a>Problem 23.Missing Number</h2><p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
+<p><strong>Example 1</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [3,0,1]<br><strong>Output:</strong> 2</p>
+</blockquote>
+<p><strong>Example 2</strong><br><strong>Input:</strong> [9,6,4,2,3,5,7,0,1]<br><strong>Output:</strong> 8</p>
+<p><strong>Note:</strong><br>Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?</p>
+<p><strong>Credits:</strong><br>Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.</p>
+<p><strong>solution</strong></p>
+<p>1.这道题也是比较简单，只要先对数组排好序，然后跟序数进行对比，返回不相等的下标即可。</p>
+<pre><code>var missingNumber = function(nums) {
+    nums.sort(function(a,b){return a-b;});
+    for (var i = 0; i &lt; nums.length; i++) {
+        if(nums[i] != i) {
+            return i;
+        }
+    }
+    return nums.length;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为数组长度。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/" itemprop="url">leetCode Array -- 22.Maximum Product of Three Numbers</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T19:33:35+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/02/leetCode/22.Maximum_Product_of_Three_Numbers/" class="leancloud_visitors" data-flag-title="leetCode Array -- 22.Maximum Product of Three Numbers">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-22-Maximum-Product-of-Three-Numbers"><a href="#Problem-22-Maximum-Product-of-Three-Numbers" class="headerlink" title="Problem 22.Maximum Product of Three Numbers"></a>Problem 22.Maximum Product of Three Numbers</h2><p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,2,3]<br><strong>Output:</strong> 6</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,2,3,4]<br><strong>Output:</strong> 24</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The length of the given array will be in range [3,10<sup>4</sup>] and all elements are in the range [-1000, 1000].</li>
+<li>Multiplication of any three numbers in the input won’t exceed the range of 32-bit signed integer.</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.因为最短数组长度为3，所以不要考虑数组长度小于3的情况。本题的元素大小可能为负数，若都为正数或都为负数，则取前三个元素，若有正数有负数，通过查资料可以得到，此时3个数之积的最大值为max(第一大数<em>第二大数</em>第三大数， 第一大数<em>最小数</em>倒数第二小数)。这个方法可以记住。</p>
+<pre><code>var maximumProduct = function(nums) {
+    nums.sort(function(a,b){return b-a;});
+    return Math.max(nums[nums.length - 1] * nums[nums.length - 2] * nums[0], nums[0] * nums[1] * nums[2]);
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为数组长度。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cat.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
 
     </div>
+  </aside>
 
-    <!-- Sidebar Image -->
-    
 
-</aside>
+        
+      </div>
+    </main>
 
-                    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
 
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/lpldplws" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-    
-    <!-- V2EX -->
-    
+  
 </div>
 
 
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;2018&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Frankl's Personal Blog
-            
-        </div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-        <!-- Paradox Footer Right Section -->
 
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
 
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
+  <span class="post-meta-divider">|</span>
 
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
-</footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
+    
 
-                    <!-- Import JS File -->
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
 
-    <script>lsloader.load("lazyload_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/lazyload.min.js", true)</script>
+	});
+}
 
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
 
+      
+    
+  </div>
 
-    <script>lsloader.load("js_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/js.min.js", true)</script>
+  
 
-
-
-    <script>lsloader.load("np_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/nprogress.js", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
 
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
     
-        <script>lsloader.load("sm_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/smoothscroll.js", true)</script>
+      <script id="dsq-count-scr" src="https://lpldplws.disqus.com/count.js" async></script>
     
 
+    
+
+  
 
 
-    <!-- Leancloud -->
-    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script>
-        AV.initialize('6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz', '0x6VHFG6YKulI1wbgAC9xYIh');
-    </script>
-    <script type="text/ls-javascript" id="leancloud-views-script">
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
     function showTime(Counter) {
-        var query = new AV.Query(Counter);
-        $('.leancloud-views_num').each(function() {
-            var url = $(this).attr('id').trim();
-            query.equalTo('url', url);
-            query.find({
-                success: function(results) {
-                    if (results.length === 0) {
-                        var content = '0 ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                        return;
-                    }
-                    for (var i = 0; i < results.length; i++) {
-                        var object = results[i];
-                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    }
-                },
-                error: function(object, error) {
-                    console.log('Error: ' + error.code + ' ' + error.message);
-                }
-            });
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
         });
     }
 
     function addCount(Counter) {
-      var Counter = AV.Object.extend('Counter');
-      url = $('.leancloud-views_num').attr('id').trim();
-      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
-      query.equalTo('url', url);
+
+      query.equalTo("url", url);
       query.find({
-          success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment('time');
-                counter.save(null, {
-                    success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-              var newcounter = new Counter();
-              newcounter.set('title', title);
-              newcounter.set('url', url);
-              newcounter.set('time', 1);
-              newcounter.save(null, {
-                  success: function(newcounter) {
-                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
-                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-                      $(document.getElementById(url)).text(content);
-                  },
-                  error: function(newcounter, error) {
-                      console.log('Failed to create');
-                  }
-              });
-            }
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
         },
         error: function(error) {
-            console.log('Error:' + error.code + ' ' + error.message);
+          console.log('Error:' + error.code + " " + error.message);
         }
       });
     }
+
     $(function() {
-        var Counter = AV.Object.extend('Counter');
-        if ($('.leancloud-views_num').length === 1) {
-            addCount(Counter);
-        } else if ($('.post-title-link').length > 1) {
-            showTime(Counter);
-        }
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
     });
-</script>
+  </script>
 
 
 
+  
 
+  
 
+  
+  
 
-   
+  
 
+  
 
+  
 
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Import prettify js  -->
-
-    
-
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
-    
-        
-    
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
-    
+</body>
 </html>

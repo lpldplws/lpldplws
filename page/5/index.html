@@ -1,1429 +1,2987 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.2 -->
-    <script>
-        window.materialVersion = "1.5.2"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1',
-            '1.5.0'
-        ]
-    </script>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source"/>
-
-
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!-- Title -->
-    
-    <title>
-        
-        Frankl&#39;s Personal Blog
-    </title>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/mountains.png">
-    <link rel="icon" href="/img/mountains.png">
-
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="Base on front-end, more than front-end">
-    <meta name="keywords" content="Frankl&#39;s personal blog">
-    <meta name="theme-color" content="#0097A7">
-
-    <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-            
-        
-
-    
-
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
   
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
 
 
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
 
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icons -->
-
-
-    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/css/material-icons.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
 
 
 
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.1/jquery.js", true)</script>
-    
 
-    <!-- WebAPP Icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Frankl&#39;s Personal Blog">
-    <meta name="msapplication-starturl" content="www.lpldplws.cn/page/5/">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Frankl&#39;s Personal Blog">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/img/mountains.png">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="www.lpldplws.cn/page/5/">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Frankl&#39;s Personal Blog">
-    <meta property="og:image" content="/img/mountains.png">
-    <meta property="og:description" content="Base on front-end, more than front-end">
-    
-
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="www.lpldplws.cn/page/5/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-    
 
-    <!-- Analytics -->
-    
-    
-    
 
-    <!-- Custom Head -->
-    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Base on front-end, more than front-end">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frankl&#39;s Personal Blog">
+<meta property="og:url" content="www.lpldplws.cn/page/5/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="Base on front-end, more than front-end">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Frankl&#39;s Personal Blog">
+<meta name="twitter:description" content="Base on front-end, more than front-end">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/page/5/"/>
+
+
+
+
+
+  <title>Frankl's Personal Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d093c12303d4a743548946b3dd3ab3a1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  
+  
     
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
+  
 
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-        
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/27/leetCode/11.Shortest_Word_Distance/">leetCode Array -- 11.Shortest Word Distance</a></p>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/27/leetCode/11.Shortest_Word_Distance/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 27, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/10.Max_Consecutive_Ones/">leetCode Array -- 10.Max Consecutive Ones</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/10.Max_Consecutive_Ones/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/9.Reshape_the_Matrix/">leetCode Array -- 9.Reshape the Matrix</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/9.Reshape_the_Matrix/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/8.Toeplitz_Matrix/">leetCode Array -- 8.Toeplitz Matrix</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/8.Toeplitz_Matrix/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/leetCode/7.array_partition_I/">leetCode Array -- 7.Array Partition I</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/leetCode/7.array_partition_I/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/blog/1.22~1.16_questions/">1.22~1.26所遇问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/blog/1.22~1.16_questions/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/前端常见问题/">前端常见问题</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/">leetCode Array --6.Min Cost Climbing Stairs</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/">leetCode Array -- 5.Largest Number At Least Twice of Others</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/">leetCode Array -- 4.longest continuous increasing subsequence</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/">LeetCode Array -- 3.Best Time to Buy and Sell Stock</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpeg" width="44px" height="44px" alt="Frankl's avatar">
-            </div>
-            <div>
-                <strong>Frankl</strong>
-                <span>1月 23, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/leetCode/">leetCode</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/page/4/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
     </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/logo.jpeg" alt="Frankl's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        qinhui@bupt.edu.cn
-        <b class="caret"></b>
-    </a>
+  </div>
 </div>
 
+<nav class="site-nav">
+  
 
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-                <li>
-                    <a href="mailto: qinhui@bupt.edu.cn" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
+            Kategorien
+          </a>
         </li>
+      
         
-            <li class="divider"></li>
-        
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">22</span></a>
-            </ul>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
         </li>
+      
         
-            <li class="divider"></li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/ES6/">ES6<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/git/">git<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/leetCode/">leetCode<span class="sidebar_archives-count">23</span></a></li><li><a class="sidebar_archives-link" href="/categories/react-document/">react document<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端常见问题/">前端常见问题<span class="sidebar_archives-count">7</span></a>
-            </ul>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
         </li>
+      
         
-    
-
-    <!-- Pages  -->
-    
-
-    <!-- Article Number  -->
-    
-        <li>
-            <a href="/archives">
-                文章总数
-                <span class="sidebar-badge">53</span>
-            </a>
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
         </li>
+      
         
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/27/leetCode/11.Shortest_Word_Distance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/leetCode/11.Shortest_Word_Distance/" itemprop="url">leetCode Array -- 11.Shortest Word Distance</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T15:42:02+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/27/leetCode/11.Shortest_Word_Distance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/27/leetCode/11.Shortest_Word_Distance/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/27/leetCode/11.Shortest_Word_Distance/" class="leancloud_visitors" data-flag-title="leetCode Array -- 11.Shortest Word Distance">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-11-Shortest-Word-Distance"><a href="#Problem-11-Shortest-Word-Distance" class="headerlink" title="Problem 11: Shortest Word Distance"></a>Problem 11: Shortest Word Distance</h2><p>Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.</p>
+<p>For example,<br>Assume that words = <code>[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]</code>.</p>
+<p>Given word1 = <code>&quot;coding&quot;</code>, word2 = <code>&quot;practice&quot;</code>, return 3.<br>Given word1 = <code>&quot;makes&quot;</code>, word2 = <code>&quot;coding&quot;</code>, return 1.</p>
+<p><strong>Note:</strong></p>
+<p>You may assume that word1 <strong>does not equal to</strong> word2, and word1 and word2 are both in the list.</p>
+<p><strong>solution:</strong></p>
+<ol>
+<li>根据题意，选出最近的两个对应的单词的间距，因为所选单词最短的间距即相邻间距，所以最小的匹配值间距的绝对值即是所求答案。</li>
+</ol>
+<pre><code>var shortestDistance = function(words, word1, word2) {
+    var index1 = -1, index2 = -1;
+    var minDistance = words.length;
+    var currentDistance;
+    for (var i = 0; i &lt; words.length; i++) {
+        if (words[i] == word1) {
+            index1 = i;
+        } else if (words[i] == word2) {
+            index2 = i;
+        }
+
+        if (index1 != -1 &amp;&amp; index2 != -1) {
+            minDistance = Math.min(minDistance, Math.abs(index1 - index2));
+        }
+    }
+    return minDistance;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组的长度。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/26/leetCode/10.Max_Consecutive_Ones/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/26/leetCode/10.Max_Consecutive_Ones/" itemprop="url">leetCode Array -- 10.Max Consecutive Ones</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T17:01:26+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/26/leetCode/10.Max_Consecutive_Ones/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/26/leetCode/10.Max_Consecutive_Ones/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/26/leetCode/10.Max_Consecutive_Ones/" class="leancloud_visitors" data-flag-title="leetCode Array -- 10.Max Consecutive Ones">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-10-Max-Consecutive-Ones"><a href="#Problem-10-Max-Consecutive-Ones" class="headerlink" title="Problem 10: Max Consecutive Ones"></a>Problem 10: Max Consecutive Ones</h2><p>Given a binary array, find the maximum number of consecutive 1s in this array.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,1,0,1,1,1]<br><strong>Output:</strong> 3<br><strong>Explanation:</strong> The first two digits or the last three digits are consecutive 1s.<br>    The maximum number of consecutive 1s is 3.</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The input array will only contain 0 and 1.</li>
+<li>The length of input array is a positive integer and will not exceed 10,000</li>
 </ul>
+<p><strong>solution:</strong></p>
+<p>1.这道题算是福利题了，只要确定最长的1的长度就行了，所以直接判断即可：</p>
+<pre><code>var findMaxConsecutiveOnes = function(nums) {
+    var res = 0;
+    var cnt = 0;
+    for (var i = 0; i&lt; nums.length; i++) {
+        cnt = (nums[i] == 0) ? 0 : cnt + 1;
+        res = Math.max(res, cnt);
+    }
+    return res;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n),n为nums的长度；</p>
+<p>2.除此之外还看到一个人的另一种比较有趣的方法，因为是01串，那么连续1的和跟个数相等，所以我们可以计算和，通过加上num，再乘以num来计算，如果当前数字是0，那么sum就被重置为0，还是要更新结果res。</p>
+<pre><code>var findMaxConsecutiveOnes = function(nums) {
+    var res = 0;
+    var cnt = 0;
+    for (var i = 0; i&lt; nums.length; i++) {
+        cnt = (cnt + nums[i]) * nums[i];
+        res = Math.max(res, cnt);
+    }
+    return res;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n),n为nums的长度；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
+    
+      
 
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
+  
 
-<!-- Sidebar Divider -->
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/26/leetCode/9.Reshape_the_Matrix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/26/leetCode/9.Reshape_the_Matrix/" itemprop="url">leetCode Array -- 9.Reshape the Matrix</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T12:10:29+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/26/leetCode/9.Reshape_the_Matrix/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/26/leetCode/9.Reshape_the_Matrix/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/26/leetCode/9.Reshape_the_Matrix/" class="leancloud_visitors" data-flag-title="leetCode Array -- 9.Reshape the Matrix">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-9-Reshape-the-Matrix"><a href="#Problem-9-Reshape-the-Matrix" class="headerlink" title="Problem 9:Reshape the Matrix"></a>Problem 9:Reshape the Matrix</h2><p>In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.</p>
+<p>You’re given a matrix represented by a two-dimensional array, and two <strong>positive</strong> integers <strong>r</strong> and <strong>c</strong> representing the <strong>row</strong> number and column number of the wanted reshaped matrix, respectively.</p>
+<p>The reshaped matrix need to be filled with all the elements of the original matrix in the same <strong>row-traversing</strong> order as they were.</p>
+<p>If the ‘reshape’ operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>nums =<br>[[1,2],<br> [3,4]]<br>r = 1, c = 4<br><strong>Output:</strong><br>[[1,2,3,4]]<br><strong>Explanation:</strong><br>The <strong>row-traversing</strong> of nums is [1,2,3,4]. The new reshaped matrix is a 1 * 4 matrix, fill it row by row by using the previous list.</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong><br>nums =<br>[[1,2],<br> [3,4]]<br>r = 2, c = 4<br><strong>Output:</strong><br>[[1,2],<br> [3,4]]<br><strong>Explanation:</strong><br>There is no way to reshape a 2 X 2 matrix to a 2 X 4 matrix. So output the original matrix.</p>
+</blockquote>
+<p><strong>Note:</strong><br>The height and width of the given matrix is in range [1, 100].<br>The given r and c are all positive.</p>
+<p><strong>solution:</strong></p>
+<ol>
+<li>做这道题时主要的问题在于如何创建一个二维数组，因为js创建二维数组时出现问题，所以选择设两个一维数组，先判断是否符合要求，不符合返回原数组，然后将元素通过concat添加到一个一维数组中，然后根据所给的r,c一一赋值即可。这道题主要纠结在如何设置一个空的二维数组以及如何对二维数组进行赋值。最后回避了这个问题。</li>
+</ol>
+<pre><code>var matrixReshape = function(nums, r, c) {
+    var result_storage = [];
+    var result = []; 
+    if(nums.length * nums[0].length != r * c) {
+        return nums;
+    }    
+    for(var i=0; i &lt; nums.length; i++) {  
+            result_storage = result_storage.concat(nums[i]);  
+    }
+    for(var i = 0; i &lt; r; i++) {  
+        result.push([]);  
+        for(var j = 0; j &lt; c ; j++){  
+                result[i][j] = result_storage[i * c + j];  
+            }  
+    } 
+    return result;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(r X c), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
+<p>2.经过查询过后，发现二维数组不是通过创建`var result = new Array[][]这样的形式创建，而是通过先创建一个一维数组，再对其中的元素设置为数组的形式创建多维数组。接下来就对数组中的内容进行判断，若没有到下一行，则继续对下一位内容赋值，若倒下一行，则换行输入。</p>
+<pre><code>var matrixReshape = function(nums, r, c) {
+    var result =  new Array(r);  
+    for(var n = 0; n &lt; result.length; n++){  
+        result[n] = new Array(c);   
+    }  
+    var rows = 0; 
+    var cols = 0;
+    var count = 0;
+    if(nums.length == 0 || nums.length * nums[0].length != r * c) 
+        return nums;   
+    for (var i = 0; i &lt; nums.length; i ++) {
+        for (var j = 0; j &lt; nums[0].length; j++) {
+            result[rows][cols] = nums[i][j];
+            cols++;
+            if (cols == c) {
+                rows++;
+                cols = 0;
+            }
+        }
+    }
+    return result;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(num.length X num[0].length), 与上述方法的复杂度类似，不过更直观一些。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<!-- Theme Material -->
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/26/leetCode/8.Toeplitz_Matrix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/26/leetCode/8.Toeplitz_Matrix/" itemprop="url">leetCode Array -- 8.Toeplitz Matrix</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T11:54:25+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/26/leetCode/8.Toeplitz_Matrix/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/26/leetCode/8.Toeplitz_Matrix/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/26/leetCode/8.Toeplitz_Matrix/" class="leancloud_visitors" data-flag-title="leetCode Array -- 8.Toeplitz Matrix">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-8-Toeplitz-Matrix"><a href="#Problem-8-Toeplitz-Matrix" class="headerlink" title="Problem 8: Toeplitz Matrix"></a>Problem 8: Toeplitz Matrix</h2><p>A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.</p>
+<p>Now given an <code>M x N</code> matrix, return <code>True</code> if and only if the matrix is Toeplitz.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]<br><strong>Output:</strong> True<br><strong>Explanation:</strong><br>1234<br>5123<br>9512</p>
+</blockquote>
+<p>In the above grid, the diagonals are “[9]”, “[5, 5]”, “[1, 1, 1]”, “[2, 2, 2]”, “[3, 3]”, “[4]”, and in each diagonal all elements are the same, so the answer is True.</p>
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> matrix = [[1,2],[2,2]]<br><strong>Output:</strong> False<br><strong>Explanation:</strong><br>The diagonal “[1, 2]” has different elements.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>matrix will be a 2D array of integers.</li>
+<li>matrix will have a number of rows and columns in range [1, 20].</li>
+<li>matrix[i][j] will be integers in range [0, 99].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.通过画图可得，从左上角的元素开始，如果每行（最后一行除外）元素可以与右下方（每行最后一个元素除外）的元素相等，既符合要求，所以可以选择遍历得到答案。</p>
+<p>目前就只有这一种比较好的解法，所以就先写一个算法了。</p>
+<pre><code>var isToeplitzMatrix = function(matrix) {
+    for(var r = 0; r &lt; matrix.length - 1; r++) {
+        for(var c = 0; c &lt; matrix[0].length - 1; c++) {
+            if(matrix[r][c] != matrix[r+1][c+1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity: O(m X n), m为矩阵的横向长度，n为矩阵的纵向长度。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
-<!-- Help & Support -->
-<!--
+    
+      
 
-    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-        sidebar.help
-        <span class="mdl-button__ripple-container">
-          <span class="mdl-ripple"></span>
-        </span>
-      </div>
-    </a>
+  
 
--->
+  
+  
+  
 
-<!-- Feedback -->
-<!--
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/26/leetCode/7.array_partition_I/">
 
-    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-        sidebar.feedback
-        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
-    </a>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
 
--->
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
 
-<!-- About Theme -->
-<!--
+    
+      <header class="post-header">
 
--->
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/26/leetCode/7.array_partition_I/" itemprop="url">leetCode Array -- 7.Array Partition I</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T11:44:49+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/26/leetCode/7.array_partition_I/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/26/leetCode/7.array_partition_I/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/26/leetCode/7.array_partition_I/" class="leancloud_visitors" data-flag-title="leetCode Array -- 7.Array Partition I">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-7-Array-Partition-I"><a href="#Problem-7-Array-Partition-I" class="headerlink" title="Problem 7:Array Partition I"></a>Problem 7:Array Partition I</h2><p>Given an array of <strong>2n</strong> integers, your task is to group these integers into <strong>n</strong> pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,4,3,2]<br><strong>Output:</strong> 4<br><strong>Explanation:</strong> n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4).</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li><strong>n</strong> is a positive integer, which is in the range of [1, 10000].</li>
+<li>All the integers in the array will be in the range of [-10000, 10000].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.这道题比较简单的做法是对数组排序，然后隔一个数字取一个，就可以保证数组中所有的每两个数字的最小值的总和是最小值。</p>
+<p>目前也没有找到比这个更简单的算法，所以就先写一个算法了。</p>
+<pre><code>var arrayPairSum = function(nums) {
+    var sum = 0;
+    var i = 0;
+    nums.sort(function(a, b){return a-b;});
+    for(var i = 0; i&lt; nums.length; i+=2) {
+        sum+=nums[i];
+    }
+    return sum;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/25/blog/1.22~1.16_questions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/blog/1.22~1.16_questions/" itemprop="url">1.22~1.26所遇问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T14:01:43+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端常见问题/" itemprop="url" rel="index">
+                    <span itemprop="name">前端常见问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/25/blog/1.22~1.16_questions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/25/blog/1.22~1.16_questions/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/25/blog/1.22~1.16_questions/" class="leancloud_visitors" data-flag-title="1.22~1.26所遇问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-22-1-26所遇问题"><a href="#1-22-1-26所遇问题" class="headerlink" title="1.22~1.26所遇问题"></a>1.22~1.26所遇问题</h2><h3 id="1-导入css文件时，import和link的区别"><a href="#1-导入css文件时，import和link的区别" class="headerlink" title="1.导入css文件时，import和link的区别"></a>1.导入css文件时，import和link的区别</h3><ol>
+<li><code>&lt;link&gt;</code>标签是html标签，除了可以引入CSS之外还可以定义RSS，定义rel属性等，而@import只能引入CSS样式；</li>
+<li><code>&lt;link&gt;</code>标签引用的CSS文件会在页面加载时与html同时加载，而@import引入的CSS文件会等页面全部加载完以后再加载；</li>
+<li>@import标签必须放在页面样式表的顶部，而<code>&lt;link&gt;</code>不必；</li>
+</ol>
+<p>那为什么会有很多人建议使用link标签，而非import呢？在Steve Souders（编写过《高性能网站建设指南》等书）的博客中通过一些实例来说明<strong>don’t use @import</strong>。<br>以下节选部分内容并进行翻译：</p>
+<p>原文链接<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="noopener">http://www.stevesouders.com/blog/2009/04/09/dont-use-import/</a><br>——————————————————————————————————————<br><strong>LINK vs. @import</strong></p>
+<p>There are two ways to include a stylesheet in your web page. You can use the LINK tag:</p>
+<p>以下有两种将样式表引入到您的网页中的方式。您可以使用LINK标签：</p>
+<pre><code>&lt;link rel=&#39;stylesheet&#39; href=&#39;a.css&#39;&gt;
+</code></pre><p>Or you can use the @import rule:</p>
+<p>或者您可以使用@import规则：</p>
+<pre><code>&lt;style&gt;
+@import url(&#39;a.css&#39;);
+&lt;/style&gt;
+</code></pre><p>I prefer using LINK for simplicity—you have to remember to put @import at the top of the style block or else it won’t work. It turns out that avoiding @import is better for performance, too.</p>
+<p>为了简单起见，我更倾向于使用LINK。如果您使用@import的话，您必须将它放在样式内容的顶部，否则它将无法显示。事实证明，处于性能来说，避免使用@import也是一个更好的选择。</p>
+<p><strong>@import @import</strong></p>
+<p>I’m going to walk through the different ways LINK and @import can be used. In these examples, there are two stylesheets: a.css and b.css. Each stylesheet is configured to take two seconds to download to make it easier to see the performance impact. The first example uses @import to pull in these two stylesheets. In this example, called @import @import, the HTML document contains the following style block:</p>
+<p>我将在不同的情况下使用LINK和@import。在这些例子中，有两个样式表：a.css和b.css。每个样式表都需要花费两秒钟的时间下载，以便更容易地观测性能。第一个示例中，我们使用@import来下载这两个样式表。我们叫这个例子为<code>@import @import</code>在这个示例中，HTML文档包含以下样式块：</p>
+<pre><code>&lt;style&gt;
+@import url(&#39;a.css&#39;);
+@import url(&#39;b.css&#39;);
+&lt;/style&gt;
+</code></pre><p>If you always use @import in this way, there are no performance problems, although we’ll see below it could result in JavaScript errors due to race conditions. The two stylesheets are downloaded in parallel, as shown in Figure 1. (The first tiny request is the HTML document.) The problems arise when @import is embedded in other stylesheets or is used in combination with LINK.</p>
+<p>如果您总是使用@import的方式，不会有什么性能方面的问题，尽管可能由于竞争的原因导致JavaScript报错。如图1所示，这两个样式表是并行下载的。（第一个请求时HTML文档），但是，当@import与LINK结合使用引入其他样式表时，问题就出现了。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/import-import.gif" alt="只使用@import"><br>    <figcaption><br>        只使用@import<br>    </figcaption><br></figure>
+
+<p>由此可见，只使用@import是没有问题的。</p>
+<p><strong>LINK @import</strong></p>
+<p>The LINK @import example uses LINK for a.css, and @import for b.css:</p>
+<p>LINK @import示例中使用LINK标签引入a.css，使用@import引入b.css：</p>
+<pre><code>&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;a.css&#39;&gt;
+&lt;style&gt;
+@import url(&#39;b.css&#39;);
+&lt;/style&gt;
+</code></pre><p>In IE (tested on 6, 7, and 8), this causes the stylesheets to be downloaded sequentially, as shown in Figure 2. Downloading resources in parallel is key to a faster page. As shown here, this behavior in IE causes the page to take a longer time to finish.</p>
+<p>在IE（在IE6， 7， 8下测试）中，如下图所示，这将导致样式表按顺序下载，而并行下载资源是让页面加载更快的关键。如图所示，在IE中的这会导致页面花费较长的时间完成渲染。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-import.gif" alt="混合使用@import和link标签"><br>    <figcaption><br>        混合使用@import和link标签<br>    </figcaption><br></figure>
+
+<p><strong>LINK with @import</strong></p>
+<p>In the LINK with @import example, a.css is inserted using LINK, and a.css has an @import rule to pull in b.css:</p>
+<p>在使用LINK中使用@import的示例中，a.css使用LINK嵌入在DOM中，而a.css中则通过@import导入b.css：</p>
+<pre><code>in the HTML document:
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;a.css&#39;&gt;
+in a.css:
+@import url(&#39;b.css&#39;);
+</code></pre><p>This pattern also prevents the stylesheets from loading in parallel, but this time it happens on all browsers. When we stop and think about it, we shouldn’t be too surprised. The browser has to download a.css and parse it. At that point, the browser sees the @import rule and starts to fetch b.css.</p>
+<p>这种方式也可以防止样式表的并行加载，但是这次它发生在所有的浏览器上。其实仔细想一想，我们都不应该感到惊讶。浏览器必须先下载a.css并解析它，只有解析它后，浏览器才会看到@import规则并开始加载b.css。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-with-import.gif" alt="在link标签引入@import"><br>    <figcaption><br>       在link标签引入@import<br>    </figcaption><br></figure>
+
+<p><strong>LINK blocks @import</strong></p>
+<p>A slight variation on the previous example with surprising results in IE: LINK is used for a.css and for a new stylesheet called proxy.css. proxy.css is configured to return immediately; it contains an @import rule for b.css.</p>
+<p>在IE中与上述结果有些许不同：对a.css和名为proxy.css的样式表使用LINK引入。而proxy.css会立即执行并渲染; 注意，它包含一个b.css的@import规则</p>
+<pre><code>in the HTML document:
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;a.css&#39;&gt;
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;proxy.css&#39;&gt;
+in proxy.css:
+@import url(&#39;b.css&#39;);
+</code></pre><p>The results of this example in IE, LINK blocks @import, are shown in Figure 4. The first request is the HTML document. The second request is a.css (two seconds). The third (tiny) request is proxy.css. The fourth request is b.css (two seconds). Surprisingly, IE won’t start downloading b.css until a.css finishes. In all other browsers, this blocking issue doesn’t occur, resulting in a faster page as shown in Figure 5.</p>
+<p>在IE中的LINK bock @import例子里，第一个请求时HTML文件，第二个请求是a.css（花费了两秒），第三个请求（很短）是proxy.css。第四个请求时b.css（花费了两秒）。令人惊奇的是，IE不会等到a.css结束后再开始下载b.css。在所有其他的浏览器里，这种加速渲染页面的情况不会发生。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-blocks-import.gif" alt="LINK blocks @import embedded in other stylesheets in IE"><br>     <figcaption><br>        LINK blocks @import embedded in other stylesheets in IE<br>     </figcaption><br></figure>
+
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-blocks-import-not-ie.gif" alt=" LINK doesn't block @import embedded stylesheets in browsers other than IE"><br>     <figcaption><br>         LINK doesn’t block @import embedded stylesheets in browsers other than IE<br>     </figcaption><br></figure>
+
+<p><strong>many @imports</strong></p>
+<p>The many @imports example shows that using @import in IE causes resources to be downloaded in a different order than specified. This example has six stylesheets (each takes two seconds to download) followed by a script (a four second download).</p>
+<p>在many @imports例子中显示了在IE中使用@import会导致不同于指定的顺序下载资源。这个例子有六个样式表（每个需要两秒钟下载），后面是一个脚本（四秒钟的下载）</p>
+<pre><code>&lt;style&gt;
+@import url(&#39;a.css&#39;);
+@import url(&#39;b.css&#39;);
+@import url(&#39;c.css&#39;);
+@import url(&#39;d.css&#39;);
+@import url(&#39;e.css&#39;);
+@import url(&#39;f.css&#39;);
+&lt;/style&gt;
+&lt;script src=&#39;one.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;
+</code></pre><p>Looking at Figure 6, the longest bar is the four second script. Even though it was listed last, it gets downloaded first in IE. If the script contains code that depends on the styles applied from the stylesheets (a la getElementsByClassName, etc.), then unexpected results may occur because the script is loaded before the stylesheets, despite the developer listing it last.</p>
+<p>看下图，最长的一条是一个四秒的脚本。尽管它位于最后，但是它在IE中是最早下载下来的。如果脚本包括依赖于样式表中的样式，会有未知的结果发生，因为脚本不是按照预期的顺序在样式之后加载的。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/many-imports.gif" alt="多个import"><br>     <figcaption><br>        多个import<br>     </figcaption><br></figure>
+
+<p><strong>LINK LINK</strong></p>
+<p>It’s simpler and safer to use LINK to pull in stylesheets:</p>
+<p>使用LINK加载样式更快捷也更安全：</p>
+<pre><code>&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;a.css&#39;&gt;
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;b.css&#39;&gt;
+</code></pre><p>Using LINK ensures that stylesheets will be downloaded in parallel across all browsers. The LINK LINK example demonstrates this, as shown in Figure 7. Using LINK also guarantees resources are downloaded in the order specified by the developer.</p>
+<p>使用LINK会确保样式表会在所有的浏览器中都并行下载。这个LINK LINK的例子证明了这点，使用LINk也保证资源会按开发者的顺序加载。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/import-import.gif" alt="使用link加载样式表"><br>     <figcaption><br>        使用link加载样式表<br>     </figcaption><br></figure>
+
+<p>These issues need to be addressed in IE. It’s especially bad that resources can end up getting downloaded in a different order. All browsers should implement a small lookahead when downloading stylesheets to extract any @import rules and start those downloads immediately. Until browsers make these changes, I recommend avoiding @import and instead using LINK for inserting stylesheets.</p>
+<p>这些问题在IE中都需要解决。尤其是资源会以不同的顺序下载的问题尤为糟糕。所有的浏览器都应该在下载样式表的时候就提取任何@import规则并立即开始下载。在浏览器进行这些更改之前，我建议避免使用@import，而应使用LINK来引入样式表。</p>
+<p>The load times of these resources are exaggerated to make it easy to see what’s happening. But for people with slow connections, especially those in some of the world’s emerging markets, these response times may not be that far from reality. The takeaways are:</p>
+<ol>
+<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
+<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
+</ol>
+<p>因为这些资源的加载时间被夸大，所有我们很容易看到发生了什么事情。但是对于那些网速慢的人来说，网络的响应时间也许并不那么块。 原因是：</p>
+<ol>
+<li>在样式表中使用@import会使得页面的整体下载时间再增加一倍。</li>
+<li>在IE中使用@import会导致资源的下载顺序发生改变。这可能会导致样式表花费更长的时间来下载，因此会阻碍渲染，使页面加载的更慢。</li>
+</ol>
+<h3 id="2-微格式"><a href="#2-微格式" class="headerlink" title="2.微格式"></a>2.微格式</h3><p>对应官网为：<a href="http://microformats.org/" target="_blank" rel="noopener">http://microformats.org/</a></p>
+<h4 id="微格式产生背景："><a href="#微格式产生背景：" class="headerlink" title="微格式产生背景："></a>微格式产生背景：</h4><p>由于早期HTML中缺少相应的元素，很难突出显示人、地点或日期等类型的信息。为了解决这个问题，有一组开发人员决定开发一套标准的命名约定盒标记模式来表示这些数据。这些命名约定基于vCard（电子名片）和iCalendar（日历数据交换）等现有的数据格式，现在称为微格式（microformat)。</p>
+<h4 id="微格式定义："><a href="#微格式定义：" class="headerlink" title="微格式定义："></a>微格式定义：</h4><p>建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。</p>
+<h4 id="微格式意义："><a href="#微格式意义：" class="headerlink" title="微格式意义："></a>微格式意义：</h4><p>微格式按照某种已有的被广泛应用的标准，通过对内容块的语义标记，可以让外部应用程序、聚合程序和搜索引擎能够做以下事情：</p>
+<ol>
+<li>在捉取Web内容时，能够更为准确地识别内容块的语义；</li>
+<li>对内容进行操作，包括提供访问、校对，还可以将其转化成其他的相关格式，提供给外部程序和Web服务使用。</li>
+</ol>
+<p>因此，微格式实际上就是为现有的HTML元素添加元数据和其他属性以增强语义化。</p>
+<p>常见的微格式是hCard</p>
+<p>hCard是一种微格式，用来发布个人，公司，组织，地点等详细的联系信息。它可以包含在(X)HTML，Atom，RSS等可扩展置标语言中。hCard使用vCard（RFC 2426）的属性和值来实现这些功能。</p>
+<p>它可以使分析器（比如其他网站，Firefox的Operator插件）获得详细的信息，并通过别的网站或者地图工具进行显示，或者载入到地址簿等其他程序。</p>
+<p>example：</p>
+<pre><code>&lt;div&gt;
+     &lt;div&gt;Joe Doe&lt;/div&gt;
+     &lt;div&gt;The Example Company&lt;/div&gt;
+     &lt;div&gt;604-555-1234&lt;/div&gt;
+     &lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;
+ &lt;/div&gt;
+</code></pre><p> 如下代码添加了微格式后，成为:</p>
+<pre><code> &lt;div class=&quot;vcard&quot;&gt;
+     &lt;div class=&quot;fn&quot;&gt;Joe Doe&lt;/div&gt;
+     &lt;div class=&quot;org&quot;&gt;The Example Company&lt;/div&gt;
+     &lt;div class=&quot;tel&quot;&gt;604-555-1234&lt;/div&gt;
+     &lt;a class=&quot;url&quot; href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;
+ &lt;/div&gt;
+</code></pre><p> 这里，正式名称（class=”fn”），组织（class=”org”），电话号码（class=”tel”）和url（class=”url”）分别用相应的class标示；同时，所有内容都包含在class=”vcard”里。</p>
+<p> 以上就是微格式的大体内容。</p>
+<h3 id="外边距叠加"><a href="#外边距叠加" class="headerlink" title="外边距叠加"></a>外边距叠加</h3><p>首先，先说明是什么导致的外边距叠加。</p>
+<p>首先，外边距叠加是因为<strong>外边距塌陷(margin collapse)</strong>导致的。实际它也是由于一个缺省值的设定而导致的。在Chrome浏览器里，这个缺省值就是由-webkit-margin-collapse规定的。-webkit-margin-collapse的缺省值就是collapse，所以导致塌陷。这个属性还有另外2个取值：一个是discard，一个是separate。下面我们来具体看一下它们的不同表现形式。</p>
+<h4 id="webkit-margin-collapse-collapse"><a href="#webkit-margin-collapse-collapse" class="headerlink" title="-webkit-margin-collapse: collapse"></a>-webkit-margin-collapse: collapse</h4><p>我们先从简单的看起。假定我们有这样一个<code>&lt;div&gt;</code>，这个<code>&lt;div&gt;</code>里面有3个<code>&lt;p&gt;</code>，如果我们什么也不设，它就是这个样子：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/157/537/1575372319-5a5eabae0c326_articlex" alt="未设置-webkit-margin-collapse"></p>
+<p>会看到每一个<code>&lt;p&gt;</code>下面都有一个下边距。现在我们加上<code>margin: 20px 0;</code>表示为每一个<code>&lt;p&gt;</code>增加一个20px的上边距和一个20px的下边距，现在再看一下效果：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/537/919/537919608-5a5eac73b8e6c_articlex" alt="-webkit-margin-collapse: collapse"></p>
+<p>这时我们看到虽然第一个<code>&lt;p&gt;</code>有20px的上边距，但第2个<code>&lt;p&gt;</code>的20px上边距已经被第一个<code>&lt;p&gt;</code>的下边距『吃掉』了，这就是我们大家所熟知的外边距塌陷。</p>
+<h4 id="webkit-margin-collapse-separate"><a href="#webkit-margin-collapse-separate" class="headerlink" title="-webkit-margin-collapse: separate"></a>-webkit-margin-collapse: separate</h4><p>现在我们来看一下第2种情况，如果我们设定<code>-webkit-margin-collapse: separate</code>之后会怎么样：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/164/511/1645114860-5a5eb3d394158_articlex" alt="-webkit-margin-collapse: separate"></p>
+<p>现在我们看到塌陷的外边距回来了。</p>
+<h4 id="webkit-margin-collapse-discard"><a href="#webkit-margin-collapse-discard" class="headerlink" title="-webkit-margin-collapse: discard"></a>-webkit-margin-collapse: discard</h4><p>那么第3种取值<code>discard</code>是什么作用呢？</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/318/356/3183561786-5a5eb42f8c31d_articlex" alt="-webkit-margin-collapse: discard"></p>
+<p>外边距完全没有了。</p>
+<p>所以，如果我们想强制所有元素边距都不塌陷，那么该怎么办呢？</p>
+<p>我们不能再简单地同时设置上下边距为<code>margin: 20px 0;</code>而应该更精确控制，给<code>&lt;p&gt;</code>只设置下边距为20px就可以了，这样我们就实现了在强制不塌陷的情况下依然保持了行与行之间的距离。</p>
+<p>Tips:<br>『外边距塌陷』其实是W3C早期标准为了一时方便而引入的一个过度设计，它的设计初衷是为了简化，但结果在CSS高度发展的情况下反倒造成了更大的混乱，使得前端工程师无法一目了然地知道自己的代码结果，不明白自己明明已经设置好的<code>margin-top: 20px;</code>怎么就会没有了？结果被人告知还要学习外边距塌陷这样的知识。这样的错误责任不在于工程师没有好好学习，而根本原因在于CSS本身设计的缺陷，才导致了工程师学习成本的增加，并且还增加了浏览器开发者的工作量，需要特意为外边距塌陷开发额外的代码。无论如何，这是一件各方成本都增加的双输设计。</p>
+<p>至于水平方向上为什么没有外边距叠加，我也不知道呀，也许当时就是为了解决垂直方向上外边距累加的问题吧，定义上就是这么定义的。</p>
+<p>最后总结一下W3C中外边距叠加的内容</p>
+<blockquote>
+<p>In CSS, the adjoining margins of two or more boxes (which might or might not be siblings) can combine to form a single margin. Margins that combine this way are said to collapse, and the resulting combined margin is called a collapsed margin.</p>
+</blockquote>
+<p>在CSS中，两个或多个毗邻的普通流中的盒子（可能是父子元素，也可能是兄弟元素）在垂直方向上的外边距会发生叠加，这种形成的外边距称之为外边距叠加。</p>
+<p>我们可以注意定义中的几个关键字：毗邻、两个或多个、垂直方向和普通流。</p>
+<h4 id="毗邻"><a href="#毗邻" class="headerlink" title="毗邻"></a>毗邻</h4><p>毗邻说明了他们的位置关系，没有被 padding、border、clear 和 line box 分隔开。</p>
+<h4 id="两个或多个"><a href="#两个或多个" class="headerlink" title="两个或多个"></a>两个或多个</h4><p>两个或多个盒子是指元素之间的相互影响，单个元素不会存在外边距叠加的情况。</p>
+<h4 id="垂直方向"><a href="#垂直方向" class="headerlink" title="垂直方向"></a>垂直方向</h4><blockquote>
+<p>Horizontal margins never collapse.</p>
+</blockquote>
+<p>只有垂直方向的外边距会发生外边距叠加。水平方向的外边距不存在叠加的情况。</p>
+<h4 id="普通流-in-flow"><a href="#普通流-in-flow" class="headerlink" title="普通流(in flow)"></a>普通流(in flow)</h4><p>什么是普通流？W3C 只对 out of flow 作了定义：</p>
+<blockquote>
+<p>An element is called out of flow if it is floated, absolutely positioned, or is the root element.An element is called in-flow if it is not out-of-flow.</p>
+</blockquote>
+<p>从定义中我们可以知道只要不是 float、absolutely positioned 和 root element 时就是 in flow。</p>
+<h4 id="什么时候会发生外边距叠加"><a href="#什么时候会发生外边距叠加" class="headerlink" title="什么时候会发生外边距叠加"></a>什么时候会发生外边距叠加</h4><p>外边距叠加存在两种情况：一是父子外边距叠加；二是兄弟外边距叠加。</p>
+<p>W3C 对于什么是毗邻的外边距也有定义：</p>
+<blockquote>
+<p>Two margins are adjoining if and only if: - both belong to in-flow block-level boxes that participate in the same block formatting context - no line boxes, no clearance, no padding and no border separate them - both belong to vertically-adjacent box edges, i.e. form one of the following pairs:</p>
+<ul>
+<li>top margin of a box and top margin of its first in-flow child</li>
+<li>bottom margin of box and top margin of its next in-flow following sibling</li>
+<li>bottom margin of a last in-flow child and bottom margin of its parent if the &gt; parent has “auto” computed height</li>
+<li>top and bottom margins of a box that does not establish a new block formatting context and that has zero computed “min-height”, zero or “auto” computed “height”, and no in-flow children</li>
+</ul>
+</blockquote>
+<p>从定义中我们可以很清楚的知道要符合哪些情况才会发生外边距折叠：</p>
+<ul>
+<li>都属于普通流的块级盒子且参与到相同的块级格式上下文中</li>
+<li>没有被padding、border、clear和line box分隔开</li>
+<li>都属于垂直毗邻盒子边缘：<ul>
+<li>盒子的top margin和它第一个普通流子元素的top margin</li>
+<li>盒子的bottom margin和它下一个普通流兄弟的top margin</li>
+<li>盒子的bottom margin和它父元素的bottom margin</li>
+<li>盒子的top margin和bottom margin，且没有创建一个新的块级格式上下文，且有被计算为0的min-height，被计算为0或auto的height，且没有普通流子元素</li>
+</ul>
+</li>
+</ul>
+<h4 id="如何避免外边距叠加"><a href="#如何避免外边距叠加" class="headerlink" title="如何避免外边距叠加"></a>如何避免外边距叠加</h4><p>上面讲了外边距的叠加，那如何避免呢，其实只要破坏上面讲到的四个条件中的任何一个即可：毗邻、两个或多个、普通流和垂直方向。</p>
+<p>W3C也对此做了总结：</p>
+<blockquote>
+<ul>
+<li>Margins between a floated box and any other box do not collapse (not even between a float and its in-flow children).</li>
+<li>Margins of elements that establish new block formatting contexts (such as floats and elements with “overflow” other than “visible”) do not collapse with their in-flow children.</li>
+<li>Margins of absolutely positioned boxes do not collapse (not even with their in-flow children).</li>
+<li>Margins of inline-block boxes do not collapse (not even with their in-flow children).</li>
+<li>The bottom margin of an in-flow block-level element always collapses with the top margin of its next in-flow block-level sibling, unless that sibling has clearance.</li>
+<li>The top margin of an in-flow block element collapses with its first in-flow block-level child”s top margin if the element has no top border, no top padding, and the child has no clearance.</li>
+<li>The bottom margin of an in-flow block box with a “height” of “auto” and a “min-height” of zero collapses with its last in-flow block-level child”s bottom margin if the box has no bottom padding and no bottom border and the child”s bottom margin does not collapse with a top margin that has clearance.</li>
+<li>A box”s own margins collapse if the “min-height” property is zero, and it has neither top or bottom borders nor top or bottom padding, and it has a “height” of either 0 or “auto”, and it does not contain a line box, and all of its in-flow children”s margins (if any) collapse.</li>
+</ul>
+</blockquote>
+<ul>
+<li>浮动元素不会与任何元素发生叠加，也包括它的子元素</li>
+<li>创建了 BFC 的元素不会和它的子元素发生外边距叠加</li>
+<li>绝对定位元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>inline-block 元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>普通流中的块级元素的 margin-bottom 永远和它相邻的下一个块级元素的 margin-top 叠加，除非相邻的兄弟元素 clear</li>
+<li>普通流中的块级元素（没有 border-top、没有 padding-top）的 margin-top 和它的第一个普通流中的子元素（没有clear）发生 margin-top 叠加</li>
+<li>普通流中的块级元素（height为 auto、min-height为0、没有 border-bottom、没有 padding-bottom）和它的最后一个普通流中的子元素（没有自身发生margin叠加或clear）发生 margin-bottom叠加</li>
+<li>如果一个元素的 min-height 为0、没有 border、没有padding、高度为0或者auto、不包含子元素，那么它自身的外边距会发生叠加</li>
+</ul>
+<p>以上就是外边距叠加的主要内容。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/" itemprop="url">leetCode Array --6.Min Cost Climbing Stairs</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T13:08:27+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/25/leetCode/6.Min_Cost_Climbing_Stairs/" class="leancloud_visitors" data-flag-title="leetCode Array --6.Min Cost Climbing Stairs">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-six-Min-Cost-Climbing-Stairs"><a href="#Problem-six-Min-Cost-Climbing-Stairs" class="headerlink" title="Problem six: Min Cost Climbing Stairs"></a>Problem six: Min Cost Climbing Stairs</h2><p>On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).</p>
+<p>Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> cost = [10, 15, 20]<br>  <strong>Output:</strong> 15<br>  <strong>Explanation:</strong> Cheapest is start on cost[1], pay that cost and go to the top.</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]<br>  <strong>Output:</strong> 6<br>  <strong>Explanation:</strong> Cheapest is start on cost[0], and only step on 1s, skipping cost[3].</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li>cost will have a length in the range [2, 1000].</li>
+<li>Every cost[i] will be an integer in the range [0, 999].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.第一眼看这道题，显然是一道递归题，照着这个思路做很容易就做出来了。</p>
+<pre><code>var minCostClimbingStairs = function(cost) {
+    for(var i=2;i&lt;=cost.length-1;i++){
+        cost[i]=cost[i]+Math.min(cost[i-1],cost[i-2]);
+    }
+
+    return Math.min(cost[cost.length-1],cost[cost.length-2]);
+
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<ol>
+<li>同理，也有一种类似的解法，三个元素三个元素的比较，最后一个元素的最小值就是前两个元素的最小值加上对应的值。<pre><code>var minCostClimbingStairs = function(cost) {
+ var firstElement = 0, secondElement = 0, thirdElement = 0;
+  for(var i=2;i &lt;= cost.length;i++){
+      thirdElement = Math.min(secondElement + cost[i-1], firstElement + cost[i-2]);
+      firstElement = secondElement;
+      secondElement = thirdElement;
+  }
+  return thirdElement;
+};
+</code></pre>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/" itemprop="url">leetCode Array -- 5.Largest Number At Least Twice of Others</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T12:52:26+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/25/leetCode/5.Largest_Number_At_Least_Twice_of_Others/" class="leancloud_visitors" data-flag-title="leetCode Array -- 5.Largest Number At Least Twice of Others">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-five-Largest-Number-At-Least-Twice-of-Others"><a href="#Problem-five-Largest-Number-At-Least-Twice-of-Others" class="headerlink" title="Problem five: Largest Number At Least Twice of Others"></a>Problem five: Largest Number At Least Twice of Others</h2><p>In a given integer array nums, there is always exactly one largest element.</p>
+<p>Find whether the largest element in the array is at least twice as much as every other number in the array.</p>
+<p>If it is, return the index of the largest element, otherwise return -1.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> nums = [3, 6, 1, 0]<br>  <strong>Output:</strong> 1<br>  <strong>Explanation:</strong> 6 is the largest integer, and for every other number in the array x,<br>    6 is more than twice as big as x.  The index of value 6 is 1, so we return 1.</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> nums = [1, 2, 3, 4]<br>  <strong>Output:</strong> -1<br>  <strong>Explanation:</strong> 4 isn’t at least as big as twice the value of 3, so we return -1.</p>
+</blockquote>
+<p><strong>Note:</strong></p>
+<ol>
+<li>nums will have a length in the range [1, 50].</li>
+<li>Every nums[i] will be an integer in the range [0, 99].</li>
+</ol>
+<p><strong>solution:</strong></p>
+<p>1.最开始想到的是用sort()函数来解决这个问题，但是需要注意两点：在sort函数中添加判断数字大小的函数，否则会将数字视为字符串，用最开始的数字进行排序；再一个就是在复制数组时，不能直接使用‘=’进行复制操作，因为这样其实传递的是数组地址，如果这样赋值，在对原先数组进行操作时，其实会对新建的数组进行修改。</p>
+<pre><code>function sequence(a,b){
+         if (a&gt;b) {
+             return 1;
+         }else if(a&lt;b){
+              return -1
+         }else{
+             return 0;
+        }
+};
+var dominantIndex = function(nums) {
+    var nums_copy;
+    nums_copy = [];
+    for(var m = 0; m &lt; nums.length; m++) {
+        nums_copy[m] = nums[m];
+    }
+    nums.sort(sequence);
+    if(nums.length == 1)
+        return 0;
+    if(nums[nums.length - 2] &gt; 0) {
+        if(nums[nums.length - 1]/nums[nums.length - 2] &gt;= 2) {
+            for(var i = 0; i &lt; nums_copy.length; i++) {
+                if(nums_copy[i] == nums[nums.length -1])
+                    return i;
+            }
+        } else
+            return -1;
+    } else {
+        for(var n = 0; n &lt; nums_copy.length; n++) {
+            if(nums_copy[n] == nums[nums.length -1])
+                return n;
+        }
+    }
+};
+</code></pre><p>复杂度分析：<br>Time Complexity: O(n), n为nums的长度；</p>
+<p>2.一开始以为上述方法比较简单，但实际写下来还有需要细节要注意，因此，先选出数组中的最大值，在与数组中的所有元素进行对比，当有元素大于nums[maxIndex]的1/2时，返回-1，否则返回该最大值下标。</p>
+<pre><code>var dominantIndex = function(nums) {
+    var maxIndex = 0;
+        for (var i = 0; i &lt; nums.length; ++i) {
+            if (nums[i] &gt; nums[maxIndex])
+                maxIndex = i;
+        }
+        for (var i = 0; i &lt; nums.length; ++i) {
+            if (maxIndex != i &amp;&amp; nums[maxIndex] &lt; 2 * nums[i])
+                return -1;
+        }
+        return maxIndex;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity: O(n), n为nums的长度;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/" itemprop="url">leetCode Array -- 4.longest continuous increasing subsequence</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T11:46:18+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/25/leetCode/4.longest_continuous_increasing_subsequence/" class="leancloud_visitors" data-flag-title="leetCode Array -- 4.longest continuous increasing subsequence">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-four-longest-continuous-increasing-subsequence"><a href="#Problem-four-longest-continuous-increasing-subsequence" class="headerlink" title="Problem four: longest continuous increasing subsequence"></a>Problem four: longest continuous increasing subsequence</h2><p>Given an unsorted array of integers, find the length of longest continuous increasing subsequence (subarray).</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [1,3,5,4,7]<br>  <strong>Output:</strong> 3<br>  <strong>Explanation:</strong> The longest continuous increasing subsequence is [1,3,5], its length is 3.<br>  Even though [1,3,5,7] is also an increasing subsequence, it’s not a continuous one where 5 and 7 are separated by 4. </p>
+</blockquote>
+<p>  <strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [2,2,2,2,2]<br>  <strong>Output:</strong> 1<br>  <strong>Explanation:</strong> The longest continuous increasing subsequence is [2], its length is 1.</p>
+</blockquote>
+<p><strong>Note:</strong> Length of the array will not exceed 10,000.</p>
+<p><strong>solution:</strong></p>
+<p>1.直观的想法是遍历数组时，当数字持续增加时用一个数字存储累加的总和，在减少时与另一个初始为0的数字对比，如果大于这个存放之前的最长长度的数字，则替换该值，并重置计数的大小。最后，比较最后一次累加数值的大小，返回最大值。</p>
+<pre><code>var findLengthOfLCIS = function(nums) {
+    var num = 1;
+    var maxLength = 0;
+    if(nums.length == 0)
+        return 0;
+    for(var i = 1; i &lt; nums.length;  i++) {
+        if(nums[i] &gt; nums[i-1]) {
+            num++;
+        } else {
+            if(num &gt; maxLength) {
+                maxLength = num;
+            }
+            num = 1;
+        }
+    }
+    if(num &gt; maxLength) 
+        return num;
+    else
+        return maxLength;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<p>2.因为累加的子串是在nums[i-1] &gt;= nums[i]时发生变化的，也就是说我们将变化的元素下标记录下来，当前一个元素大于后一个元素时，将当前元素下标赋值给anchor，在累加的过程中，ans会用之前的最长串与现在的累加的串的长度作对比，保留最长串。</p>
+<pre><code>var findLengthOfLCIS = function(nums) {
+    var ans = 0;
+    var anchor = 0;
+        for (var i = 0; i &lt; nums.length; ++i) {
+            if (i &gt; 0 &amp;&amp; nums[i-1] &gt;= nums[i])
+                anchor = i;
+            ans = Math.max(ans, i - anchor + 1);
+        }
+        return ans;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/" itemprop="url">LeetCode Array -- 3.Best Time to Buy and Sell Stock</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:31:43+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/23/leetCode/3.Best_Time_to_Buy_and_sell_stock/" class="leancloud_visitors" data-flag-title="LeetCode Array -- 3.Best Time to Buy and Sell Stock">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-three-Best-Time-to-Buy-and-Sell-Stock"><a href="#Problem-three-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="Problem three: Best Time to Buy and Sell Stock"></a>Problem three: Best Time to Buy and Sell Stock</h2><p>Say you have an array for which the i<sup>th</sup> element is the price of a given stock on day i.</p>
+<p>If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [7, 1, 5, 3, 6, 4]<br><strong>Output:</strong> 5<br>max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price)</p>
+</blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<p><strong>Input:</strong> [7, 6, 4, 3, 1]<br><strong>Output:</strong> 0<br>In this case, no transaction is done, i.e. max profit = 0.</p>
+</blockquote>
+<p><strong>solution:</strong></p>
+<p>1.这道题主要考察的是边界条件的判断，首先，将第二个元素与第一个元素进行对比，如果第二个元素大，则设置maxProfit，minPrice和maxPrice，如果第一个元素大，设置maxPrice，minPrice。若不为前两个元素，需要考虑下一个元素与之前最小的元素比较是否会大于之前的maxProfit，若大于，则设置maxProfit和maxPrice，否则设置minPrice。以此类推，最后返回maxProfit。</p>
+<pre><code>var maxProfit = function(prices) {
+    var maxProfit = 0;
+    var maxPrice = 0;
+    var minPrice = 0;
+    for(var i = 1; i &lt; prices.length; i++) {
+        if(i == 1) {
+            if((prices[i] - prices[i-1]) &gt; maxProfit) {
+                maxProfit = prices[i] - prices[i-1];
+                minPrice = prices[i - 1];
+                maxPrice = prices[i];
+            } 
+            else {
+                minPrice = prices[i];
+                maxPrice = prices[i-1];
+            }
+        }else {
+            if((prices[i] - minPrice) &gt; maxProfit) {
+                maxProfit = prices[i] - minPrice;
+                maxPrice = prices[i];
+            }
+            else{
+                if(minPrice &gt; prices[i]) {
+                    minPrice = prices[i];  
+                }
+            }
+        }
+    }
+    return maxProfit;
+};
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<p>2.接下来换一种思想比较简单的方法，现在需要找到最大的差值，且大的数在后面，小的数在前面，所以，可以两层嵌套，比较元素后面的值并选出最大的值。</p>
+<pre><code>var maxProfit = function(prices) {
+     var maxprofit = 0;
+        for (var i = 0; i &lt; prices.length - 1; i++) {
+            for (var j = i + 1; j &lt; prices.length; j++) {
+                var profit = prices[j] - prices[i];
+                if (profit &gt; maxprofit)
+                    maxprofit = profit;
+            }
+        }
+        return maxprofit;
+  };
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), 循环n(n-1)/2遍，效果很差。</p>
+<p>3.接下来的方法和第一种类似，先去一个特别大的最小值和特别大的最大值，然后进行遍历，若当前元素小于最小值，则替换最小值，否则就与最小值比较，若大于最大差值，则替换最大差值。这个方法与第一种比不需要保存最大值。</p>
+<pre><code>var maxProfit = function(prices) {
+     var minprice = 9999999;
+     var maxprofit = 0;
+        for (var i = 0; i &lt; prices.length; i++) {
+            if (prices[i] &lt; minprice)
+                minprice = prices[i];
+            else if (prices[i] - minprice &gt; maxprofit)
+                maxprofit = prices[i] - minprice;
+        }
+        return maxprofit;
+  };
+</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cat.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
 
     </div>
+  </aside>
 
-    <!-- Sidebar Image -->
-    
 
-</aside>
+        
+      </div>
+    </main>
 
-                    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
 
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com/twitter" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
-                <span class="visuallyhidden">Facebook</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/lpldplws" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-    
-    <!-- V2EX -->
-    
+  
 </div>
 
 
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;2018&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Frankl's Personal Blog
-            
-        </div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-        <!-- Paradox Footer Right Section -->
 
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
 
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
+  <span class="post-meta-divider">|</span>
 
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
-</footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
+    
 
-                    <!-- Import JS File -->
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
 
-    <script>lsloader.load("lazyload_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/lazyload.min.js", true)</script>
+	});
+}
 
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
 
+      
+    
+  </div>
 
-    <script>lsloader.load("js_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/js.min.js", true)</script>
+  
 
-
-
-    <script>lsloader.load("np_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/nprogress.js", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
 
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
     
-        <script>lsloader.load("sm_js","https://cdn.jsdelivr.net/gh/viosey/hexo-theme-material@latest/source/js/smoothscroll.js", true)</script>
+      <script id="dsq-count-scr" src="https://lpldplws.disqus.com/count.js" async></script>
     
 
+    
+
+  
 
 
-    <!-- Leancloud -->
-    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script>
-        AV.initialize('6Tk6xxz1tdtkIgmMLII6XBg3-gzGzoHsz', '0x6VHFG6YKulI1wbgAC9xYIh');
-    </script>
-    <script type="text/ls-javascript" id="leancloud-views-script">
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
     function showTime(Counter) {
-        var query = new AV.Query(Counter);
-        $('.leancloud-views_num').each(function() {
-            var url = $(this).attr('id').trim();
-            query.equalTo('url', url);
-            query.find({
-                success: function(results) {
-                    if (results.length === 0) {
-                        var content = '0 ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                        return;
-                    }
-                    for (var i = 0; i < results.length; i++) {
-                        var object = results[i];
-                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    }
-                },
-                error: function(object, error) {
-                    console.log('Error: ' + error.code + ' ' + error.message);
-                }
-            });
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
         });
     }
 
     function addCount(Counter) {
-      var Counter = AV.Object.extend('Counter');
-      url = $('.leancloud-views_num').attr('id').trim();
-      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
-      query.equalTo('url', url);
+
+      query.equalTo("url", url);
       query.find({
-          success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment('time');
-                counter.save(null, {
-                    success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-              var newcounter = new Counter();
-              newcounter.set('title', title);
-              newcounter.set('url', url);
-              newcounter.set('time', 1);
-              newcounter.save(null, {
-                  success: function(newcounter) {
-                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
-                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-                      $(document.getElementById(url)).text(content);
-                  },
-                  error: function(newcounter, error) {
-                      console.log('Failed to create');
-                  }
-              });
-            }
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
         },
         error: function(error) {
-            console.log('Error:' + error.code + ' ' + error.message);
+          console.log('Error:' + error.code + " " + error.message);
         }
       });
     }
+
     $(function() {
-        var Counter = AV.Object.extend('Counter');
-        if ($('.leancloud-views_num').length === 1) {
-            addCount(Counter);
-        } else if ($('.post-title-link').length > 1) {
-            showTime(Counter);
-        }
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
     });
-</script>
+  </script>
 
 
 
+  
 
+  
 
+  
+  
 
-   
+  
 
+  
 
+  
 
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Import prettify js  -->
-
-    
-
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
-    
-        
-    
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
-    
+</body>
 </html>
