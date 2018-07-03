@@ -126,7 +126,7 @@
 <meta property="og:description" content="Accessibility(可访问性)Why Accessibility?(为什么要考虑可访问性？)Web accessibility (also referred to as a11y) is the design and creation of websites that can be used by everyone. Accessibility support is necessary t">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/react_document/03-01-keyboard_focus_button.png">
-<meta property="og:updated_time" content="2018-06-29T11:03:50.226Z">
+<meta property="og:updated_time" content="2018-07-03T09:13:39.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="03.Advanced Guides -- 01.Accessibility">
 <meta name="twitter:description" content="Accessibility(可访问性)Why Accessibility?(为什么要考虑可访问性？)Web accessibility (also referred to as a11y) is the design and creation of websites that can be used by everyone. Accessibility support is necessary t">
@@ -451,15 +451,8 @@
 <p><a href="https://www.w3.org/WAI/intro/aria" target="_blank" rel="noopener">网页可访问性倡议 - 充分可访问性的互联网应用程序</a>文章中包含了对于构建充分可访问的JavaScript部件的技术。</p>
 <p>Note that all <code>aria-*</code> HTML attributes are fully supported in JSX. Whereas most DOM properties and attributes in React are camelCased, these attributes should be lowercased:</p>
 <p>注意，JSX完全支持所有<code>aria- *</code> HTML属性。尽管React中的大多数DOM属性和特性都是camelCased的，但<code>aria-*</code>属性应该是小写的：</p>
-<pre><code>&lt;input
-  type=&quot;text&quot;
-  aria-label={labelText}
-  aria-required=&quot;true&quot;
-  onChange={onchangeHandler}
-  value={inputValue}
-  name=&quot;name&quot;
-/&gt;
-</code></pre><h3 id="Semantic-HTML-语义化的HTML"><a href="#Semantic-HTML-语义化的HTML" class="headerlink" title="Semantic HTML(语义化的HTML)"></a>Semantic HTML(语义化的HTML)</h3><p>Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information in our websites will often give us accessibility for free.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;input</span><br><span class="line">  type=<span class="string">"text"</span></span><br><span class="line">  aria-label=&#123;labelText&#125;</span><br><span class="line">  aria-required=<span class="string">"true"</span></span><br><span class="line">  onChange=&#123;onchangeHandler&#125;</span><br><span class="line">  value=&#123;inputValue&#125;</span><br><span class="line">  name=<span class="string">"name"</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Semantic-HTML-语义化的HTML"><a href="#Semantic-HTML-语义化的HTML" class="headerlink" title="Semantic HTML(语义化的HTML)"></a>Semantic HTML(语义化的HTML)</h3><p>Semantic HTML is the foundation of accessibility in a web application. Using the various HTML elements to reinforce the meaning of information in our websites will often give us accessibility for free.</p>
 <p>语义化的HTML是一个web应用可访问性的基础。我们可以通过在网站中使用不同的HTML元素来加强想表达的信息的含义，这可以让我们的应用更具有可访问性。</p>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener">MDN HTML elements reference(MDN HTML元素的参阅)</a></li>
@@ -468,32 +461,11 @@
 <p>有时，当我们将<code>&lt;div&gt;</code>元素添加到JSX中以使我们的React代码工作时，我们会破坏HTML语义，尤其是在使用列表（<code>&lt;ol&gt;</code>，<code>&lt;ul&gt;</code>和<code>&lt;dl&gt;</code>）和HTML <code>&lt;table&gt;</code>时。 在这些情况下，我们应该使用React Fragments将多个元素组合在一起。</p>
 <p>Use <code>&lt;Fragment&gt;</code> when a key prop is required:</p>
 <p>在key的属性是必须时使用<code>&lt;Fragment&gt;</code></p>
-<pre><code>import React, { Fragment } from &#39;react&#39;;
-
-function Glossary(props) {
-  return (
-    &lt;dl&gt;
-      {props.items.map(item =&gt; (
-        // Without the `key`, React will fire a key warning
-        &lt;Fragment key={item.id}&gt;
-          &lt;dt&gt;{item.term}&lt;/dt&gt;
-          &lt;dd&gt;{item.description}&lt;/dd&gt;
-        &lt;/Fragment&gt;
-      ))}
-    &lt;/dl&gt;
-  );
-}
-</code></pre><p>Use <code>&lt;&gt;&lt;/&gt;</code> syntax everywhere else:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Fragment &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Glossary</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;dl&gt;</span><br><span class="line">      &#123;props.items.map(<span class="function"><span class="params">item</span> =&gt;</span> (</span><br><span class="line">        <span class="comment">// Without the `key`, React will fire a key warning</span></span><br><span class="line">        &lt;Fragment key=&#123;item.id&#125;&gt;</span><br><span class="line">          &lt;dt&gt;&#123;item.term&#125;&lt;<span class="regexp">/dt&gt;</span></span><br><span class="line"><span class="regexp">          &lt;dd&gt;&#123;item.description&#125;&lt;/</span>dd&gt;</span><br><span class="line">        &lt;<span class="regexp">/Fragment&gt;</span></span><br><span class="line"><span class="regexp">      ))&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>dl&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Use <code>&lt;&gt;&lt;/&gt;</code> syntax everywhere else:</p>
 <p>在任何地方使用<code>&lt;&gt;&lt;/&gt;</code>语法</p>
-<pre><code>function ListItem({ item }) {
-  return (
-    &lt;&gt;
-      &lt;dt&gt;{item.term}&lt;/dt&gt;
-      &lt;dd&gt;{item.description}&lt;/dd&gt;
-    &lt;/&gt;
-  );
-}
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListItem</span>(<span class="params">&#123; item &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;dt&gt;&#123;item.term&#125;&lt;<span class="regexp">/dt&gt;</span></span><br><span class="line"><span class="regexp">      &lt;dd&gt;&#123;item.description&#125;&lt;/</span>dd&gt;</span><br><span class="line">    &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>即为了不破坏HTML结构的完整性和统一性，可以将React Fragment或者<code>&lt;&gt;&lt;/&gt;</code>添加到React组件返回的内容上以此来保持返回元素的可访问性。</p>
 </blockquote>
 <h3 id="Accessible-Forms-可访问性的表单"><a href="#Accessible-Forms-可访问性的表单" class="headerlink" title="Accessible Forms(可访问性的表单)"></a>Accessible Forms(可访问性的表单)</h3><h4 id="Labeling-标签"><a href="#Labeling-标签" class="headerlink" title="Labeling(标签)"></a>Labeling(标签)</h4><p>Every HTML form control, such as <code>&lt;input&gt;</code> and <code>&lt;textarea&gt;</code>, needs to be labeled accessibly. We need to provide descriptive labels that are also exposed to screen readers.</p>
@@ -512,9 +484,8 @@ function Glossary(props) {
 </ul>
 <p>Although these standard HTML practices can be directly used in React, note that the <code>for</code> attribute is written as <code>htmlFor</code> in JSX:</p>
 <p>尽管这些标准的HTML元素可以直接在React中使用，但还要注意<code>for</code>属性在JSX中应当写成’htmlFor’:</p>
-<pre><code>&lt;label htmlFor=&quot;namedInput&quot;&gt;Name:&lt;/label&gt;
-&lt;input id=&quot;namedInput&quot; type=&quot;text&quot; name=&quot;name&quot;/&gt;
-</code></pre><h4 id="Notifying-the-user-of-errors-通知用户错误信息"><a href="#Notifying-the-user-of-errors-通知用户错误信息" class="headerlink" title="Notifying the user of errors(通知用户错误信息)"></a>Notifying the user of errors(通知用户错误信息)</h4><p>Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;label <span class="attribute">htmlFor</span>=<span class="string">"namedInput"</span>&gt;Name:&lt;/label&gt;</span><br><span class="line">&lt;input <span class="attribute">id</span>=<span class="string">"namedInput"</span> <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">name</span>=<span class="string">"name"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Notifying-the-user-of-errors-通知用户错误信息"><a href="#Notifying-the-user-of-errors-通知用户错误信息" class="headerlink" title="Notifying the user of errors(通知用户错误信息)"></a>Notifying the user of errors(通知用户错误信息)</h4><p>Error situations need to be understood by all users. The following link shows us how to expose error texts to screen readers as well:</p>
 <p>所有用户都需要能够读懂错误信息。以下链接向我们展示了如何将错误文本展示给屏幕阅读器：</p>
 <ul>
 <li><a href="https://www.w3.org/WAI/tutorials/forms/notifications/" target="_blank" rel="noopener">The W3C demonstrates user notifications</a></li>
@@ -549,56 +520,14 @@ function Glossary(props) {
 <p>为了设置React焦点，我们可以使用<a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">DOM元素的Refs</a></p>
 <p>Using this, we first create a ref to an element in the JSX of a component class:</p>
 <p>为了介绍Refs，我们首先在组件类的JSX中创建一个元素的ref：</p>
-<pre><code>class CustomTextInput extends React.Component {
-  constructor(props) {
-    super(props);
-    // Create a ref to store the textInput DOM element
-    this.textInput = React.createRef();
-  }
-  render() {
-  // Use the `ref` callback to store a reference to the text input DOM
-  // element in an instance field (for example, this.textInput).
-    return (
-      &lt;input
-        type=&quot;text&quot;
-        ref={this.textInput}
-      /&gt;
-    );
-  }
-}
-</code></pre><p>Then we can focus it elsewhere in our component when needed:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="comment">// Create a ref to store the textInput DOM element</span></span><br><span class="line">    <span class="keyword">this</span>.textInput = <span class="type">React</span>.createRef();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">  <span class="comment">// Use the `ref` callback to store a reference to the text input DOM</span></span><br><span class="line">  <span class="comment">// element in an instance field (for example, this.textInput).</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;input</span><br><span class="line">        <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span></span><br><span class="line">        ref=&#123;<span class="keyword">this</span>.textInput&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then we can focus it elsewhere in our component when needed:</p>
 <p>然后当我们需要时，我们可以在组件的任何地方调用focus函数了：</p>
-<pre><code>focus() {
-  // Explicitly focus the text input using the raw DOM API
-  // Note: we&#39;re accessing &quot;current&quot; to get the DOM node
-  this.textInput.current.focus();
-}
-</code></pre><p>Sometimes a parent component needs to set focus to an element in a child component. We can do this by exposing <a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">DOM refs to parent components</a> through a special prop on the child component that forwards the parent’s ref to the child’s DOM node.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">focus() &#123;</span><br><span class="line">  <span class="comment">// Explicitly focus the text input using the raw DOM API</span></span><br><span class="line">  <span class="comment">// Note: we're accessing "current" to get the DOM node</span></span><br><span class="line">  <span class="keyword">this</span>.textInput.current.focus();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sometimes a parent component needs to set focus to an element in a child component. We can do this by exposing <a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">DOM refs to parent components</a> through a special prop on the child component that forwards the parent’s ref to the child’s DOM node.</p>
 <p>有些时候父组件需要将焦点设置在子组件的一个元素上。我们可以根据<a href="https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components" target="_blank" rel="noopener">向父组件传递DOM refs</a>通过在子组件上设置一个特殊的属性,然后父组件通过ref指向子组件的DOM节点。</p>
-<pre><code>function CustomTextInput(props) {
-  return (
-    &lt;div&gt;
-      &lt;input ref={props.inputRef} /&gt;
-    &lt;/div&gt;
-  );
-}
-
-class Parent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.inputElement = React.createRef();
-  }
-  render() {
-    return (
-      &lt;CustomTextInput inputRef={this.inputElement} /&gt;
-    );
-  }
-}
-/&gt;
-
-// Now you can set focus when required.
-this.inputElement.current.focus();
-</code></pre><p>When using a HOC to extend components, it is recommended to <a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">forward the ref</a> to the wrapped component using the <code>forwardRef</code> function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function <span class="type">CustomTextInput</span>(props) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input ref=&#123;props.inputRef&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.inputElement = <span class="type">React</span>.createRef();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;<span class="type">CustomTextInput</span> inputRef=&#123;<span class="keyword">this</span>.inputElement&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Now you can set focus when required.</span></span><br><span class="line"><span class="keyword">this</span>.inputElement.current.focus();</span><br></pre></td></tr></table></figure>
+<p>When using a HOC to extend components, it is recommended to <a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">forward the ref</a> to the wrapped component using the <code>forwardRef</code> function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.</p>
 <p>当使用HOC扩展组件时，建议使用React的<code>forwardRef</code>函数<a href="https://reactjs.org/docs/forwarding-refs.html" target="_blank" rel="noopener">将ref传到</a>到包装好的组件。如果第三方库HOC没有使用向下传递ref，上述模式仍然可以用作备用方案。</p>
 <p>A great focus management example is the <a href="https://github.com/davidtheclark/react-aria-modal" target="_blank" rel="noopener">react-aria-modal</a>. This is a relatively rare example of a fully accessible modal window. Not only does it set initial focus on the cancel button (preventing the keyboard user from accidentally activating the success action) and trap keyboard focus inside the modal, it also resets focus back to the element that initially triggered the modal.</p>
 <p>一个很好的焦点管理的例子就是<a href="https://github.com/davidtheclark/react-aria-modal" target="_blank" rel="noopener">react-aria-modal</a>。 这是一个相当罕见的完全无障碍的窗口模式的例子。它不仅将初始焦点设置在取消按钮上以避免键盘焦点陷入该模式中（防止键盘用户意外激活成功操作）还将焦点重置回最初触发模式的元素。</p>
@@ -687,11 +616,8 @@ this.inputElement.current.focus();
 <p>ESLint的<a href="https://github.com/evcohen/eslint-plugin-jsx-a11y" target="_blank" rel="noopener">eslint-plugin-jsx-a11y</a>提供了JSX在AST中可访问性问题的linting反馈。许多IDE允许您将这些问题直接集成到代码分析窗口和源代码窗口中。</p>
 <p><a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a> has this plugin with a subset of rules activated. If you want to enable even more accessibility rules, you can create an <code>.eslintrc</code> file in the root of your project with this content:</p>
 <p><a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>已有这个插件并沿用其中的一些规则。如果您希望使用更多可访问性的规则，则可以使用以下指令在项目的根目录下创建<code>.eslintrc</code>文件：</p>
-<pre><code>{
-  &quot;extends&quot;: [&quot;react-app&quot;, &quot;plugin:jsx-a11y/recommended&quot;],
-  &quot;plugins&quot;: [&quot;jsx-a11y&quot;]
-}
-</code></pre><h4 id="Testing-accessibility-in-the-browser-在浏览器中测试可访问性"><a href="#Testing-accessibility-in-the-browser-在浏览器中测试可访问性" class="headerlink" title="Testing accessibility in the browser(在浏览器中测试可访问性)"></a>Testing accessibility in the browser(在浏览器中测试可访问性)</h4><p>A number of tools exist that can run accessibility audits on web pages in your browser. Please use them in combination with other accessibility checks mentioned here as they can only test the technical accessibility of your HTML.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"extends"</span>: [<span class="string">"react-app"</span>, <span class="string">"plugin:jsx-a11y/recommended"</span>],</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"jsx-a11y"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Testing-accessibility-in-the-browser-在浏览器中测试可访问性"><a href="#Testing-accessibility-in-the-browser-在浏览器中测试可访问性" class="headerlink" title="Testing accessibility in the browser(在浏览器中测试可访问性)"></a>Testing accessibility in the browser(在浏览器中测试可访问性)</h4><p>A number of tools exist that can run accessibility audits on web pages in your browser. Please use them in combination with other accessibility checks mentioned here as they can only test the technical accessibility of your HTML.</p>
 <p>许多工具可以在浏览器的网页上测试可访问性。请将它们与其他可访问性检查结合使用，因为它们只能测试与HTML相关的可访问性。</p>
 <blockquote>
 <p>aXe, aXe-core and react-axe</p>
@@ -797,6 +723,35 @@ this.inputElement.current.focus();
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -954,11 +909,77 @@ this.inputElement.current.focus();
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

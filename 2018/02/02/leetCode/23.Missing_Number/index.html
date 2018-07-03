@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Problem 23.Missing NumberGiven an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array. Example 1  Input: [3,0,1]Output: 2  Example 2Input: [9,6,4,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T08:21:41.031Z">
+<meta property="og:updated_time" content="2018-07-03T09:11:22.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetCode Array -- 23.Missing Number">
 <meta name="twitter:description" content="Problem 23.Missing NumberGiven an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array. Example 1  Input: [3,0,1]Output: 2  Example 2Input: [9,6,4,">
@@ -437,16 +437,8 @@
 <p><strong>Credits:</strong><br>Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.</p>
 <p><strong>solution</strong></p>
 <p>1.这道题也是比较简单，只要先对数组排好序，然后跟序数进行对比，返回不相等的下标即可。</p>
-<pre><code>var missingNumber = function(nums) {
-    nums.sort(function(a,b){return a-b;});
-    for (var i = 0; i &lt; nums.length; i++) {
-        if(nums[i] != i) {
-            return i;
-        }
-    }
-    return nums.length;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为数组长度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> missingNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    nums.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a-b;&#125;);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] != i) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br>Time Complexity：O(n<sup>2</sup>), n为数组长度。</p>
 
       
     </div>
@@ -456,6 +448,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -613,11 +634,77 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

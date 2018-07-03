@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Problem 8: Toeplitz MatrixA matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element. Now given an M x N matrix, return True if and only if the matrix is Toeplitz. Examp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T04:08:45.072Z">
+<meta property="og:updated_time" content="2018-07-03T09:09:17.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetCode Array -- 8.Toeplitz Matrix">
 <meta name="twitter:description" content="Problem 8: Toeplitz MatrixA matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element. Now given an M x N matrix, return True if and only if the matrix is Toeplitz. Examp">
@@ -445,17 +445,8 @@
 <p><strong>solution:</strong></p>
 <p>1.通过画图可得，从左上角的元素开始，如果每行（最后一行除外）元素可以与右下方（每行最后一个元素除外）的元素相等，既符合要求，所以可以选择遍历得到答案。</p>
 <p>目前就只有这一种比较好的解法，所以就先写一个算法了。</p>
-<pre><code>var isToeplitzMatrix = function(matrix) {
-    for(var r = 0; r &lt; matrix.length - 1; r++) {
-        for(var c = 0; c &lt; matrix[0].length - 1; c++) {
-            if(matrix[r][c] != matrix[r+1][c+1]) {
-                return false;
-            }
-        }
-    }
-    return true;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity: O(m X n), m为矩阵的横向长度，n为矩阵的纵向长度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isToeplitzMatrix = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> r = <span class="number">0</span>; r &lt; matrix.length - <span class="number">1</span>; r++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> c = <span class="number">0</span>; c &lt; matrix[<span class="number">0</span>].length - <span class="number">1</span>; c++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[r][c] != matrix[r+<span class="number">1</span>][c+<span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br>Time Complexity: O(m X n), m为矩阵的横向长度，n为矩阵的纵向长度。</p>
 
       
     </div>
@@ -465,6 +456,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -622,11 +642,77 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

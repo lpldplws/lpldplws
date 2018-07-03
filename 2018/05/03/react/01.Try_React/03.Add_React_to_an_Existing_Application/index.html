@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Add React to an Existing Application(在一个已存的项目中添加React)You don’t need to rewrite your app to start using React. 您不必重写您的应用程序来开始使用React We recommend adding React to a small part of your application, such">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-04T08:00:32.294Z">
+<meta property="og:updated_time" content="2018-07-03T09:12:35.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="01.Try React -- 03.Add React to an Existing Application">
 <meta name="twitter:description" content="Add React to an Existing Application(在一个已存的项目中添加React)You don’t need to rewrite your app to start using React. 您不必重写您的应用程序来开始使用React We recommend adding React to a small part of your application, such">
@@ -452,12 +452,9 @@
 <p>我们建议使用<a href="https://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a>或者<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>来管理前端依赖。如果您是新接触包管理器的开发者，<a href="https://yarnpkg.com/en/docs/getting-started" target="_blank" rel="noopener">Yarn的文档</a>是一个开始学习的不错的地方。</p>
 <p>To install React with Yarn, run:</p>
 <p>使用Yarn安装React，请运行：</p>
-<pre><code>yarn init
-yarn add react react-dom
-</code></pre><p>如果使用npm安装React，请运行：</p>
-<pre><code>npm init
-npm install --save react react-dom
-</code></pre><p>Both Yarn and npm download packages from the <a href="http://npmjs.com/" target="_blank" rel="noopener">npm registry</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn init</span><br><span class="line">yarn add react react-dom</span><br></pre></td></tr></table></figure>
+<p>如果使用npm安装React，请运行：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br><span class="line"><span class="built_in">npm</span> install --save react react-dom</span><br></pre></td></tr></table></figure></p>
+<p>Both Yarn and npm download packages from the <a href="http://npmjs.com/" target="_blank" rel="noopener">npm registry</a>.</p>
 <p>Yarn和npm都从<a href="http://npmjs.com/" target="_blank" rel="noopener">npm注册表</a>中下载软件包。</p>
 <blockquote>
 <p>Note:<br>To prevent potential incompatibilities, all react packages should use the same version. (This includes <code>react</code>, <code>react-dom</code>, <code>react-test-renderer</code>, etc.)</p>
@@ -474,14 +471,8 @@ npm install --save react react-dom
 <p>我们建议使用像<a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a>或者<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>这样的捆绑器，这样您就可以编写现代化代码并将他们绑定在小的包上以优化加载时间。</p>
 <p>The smallest React example looks like this：</p>
 <p>最小的React案例如下：</p>
-<pre><code>import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-
-ReactDOM.render(
-  &lt;h1&gt;Hello, world!&lt;/h1&gt;,
-  document.getElementById(&#39;root&#39;)
-);
-</code></pre><p>This code renders into a DOM element with the id of <code>root</code>, so you need <code><div id="root"></div> </code>somewhere in your HTML file.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>This code renders into a DOM element with the id of <code>root</code>, so you need <code><div id="root"></div> </code>somewhere in your HTML file.</p>
 <p>这些代码会在一个id为<code>root</code>的DOM元素上渲染，所以您需要在您的HTML文件上有<code><div id="root"></div></code>。</p>
 <p>Similarly, you can render a React component inside a DOM element somewhere inside your existing app written with any other JavaScript UI library.</p>
 <p>相似的，您可以在现有的，由其他任何JavaScript UI库编写的应用程序内的某个DOM元素内部渲染一个React组件。</p>
@@ -523,6 +514,35 @@ ReactDOM.render(
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -680,11 +700,77 @@ ReactDOM.render(
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

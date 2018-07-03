@@ -126,7 +126,7 @@
 <meta property="og:description" content="react组件之间的通信说 React 组件间通讯之前，我们先来讨论一下 React 组件究竟有多少种层级间的关系。假设我们开发的项目是一个纯 React 的项目，那我们项目应该有如下类似的关系：  父子：Parent 与 Child_1、Child_2、Child_1_1、Child_1_2、Child_2_1 兄弟：Child_1 与 Child_2、Child_1_1 与 Child_2、e">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/images/blog/react_communicatioin.png">
-<meta property="og:updated_time" content="2018-06-23T14:27:36.675Z">
+<meta property="og:updated_time" content="2018-07-03T09:06:15.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react组件之间的通信">
 <meta name="twitter:description" content="react组件之间的通信说 React 组件间通讯之前，我们先来讨论一下 React 组件究竟有多少种层级间的关系。假设我们开发的项目是一个纯 React 的项目，那我们项目应该有如下类似的关系：  父子：Parent 与 Child_1、Child_2、Child_1_1、Child_1_2、Child_2_1 兄弟：Child_1 与 Child_2、Child_1_1 与 Child_2、e">
@@ -437,151 +437,18 @@
 <p>（在 React 中，React 组件之间的关系为从属关系，与 DOM 元素之间的父子关系有所不同，下面只是为了说明方便，将 React 组件的关系类比成父子关系进行阐述）</p>
 <hr>
 <h3 id="父组件向子组件通讯"><a href="#父组件向子组件通讯" class="headerlink" title="父组件向子组件通讯"></a>父组件向子组件通讯</h3><p>通讯是单向的，数据必须是由一方传到另一方。在 React 中，父组件可以向子组件通过传 props 的方式，向子组件进行通讯。</p>
-<pre><code>class Parent extends Component{
-  state = {
-    msg: &#39;start&#39;
-  };
-
-  componentDidMount() {
-    setTimeout(() =&gt; {
-      this.setState({
-        msg: &#39;end&#39;
-      });
-    }, 1000);
-  }
-
-  render() {
-    return &lt;Child_1 msg={this.state.msg} /&gt;;
-  }
-}
-
-class Child_1 extends Component{
-  render() {
-    return &lt;p&gt;{this.props.msg}&lt;/p&gt;
-  }
-}
-</code></pre><p>如果父组件与子组件之间不止一个层级，如 Parent 与 Child_1_1 这样的关系，可通过 … 运算符（Object 剩余和展开属性），将父组件的信息，以更简洁的方式传递给更深层级的子组件。通过这种方式，不用考虑性能的问题，通过 babel 转义后的 … 运算符 性能和原生的一致，且上级组件 props 与 state 的改变，会导致组件本身及其子组件的生命周期改变，</p>
-<pre><code>// 通过 ... 运算符 向 Child_1_1 传递 Parent 组件的信息
-class Child_1 extends Component{
-  render() {
-    return &lt;div&gt;
-      &lt;p&gt;{this.props.msg}&lt;/p&gt;
-      &lt;Child_1_1 {...this.props}/&gt;
-    &lt;/div&gt;
-  }
-}
-
-class Child_1_1 extends Component{
-  render() {
-    return &lt;p&gt;{this.props.msg}&lt;/p&gt;
-  }
-}
-</code></pre><hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    msg: <span class="string">'start'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        msg: <span class="string">'end'</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Child_1</span> <span class="attr">msg</span>=<span class="string">&#123;this.state.msg&#125;</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">class Child_1 extends Component&#123;</span></span><br><span class="line"><span class="xml">  render() &#123;</span></span><br><span class="line"><span class="xml">    return <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;this.props.msg&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>如果父组件与子组件之间不止一个层级，如 Parent 与 Child_1_1 这样的关系，可通过 … 运算符（Object 剩余和展开属性），将父组件的信息，以更简洁的方式传递给更深层级的子组件。通过这种方式，不用考虑性能的问题，通过 babel 转义后的 … 运算符 性能和原生的一致，且上级组件 props 与 state 的改变，会导致组件本身及其子组件的生命周期改变，</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过 ... 运算符 向 Child_1_1 传递 Parent 组件的信息</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child_1</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">      &lt;p&gt;&#123;<span class="keyword">this</span>.props.msg&#125;&lt;/p&gt;</span><br><span class="line">      &lt;<span class="type">Child_1_1</span> &#123;...<span class="keyword">this</span>.props&#125;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child_1_1</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;p&gt;&#123;<span class="keyword">this</span>.props.msg&#125;&lt;/p&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
 <h3 id="子组件向父组件通讯"><a href="#子组件向父组件通讯" class="headerlink" title="子组件向父组件通讯"></a>子组件向父组件通讯</h3><p>在上一个例子中，父组件可以通过传递 props 的方式，自顶而下向子组件进行通讯。而子组件向父组件通讯，同样也需要父组件向子组件传递 props 进行通讯，只是父组件传递的，是作用域为父组件自身的函数，子组件调用该函数，将子组件想要传递的信息，作为参数，传递到父组件的作用域中。</p>
-<pre><code>class Parent extends Component{
-  state = {
-    msg: &#39;start&#39;
-  };
-
-  transferMsg(msg) {
-    this.setState({
-      msg
-    });
-  }
-
-  render() {
-    return &lt;div&gt;
-        &lt;p&gt;child msg: {this.state.msg}&lt;/p&gt;
-        &lt;Child_1 transferMsg = {msg =&gt; this.transferMsg(msg)} /&gt;
-      &lt;/div&gt;;
-  }
-}
-
-class Child_1 extends Component{
-  componentDidMount() {
-    setTimeout(() =&gt; {
-      this.props.transferMsg(&#39;end&#39;)
-    }, 1000);
-  }
-
-  render() {
-    return &lt;div&gt;
-      &lt;p&gt;child_1 component&lt;/p&gt;
-    &lt;/div&gt;
-  }
-}
-</code></pre><p>在上面的例子中，我们使用了 箭头函数，将父组件的 transferMsg 函数通过 props 传递给子组件，得益于箭头函数，保证子组件在调用 transferMsg 函数时，其内部 this 仍指向父组件。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    msg: <span class="symbol">'star</span>t'</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  transferMsg(msg) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      msg</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">        &lt;p&gt;child msg: &#123;<span class="keyword">this</span>.state.msg&#125;&lt;/p&gt;</span><br><span class="line">        &lt;<span class="type">Child_1</span> transferMsg = &#123;msg =&gt; <span class="keyword">this</span>.transferMsg(msg)&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child_1</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      <span class="keyword">this</span>.props.transferMsg(<span class="symbol">'en</span>d')</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">      &lt;p&gt;child_1 component&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的例子中，我们使用了 箭头函数，将父组件的 transferMsg 函数通过 props 传递给子组件，得益于箭头函数，保证子组件在调用 transferMsg 函数时，其内部 this 仍指向父组件。</p>
 <p>当然，对于层级比较深的子组件与父组件之间的通讯，仍可使用 … 运算符，将父组件的调用函数传递给子组件，具体方法和上面的例子类似。</p>
 <hr>
 <h3 id="兄弟组件间通讯"><a href="#兄弟组件间通讯" class="headerlink" title="兄弟组件间通讯"></a>兄弟组件间通讯</h3><p>对于没有直接关联关系的两个节点，就如 Child_1 与 Child_2 之间的关系，他们唯一的关联点，就是拥有相同的父组件。参考之前介绍的两种关系的通讯方式，如果我们向由 Child_1 向 Child_2 进行通讯，我们可以先通过 Child_1 向 Parent 组件进行通讯，再由 Parent 向 Child_2 组件进行通讯，所以有以下代码。</p>
-<pre><code>class Parent extends Component{
-  state = {
-    msg: &#39;start&#39;
-  };
-
-  transferMsg(msg) {
-    this.setState({
-      msg
-    });
-  }
-
-  componentDidUpdate() {
-    console.log(&#39;Parent update&#39;);
-  }
-
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;Child_1 transferMsg = {msg =&gt; this.transferMsg(msg)} /&gt;
-        &lt;Child_2 msg = {this.state.msg} /&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-
-class Child_1 extends Component{
-  componentDidMount() {
-    setTimeout(() =&gt; {
-      this.props.transferMsg(&#39;end&#39;)
-    }, 1000);
-  }
-
-  componentDidUpdate() {
-    console.log(&#39;Child_1 update&#39;);
-  }
-
-  render() {
-    return &lt;div&gt;
-      &lt;p&gt;child_1 component&lt;/p&gt;
-    &lt;/div&gt;
-  }
-}
-
-class Child_2 extends Component{
-  componentDidUpdate() {
-    console.log(&#39;Child_2 update&#39;);
-  }
-
-  render() {
-    return &lt;div&gt;
-      &lt;p&gt;child_2 component: {this.props.msg}&lt;/p&gt;
-      &lt;Child_2_1 /&gt;
-    &lt;/div&gt;
-  }
-}
-
-class Child_2_1 extends Component{
-  componentDidUpdate() {
-    console.log(&#39;Child_2_1 update&#39;);
-  }
-
-  render() {
-    return &lt;div&gt;
-      &lt;p&gt;child_2_1 component&lt;/p&gt;
-    &lt;/div&gt;
-  }
-}
-</code></pre><p>然而，这个方法有一个问题，由于 Parent 的 state 发生变化，会触发 Parent 及从属于 Parent 的子组件的生命周期，所以我们在控制台中可以看到，在各个组件中的 componentDidUpdate 方法均被触发。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    msg: <span class="symbol">'star</span>t'</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  transferMsg(msg) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      msg</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    console.log(<span class="symbol">'Parent</span> update');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;<span class="type">Child_1</span> transferMsg = &#123;msg =&gt; <span class="keyword">this</span>.transferMsg(msg)&#125; /&gt;</span><br><span class="line">        &lt;<span class="type">Child_2</span> msg = &#123;<span class="keyword">this</span>.state.msg&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child_1</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      <span class="keyword">this</span>.props.transferMsg(<span class="symbol">'en</span>d')</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    console.log(<span class="symbol">'Child_1</span> update');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">      &lt;p&gt;child_1 component&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child_2</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    console.log(<span class="symbol">'Child_2</span> update');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">      &lt;p&gt;child_2 component: &#123;<span class="keyword">this</span>.props.msg&#125;&lt;/p&gt;</span><br><span class="line">      &lt;<span class="type">Child_2_1</span> /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child_2_1</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    console.log(<span class="symbol">'Child_2_1</span> update');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">      &lt;p&gt;child_2_1 component&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而，这个方法有一个问题，由于 Parent 的 state 发生变化，会触发 Parent 及从属于 Parent 的子组件的生命周期，所以我们在控制台中可以看到，在各个组件中的 componentDidUpdate 方法均被触发。</p>
 
       
     </div>
@@ -591,6 +458,35 @@ class Child_2_1 extends Component{
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -748,11 +644,77 @@ class Child_2_1 extends Component{
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

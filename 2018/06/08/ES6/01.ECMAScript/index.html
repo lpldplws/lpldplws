@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="ECMAScript 6 简介ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。  1.ECMAScript 和 JavaScript 的关系一个常见的问题是，ECMAScript 和 JavaScript 到底是什么关系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T09:03:13.668Z">
+<meta property="og:updated_time" content="2018-07-03T04:52:45.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6 -- 01.ECMAScript 6 简介">
 <meta name="twitter:description" content="ECMAScript 6 简介ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。  1.ECMAScript 和 JavaScript 的关系一个常见的问题是，ECMAScript 和 JavaScript 到底是什么关系">
@@ -464,297 +464,112 @@
 <p>2015 年 6 月，ECMAScript 6 正式通过，成为国际标准。从 2000 年算起，这时已经过去了 15 年。</p>
 <h3 id="5-部署进度"><a href="#5-部署进度" class="headerlink" title="5.部署进度"></a>5.部署进度</h3><p>各大浏览器的最新版本，对 ES6 的支持可以查看<a href="https://kangax.github.io/es5-compat-table/es6/" target="_blank" rel="noopener">kangax.github.io/es5-compat-table/es6/</a>。随着时间的推移，支持度已经越来越高了，超过 90%的 ES6 语法特性都实现了。</p>
 <p>Node 是 JavaScript 的服务器运行环境（runtime）。它对 ES6 的支持度更高。除了那些默认打开的功能，还有一些语法功能已经实现了，但是默认没有打开。使用下面的命令，可以查看 Node 已经实现的 ES6 特性。</p>
-<pre><code>$ node --v8-options | grep harmony
-</code></pre><p>上面命令的输出结果，会因为版本的不同而有所不同。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --v8-options | grep harmony</span><br></pre></td></tr></table></figure>
+<p>上面命令的输出结果，会因为版本的不同而有所不同。</p>
 <h3 id="6-Babel-转码器"><a href="#6-Babel-转码器" class="headerlink" title="6.Babel 转码器"></a>6.Babel 转码器</h3><p>Babel 是一个广泛使用的 ES6 转码器，可以将 ES6 代码转为 ES5 代码，从而在现有环境执行。这意味着，你可以用 ES6 的方式编写程序，又不用担心现有环境是否支持。下面是一个例子。</p>
-<pre><code>// 转码前
-input.map(item =&gt; item + 1);
-
-// 转码后
-input.map(function (item) {
-  return item + 1;
-});
-</code></pre><p>上面的原始代码用了箭头函数，Babel 将其转为普通函数，就能在不支持箭头函数的 JavaScript 环境执行了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 转码前</span></span><br><span class="line">input.map(<span class="function"><span class="params">item</span> =&gt;</span> item + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转码后</span></span><br><span class="line">input.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面的原始代码用了箭头函数，Babel 将其转为普通函数，就能在不支持箭头函数的 JavaScript 环境执行了。</p>
 <h4 id="配置文件-babelrc"><a href="#配置文件-babelrc" class="headerlink" title="配置文件.babelrc"></a>配置文件.babelrc</h4><p>Babel 的配置文件是.babelrc，存放在项目的根目录下。使用 Babel 的第一步，就是配置这个文件。</p>
 <p>该文件用来设置转码规则和插件，基本格式如下。</p>
-<pre><code>{
-  &quot;presets&quot;: [],
-  &quot;plugins&quot;: []
-}
-</code></pre><p>presets字段设定转码规则，官方提供以下的规则集，你可以根据需要安装。</p>
-<pre><code># 最新转码规则
-$ npm install --save-dev babel-preset-latest
-
-# react 转码规则
-$ npm install --save-dev babel-preset-react
-
-# 不同阶段语法提案的转码规则（共有4个阶段），选装一个
-$ npm install --save-dev babel-preset-stage-0
-$ npm install --save-dev babel-preset-stage-1
-$ npm install --save-dev babel-preset-stage-2
-$ npm install --save-dev babel-preset-stage-3
-</code></pre><p>然后，将这些规则加入.babelrc。</p>
-<pre><code> {
-    &quot;presets&quot;: [
-      &quot;latest&quot;,
-      &quot;react&quot;,
-      &quot;stage-2&quot;
-    ],
-    &quot;plugins&quot;: []
-  }
-</code></pre><p>注意，以下所有 Babel 工具和模块的使用，都必须先写好.babelrc。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"presets"</span>: [],</span><br><span class="line">  <span class="attr">"plugins"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>presets字段设定转码规则，官方提供以下的规则集，你可以根据需要安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 最新转码规则</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-preset-latest</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> react 转码规则</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-preset-react</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 不同阶段语法提案的转码规则（共有4个阶段），选装一个</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-preset-stage-0</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-preset-stage-1</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-preset-stage-2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-preset-stage-3</span></span><br></pre></td></tr></table></figure>
+<p>然后，将这些规则加入.babelrc。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"presets"</span>: [</span><br><span class="line">     <span class="string">"latest"</span>,</span><br><span class="line">     <span class="string">"react"</span>,</span><br><span class="line">     <span class="string">"stage-2"</span></span><br><span class="line">   ],</span><br><span class="line">   <span class="attr">"plugins"</span>: []</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>注意，以下所有 Babel 工具和模块的使用，都必须先写好.babelrc。</p>
 <h4 id="命令行转码babel-cli"><a href="#命令行转码babel-cli" class="headerlink" title="命令行转码babel-cli"></a>命令行转码babel-cli</h4><p>Babel 提供babel-cli工具，用于命令行转码。</p>
 <p>它的安装命令如下。</p>
-<pre><code>$ npm install --global babel-cli
-</code></pre><p>基本用法如下。</p>
-<pre><code># 转码结果输出到标准输出
-$ babel example.js
-
-# 转码结果写入一个文件
-# --out-file 或 -o 参数指定输出文件
-$ babel example.js --out-file compiled.js
-# 或者
-$ babel example.js -o compiled.js
-
-# 整个目录转码
-# --out-dir 或 -d 参数指定输出目录
-$ babel src --out-dir lib
-# 或者
-$ babel src -d lib
-
-# -s 参数生成source map文件
-$ babel src -d lib -s
-</code></pre><p>上面代码是在全局环境下，进行 Babel 转码。这意味着，如果项目要运行，全局环境必须有 Babel，也就是说项目产生了对环境的依赖。另一方面，这样做也无法支持不同项目使用不同版本的 Babel。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">npm</span> install --<span class="built_in">global</span> babel-cli</span><br></pre></td></tr></table></figure>
+<p>基本用法如下。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 转码结果输出到标准输出</span></span><br><span class="line">$ babel example.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转码结果写入一个文件</span></span><br><span class="line"><span class="comment"># --out-file 或 -o 参数指定输出文件</span></span><br><span class="line">$ babel example.js --<span class="keyword">out</span>-file compiled.js</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ babel example.js -o compiled.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整个目录转码</span></span><br><span class="line"><span class="comment"># --out-dir 或 -d 参数指定输出目录</span></span><br><span class="line">$ babel src --<span class="keyword">out</span>-dir <span class="class"><span class="keyword">lib</span></span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ babel src -d <span class="class"><span class="keyword">lib</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -s 参数生成source map文件</span></span><br><span class="line">$ babel src -d <span class="class"><span class="keyword">lib</span> -<span class="title">s</span></span></span><br></pre></td></tr></table></figure>
+<p>上面代码是在全局环境下，进行 Babel 转码。这意味着，如果项目要运行，全局环境必须有 Babel，也就是说项目产生了对环境的依赖。另一方面，这样做也无法支持不同项目使用不同版本的 Babel。</p>
 <p>一个解决办法是将babel-cli安装在项目之中。</p>
-<pre><code># 安装
-$ npm install --save-dev babel-cli
-</code></pre><p>然后，改写package.json。</p>
-<pre><code>{
-  // ...
-  &quot;devDependencies&quot;: {
-    &quot;babel-cli&quot;: &quot;^6.0.0&quot;
-  },
-  &quot;scripts&quot;: {
-    &quot;build&quot;: &quot;babel src -d lib&quot;
-  },
-}
-</code></pre><p>转码的时候，就执行下面的命令。</p>
-<pre><code>$ npm run build
-</code></pre><h4 id="babel-node"><a href="#babel-node" class="headerlink" title="babel-node"></a>babel-node</h4><p>babel-cli工具自带一个babel-node命令，提供一个支持 ES6 的 REPL 环境。它支持 Node 的 REPL 环境的所有功能，而且可以直接运行 ES6 代码。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-dev babel-cli</span></span><br></pre></td></tr></table></figure>
+<p>然后，改写package.json。</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  // ...</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel-cli"</span>: <span class="string">"^6.0.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"babel src -d lib"</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转码的时候，就执行下面的命令。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">run</span><span class="bash"> build</span></span><br></pre></td></tr></table></figure>
+<h4 id="babel-node"><a href="#babel-node" class="headerlink" title="babel-node"></a>babel-node</h4><p>babel-cli工具自带一个babel-node命令，提供一个支持 ES6 的 REPL 环境。它支持 Node 的 REPL 环境的所有功能，而且可以直接运行 ES6 代码。</p>
 <p>它不用单独安装，而是随babel-cli一起安装。然后，执行babel-node就进入 REPL 环境。</p>
-<pre><code>$ babel-node
-&gt; (x =&gt; x * 2)(1)
-2
-</code></pre><p>babel-node命令可以直接运行 ES6 脚本。将上面的代码放入脚本文件es6.js，然后直接运行。</p>
-<pre><code>$ babel-node es6.js
-2
-</code></pre><p>babel-node也可以安装在项目中。</p>
-<pre><code>$ npm install --save-dev babel-cli
-</code></pre><p>然后，改写package.json。</p>
-<pre><code>{
-  &quot;scripts&quot;: {
-    &quot;script-name&quot;: &quot;babel-node script.js&quot;
-  }
-}
-</code></pre><p>上面代码中，使用babel-node替代node，这样script.js本身就不用做任何转码处理。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ babel-<span class="keyword">node</span><span class="title"></span></span><br><span class="line"><span class="title">&gt; (x</span> =&gt; x * <span class="number">2</span>)(<span class="number">1</span>)</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>babel-node命令可以直接运行 ES6 脚本。将上面的代码放入脚本文件es6.js，然后直接运行。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ babel-<span class="keyword">node</span> <span class="title">es6</span>.js</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>babel-node也可以安装在项目中。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> babel-cli</span><br></pre></td></tr></table></figure>
+<p>然后，改写package.json。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"script-name"</span>: <span class="string">"babel-node script.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，使用babel-node替代node，这样script.js本身就不用做任何转码处理。</p>
 <h4 id="babel-register"><a href="#babel-register" class="headerlink" title="babel-register"></a>babel-register</h4><p>babel-register模块改写require命令，为它加上一个钩子。此后，每当使用require加载.js、.jsx、.es和.es6后缀名的文件，就会先用 Babel 进行转码。</p>
-<pre><code>$ npm install --save-dev babel-register
-</code></pre><p>使用时，必须首先加载babel-register。</p>
-<pre><code>require(&quot;babel-register&quot;);
-require(&quot;./index.js&quot;);
-</code></pre><p>然后，就不需要手动对index.js转码了。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> babel-register</span><br></pre></td></tr></table></figure>
+<p>使用时，必须首先加载babel-register。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"babel-register"</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./index.js"</span>);</span><br></pre></td></tr></table></figure>
+<p>然后，就不需要手动对index.js转码了。</p>
 <p>需要注意的是，babel-register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。</p>
 <h4 id="babel-core"><a href="#babel-core" class="headerlink" title="babel-core"></a>babel-core</h4><p>如果某些代码需要调用 Babel 的 API 进行转码，就要使用babel-core模块。</p>
 <p>安装命令如下。</p>
-<pre><code>$ npm install babel-core --save
-</code></pre><p>然后，在项目中就可以调用babel-core。</p>
-<pre><code>var babel = require(&#39;babel-core&#39;);
-
-// 字符串转码
-babel.transform(&#39;code();&#39;, options);
-// =&gt; { code, map, ast }
-
-// 文件转码（异步）
-babel.transformFile(&#39;filename.js&#39;, options, function(err, result) {
-  result; // =&gt; { code, map, ast }
-});
-
-// 文件转码（同步）
-babel.transformFileSync(&#39;filename.js&#39;, options);
-// =&gt; { code, map, ast }
-
-// Babel AST转码
-babel.transformFromAst(ast, code, options);
-// =&gt; { code, map, ast }
-</code></pre><p>配置对象options，可以参看官方文档<a href="http://babeljs.io/docs/usage/options/" target="_blank" rel="noopener">http://babeljs.io/docs/usage/options/</a>。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install </span><span class="keyword">babel-core </span>--save</span><br></pre></td></tr></table></figure>
+<p>然后，在项目中就可以调用babel-core。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">'babel-core'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转码</span></span><br><span class="line">babel.transform(<span class="string">'code();'</span>, options);</span><br><span class="line"><span class="comment">// =&gt; &#123; code, map, ast &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件转码（异步）</span></span><br><span class="line">babel.transformFile(<span class="string">'filename.js'</span>, options, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">  result; <span class="comment">// =&gt; &#123; code, map, ast &#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文件转码（同步）</span></span><br><span class="line">babel.transformFileSync(<span class="string">'filename.js'</span>, options);</span><br><span class="line"><span class="comment">// =&gt; &#123; code, map, ast &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Babel AST转码</span></span><br><span class="line">babel.transformFromAst(ast, code, options);</span><br><span class="line"><span class="comment">// =&gt; &#123; code, map, ast &#125;</span></span><br></pre></td></tr></table></figure>
+<p>配置对象options，可以参看官方文档<a href="http://babeljs.io/docs/usage/options/" target="_blank" rel="noopener">http://babeljs.io/docs/usage/options/</a>。</p>
 <p>下面是一个例子。</p>
-<pre><code>var es6Code = &#39;let x = n =&gt; n + 1&#39;;
-var es5Code = require(&#39;babel-core&#39;)
-  .transform(es6Code, {
-    presets: [&#39;latest&#39;]
-  })
-  .code;
-// &#39;&quot;use strict&quot;;\n\nvar x = function x(n) {\n  return n + 1;\n};&#39;
-</code></pre><p>上面代码中，transform方法的第一个参数是一个字符串，表示需要被转换的 ES6 代码，第二个参数是转换的配置对象。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var es6Code = <span class="symbol">'let</span> x = n =&gt; n + <span class="number">1</span>';</span><br><span class="line">var es5Code = require(<span class="symbol">'babel</span>-core')</span><br><span class="line">  .transform(es6Code, &#123;</span><br><span class="line">    presets: [<span class="symbol">'latest</span>']</span><br><span class="line">  &#125;)</span><br><span class="line">  .code;</span><br><span class="line">// '<span class="string">"use strict"</span>;\n\nvar x = <span class="keyword">function</span> <span class="title">x</span>(n) &#123;\n  <span class="keyword">return</span> <span class="type">n</span> + <span class="number">1</span>;\n&#125;;'</span><br></pre></td></tr></table></figure>
+<p>上面代码中，transform方法的第一个参数是一个字符串，表示需要被转换的 ES6 代码，第二个参数是转换的配置对象。</p>
 <h4 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h4><p>Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。</p>
 <p>举例来说，ES6 在Array对象上新增了Array.from方法。Babel 就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
 <p>安装命令如下。</p>
-<pre><code>$ npm install --save babel-polyfill
-</code></pre><p>然后，在脚本头部，加入如下一行代码。</p>
-<pre><code>import &#39;babel-polyfill&#39;;
-// 或者
-require(&#39;babel-polyfill&#39;);
-</code></pre><p>Babel 默认不转码的 API 非常多，详细清单可以查看babel-plugin-transform-runtime模块的<a href="https://github.com/babel/babel/blob/master/packages/babel-plugin-transform-runtime/src/definitions.js" target="_blank" rel="noopener">definitions.js</a>文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save babel-polyfill</span></span><br></pre></td></tr></table></figure>
+<p>然后，在脚本头部，加入如下一行代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span>;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'babel-polyfill'</span>);</span><br></pre></td></tr></table></figure>
+<p>Babel 默认不转码的 API 非常多，详细清单可以查看babel-plugin-transform-runtime模块的<a href="https://github.com/babel/babel/blob/master/packages/babel-plugin-transform-runtime/src/definitions.js" target="_blank" rel="noopener">definitions.js</a>文件。</p>
 <h4 id="浏览器环境"><a href="#浏览器环境" class="headerlink" title="浏览器环境"></a>浏览器环境</h4><p>Babel 也可以用于浏览器环境。但是，从 Babel 6.0 开始，不再直接提供浏览器版本，而是要用构建工具构建出来。如果你没有或不想使用构建工具，可以使用babel-standalone模块提供的浏览器版本，将其插入网页。</p>
-<pre><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.4.4/babel.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/babel&quot;&gt;
-// Your ES6 code
-&lt;/script&gt;
-</code></pre><p>注意，网页实时将 ES6 代码转为 ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.4.4/babel.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="comment">// Your ES6 code</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意，网页实时将 ES6 代码转为 ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。</p>
 <p>下面是如何将代码打包成浏览器可以使用的脚本，以Babel配合Browserify为例。首先，安装babelify模块。</p>
-<pre><code>$ npm install --save-dev babelify babel-preset-latest
-</code></pre><p>然后，再用命令行转换 ES6 脚本。</p>
-<pre><code>$  browserify script.js -o bundle.js \
-  -t [ babelify --presets [ latest ] ]
-</code></pre><p>上面代码将 ES6 脚本script.js，转为bundle.js，浏览器直接加载后者就可以了。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install </span>--save-dev <span class="keyword">babelify </span><span class="keyword">babel-preset-latest</span></span><br></pre></td></tr></table></figure>
+<p>然后，再用命令行转换 ES6 脚本。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$  <span class="keyword">browserify </span><span class="keyword">script.js </span>-o <span class="keyword">bundle.js </span>\</span><br><span class="line">  -t [ <span class="keyword">babelify </span>--presets [ latest ] ]</span><br></pre></td></tr></table></figure>
+<p>上面代码将 ES6 脚本script.js，转为bundle.js，浏览器直接加载后者就可以了。</p>
 <p>在package.json设置下面的代码，就不用每次命令行都输入参数了。</p>
-<pre><code>{
-  &quot;browserify&quot;: {
-    &quot;transform&quot;: [[&quot;babelify&quot;, { &quot;presets&quot;: [&quot;latest&quot;] }]]
-  }
-}
-</code></pre><h4 id="在线转换"><a href="#在线转换" class="headerlink" title="在线转换"></a>在线转换</h4><p>Babel 提供一个<a href="https://babeljs.io/repl/" target="_blank" rel="noopener">REPL 在线编译器</a>，可以在线将 ES6 代码转为 ES5 代码。转换后的代码，可以直接作为 ES5 代码插入网页运行。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"browserify"</span>: &#123;</span><br><span class="line">    <span class="attr">"transform"</span>: [[<span class="string">"babelify"</span>, &#123; <span class="attr">"presets"</span>: [<span class="string">"latest"</span>] &#125;]]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在线转换"><a href="#在线转换" class="headerlink" title="在线转换"></a>在线转换</h4><p>Babel 提供一个<a href="https://babeljs.io/repl/" target="_blank" rel="noopener">REPL 在线编译器</a>，可以在线将 ES6 代码转为 ES5 代码。转换后的代码，可以直接作为 ES5 代码插入网页运行。</p>
 <h4 id="与其他工具的配合"><a href="#与其他工具的配合" class="headerlink" title="与其他工具的配合"></a>与其他工具的配合</h4><p>许多工具需要 Babel 进行前置转码，这里举两个例子：ESLint 和 Mocha。</p>
 <p>ESLint 用于静态检查代码的语法和风格，安装命令如下。</p>
-<pre><code>$ npm install --save-dev eslint babel-eslint
-</code></pre><p>然后，在项目根目录下，新建一个配置文件.eslintrc，在其中加入parser字段。</p>
-<pre><code>{
-  &quot;parser&quot;: &quot;babel-eslint&quot;,
-  &quot;rules&quot;: {
-    ...
-  }
-}
-</code></pre><p>再在package.json之中，加入相应的scripts脚本。</p>
-<pre><code>  {
-    &quot;name&quot;: &quot;my-module&quot;,
-    &quot;scripts&quot;: {
-      &quot;lint&quot;: &quot;eslint my-files.js&quot;
-    },
-    &quot;devDependencies&quot;: {
-      &quot;babel-eslint&quot;: &quot;...&quot;,
-      &quot;eslint&quot;: &quot;...&quot;
-    }
-  }
-</code></pre><p>Mocha 则是一个测试框架，如果需要执行使用 ES6 语法的测试脚本，可以修改package.json的scripts.test。</p>
-<pre><code>&quot;scripts&quot;: {
-  &quot;test&quot;: &quot;mocha --ui qunit --compilers js:babel-core/register&quot;
-}
-</code></pre><p>上面命令中，–compilers参数指定脚本的转码器，规定后缀名为js的文件，都需要使用babel-core/register先转码。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> eslint babel-eslint</span><br></pre></td></tr></table></figure>
+<p>然后，在项目根目录下，新建一个配置文件.eslintrc，在其中加入parser字段。</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再在package.json之中，加入相应的scripts脚本。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"my-module"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"lint"</span>: <span class="string">"eslint my-files.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"babel-eslint"</span>: <span class="string">"..."</span>,</span><br><span class="line">    <span class="attr">"eslint"</span>: <span class="string">"..."</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Mocha 则是一个测试框架，如果需要执行使用 ES6 语法的测试脚本，可以修改package.json的scripts.test。</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"mocha --ui qunit --compilers js:babel-core/register"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面命令中，–compilers参数指定脚本的转码器，规定后缀名为js的文件，都需要使用babel-core/register先转码。</p>
 <h3 id="7-Traceur-转码器"><a href="#7-Traceur-转码器" class="headerlink" title="7.Traceur 转码器"></a>7.Traceur 转码器</h3><p>Google 公司的<a href="https://github.com/google/traceur-compiler" target="_blank" rel="noopener">Traceur</a>转码器，也可以将 ES6 代码转为 ES5 代码。</p>
 <h4 id="直接插入网页"><a href="#直接插入网页" class="headerlink" title="直接插入网页"></a>直接插入网页</h4><p>Traceur 允许将 ES6 代码直接插入网页。首先，必须在网页头部加载 Traceur 库文件。</p>
-<pre><code>&lt;script src=&quot;https://google.github.io/traceur-compiler/bin/traceur.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://google.github.io/traceur-compiler/bin/BrowserSystem.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://google.github.io/traceur-compiler/src/bootstrap.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;module&quot;&gt;
-  import &#39;./Greeter.js&#39;;
-&lt;/script&gt;
-</code></pre><p>上面代码中，一共有 4 个script标签。第一个是加载 Traceur 的库文件，第二个和第三个是将这个库文件用于浏览器环境，第四个则是加载用户脚本，这个脚本里面可以使用 ES6 代码。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://google.github.io/traceur-compiler/bin/traceur.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://google.github.io/traceur-compiler/bin/BrowserSystem.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://google.github.io/traceur-compiler/src/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="meta"><span class="meta-keyword">import</span> './Greeter.js';</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，一共有 4 个script标签。第一个是加载 Traceur 的库文件，第二个和第三个是将这个库文件用于浏览器环境，第四个则是加载用户脚本，这个脚本里面可以使用 ES6 代码。</p>
 <p>注意，第四个script标签的type属性的值是module，而不是text/javascript。这是 Traceur 编译器识别 ES6 代码的标志，编译器会自动将所有type=module的代码编译为 ES5，然后再交给浏览器执行。</p>
 <p>除了引用外部 ES6 脚本，也可以直接在网页中放置 ES6 代码。</p>
-<pre><code>&lt;script type=&quot;module&quot;&gt;
-  class Calc {
-    constructor() {
-      console.log(&#39;Calc constructor&#39;);
-    }
-    add(a, b) {
-      return a + b;
-    }
-  }
-
-  var c = new Calc();
-  console.log(c.add(4,5));
-&lt;/script&gt;
-</code></pre><p>正常情况下，上面代码会在控制台打印出9。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="class"><span class="keyword">class</span> <span class="title">Calc</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">constructor</span>() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(<span class="string">'Calc constructor'</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    add(a, b) &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> a + b;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> c = <span class="keyword">new</span> Calc();</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(c.add(<span class="number">4</span>,<span class="number">5</span>));</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>正常情况下，上面代码会在控制台打印出9。</p>
 <p>如果想对 Traceur 的行为有精确控制，可以采用下面参数配置的写法。</p>
-<pre><code>&lt;script&gt;
-  // Create the System object
-  window.System = new traceur.runtime.BrowserTraceurLoader();
-  // Set some experimental options
-  var metadata = {
-    traceurOptions: {
-      experimental: true,
-      properTailCalls: true,
-      symbols: true,
-      arrayComprehension: true,
-      asyncFunctions: true,
-      asyncGenerators: exponentiation,
-      forOn: true,
-      generatorComprehension: true
-    }
-  };
-  // Load your module
-  System.import(&#39;./myModule.js&#39;, {metadata: metadata}).catch(function(ex) {
-    console.error(&#39;Import failed&#39;, ex.stack || ex);
-  });
-&lt;/script&gt;
-</code></pre><p>上面代码中，首先生成 Traceur 的全局对象window.System，然后System.import方法可以用来加载 ES6。加载的时候，需要传入一个配置对象metadata，该对象的traceurOptions属性可以配置支持 ES6 功能。如果设为experimental: true，就表示除了 ES6 以外，还支持一些实验性的新功能。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="comment">// Create the System object</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.System = <span class="keyword">new</span> traceur.runtime.BrowserTraceurLoader();</span></span><br><span class="line"><span class="actionscript">  <span class="comment">// Set some experimental options</span></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> metadata = &#123;</span></span><br><span class="line"><span class="undefined">    traceurOptions: &#123;</span></span><br><span class="line"><span class="actionscript">      experimental: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      properTailCalls: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      symbols: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      arrayComprehension: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      asyncFunctions: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">      asyncGenerators: exponentiation,</span></span><br><span class="line"><span class="actionscript">      forOn: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      generatorComprehension: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="actionscript">  <span class="comment">// Load your module</span></span></span><br><span class="line"><span class="actionscript">  System.import(<span class="string">'./myModule.js'</span>, &#123;metadata: metadata&#125;).catch(<span class="function"><span class="keyword">function</span><span class="params">(ex)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.error(<span class="string">'Import failed'</span>, ex.stack || ex);</span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，首先生成 Traceur 的全局对象window.System，然后System.import方法可以用来加载 ES6。加载的时候，需要传入一个配置对象metadata，该对象的traceurOptions属性可以配置支持 ES6 功能。如果设为experimental: true，就表示除了 ES6 以外，还支持一些实验性的新功能。</p>
 <h4 id="在线转换-1"><a href="#在线转换-1" class="headerlink" title="在线转换"></a>在线转换</h4><p>Traceur 也提供一个<a href="http://google.github.io/traceur-compiler/demo/repl.html" target="_blank" rel="noopener">在线编译器</a>，可以在线将 ES6 代码转为 ES5 代码。转换后的代码，可以直接作为 ES5 代码插入网页运行。</p>
 <p>上面的例子转为 ES5 代码运行，就是下面这个样子。</p>
-<pre><code>&lt;script src=&quot;https://google.github.io/traceur-compiler/bin/traceur.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://google.github.io/traceur-compiler/bin/BrowserSystem.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://google.github.io/traceur-compiler/src/bootstrap.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-$traceurRuntime.ModuleStore.getAnonymousModule(function() {
-  &quot;use strict&quot;;
-
-  var Calc = function Calc() {
-    console.log(&#39;Calc constructor&#39;);
-  };
-
-  ($traceurRuntime.createClass)(Calc, {add: function(a, b) {
-    return a + b;
-  }}, {});
-
-  var c = new Calc();
-  console.log(c.add(4, 5));
-  return {};
-});
-&lt;/script&gt;
-</code></pre><h4 id="命令行转换"><a href="#命令行转换" class="headerlink" title="命令行转换"></a>命令行转换</h4><p>作为命令行工具使用时，Traceur 是一个 Node 的模块，首先需要用 npm 安装。</p>
-<pre><code>$ npm install -g traceur
-</code></pre><p>安装成功后，就可以在命令行下使用 Traceur 了。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://google.github.io/traceur-compiler/bin/traceur.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://google.github.io/traceur-compiler/bin/BrowserSystem.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://google.github.io/traceur-compiler/src/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">$traceurRuntime.ModuleStore.getAnonymousModule(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="meta">  "use strict"</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> Calc = <span class="function"><span class="keyword">function</span> <span class="title">Calc</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'Calc constructor'</span>);</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  ($traceurRuntime.createClass)(Calc, &#123;add: <span class="function"><span class="keyword">function</span><span class="params">(a, b)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> a + b;</span></span><br><span class="line"><span class="undefined">  &#125;&#125;, &#123;&#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> c = <span class="keyword">new</span> Calc();</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(c.add(<span class="number">4</span>, <span class="number">5</span>));</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">return</span> &#123;&#125;;</span></span><br><span class="line"><span class="undefined">&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="命令行转换"><a href="#命令行转换" class="headerlink" title="命令行转换"></a>命令行转换</h4><p>作为命令行工具使用时，Traceur 是一个 Node 的模块，首先需要用 npm 安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g traceur</span></span><br></pre></td></tr></table></figure>
+<p>安装成功后，就可以在命令行下使用 Traceur 了。</p>
 <p>Traceur 直接运行 ES6 脚本文件，会在标准输出显示运行结果，以前面的calc.js为例。</p>
-<pre><code>$ traceur calc.js
-Calc constructor
-9
-</code></pre><p>如果要将 ES6 脚本转为 ES5 保存，要采用下面的写法。</p>
-<pre><code>$ traceur --script calc.es6.js --out calc.es5.js
-</code></pre><p>上面代码的–script选项表示指定输入文件，–out选项表示指定输出文件。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ traceur calc.js</span><br><span class="line">Calc <span class="function"><span class="keyword">constructor</span></span></span><br><span class="line"><span class="function">9</span></span><br></pre></td></tr></table></figure>
+<p>如果要将 ES6 脚本转为 ES5 保存，要采用下面的写法。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ traceur --script calc<span class="selector-class">.es6</span><span class="selector-class">.js</span> --out calc<span class="selector-class">.es5</span><span class="selector-class">.js</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的–script选项表示指定输入文件，–out选项表示指定输出文件。</p>
 <p>为了防止有些特性编译不成功，最好加上–experimental选项。</p>
-<pre><code>$ traceur --script calc.es6.js --out calc.es5.js --experimental
-</code></pre><p>命令行下转换生成的文件，就可以直接放到浏览器中运行。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ traceur --script calc<span class="selector-class">.es6</span><span class="selector-class">.js</span> --out calc<span class="selector-class">.es5</span><span class="selector-class">.js</span> --experimental</span><br></pre></td></tr></table></figure>
+<p>命令行下转换生成的文件，就可以直接放到浏览器中运行。</p>
 <h4 id="Node-环境的用法"><a href="#Node-环境的用法" class="headerlink" title="Node 环境的用法"></a>Node 环境的用法</h4><p>Traceur 的 Node 用法如下（假定已安装traceur模块）。</p>
-<pre><code>var traceur = require(&#39;traceur&#39;);
-var fs = require(&#39;fs&#39;);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> traceur = <span class="built_in">require</span>(<span class="string">'traceur'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 ES6 脚本转为字符串</span></span><br><span class="line"><span class="keyword">var</span> contents = fs.readFileSync(<span class="string">'es6-file.js'</span>).toString();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = traceur.compile(contents, &#123;</span><br><span class="line">  filename: <span class="string">'es6-file.js'</span>,</span><br><span class="line">  sourceMap: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 其他设置</span></span><br><span class="line">  modules: <span class="string">'commonjs'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result.error)</span><br><span class="line">  <span class="keyword">throw</span> result.error;</span><br><span class="line"></span><br><span class="line"><span class="comment">// result 对象的 js 属性就是转换后的 ES5 代码</span></span><br><span class="line">fs.writeFileSync(<span class="string">'out.js'</span>, result.js);</span><br><span class="line"><span class="comment">// sourceMap 属性对应 map 文件</span></span><br><span class="line">fs.writeFileSync(<span class="string">'out.js.map'</span>, result.sourceMap);</span><br></pre></td></tr></table></figure>
 
-// 将 ES6 脚本转为字符串
-var contents = fs.readFileSync(&#39;es6-file.js&#39;).toString();
-
-var result = traceur.compile(contents, {
-  filename: &#39;es6-file.js&#39;,
-  sourceMap: true,
-  // 其他设置
-  modules: &#39;commonjs&#39;
-});
-
-if (result.error)
-  throw result.error;
-
-// result 对象的 js 属性就是转换后的 ES5 代码
-fs.writeFileSync(&#39;out.js&#39;, result.js);
-// sourceMap 属性对应 map 文件
-fs.writeFileSync(&#39;out.js.map&#39;, result.sourceMap);
-</code></pre>
       
     </div>
     
@@ -763,6 +578,35 @@ fs.writeFileSync(&#39;out.js.map&#39;, result.sourceMap);
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -920,11 +764,77 @@ fs.writeFileSync(&#39;out.js.map&#39;, result.sourceMap);
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Add React to a New Application(在一个新的应用上添加React)The easiest way to get started on a new React project is by using a starter kit. 最简单的开始一个新的React项目的方式是使用一个入门套件。  Note:This page describes setting up a si">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-04T08:00:16.831Z">
+<meta property="og:updated_time" content="2018-07-03T09:12:28.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="01.Try React -- 02.Add React to a New Application">
 <meta name="twitter:description" content="Add React to a New Application(在一个新的应用上添加React)The easiest way to get started on a new React project is by using a starter kit. 最简单的开始一个新的React项目的方式是使用一个入门套件。  Note:This page describes setting up a si">
@@ -438,18 +438,11 @@
 </blockquote>
 <h3 id="Create-React-App-创建React应用"><a href="#Create-React-App-创建React应用" class="headerlink" title="Create React App(创建React应用)"></a>Create React App(创建React应用)</h3><p><a href="http://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a> is the best way to start building a new React single page application. It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have Node &gt;= 6 on your machine.</p>
 <p><a href="http://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">创建React应用</a>是开始构建新的React单页应用程序的最佳方式。 它为您设置好了开发环境，以便您可以使用最新的JavaScript功能，为开发者提供了良好的体验并从生产环境上优化了您的应用程序。注意您需要保证您的开发机上的node版本大于等于6。</p>
-<pre><code>npm install -g create-react-app
-create-react-app my-app
-
-cd my-app
-npm start
-</code></pre><p>If you have npm 5.2.0+ installed, you may use <a href="https://www.npmjs.com/package/npx" target="_blank" rel="noopener">npx</a> instead.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line"></span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>If you have npm 5.2.0+ installed, you may use <a href="https://www.npmjs.com/package/npx" target="_blank" rel="noopener">npx</a> instead.</p>
 <p>如果您安装的npm版本号为5.2.0+，您也可以使用<a href="https://www.npmjs.com/package/npx" target="_blank" rel="noopener">npx</a>。</p>
-<pre><code>npx create-react-app my-app
-
-cd my-app
-npm start
-</code></pre><p>Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. It uses build tools like <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> and <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> under the hood, but works with zero configuration.</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npx </span><span class="built_in">create-react-app</span> <span class="string">my-app</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">cd </span><span class="string">my-app</span></span><br><span class="line"><span class="string">npm </span><span class="string">start</span></span><br></pre></td></tr></table></figure>
+<p>Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. It uses build tools like <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> and <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a> under the hood, but works with zero configuration.</p>
 <p>创建React应用不会处理后端逻辑或者数据库；它只是创建了一个前端构建通道，所以您可以使用任何您相适应的后端语言。它基于钩子上使用像<a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a>和<a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a>这样的构建工具，但是在使用是时为不需要配置。</p>
 <p>When you’re ready to deploy to production, running npm run build will create an optimized build of your app in the build folder. You can learn more about Create React App from its <a href="https://github.com/facebookincubator/create-react-app#create-react-app-" target="_blank" rel="noopener">README</a> and the <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents" target="_blank" rel="noopener">User Guide</a>.</p>
 <p>当您准备部署到生产环境时，您可以运行<code>npm run build</code>，在<code>build</code>文件夹中创建一个优化的应用程序版本。您可以从<a href="https://github.com/facebookincubator/create-react-app#create-react-app-" target="_blank" rel="noopener">README</a>和<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents" target="_blank" rel="noopener">用户指南</a>中了解有关创建React应用程序的更多信息。</p>
@@ -470,6 +463,35 @@ npm start
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -627,11 +649,77 @@ npm start
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

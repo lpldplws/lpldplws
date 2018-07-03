@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Problem 9:Reshape the MatrixIn MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data. You’re given a matrix">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-27T08:23:33.494Z">
+<meta property="og:updated_time" content="2018-07-03T09:09:22.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetCode Array -- 9.Reshape the Matrix">
 <meta name="twitter:description" content="Problem 9:Reshape the MatrixIn MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data. You’re given a matrix">
@@ -444,48 +444,10 @@
 <ol>
 <li>做这道题时主要的问题在于如何创建一个二维数组，因为js创建二维数组时出现问题，所以选择设两个一维数组，先判断是否符合要求，不符合返回原数组，然后将元素通过concat添加到一个一维数组中，然后根据所给的r,c一一赋值即可。这道题主要纠结在如何设置一个空的二维数组以及如何对二维数组进行赋值。最后回避了这个问题。</li>
 </ol>
-<pre><code>var matrixReshape = function(nums, r, c) {
-    var result_storage = [];
-    var result = []; 
-    if(nums.length * nums[0].length != r * c) {
-        return nums;
-    }    
-    for(var i=0; i &lt; nums.length; i++) {  
-            result_storage = result_storage.concat(nums[i]);  
-    }
-    for(var i = 0; i &lt; r; i++) {  
-        result.push([]);  
-        for(var j = 0; j &lt; c ; j++){  
-                result[i][j] = result_storage[i * c + j];  
-            }  
-    } 
-    return result;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(r X c), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
-<p>2.经过查询过后，发现二维数组不是通过创建`var result = new Array[][]这样的形式创建，而是通过先创建一个一维数组，再对其中的元素设置为数组的形式创建多维数组。接下来就对数组中的内容进行判断，若没有到下一行，则继续对下一位内容赋值，若倒下一行，则换行输入。</p>
-<pre><code>var matrixReshape = function(nums, r, c) {
-    var result =  new Array(r);  
-    for(var n = 0; n &lt; result.length; n++){  
-        result[n] = new Array(c);   
-    }  
-    var rows = 0; 
-    var cols = 0;
-    var count = 0;
-    if(nums.length == 0 || nums.length * nums[0].length != r * c) 
-        return nums;   
-    for (var i = 0; i &lt; nums.length; i ++) {
-        for (var j = 0; j &lt; nums[0].length; j++) {
-            result[rows][cols] = nums[i][j];
-            cols++;
-            if (cols == c) {
-                rows++;
-                cols = 0;
-            }
-        }
-    }
-    return result;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(num.length X num[0].length), 与上述方法的复杂度类似，不过更直观一些。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> matrixReshape = <span class="function"><span class="keyword">function</span>(<span class="params">nums, r, c</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result_storage = [];</span><br><span class="line">    <span class="keyword">var</span> result = []; </span><br><span class="line">    <span class="keyword">if</span>(nums.length * nums[<span class="number">0</span>].length != r * c) &#123;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; nums.length; i++) &#123;  </span><br><span class="line">            result_storage = result_storage.concat(nums[i]);  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; r; i++) &#123;  </span><br><span class="line">        result.push([]);  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; c ; j++)&#123;  </span><br><span class="line">                result[i][j] = result_storage[i * c + j];  </span><br><span class="line">            &#125;  </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br>Time Complexity：O(r X c), r为矩阵的横向长度，c为矩阵的纵向长度。</p>
+<p>2.经过查询过后，发现二维数组不是通过创建`var result = new Array[][]这样的形式创建，而是通过先创建一个一维数组，再对其中的元素设置为数组的形式创建多维数组。接下来就对数组中的内容进行判断，若没有到下一行，则继续对下一位内容赋值，若倒下一行，则换行输入。<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> matrixReshape = function(nums, r, c) &#123;</span><br><span class="line">    <span class="built_in">var</span> result =  <span class="built_in">new</span> Array(r);  </span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">var</span> n = <span class="number">0</span>; n &lt; result.<span class="built_in">length</span>; n++)&#123;  </span><br><span class="line">        result[n] = <span class="built_in">new</span> Array(c);   </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="built_in">var</span> rows = <span class="number">0</span>; </span><br><span class="line">    <span class="built_in">var</span> cols = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(nums.<span class="built_in">length</span> == <span class="number">0</span> || nums.<span class="built_in">length</span> * nums[<span class="number">0</span>].<span class="built_in">length</span> != r * c) </span><br><span class="line">        <span class="built_in">return</span> nums;   </span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">var</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">length</span>; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">var</span> j = <span class="number">0</span>; j &lt; nums[<span class="number">0</span>].<span class="built_in">length</span>; j++) &#123;</span><br><span class="line">            result[rows][cols] = nums[i][j];</span><br><span class="line">            cols++;</span><br><span class="line">            <span class="keyword">if</span> (cols == c) &#123;</span><br><span class="line">                rows++;</span><br><span class="line">                cols = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>复杂度分析：<br>Time Complexity：O(num.length X num[0].length), 与上述方法的复杂度类似，不过更直观一些。</p>
 
       
     </div>
@@ -495,6 +457,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -652,11 +643,77 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

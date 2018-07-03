@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Problem 21. Image SmootherGiven a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (roundin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T11:32:49.810Z">
+<meta property="og:updated_time" content="2018-07-03T09:10:33.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetCode Array -- 21. Image Smoother">
 <meta name="twitter:description" content="Problem 21. Image SmootherGiven a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (roundin">
@@ -439,37 +439,8 @@
 </ol>
 <p><strong>solution:</strong></p>
 <p>1.这道题想了半天没想出什么好点的方法，就用最笨的方法写了，判断周围八个位置是否正常，如果正常，就计算到总额里并得到平均值。注意，js里不满1会向上取整，所以应该用Math.floor()。代码如下：</p>
-<pre><code>var imageSmoother = function(M) {
-        var nx = M.length;
-        var ny = M[0].length;
-        var res = new Array(nx);
-        for(var n = 0; n &lt; nx; n++){
-            res[n] = new Array(ny);
-        } ;
-        for (var i = 0; i &lt; nx; i++) {
-            for (var j = 0; j &lt; ny; j++) {
-                res[i][j] = smooth(M, i, j);
-            }
-        }
-        return res;
-    }
-    var smooth = function(M, x, y) {
-        var nx = M.length;
-        var ny = M[0].length;
-        var sum = 0;
-        var count = 0;
-        for (var i = -1; i &lt;= 1; i++) {
-           for (var j = -1; j &lt;= 1; j++) {
-             if (x + i &lt; 0 || x + i &gt;= nx || y + j &lt; 0 || y + j &gt;= ny) {
-                 continue;
-             }
-             count++;
-             sum += M[x + i][y + j];
-           }
-        }
-        return Math.floor(sum / count);
-    }
-</code></pre><p>复杂度分析：<br> Time Complexity：O(r X c),r为M.length,c为M[0].length.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imageSmoother = <span class="function"><span class="keyword">function</span>(<span class="params">M</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nx = M.length;</span><br><span class="line">        <span class="keyword">var</span> ny = M[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">var</span> res = <span class="keyword">new</span> <span class="built_in">Array</span>(nx);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; nx; n++)&#123;</span><br><span class="line">            res[n] = <span class="keyword">new</span> <span class="built_in">Array</span>(ny);</span><br><span class="line">        &#125; ;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nx; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; ny; j++) &#123;</span><br><span class="line">                res[i][j] = smooth(M, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> smooth = <span class="function"><span class="keyword">function</span>(<span class="params">M, x, y</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> nx = M.length;</span><br><span class="line">        <span class="keyword">var</span> ny = M[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">-1</span>; i &lt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">-1</span>; j &lt;= <span class="number">1</span>; j++) &#123;</span><br><span class="line">             <span class="keyword">if</span> (x + i &lt; <span class="number">0</span> || x + i &gt;= nx || y + j &lt; <span class="number">0</span> || y + j &gt;= ny) &#123;</span><br><span class="line">                 <span class="keyword">continue</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             count++;</span><br><span class="line">             sum += M[x + i][y + j];</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.floor(sum / count);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br> Time Complexity：O(r X c),r为M.length,c为M[0].length.</p>
 
       
     </div>
@@ -479,6 +450,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -636,11 +636,77 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

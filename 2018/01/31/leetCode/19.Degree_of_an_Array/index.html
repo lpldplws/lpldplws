@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Problem 19: Degree of an ArrayGiven a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements. Your task is to find the s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-31T11:17:02.426Z">
+<meta property="og:updated_time" content="2018-07-03T09:10:24.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetCode Array -- 19.Degree of an Array">
 <meta name="twitter:description" content="Problem 19: Degree of an ArrayGiven a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements. Your task is to find the s">
@@ -444,27 +444,8 @@
 </ul>
 <p><strong>solution:</strong></p>
 <p>1.本题本来想用数组的方式解决，但感觉比较麻烦，所以选择map来解决</p>
-<pre><code>var findShortestSubArray = function(nums) {
-    var m = new Map(),
-    degree = 1,
-    whichDegree = nums[0]
-    for (var i = 0; i &lt; nums.length; i++) {
-        if (m.has(nums[i])) {
-        var pos = m.get(nums[i])
-        pos.push(i)
-        if (pos.length &gt; degree) {
-            degree = pos.length
-            whichDegree = nums[i]
-        } else if (pos.length == degree &amp;&amp; pos[pos.length - 1] - pos[0] &lt; m.get(whichDegree)[m.get(whichDegree).length - 1] - m.get(whichDegree)[0]) {
-        degree = pos.length
-        whichDegree = nums[i]
-        }
-        } else 
-            m.set(nums[i], [i])
-    }
-    return m.get(whichDegree)[m.get(whichDegree).length - 1] - m.get(whichDegree)[0] + 1
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findShortestSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    degree = <span class="number">1</span>,</span><br><span class="line">    whichDegree = nums[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (m.has(nums[i])) &#123;</span><br><span class="line">        <span class="keyword">var</span> pos = m.get(nums[i])</span><br><span class="line">        pos.push(i)</span><br><span class="line">        <span class="keyword">if</span> (pos.length &gt; degree) &#123;</span><br><span class="line">            degree = pos.length</span><br><span class="line">            whichDegree = nums[i]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pos.length == degree &amp;&amp; pos[pos.length - <span class="number">1</span>] - pos[<span class="number">0</span>] &lt; m.get(whichDegree)[m.get(whichDegree).length - <span class="number">1</span>] - m.get(whichDegree)[<span class="number">0</span>]) &#123;</span><br><span class="line">        degree = pos.length</span><br><span class="line">        whichDegree = nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> </span><br><span class="line">            m.set(nums[i], [i])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m.get(whichDegree)[m.get(whichDegree).length - <span class="number">1</span>] - m.get(whichDegree)[<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>复杂度分析：<br>Time Complexity：O(n), n为数组长度。</p>
 
       
     </div>
@@ -474,6 +455,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -631,11 +641,77 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

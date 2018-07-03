@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="2.5~2.9所遇问题一.开发所遇问题在这次开发过程中，是真正自己做的第一个迭代版本，在开发中主要遇到的问题有：从理清思路到代码的实现；代码的格式规范与模块化；如何与后台人员沟通好。 1.从理清思路到代码的实现 这部分内容主要是因为自己以前写的代码只考虑到最后呈现的效果，没有具体深入探讨如何高效的写代码，拿生庆哥的话讲就是：没有真正明白要做什么。这个做什么不仅仅是你要实现的效果是什么，还包括你对整">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T13:28:57.598Z">
+<meta property="og:updated_time" content="2018-07-03T09:04:21.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2.5~2.9所遇问题">
 <meta name="twitter:description" content="2.5~2.9所遇问题一.开发所遇问题在这次开发过程中，是真正自己做的第一个迭代版本，在开发中主要遇到的问题有：从理清思路到代码的实现；代码的格式规范与模块化；如何与后台人员沟通好。 1.从理清思路到代码的实现 这部分内容主要是因为自己以前写的代码只考虑到最后呈现的效果，没有具体深入探讨如何高效的写代码，拿生庆哥的话讲就是：没有真正明白要做什么。这个做什么不仅仅是你要实现的效果是什么，还包括你对整">
@@ -437,87 +437,23 @@
 <h3 id="二-如何生成一个比1px更短的边框"><a href="#二-如何生成一个比1px更短的边框" class="headerlink" title="二.如何生成一个比1px更短的边框"></a>二.如何生成一个比1px更短的边框</h3><p>因为css提供最短的就是1px的长度，这也是屏幕的最短像素，所以要生成1px的边框长度也是有一定的技巧的；</p>
 <p>1.使用rgba，通过添加透明度来在视觉上减少边框的长度。</p>
 <p>这个是没什么好说的，效果虽然有，但是不是一个好的解决方法。</p>
-<p>2.利用box-shadow实现窄边框</p>
-<pre><code>box-shadow:0 0 1px 0 red
-</code></pre><p>利用了盒子阴影绘制。可以用于各种场景。但是最后的颜色会变暗，而且box-shadow不占位置，语义化不符合标准。不是实际意义的边框。</p>
+<p>2.利用box-shadow实现窄边框<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:<span class="number">0</span> <span class="number">0</span> <span class="number">1</span>px <span class="number">0</span> red</span><br></pre></td></tr></table></figure></p>
+<p>利用了盒子阴影绘制。可以用于各种场景。但是最后的颜色会变暗，而且box-shadow不占位置，语义化不符合标准。不是实际意义的边框。</p>
 <p>3.多背景渐变实现</p>
-<pre><code>background:
-linear-gradient(180deg, red, red 50%, transparent 50%) top left / 100% 1px no-repeat, 
-linear-gradient(90deg, red, red 50%, transparent 50%) top right / 1px 100% no-repeat, 
-linear-gradient(0deg, red, red 50%, transparent 50%) bottom right / 100% 1px no-repeat, 
-linear-gradient(-270deg, red, red 50%, transparent 50%) bottom left / 1px 100% no-repeat;
-</code></pre><p>可以通过不同的四种角度的渐变，实现边框，颜色可以自定义。缺点是代码比较多，而且不能实现圆角。</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">background:</span><br><span class="line">linear-gradient(<span class="number">180</span>deg, <span class="built_in">red</span>, <span class="built_in">red</span> <span class="number">50</span>%, transparent <span class="number">50</span>%) <span class="built_in">top</span> <span class="built_in">left</span> / <span class="number">100</span>% <span class="number">1</span>px no-<span class="built_in">repeat</span>, </span><br><span class="line">linear-gradient(<span class="number">90</span>deg, <span class="built_in">red</span>, <span class="built_in">red</span> <span class="number">50</span>%, transparent <span class="number">50</span>%) <span class="built_in">top</span> <span class="built_in">right</span> / <span class="number">1</span>px <span class="number">100</span>% no-<span class="built_in">repeat</span>, </span><br><span class="line">linear-gradient(<span class="number">0</span>deg, <span class="built_in">red</span>, <span class="built_in">red</span> <span class="number">50</span>%, transparent <span class="number">50</span>%) <span class="built_in">bottom</span> <span class="built_in">right</span> / <span class="number">100</span>% <span class="number">1</span>px no-<span class="built_in">repeat</span>, </span><br><span class="line">linear-gradient(<span class="number">-270</span>deg, <span class="built_in">red</span>, <span class="built_in">red</span> <span class="number">50</span>%, transparent <span class="number">50</span>%) <span class="built_in">bottom</span> <span class="built_in">left</span> / <span class="number">1</span>px <span class="number">100</span>% no-<span class="built_in">repeat</span>;</span><br></pre></td></tr></table></figure>
+<p>可以通过不同的四种角度的渐变，实现边框，颜色可以自定义。缺点是代码比较多，而且不能实现圆角。</p>
 <p>4.伪类 + transform 实现</p>
-<pre><code>:after{
-    content: &#39;&#39;; 
-    position: absolute; 
-    top: 0; left: 0; 
-    border: 1px solid red; 
-    -webkit-box-sizing: border-box; 
-    box-sizing: border-box; 
-    width: 200%; 
-    height: 200%; 
-    -webkit-transform: scale(0.5); 
-    transform: scale(0.5); 
-    -webkit-transform-origin: left top; 
-    transform-origin: left top; 
-}
-</code></pre><p>利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半， 然后进行绝对定位，这种方法现在没有发现问题。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>; </span><br><span class="line">    <span class="attribute">position</span>: absolute; </span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>; <span class="attribute">left</span>: <span class="number">0</span>; </span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red; </span><br><span class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box; </span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box; </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200%</span>; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200%</span>; </span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0.5); </span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5); </span><br><span class="line">    <span class="attribute">-webkit-transform-origin</span>: left top; </span><br><span class="line">    <span class="attribute">transform-origin</span>: left top; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半， 然后进行绝对定位，这种方法现在没有发现问题。</p>
 <h3 id="三-图的遍历"><a href="#三-图的遍历" class="headerlink" title="三.图的遍历"></a>三.图的遍历</h3><p>这部分是上次分享没有添加的内容：</p>
 <p>广度优先 搜索(Breadth-First Search，BFS)和深度优先搜索(Depth-First Search，DFS)。图遍历可以用来寻找特定的顶点或寻找两个顶点之间的路径，检查图是否连通等。</p>
 <p>图遍历算法的思想是必须追踪每个第一次访问的节点，并且追踪有哪些节点还没有被完全探索。对于两种图遍历算法，都需要明确指出第一个被访问的顶点。完全探索一个顶点要求我们查看该顶点的每一条边。对于每一条边所连接的没有被访问过的顶点，将其标注为被发现的，并将其加进待访问顶点列表中。</p>
 <h4 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h4><p>广度优先搜索算法会从指定的第一个顶点开始遍历图，先访问其所有的相邻点，就像一次访问图的一层。换句话说，就是先宽后深地访问顶点。</p>
 <p>以下是从顶点v开始的广度优先搜索算法所遵循的步骤。<br>(1) 创建一个队列Q。<br>(2) 将v标注为被发现的(灰色)，并将v入队列Q。<br>(3) 如果Q非空，则运行以下步骤:<br>    (a) 将u从Q中出队列;<br>    (b) 将标注u为被发现的(灰色);<br>    (c) 将u所有未被访问过的邻点(白色)入队列;<br>    (d) 将u标注为已被探索的(黑色)。</p>
-<pre><code>var initializeColor = function(){ 
-    var color = [];
-    for (var i=0; i&lt;vertices.length; i++){
-         color[vertices[i]] = &#39;white&#39;; 
-    }
-    return color; 
-};
-    this.bfs = function(v, callback){
-        var color = initializeColor(),  
-        queue = new Queue();
-        queue.enqueue(v);
-        while (!queue.isEmpty()){
-            var u = queue.dequeue(), neighbors = adjList.get(u); 
-            color[u] = &#39;grey&#39;;                    
-            for (var i=0; i&lt;neighbors.length; i++){ 
-            var w = neighbors[i];
-            if (color[w] === &#39;white&#39;){
-                color[w] = &#39;grey&#39;;
-                queue.enqueue(w);
-            } }
-            color[u] = &#39;black&#39;; 
-            if (callback) {    
-                callback(u);
-            }
-        } 
-    };
-</code></pre><h4 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4><p>深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径直到这条路径最后一个顶点被访问了，接着原路回退并探索下一条路径。换句话说，它是先深度后广度地访问顶点。</p>
-<pre><code>this.dfs = function(callback){
-    var color = initializeColor(); 
-    for (var i=0; i&lt;vertices.length; i++){ 
-        if (color[vertices[i]] === &#39;white&#39;){ 
-            dfsVisit(vertices[i], color, callback); 
-        }
-    } 
-};
-var dfsVisit = function(u, color, callback){
-    color[u] = &#39;grey&#39;; 
-    if (callback) {    }
-        callback(u);
-    }
-    var neighbors = adjList.get(u);
-    for (var i=0; i&lt;neighbors.length; i++){ 
-        var w = neighbors[i];
-        if (color[w] === &#39;white&#39;){
-            dfsVisit(w, color, callback);
-        }
-    }
-    color[u] = &#39;black&#39;; 
-};
-</code></pre><p>以上是两个基本的图的遍历方法。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initializeColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">color</span> = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;vertices.length; i++)&#123;</span><br><span class="line">         <span class="built_in">color</span>[vertices[i]] = <span class="string">'white'</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">color</span>; </span><br><span class="line">&#125;;</span><br><span class="line">    <span class="keyword">this</span>.bfs = <span class="function"><span class="keyword">function</span>(<span class="params">v, callback</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="built_in">color</span> = initializeColor(),  </span><br><span class="line">        queue = <span class="keyword">new</span> Queue();</span><br><span class="line">        queue.enqueue(v);</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">var</span> u = queue.dequeue(), neighbors = adjList.get(u); </span><br><span class="line">            <span class="built_in">color</span>[u] = <span class="string">'grey'</span>;                    </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;neighbors.length; i++)&#123; </span><br><span class="line">            <span class="keyword">var</span> w = neighbors[i];</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">color</span>[w] === <span class="string">'white'</span>)&#123;</span><br><span class="line">                <span class="built_in">color</span>[w] = <span class="string">'grey'</span>;</span><br><span class="line">                queue.enqueue(w);</span><br><span class="line">            &#125; &#125;</span><br><span class="line">            <span class="built_in">color</span>[u] = <span class="string">'black'</span>; </span><br><span class="line">            <span class="keyword">if</span> (callback) &#123;    </span><br><span class="line">                callback(u);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4><p>深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径直到这条路径最后一个顶点被访问了，接着原路回退并探索下一条路径。换句话说，它是先深度后广度地访问顶点。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.dfs = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">color</span> = initializeColor(); </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;vertices.length; i++)&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">color</span>[vertices[i]] === <span class="string">'white'</span>)&#123; </span><br><span class="line">            dfsVisit(vertices[i], <span class="built_in">color</span>, callback); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> dfsVisit = <span class="function"><span class="keyword">function</span>(<span class="params">u, color, callback</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">color</span>[u] = <span class="string">'grey'</span>; </span><br><span class="line">    <span class="keyword">if</span> (callback) &#123;    &#125;</span><br><span class="line">        callback(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> neighbors = adjList.get(u);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;neighbors.length; i++)&#123; </span><br><span class="line">        <span class="keyword">var</span> w = neighbors[i];</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">color</span>[w] === <span class="string">'white'</span>)&#123;</span><br><span class="line">            dfsVisit(w, <span class="built_in">color</span>, callback);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">color</span>[u] = <span class="string">'black'</span>; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>以上是两个基本的图的遍历方法。</p>
 
       
     </div>
@@ -527,6 +463,35 @@ var dfsVisit = function(u, color, callback){
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -684,11 +649,77 @@ var dfsVisit = function(u, color, callback){
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

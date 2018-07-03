@@ -856,7 +856,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T13:58:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T14:58:01+08:00">
                 2018-06-19
               </time>
             
@@ -1108,13 +1108,7 @@
       
         
           
-          对象的扩展1.属性的简洁表示法 ES6 允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。
-const foo = &#39;bar&#39;;
-const baz = {foo};
-baz // {foo: &quot;bar&quot;}
-
-// 等同于
-const baz = 
+          对象的扩展1.属性的简洁表示法 ES6 允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。    123456const foo = 'bar';const baz = &#123;foo&#125;;baz // &#123;foo: "bar"&#125;// 等同于const 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1284,11 +1278,7 @@ const baz =
         
           
           数组的扩展1.扩展运算符含义扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
-console.log(...[1, 2, 3])
-// 1 2 3
-
-console.log(1, ...[2, 3, 4], 5)
-// 1 2 3 4 5
+12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1458,12 +1448,7 @@ console.log(1, ...[2, 3, 4], 5)
         
           
           函数的扩展1.函数的扩展基本用法ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法。
-function log(x, y) {
-  y = y || &#39;World&#39;;
-  console.log(x, y);
-}
-
-log(&#39;Hello&#39;) // Hel
+12345678function log(x, y) &#123;  y = y || 'World';  console.log(x, y);&#125;log('Hello') // Hello 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1633,9 +1618,8 @@ log(&#39;Hello&#39;) // Hel
         
           
           数值的扩展1.二进制和八进制表示法ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。
-0b111110111 === 503 // true
-0o767 === 503 // true
-从 ES5 开始，在严格模式之中，八进制就不再允许使用前缀0表示，ES6 
+120b111110111 === 503 // true0o767 === 503 // true
+从 ES5 开始，在严格模式之中，八进制就不再允许使用前缀0表示，ES6
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1806,9 +1790,8 @@ log(&#39;Hello&#39;) // Hel
           
           正则的扩展1.RegExp 构造函数在 ES5 中，RegExp构造函数的参数有两种情况。
 第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。
-var regex = new RegExp(&#39;xyz&#39;, &#39;i&#39;);
-// 等价于
-var r
+123var regex = new RegExp('xyz', 'i');// 等价于var regex = /xyz/i;
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1979,9 +1962,8 @@ var r
           
           字符串的扩展ES6 加强了对 Unicode 的支持，并且扩展了字符串对象。
 1.字符的 Unicode 表示法JavaScript 允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的 Unicode 码点。
-&quot;\u0061&quot;
-// &quot;a&quot;
-但是，这
+12"\u0061"// "a"
+但是，这种表示法只限于码点在\u0000~\u
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2110,11 +2092,77 @@ var r
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

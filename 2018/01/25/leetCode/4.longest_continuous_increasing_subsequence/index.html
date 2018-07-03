@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Problem four: longest continuous increasing subsequenceGiven an unsorted array of integers, find the length of longest continuous increasing subsequence (subarray). Example 1:  Input: [1,3,5,4,7]  Out">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-25T04:51:31.081Z">
+<meta property="og:updated_time" content="2018-07-03T09:08:54.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetCode Array -- 4.longest continuous increasing subsequence">
 <meta name="twitter:description" content="Problem four: longest continuous increasing subsequenceGiven an unsorted array of integers, find the length of longest continuous increasing subsequence (subarray). Example 1:  Input: [1,3,5,4,7]  Out">
@@ -438,40 +438,10 @@
 </blockquote>
 <p><strong>Note:</strong> Length of the array will not exceed 10,000.</p>
 <p><strong>solution:</strong></p>
-<p>1.直观的想法是遍历数组时，当数字持续增加时用一个数字存储累加的总和，在减少时与另一个初始为0的数字对比，如果大于这个存放之前的最长长度的数字，则替换该值，并重置计数的大小。最后，比较最后一次累加数值的大小，返回最大值。</p>
-<pre><code>var findLengthOfLCIS = function(nums) {
-    var num = 1;
-    var maxLength = 0;
-    if(nums.length == 0)
-        return 0;
-    for(var i = 1; i &lt; nums.length;  i++) {
-        if(nums[i] &gt; nums[i-1]) {
-            num++;
-        } else {
-            if(num &gt; maxLength) {
-                maxLength = num;
-            }
-            num = 1;
-        }
-    }
-    if(num &gt; maxLength) 
-        return num;
-    else
-        return maxLength;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
-<p>2.因为累加的子串是在nums[i-1] &gt;= nums[i]时发生变化的，也就是说我们将变化的元素下标记录下来，当前一个元素大于后一个元素时，将当前元素下标赋值给anchor，在累加的过程中，ans会用之前的最长串与现在的累加的串的长度作对比，保留最长串。</p>
-<pre><code>var findLengthOfLCIS = function(nums) {
-    var ans = 0;
-    var anchor = 0;
-        for (var i = 0; i &lt; nums.length; ++i) {
-            if (i &gt; 0 &amp;&amp; nums[i-1] &gt;= nums[i])
-                anchor = i;
-            ans = Math.max(ans, i - anchor + 1);
-        }
-        return ans;
-};
-</code></pre><p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<p>1.直观的想法是遍历数组时，当数字持续增加时用一个数字存储累加的总和，在减少时与另一个初始为0的数字对比，如果大于这个存放之前的最长长度的数字，则替换该值，并重置计数的大小。最后，比较最后一次累加数值的大小，返回最大值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findLengthOfLCIS = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> maxLength = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(nums.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; nums.length;  i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] &gt; nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">            num++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(num &gt; maxLength) &#123;</span><br><span class="line">                maxLength = num;</span><br><span class="line">            &#125;</span><br><span class="line">            num = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(num &gt; maxLength) </span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
+<p>2.因为累加的子串是在nums[i-1] &gt;= nums[i]时发生变化的，也就是说我们将变化的元素下标记录下来，当前一个元素大于后一个元素时，将当前元素下标赋值给anchor，在累加的过程中，ans会用之前的最长串与现在的累加的串的长度作对比，保留最长串。<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var findLengthOfLCIS = function(nums) &#123;</span><br><span class="line">    var ans = <span class="number">0</span>;</span><br><span class="line">    var <span class="built_in">anchor</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (var i = <span class="number">0</span>; i <span class="variable">&lt; nums.length; ++i) &#123;</span></span><br><span class="line"><span class="variable">            if (i &gt;</span> <span class="number">0</span> &amp;&amp; nums[i-<span class="number">1</span>] &gt;= nums[i])</span><br><span class="line">                <span class="built_in">anchor</span> = i;</span><br><span class="line">            ans = Math.<span class="keyword">max</span>(ans, i - <span class="built_in">anchor</span> + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>复杂度分析：<br>Time Complexity：O(n), n为nums的长度；</p>
 
       
     </div>
@@ -481,6 +451,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -638,11 +637,77 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

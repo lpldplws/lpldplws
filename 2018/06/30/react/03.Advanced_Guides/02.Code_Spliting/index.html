@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="Code-Splitting(代码拆分)Bundling(打包)Most React apps will have their files “bundled” using tools like Webpack or Browserify. Bundling is the process of following imported files and merging them into a sing">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T15:56:24.316Z">
+<meta property="og:updated_time" content="2018-07-03T09:13:44.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="03.Advanced Guides -- 02.Code-Splitting">
 <meta name="twitter:description" content="Code-Splitting(代码拆分)Bundling(打包)Most React apps will have their files “bundled” using tools like Webpack or Browserify. Bundling is the process of following imported files and merging them into a sing">
@@ -432,20 +432,10 @@
 <blockquote>
 <p>Example(举例)</p>
 </blockquote>
-<h4 id="App"><a href="#App" class="headerlink" title="App:"></a>App:</h4><pre><code>// app.js
-import { add } from &#39;./math.js&#39;;
-
-console.log(add(16, 26)); // 42
-</code></pre><pre><code>// math.js
-export function add(a, b) {
-  return a + b;
-}
-</code></pre><h4 id="Bundle"><a href="#Bundle" class="headerlink" title="Bundle:"></a>Bundle:</h4><pre><code>function add(a, b) {
-  return a + b;
-}
-
-console.log(add(16, 26)); // 42
-</code></pre><blockquote>
+<h4 id="App"><a href="#App" class="headerlink" title="App:"></a>App:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; add &#125; <span class="keyword">from</span> <span class="string">'./math.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">16</span>, <span class="number">26</span>)); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Bundle"><a href="#Bundle" class="headerlink" title="Bundle:"></a>Bundle:</h4><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a, b)</span> <span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">  return a + b;</span></span></span><br><span class="line"><span class="function"><span class="comment">&#125;</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">console</span>.<span class="title">log</span><span class="params">(<span class="keyword">add</span>(16, 26)</span>);</span> <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>Note(注意):<br>Your bundles will end up looking a lot different than this.<br>您打包后的文件可能跟上述代码有所不同。</p>
 </blockquote>
 <p>If you’re using <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">Create React App</a>, <a href="https://github.com/zeit/next.js/" target="_blank" rel="noopener">Next.js</a>, <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener">Gatsby</a>, or a similar tool, you will have a Webpack setup out of the box to bundle your app.</p>
@@ -463,16 +453,12 @@ console.log(add(16, 26)); // 42
 <blockquote>
 <p>Before(之前):</p>
 </blockquote>
-<pre><code>import { add } from &#39;./math&#39;;
-
-console.log(add(16, 26));
-</code></pre><blockquote>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; <span class="keyword">add</span><span class="bash"> &#125; from <span class="string">'./math'</span>;</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">console.log(add(16, 26));</span></span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>After(之后):</p>
 </blockquote>
-<pre><code>import(&quot;./math&quot;).then(math =&gt; {
-  console.log(math.add(16, 26));
-});
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(<span class="string">"./math"</span>).then(<span class="function"><span class="params">math</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(math.add(<span class="number">16</span>, <span class="number">26</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>Note(注意):<br>The dynamic <code>import()</code> syntax is a ECMAScript (JavaScript) proposal not currently part of the language standard. It is expected to be accepted in the near future.<br>动态的<code>import()</code>语法只是ECMAScript (JavaScript)的一个建议，并非语法标准。它也许会在以后的版本中被接受。</p>
 </blockquote>
 <p>When Webpack comes across this syntax, it automatically starts code-splitting your app. If you’re using Create React App, this is already configured for you and you can <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting" target="_blank" rel="noopener">start using it</a> immediately. It’s also supported out of the box in <a href="https://github.com/zeit/next.js/#dynamic-import" target="_blank" rel="noopener">Next.js</a>.</p>
@@ -486,25 +472,12 @@ console.log(add(16, 26));
 <blockquote>
 <p>Before(之前):</p>
 </blockquote>
-<pre><code>import OtherComponent from &#39;./OtherComponent&#39;;
-
-const MyComponent = () =&gt; (
-  &lt;OtherComponent/&gt;
-);
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> OtherComponent <span class="keyword">from</span> <span class="string">'./OtherComponent'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MyComponent = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;OtherComponent/&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>After:</p>
 </blockquote>
-<pre><code>import Loadable from &#39;react-loadable&#39;;
-
-const LoadableOtherComponent = Loadable({
-  loader: () =&gt; import(&#39;./OtherComponent&#39;),
-  loading: () =&gt; &lt;div&gt;Loading...&lt;/div&gt;,
-});
-
-const MyComponent = () =&gt; (
-  &lt;LoadableOtherComponent/&gt;
-);
-</code></pre><p>React Loadable helps you create <a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">loading states</a>, <a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">error states</a>, <a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">timeouts</a>, <a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">preloading</a>, and more. It can even help you <a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">server-side render</a> an app with lots of code-splitting.</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Loadable <span class="keyword">from</span> <span class="string">'react-loadable'</span>;</span><br><span class="line"></span><br><span class="line">const LoadableOtherComponent = Loadable(&#123;</span><br><span class="line">  loader: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./OtherComponent'</span>),</span><br><span class="line">  loading: <span class="function"><span class="params">()</span> =&gt;</span> &lt;div&gt;Loading...&lt;/div&gt;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const MyComponent = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;LoadableOtherComponent/&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>React Loadable helps you create <a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">loading states</a>, <a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">error states</a>, <a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">timeouts</a>, <a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">preloading</a>, and more. It can even help you <a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">server-side render</a> an app with lots of code-splitting.</p>
 <p>React Loadable可帮助您创建<a href="https://github.com/thejameskyle/react-loadable#creating-a-great-loading-component" target="_blank" rel="noopener">加载状态</a>，<a href="https://github.com/thejameskyle/react-loadable#loading-error-states" target="_blank" rel="noopener">错误状态</a>，<a href="https://github.com/thejameskyle/react-loadable#timing-out-when-the-loader-is-taking-too-long" target="_blank" rel="noopener">超时</a>，<a href="https://github.com/thejameskyle/react-loadable#preloading" target="_blank" rel="noopener">预加载</a>等。 它甚至可以帮助您在<a href="https://github.com/thejameskyle/react-loadable#------------server-side-rendering" target="_blank" rel="noopener">服务器端渲染</a>具有大量代码拆分的应用程序。</p>
 <h3 id="Route-based-code-splitting-基于路由的代码拆分"><a href="#Route-based-code-splitting-基于路由的代码拆分" class="headerlink" title="Route-based code splitting(基于路由的代码拆分)"></a>Route-based code splitting(基于路由的代码拆分)</h3><p>Deciding where in your app to introduce code splitting can be a bit tricky. You want to make sure you choose places that will split bundles evenly, but won’t disrupt the user experience.</p>
 <p>在你的应用中选择哪里引入代码拆分的位置可能有点棘手。引入代码拆分的位置要确保位于拆分合理的地方，并且不会破坏用户体验。</p>
@@ -512,30 +485,8 @@ const MyComponent = () =&gt; (
 <p>引用代码拆分的一个好的位置是路由。大多数人在网页上都习惯于页面切换，这需要花费一些时间来加载。您还可以重新渲染整个页面，这样您的用户就不可能同时与页面上的其他元素进行交互。</p>
 <p>Here’s an example of how to setup route-based code splitting into your app using libraries like <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener">React Router</a> and <a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>.</p>
 <p>以下是如何使用<a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener">React Router</a>和<a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener">React Loadable</a>等库将基于路由的代码拆分到应用程序的示例。</p>
-<pre><code>import { BrowserRouter as Router, Route, Switch } from &#39;react-router-dom&#39;;
-import Loadable from &#39;react-loadable&#39;;
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserRouter <span class="keyword">as</span> Router, Route, Switch &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> Loadable <span class="keyword">from</span> <span class="string">'react-loadable'</span>;</span><br><span class="line"></span><br><span class="line">const Loading = <span class="function"><span class="params">()</span> =&gt;</span> &lt;div&gt;Loading...&lt;/div&gt;;</span><br><span class="line"></span><br><span class="line">const Home = Loadable(&#123;</span><br><span class="line">  loader: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./routes/Home'</span>),</span><br><span class="line">  loading: Loading,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const About = Loadable(&#123;</span><br><span class="line">  loader: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./routes/About'</span>),</span><br><span class="line">  loading: Loading,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const App = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Switch&gt;</span><br><span class="line">      &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125;/&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125;/&gt;</span><br><span class="line">    &lt;/Switch&gt;</span><br><span class="line">  &lt;/Router&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-const Loading = () =&gt; &lt;div&gt;Loading...&lt;/div&gt;;
-
-const Home = Loadable({
-  loader: () =&gt; import(&#39;./routes/Home&#39;),
-  loading: Loading,
-});
-
-const About = Loadable({
-  loader: () =&gt; import(&#39;./routes/About&#39;),
-  loading: Loading,
-});
-
-const App = () =&gt; (
-  &lt;Router&gt;
-    &lt;Switch&gt;
-      &lt;Route exact path=&quot;/&quot; component={Home}/&gt;
-      &lt;Route path=&quot;/about&quot; component={About}/&gt;
-    &lt;/Switch&gt;
-  &lt;/Router&gt;
-);
-</code></pre>
       
     </div>
     
@@ -544,6 +495,35 @@ const App = () =&gt; (
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -697,11 +677,77 @@ const App = () =&gt; (
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

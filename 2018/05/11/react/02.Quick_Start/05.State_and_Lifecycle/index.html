@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="State and LifecycleConsider the ticking clock example from one of the previous sections. 考虑在前几章节中涉及到的秒钟案例。 So far we have only learned one way to update the UI. 直到现在，我们都只学了一种更新UI的方法。 We call ReactDOM.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T09:51:10.249Z">
+<meta property="og:updated_time" content="2018-07-03T09:13:21.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="02.Quick Start -- 05.State and Lifecycle">
 <meta name="twitter:description" content="State and LifecycleConsider the ticking clock example from one of the previous sections. 考虑在前几章节中涉及到的秒钟案例。 So far we have only learned one way to update the UI. 直到现在，我们都只学了一种更新UI的方法。 We call ReactDOM.">
@@ -433,52 +433,20 @@
 <p>直到现在，我们都只学了一种更新UI的方法。</p>
 <p>We call ReactDOM.render() to change the rendered output:</p>
 <p>我们会调用ReactDOM.render()来更新渲染输出:</p>
-<pre><code>function tick() {
-  const element = (
-    &lt;div&gt;
-      &lt;h1&gt;Hello, world!&lt;/h1&gt;
-      &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
-    &lt;/div&gt;
-  );
-  ReactDOM.render(
-    element,
-    document.getElementById(&#39;root&#39;)
-  );
-}
-
-setInterval(tick, 1000);
-</code></pre><p><a href="http://codepen.io/gaearon/pen/gwoJZk?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> element = (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;h2&gt;It is &#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(tick, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/gwoJZk?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
 <p>In this section, we will learn how to make the Clock component truly reusable and encapsulated. It will set up its own timer and update itself every second.</p>
 <p>这一章节中，我们将学到如何构建一个真正可复用和封装良好的Clock组件。它每秒都会被重新设置并更新其本身。</p>
 <p>We can start by encapsulating how the clock looks:</p>
 <p>我们可以简单的构建出钟表最开始的样式：</p>
-<pre><code>function Clock(props) {
-  return (
-    &lt;div&gt;
-      &lt;h1&gt;Hello, world!&lt;/h1&gt;
-      &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt;
-    &lt;/div&gt;
-  );
-}
-
-function tick() {
-  ReactDOM.render(
-    &lt;Clock date={new Date()} /&gt;,
-    document.getElementById(&#39;root&#39;)
-  );
-}
-
-setInterval(tick, 1000);
-</code></pre><p><a href="http://codepen.io/gaearon/pen/dpdoYR?editors=0010" target="_blank" rel="noopener">Try it on CodePen</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Clock</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;h2&gt;It is &#123;props.date.toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    &lt;Clock date=&#123;<span class="keyword">new</span> <span class="built_in">Date</span>()&#125; /&gt;,</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(tick, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/dpdoYR?editors=0010" target="_blank" rel="noopener">Try it on CodePen</a></p>
 <p>However, it misses a crucial requirement: the fact that the Clock sets up a timer and updates the UI every second should be an implementation detail of the Clock.</p>
 <p>然而，它忘了一个重要的先决条件：事实就是设置一个计时器并每秒都更新UI是Clock本身应该实现的一个细节。</p>
 <p>Ideally we want to write this once and have the Clock update itself:</p>
 <p>理想情况下，我们只想写一次Clock并由其本身完成更新：</p>
-<pre><code>ReactDOM.render(
-  &lt;Clock /&gt;,
-  document.getElementById(&#39;root&#39;)
-);
-</code></pre><p>To implement this, we need to add “state” to the Clock component.</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Clock /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>To implement this, we need to add “state” to the Clock component.</p>
 <p>为了实现这个目标，我们应该为Clock组件添加“状态”。</p>
 <p>State is similar to props, but it is private and fully controlled by the component.</p>
 <p>状态和属性相似，但是它是私密的，并且完全由组件控制。</p>
@@ -501,17 +469,8 @@ setInterval(tick, 1000);
 <li>在render()主体内，用this.props取代props。</li>
 <li>删除剩余的空的函数声明。</li>
 </ol>
-<pre><code>class Clock extends React.Component {
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-        &lt;h2&gt;It is {this.props.date.toLocaleTimeString()}.&lt;/h2&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre><p><a href="http://codepen.io/gaearon/pen/zKRGpo?editors=001" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;<span class="type">Hello</span>, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;<span class="type">It</span> is &#123;<span class="keyword">this</span>.props.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/zKRGpo?editors=001" target="_blank" rel="noopener">Try it on CodePen.</a></p>
 <p>Clock is now defined as a class rather than a function.</p>
 <p>Clock现在被定义为一个类而不是函数。</p>
 <p>This lets us use additional features such as local state and lifecycle hooks.</p>
@@ -521,74 +480,26 @@ setInterval(tick, 1000);
 <ol>
 <li>Replace this.props.date with this.state.date in the render() method:(在render()方法中用this.state.date取代this.props.date)</li>
 </ol>
-<pre><code>class Clock extends React.Component {
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre><ol>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;<span class="type">Hello</span>, world!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;<span class="type">It</span> is &#123;<span class="keyword">this</span>.state.date.toLocaleTimeString()&#125;.&lt;/h2&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
 <li>Add a <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor" target="_blank" rel="noopener">class constructor</a> that assigns the initial this.state:(添加一个类的构造函数来初始化this.state)</li>
 </ol>
-<pre><code>class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre><p>Note how we pass props to the base constructor:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">date</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">        &lt;h2&gt;It is &#123;<span class="keyword">this</span>.state.date.toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note how we pass props to the base constructor:</p>
 <p>注意我们是如何将参数传给基本的构造函数的：</p>
-<pre><code> constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-</code></pre><p>Class components should always call the base constructor with props.</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">constructor</span><span class="params">(props)</span> <span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">   super(props);</span></span></span><br><span class="line"><span class="function"><span class="comment">   this.state = &#123;date: new Date()&#125;</span>;</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>Class components should always call the base constructor with props.</p>
 <p>类组件应该永远由带有参数的基本的构造函数来调用。</p>
 <ol>
 <li>Remove the date prop from the Clock element:(从Clock中移除时间属性)</li>
 </ol>
-<pre><code>ReactDOM.render(
-  &lt;Clock /&gt;,
-  document.getElementById(&#39;root&#39;)
-);
-</code></pre><p>We will later add the timer code back to the component itself.</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Clock /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>We will later add the timer code back to the component itself.</p>
 <p>我们稍后会将计时器组件代码到这个组件本身中。</p>
 <p>The result looks like this:</p>
 <p>最后的结果大致如下：</p>
-<pre><code>class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-
-ReactDOM.render(
-  &lt;Clock /&gt;,
-  document.getElementById(&#39;root&#39;)
-);
-</code></pre><p><a href="http://codepen.io/gaearon/pen/KgQpJd?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">date</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">        &lt;h2&gt;It is &#123;<span class="keyword">this</span>.state.date.toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Clock /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/KgQpJd?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
 <p>Next, we’ll make the Clock set up its own timer and update itself every second.</p>
 <p>接下来，我们将为Clock设置它自己的计时器并每秒都更新它。</p>
 <h3 id="Adding-Lifecycle-Methods-to-a-Class-为类添加生命周期方法"><a href="#Adding-Lifecycle-Methods-to-a-Class-为类添加生命周期方法" class="headerlink" title="Adding Lifecycle Methods to a Class(为类添加生命周期方法)"></a>Adding Lifecycle Methods to a Class(为类添加生命周期方法)</h3><p>In applications with many components, it’s very important to free up resources taken by the components when they are destroyed.</p>
@@ -599,90 +510,25 @@ ReactDOM.render(
 <p>我们也想在Clock在被DOM中移除时<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval" target="_blank" rel="noopener">清除计时器</a>。这在React中叫做“解挂”。</p>
 <p>We can declare special methods on the component class to run some code when a component mounts and unmounts:</p>
 <p>当组件被挂载和解挂时，我们可以在组件类中声明特殊的方法来运行一些代码：</p>
-<pre><code>class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre><p>These methods are called “lifecycle hooks”.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">date</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">        &lt;h2&gt;It is &#123;<span class="keyword">this</span>.state.date.toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>These methods are called “lifecycle hooks”.</p>
 <p>这些方法叫做“生命周期钩子”。</p>
 <p>The componentDidMount() hook runs after the component output has been rendered to the DOM. This is a good place to set up a timer:</p>
 <p>componentDidMount()钩子会在组件输出被渲染到DOM后执行。这是一个好的设置计时器的时间点：</p>
-<pre><code> componentDidMount() {
-    this.timerID = setInterval(
-      () =&gt; this.tick(),
-      1000
-    );
-  }
-</code></pre><p>Note how we save the timer ID right on this.</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">   <span class="keyword">this</span>.timerID = setInterval(</span><br><span class="line">     () =&gt; <span class="keyword">this</span>.tick(),</span><br><span class="line">     <span class="number">1000</span></span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>Note how we save the timer ID right on this.</p>
 <p>现在我们在其上设置计时器的ID。</p>
 <p>While this.props is set up by React itself and this.state has a special meaning, you are free to add additional fields to the class manually if you need to store something that doesn’t participate in the data flow (like a timer ID).</p>
 <p>因为this.props由React自己设置，this.state具有特殊含义，但如果您需要存储不参与数据流的内容（例如计时器ID），则需要手动将其他字段添加到类中）。</p>
 <p>We will tear down the timer in the componentWillUnmount() lifecycle hook:</p>
 <p>我们将会在componentWillUnmount()生命周期钩子中卸载计时器：</p>
-<pre><code>componentWillUnmount() {
-    clearInterval(this.timerID);
-}
-</code></pre><p>Finally, we will implement a method called tick() that the Clock component will run every second.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentWillUnmount() &#123;</span><br><span class="line">    clearInterval(<span class="keyword">this</span>.timerID);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Finally, we will implement a method called tick() that the Clock component will run every second.</p>
 <p>最后，我们将会应用一个叫做tick()的方法让Clock组件每秒都运行。</p>
 <p>It will use this.setState() to schedule updates to the component local state:</p>
 <p>它会使用this.setState()来设置更新计时器的本地状态：</p>
-<pre><code>class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(
-      () =&gt; this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
-    });
-  }
-
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-
-ReactDOM.render(
-  &lt;Clock /&gt;,
-  document.getElementById(&#39;root&#39;)
-);
-</code></pre><p><a href="http://codepen.io/gaearon/pen/amqdNA?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">date</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.timerID = setInterval(</span><br><span class="line">      () =&gt; <span class="keyword">this</span>.tick(),</span><br><span class="line">      <span class="number">1000</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    clearInterval(<span class="keyword">this</span>.timerID);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      date: <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">        &lt;h2&gt;It is &#123;<span class="keyword">this</span>.state.date.toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Clock /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/amqdNA?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
 <p>Now the clock ticks every second.</p>
 <p>现在，钟表将会每秒都运行。</p>
 <p>Let’s quickly recap what’s going on and the order in which the methods are called:</p>
@@ -708,13 +554,11 @@ ReactDOM.render(
 <p>有关setState()，您应当知道三件事情。</p>
 <h4 id="Do-Not-Modify-State-Directly-不要直接调整状态-1"><a href="#Do-Not-Modify-State-Directly-不要直接调整状态-1" class="headerlink" title="Do Not Modify State Directly(不要直接调整状态)"></a>Do Not Modify State Directly(不要直接调整状态)</h4><p>For example, this will not re-render a component:</p>
 <p>例如，下列代码不会重新渲染组件：</p>
-<pre><code>// Wrong
-this.state.comment = &#39;Hello&#39;;
-</code></pre><p>Instead, use setState():</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Wrong</span><br><span class="line">this.<span class="keyword">state</span>.comment = 'Hello';</span><br></pre></td></tr></table></figure>
+<p>Instead, use setState():</p>
 <p>相反的，您应当使用setState():</p>
-<pre><code>// Correct
-this.setState({comment: &#39;Hello&#39;});
-</code></pre><p>The only place where you can assign this.state is the constructor.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Correct</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;<span class="string">comment:</span> <span class="string">'Hello'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>The only place where you can assign this.state is the constructor.</p>
 <p>您唯一能设置this.state的地方就是构造函数。</p>
 <h4 id="State-Updates-May-Be-Asynchronous-状态更新可能是异步的"><a href="#State-Updates-May-Be-Asynchronous-状态更新可能是异步的" class="headerlink" title="State Updates May Be Asynchronous(状态更新可能是异步的)"></a>State Updates May Be Asynchronous(状态更新可能是异步的)</h4><p>React may batch multiple setState() calls into a single update for performance.</p>
 <p>React可能会批量处理多个setState(),以便为单个更新提高性能。</p>
@@ -722,51 +566,22 @@ this.setState({comment: &#39;Hello&#39;});
 <p>因为this.props和this.state可能会异步更新，所以不应该依赖它们的值来计算下一个状态。</p>
 <p>For example, this code may fail to update the counter:</p>
 <p>例如，此代码可能无法更新计数器:</p>
-<pre><code>// Wrong
-this.setState({
-  counter: this.state.counter + this.props.increment,
-});
-</code></pre><p>To fix it, use a second form of setState() that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Wrong</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;</span><br><span class="line">  counter: <span class="keyword">this</span>.state.counter + <span class="keyword">this</span>.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>To fix it, use a second form of setState() that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:</p>
 <p>为了修复它，我们可以使用接受函数的setState()而不是一个对象。该函数将接收前一个状态作为第一个参数，并将更新应用时的状态作为第二个参数：</p>
-<pre><code>// Correct
-this.setState((prevState, props) =&gt; ({
-  counter: prevState.counter + props.increment
-}));
-</code></pre><p>We used an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">arrow function</a> above, but it also works with regular functions:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Correct</span></span><br><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState, props</span>) =&gt;</span> (&#123;</span><br><span class="line">  counter: prevState.counter + props.increment</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>We used an <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">arrow function</a> above, but it also works with regular functions:</p>
 <p>我们在此使用<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">箭头函数</a>，但是它也对常规函数起作用：</p>
-<pre><code>// Correct
-this.setState(function(prevState, props) {
-  return {
-    counter: prevState.counter + props.increment
-  };
-});
-</code></pre><h4 id="State-Updates-are-Merged-状态更新已合并"><a href="#State-Updates-are-Merged-状态更新已合并" class="headerlink" title="State Updates are Merged(状态更新已合并)"></a>State Updates are Merged(状态更新已合并)</h4><p>When you call setState(), React merges the object you provide into the current state.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Correct</span></span><br><span class="line"><span class="keyword">this</span>.setState(<span class="function"><span class="keyword">function</span>(<span class="params">prevState, props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    counter: prevState.counter + props.increment</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="State-Updates-are-Merged-状态更新已合并"><a href="#State-Updates-are-Merged-状态更新已合并" class="headerlink" title="State Updates are Merged(状态更新已合并)"></a>State Updates are Merged(状态更新已合并)</h4><p>When you call setState(), React merges the object you provide into the current state.</p>
 <p>当您调用setState()时，React会合并您当前状态下提供的对象。</p>
 <p>For example, your state may contain several independent variables:</p>
 <p>例如，您的状态可能包含几个相互独立的变量：</p>
-<pre><code>constructor(props) {
-  super(props);
-  this.state = {
-  posts: [],
-  comments: []
-  };
-}
-</code></pre><p>Then you can update them independently with separate setState() calls:</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">constructor</span><span class="params">(props)</span> <span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">  super(props);</span></span></span><br><span class="line"><span class="function"><span class="comment">  this.state = &#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">  posts: [],</span></span></span><br><span class="line"><span class="function"><span class="comment">  comments: []</span></span></span><br><span class="line"><span class="function"><span class="comment">  &#125;</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then you can update them independently with separate setState() calls:</p>
 <p>然后您可以独立地使用setState()调用来更新它们：</p>
-<pre><code>componentDidMount() {
-    fetchPosts().then(response =&gt; {
-      this.setState({
-        posts: response.posts
-      });
-    });
-
-    fetchComments().then(response =&gt; {
-      this.setState({
-        comments: response.comments
-      });
-    });
-  }
-</code></pre><p>The merging is shallow, so this.setState({comments}) leaves this.state.posts intact, but completely replaces this.state.comments.</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">componentDidMount</span>() &#123;</span><br><span class="line">    <span class="selector-tag">fetchPosts</span>()<span class="selector-class">.then</span>(response =&gt; &#123;</span><br><span class="line">      <span class="selector-tag">this</span><span class="selector-class">.setState</span>(&#123;</span><br><span class="line">        <span class="attribute">posts</span>: response.posts</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">fetchComments</span>()<span class="selector-class">.then</span>(response =&gt; &#123;</span><br><span class="line">      <span class="selector-tag">this</span><span class="selector-class">.setState</span>(&#123;</span><br><span class="line">        <span class="attribute">comments</span>: response.comments</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>The merging is shallow, so this.setState({comments}) leaves this.state.posts intact, but completely replaces this.state.comments.</p>
 <p>合并是浅层的，所以this.setState({comments})会完整保留this.state.posts，但完全取代了this.state.comments。</p>
 <h3 id="The-Data-Flows-Down-数据流失向下的"><a href="#The-Data-Flows-Down-数据流失向下的" class="headerlink" title="The Data Flows Down(数据流失向下的)"></a>The Data Flows Down(数据流失向下的)</h3><p>Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class.</p>
 <p>父组件和孩组件都不知道某个组件是有状态的还是无状态的，并且它们不应该关心它是被定义为一个函数还是一个类。</p>
@@ -774,37 +589,22 @@ this.setState(function(prevState, props) {
 <p>这就是为什么状态通常被称作本地的或被封装的。除了包含和设置它的组件之外，其他任何组件都无法访问它。</p>
 <p>A component may choose to pass its state down as props to its child components:</p>
 <p>组件可以选择将其状态作为参数传递给其子组件：</p>
-<pre><code>&lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
-</code></pre><p>This also works for user-defined components:</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;h2&gt;</span>It is &#123;this.<span class="keyword">state</span>.date.<span class="keyword">to</span>LocaleTimeString()&#125;.&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
+<p>This also works for user-defined components:</p>
 <p>这对用户自定义的组件也有效：</p>
-<pre><code>&lt;FormattedDate date={this.state.date} /&gt;
-</code></pre><p>The FormattedDate component would receive the date in its props and wouldn’t know whether it came from the Clock’s state, from the Clock’s props, or was typed by hand:</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;FormattedDate <span class="keyword">date</span>=&#123;<span class="keyword">this</span>.state.<span class="keyword">date</span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>The FormattedDate component would receive the date in its props and wouldn’t know whether it came from the Clock’s state, from the Clock’s props, or was typed by hand:</p>
 <p>FormattedDate组件应当在它们的属性中接受数据并不会知道它是来自Clock的状态，Clock的属性还是人为输入的。</p>
-<pre><code>function FormattedDate(props) {
-  return &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt;;
-}
-</code></pre><p><a href="http://codepen.io/gaearon/pen/zKRqNB?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FormattedDate</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>It is &#123;props.date.toLocaleTimeString()&#125;.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/zKRqNB?editors=0010" target="_blank" rel="noopener">Try it on CodePen.</a></p>
 <p>This is commonly called a “top-down” or “unidirectional” data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components “below” them in the tree.</p>
 <p>通常这被称之为“自顶向下”或者“无方向”的数据流。任何状态总是由某个特定组件拥有，并且从该状态派生的任何数据或UI只能影响树中“在其下”的组件。</p>
 <p>If you imagine a component tree as a waterfall of props, each component’s state is like an additional water source that joins it at an arbitrary point but also flows down.</p>
 <p>如果将组件树想象成参数的瀑布，则每个组件的状态就像是一个额外的水源，它可以在任意点加入它，但也会向下流。</p>
 <p>To show that all components are truly isolated, we can create an App component that renders three Clocks:</p>
 <p>为了显示所有组件都是真正隔离的，我们可以创建一个呈现三个Clock的App组件：</p>
-<pre><code>function App() {
-  return (
-    &lt;div&gt;
-      &lt;Clock /&gt;
-      &lt;Clock /&gt;
-      &lt;Clock /&gt;
-    &lt;/div&gt;
-  );
-}
-
-ReactDOM.render(
-  &lt;App /&gt;,
-  document.getElementById(&#39;root&#39;)
-);
-</code></pre><p><a href="http://codepen.io/gaearon/pen/vXdGmd?editors=0010" target="_blank" rel="noopener">Try it on CondePen.</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Clock /&gt;</span><br><span class="line">      &lt;Clock /&gt;</span><br><span class="line">      &lt;Clock /&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">  &lt;App /</span>&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><a href="http://codepen.io/gaearon/pen/vXdGmd?editors=0010" target="_blank" rel="noopener">Try it on CondePen.</a></p>
 <p>Each Clock sets up its own timer and updates independently.</p>
 <p>每个表都会独立地设置它本身的计时器并独立更新。</p>
 <p>In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.</p>
@@ -818,6 +618,35 @@ ReactDOM.render(
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -975,11 +804,77 @@ ReactDOM.render(
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

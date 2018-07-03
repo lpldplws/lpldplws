@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Frankl&#39;s Personal Blog">
 <meta property="og:description" content="JavaScript对象与继承–单一对象说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的问题。 哈哈哈在一小时后我终于找到了这个比较符合我的情况的内容哈哈哈 原文在Objects and">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T16:27:32.957Z">
+<meta property="og:updated_time" content="2018-07-03T09:05:05.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript对象与继承---单一继承.md">
 <meta name="twitter:description" content="JavaScript对象与继承–单一对象说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的问题。 哈哈哈在一小时后我终于找到了这个比较符合我的情况的内容哈哈哈 原文在Objects and">
@@ -438,127 +438,49 @@
 <li>内置属性(Internal property) 只存在于ECMAscript规范当中，他们不能被js直接访问，但可以间接的方式访问到。规范里规定将这种属性放在[[]]当中，比如[[Property]]吃有一个对象的原型，它可以通过Object.getPrototypeOf() 访问到。</li>
 </ol>
 <h3 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h3><p>JavaScript对象字面量允许你直接的创建简单的对象（Object直接实例）。</p>
-<p>EX:</p>
-<pre><code>var jane = {
-    name: &#39;Jane&#39;,
-    describe: function () {
-        return &#39;Person named &#39;+this.name;  // (1)
-    },  // (2)
-};
-</code></pre><p>你可能有这样的印象，对象仅仅是字符串到值的映射。事实上远不止这些，有一些真正意义上的通用对象。</p>
+<p>EX:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jane = &#123;</span><br><span class="line">    name: <span class="string">'Jane'</span>,</span><br><span class="line">    describe: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Person named '</span>+<span class="keyword">this</span>.name;  <span class="comment">// (1)</span></span><br><span class="line">    &#125;,  <span class="comment">// (2)</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>你可能有这样的印象，对象仅仅是字符串到值的映射。事实上远不止这些，有一些真正意义上的通用对象。</p>
 <p>比如你可以做对象的继承，还可以保护对象不被修改。直接创建对象的功能是标准的js特性之一：你可以在没有类的前提下创建一个正确的对象，然后再对他进行抽象。</p>
 <p>例如：构造函数（constructors）大体和其他语言的类相似，我们在后面会讲到。</p>
 <h3 id="点运算符-通过固定值来访问属性"><a href="#点运算符-通过固定值来访问属性" class="headerlink" title="点运算符 (.): 通过固定值来访问属性"></a>点运算符 (.): 通过固定值来访问属性</h3><p>点运算符提供了一种简洁的语法来访问属性,属性的名称必须是合法标识符. 你可以用中括号来读写任意名称的属性.</p>
-<pre><code>var jane = {
-    name: &#39;Jane&#39;,
-
-    describe: function () {
-        return &#39;Person named &#39;+this.name;
-    }
-};
-</code></pre><h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><p>点操作符获取属性 (读值).例如:</p>
-<pre><code>&gt; jane.name  // get property `name`
-&#39;Jane&#39;
-&gt; jane.describe  // get property `describe`
-[Function]
-</code></pre><p>如果属性不存在则返回 undefined:</p>
-<pre><code>&gt; jane.unknownProperty
-undefined
-</code></pre><h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><p>也可以调用方法:</p>
-<pre><code>&gt; jane.describe()  // call method `describe`
-&#39;Person named Jane&#39;
-</code></pre><h3 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h3><p>可以用赋值符=来给.指向的属性赋值:</p>
-<pre><code>&gt; jane.name = &#39;John&#39;;  // set property `name`
-&gt; jane.describe()
-&#39;Person named John&#39;
-</code></pre><p>如果设置的属性不存在在赋值的时候就自动创建一个属性.如果存在就修改该属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jane = &#123;</span><br><span class="line">    name: <span class="string">'Jane'</span>,</span><br><span class="line"></span><br><span class="line">    describe: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Person named '</span>+<span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><p>点操作符获取属性 (读值).例如:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; jane<span class="selector-class">.name</span>  <span class="comment">// get property `name`</span></span><br><span class="line"><span class="string">'Jane'</span></span><br><span class="line">&gt; jane<span class="selector-class">.describe</span>  <span class="comment">// get property `describe`</span></span><br><span class="line">[Function]</span><br></pre></td></tr></table></figure>
+<p>如果属性不存在则返回 undefined:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> jane.unknownProperty</span></span><br><span class="line">undefined</span><br></pre></td></tr></table></figure>
+<h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><p>也可以调用方法:</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; jane.<span class="built_in">describe</span>()  // call <span class="built_in">method</span> `<span class="built_in">describe</span>`</span><br><span class="line">'Person named Jane'</span><br></pre></td></tr></table></figure>
+<h3 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h3><p>可以用赋值符=来给.指向的属性赋值:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> jane.name = <span class="string">'John'</span>;  // <span class="built_in">set</span> property `name`</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> jane.describe()</span></span><br><span class="line">'Person named John'</span><br></pre></td></tr></table></figure>
+<p>如果设置的属性不存在在赋值的时候就自动创建一个属性.如果存在就修改该属性。</p>
 <h3 id="删除属性"><a href="#删除属性" class="headerlink" title="删除属性"></a>删除属性</h3><p>delete操作符可以完全的从对象里面删除一个属性（键值对）：</p>
-<pre><code>&gt; var obj = { hello: &#39;world&#39; };
-&gt; delete obj.hello
-true
-&gt; obj.hello
-undefined
-</code></pre><p>如果你仅仅给一个属性设置为undefined，这个属性会仍然存在，而且这个对象包含这个键：</p>
-<pre><code>&gt; var obj = { foo: &#39;a&#39;, bar: &#39;b&#39; };
-&gt; obj.foo = undefined;
-&gt; Object.keys(obj)
-[ &#39;foo&#39;, &#39;bar&#39; ]
-</code></pre><p>但是如果你将属性删除那么他的键就不存在了</p>
-<pre><code>&gt; delete obj.foo
-true
-&gt; Object.keys(obj)
-[ &#39;bar&#39; ]
-</code></pre><p>delete只影响一个对象的直接属性（非继承的，自有属性）。并不会删除对象的原型。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; hello: <span class="string">'world'</span> &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> delete obj.hello</span></span><br><span class="line">true</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj.hello</span></span><br><span class="line">undefined</span><br></pre></td></tr></table></figure>
+<p>如果你仅仅给一个属性设置为undefined，这个属性会仍然存在，而且这个对象包含这个键：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; foo: <span class="string">'a'</span>, bar: <span class="string">'b'</span> &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj.foo = undefined;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Object.keys(obj)</span></span><br><span class="line">[ 'foo', 'bar' ]</span><br></pre></td></tr></table></figure>
+<p>但是如果你将属性删除那么他的键就不存在了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">delete</span> obj.foo</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; <span class="built_in">Object</span>.keys(obj)</span><br><span class="line">[ <span class="string">'bar'</span> ]</span><br></pre></td></tr></table></figure>
+<p>delete只影响一个对象的直接属性（非继承的，自有属性）。并不会删除对象的原型。</p>
 <p>Tip:慎用delete操作符，大多数现代化js引擎都会针对构造函数的创建实例进行优化，前提是这些实例不会发生形态改变（就是说没有删除或者添加属性的），但是删除属性会破坏这种优化。</p>
 <h3 id="delete的返回值"><a href="#delete的返回值" class="headerlink" title="delete的返回值"></a>delete的返回值</h3><p>如果属性是一个自有属性且不能删除，那么delete会反回false，其他情况返回true。<br>例子：<br>作为准备，我们用Object.defineProperty创建一个不被删除自有属性</p>
-<pre><code>var obj = {};
-Object.defineProperty(obj, &#39;canBeDeleted&#39;, {
-    value: 123,
-    configurable: true
-});
-Object.defineProperty(obj, &#39;cannotBeDeleted&#39;, {
-    value: 456,
-    configurable: false
-});
-</code></pre><p>delete cannotBeDeleted 时候返回 false :</p>
-<pre><code>&gt; delete obj.cannotBeDeleted
-false
-</code></pre><p>其他情况下delete 返回 true:</p>
-<pre><code>&gt; delete obj.doesNotExist
-true
-&gt; delete obj.canBeDeleted
-true
-</code></pre><p>即使delete没有起作用也会返回true (继承的属性是不会被移除的):</p>
-<pre><code>&gt; delete obj.toString
-true
-&gt; obj.toString // still there
-[Function: toString]
-</code></pre><h3 id="特殊属性键"><a href="#特殊属性键" class="headerlink" title="特殊属性键"></a>特殊属性键</h3><p>虽然你不能使用保留字作为变量名，但是你可以把他们作为属性键。</p>
-<pre><code>&gt; var obj = { var: &#39;a&#39;, function: &#39;b&#39; };
-&gt; obj.var
-&#39;a&#39;
-&gt; obj.function
-&#39;b&#39;
-</code></pre><h3 id="数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用-来访问："><a href="#数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用-来访问：" class="headerlink" title="数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用[]来访问："></a>数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用[]来访问：</h3><pre><code>&gt; var obj = { 0.7: &#39;abc&#39; };
-&gt; Object.keys(obj)
-[ &#39;0.7&#39; ]
-&gt; obj[&#39;0.7&#39;]
-&#39;abc&#39;
-</code></pre><h3 id="对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用-来访问。"><a href="#对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用-来访问。" class="headerlink" title="对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用[]来访问。"></a>对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用[]来访问。</h3><pre><code>&gt; var obj = { &#39;not an identifier&#39;: 123 };
-&gt; Object.keys(obj)
-[ &#39;not an identifier&#39; ]
-&gt; obj[&#39;not an identifier&#39;]
-123
-</code></pre><p>中括号 ([]): 通过计算出来的键访问属性<br>中括号可以通过表达式引用一个属性。</p>
-<h3 id="用中括号获取属性："><a href="#用中括号获取属性：" class="headerlink" title="用中括号获取属性："></a>用中括号获取属性：</h3><pre><code>&gt; var obj = { someProperty: &#39;abc&#39; };
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">var</span> <span class="string">obj</span> <span class="string">=</span> <span class="string">&#123;&#125;;</span></span><br><span class="line"><span class="string">Object.defineProperty(obj,</span> <span class="string">'canBeDeleted'</span><span class="string">,</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">    value:</span> <span class="number">123</span><span class="string">,</span></span><br><span class="line"><span class="attr">    configurable:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string">Object.defineProperty(obj,</span> <span class="string">'cannotBeDeleted'</span><span class="string">,</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">    value:</span> <span class="number">456</span><span class="string">,</span></span><br><span class="line"><span class="attr">    configurable:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>delete cannotBeDeleted 时候返回 false :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">delete</span> obj.cannotBeDeleted</span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>其他情况下delete 返回 true:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">delete</span> obj.doesNotExist</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; <span class="keyword">delete</span> obj.canBeDeleted</span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>即使delete没有起作用也会返回true (继承的属性是不会被移除的):</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">delete</span> obj.<span class="built_in">toString</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; obj.<span class="built_in">toString</span> // still there</span><br><span class="line">[<span class="keyword">Function</span>: <span class="built_in">toString</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="特殊属性键"><a href="#特殊属性键" class="headerlink" title="特殊属性键"></a>特殊属性键</h3><p>虽然你不能使用保留字作为变量名，但是你可以把他们作为属性键。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; var: <span class="string">'a'</span>, <span class="keyword">function</span>: <span class="string">'b'</span> &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj.var</span></span><br><span class="line">'a'</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj.function</span></span><br><span class="line">'b'</span><br></pre></td></tr></table></figure>
+<h3 id="数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用-来访问："><a href="#数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用-来访问：" class="headerlink" title="数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用[]来访问："></a>数字也可以作为属性键，但会被解析成字符串。点操作符不能访问他们（只能访问键为标识符的属性）所以要用[]来访问：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; 0.7: <span class="string">'abc'</span> &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Object.keys(obj)</span></span><br><span class="line">[ '0.7' ]</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[<span class="string">'0.7'</span>]</span></span><br><span class="line">'abc'</span><br></pre></td></tr></table></figure>
+<h3 id="对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用-来访问。"><a href="#对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用-来访问。" class="headerlink" title="对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用[]来访问。"></a>对象字面量，同样允许你使用其他任意字符串来做为键，但是你必须用上单引号，且需要用[]来访问。</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; <span class="string">'not an identifier'</span>: 123 &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Object.keys(obj)</span></span><br><span class="line">[ 'not an identifier' ]</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[<span class="string">'not an identifier'</span>]</span></span><br><span class="line">123</span><br></pre></td></tr></table></figure>
+<p>中括号 ([]): 通过计算出来的键访问属性<br>中括号可以通过表达式引用一个属性。</p>
+<h3 id="用中括号获取属性："><a href="#用中括号获取属性：" class="headerlink" title="用中括号获取属性："></a>用中括号获取属性：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; someProperty: <span class="string">'abc'</span> &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[<span class="string">'some'</span> + <span class="string">'Property'</span>]</span></span><br><span class="line">'abc'</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> var propKey = <span class="string">'someProperty'</span>;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[propKey]</span></span><br><span class="line">'abc'</span><br></pre></td></tr></table></figure>
+<h3 id="非标识符"><a href="#非标识符" class="headerlink" title="非标识符:"></a>非标识符:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; <span class="string">'not an identifier'</span>: 123 &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[<span class="string">'not an identifier'</span>]</span></span><br><span class="line">123</span><br></pre></td></tr></table></figure>
+<h3 id="表达式，转换成字符串"><a href="#表达式，转换成字符串" class="headerlink" title="表达式，转换成字符串:"></a>表达式，转换成字符串:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123; <span class="string">'6'</span>: <span class="string">'bar'</span> &#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[3+3]  // key: the string <span class="string">'6'</span></span></span><br><span class="line">'bar'</span><br></pre></td></tr></table></figure>
+<h3 id="用中括号调用方法"><a href="#用中括号调用方法" class="headerlink" title="用中括号调用方法"></a>用中括号调用方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> obj = &#123; <span class="attr">myMethod</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">true</span> &#125; &#125;;</span><br><span class="line">&gt; obj[<span class="string">'myMethod'</span>]()</span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="用中括号设置属性"><a href="#用中括号设置属性" class="headerlink" title="用中括号设置属性"></a>用中括号设置属性</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> var obj = &#123;&#125;;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj[<span class="string">'anotherProperty'</span>] = <span class="string">'def'</span>;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> obj.anotherProperty</span></span><br><span class="line">'def'</span><br></pre></td></tr></table></figure>
+<h3 id="用中括号删除属性"><a href="#用中括号删除属性" class="headerlink" title="用中括号删除属性"></a>用中括号删除属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> obj = &#123; <span class="string">'not an identifier'</span>: <span class="number">1</span>, <span class="attr">prop</span>: <span class="number">2</span> &#125;;</span><br><span class="line">&gt; <span class="built_in">Object</span>.keys(obj)</span><br><span class="line">[ <span class="string">'not an identifier'</span>, <span class="string">'prop'</span> ]</span><br><span class="line">&gt; <span class="keyword">delete</span> obj[<span class="string">'not an identifier'</span>]</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; <span class="built_in">Object</span>.keys(obj)</span><br><span class="line">[ <span class="string">'prop'</span> ]</span><br></pre></td></tr></table></figure>
 
-&gt; obj[&#39;some&#39; + &#39;Property&#39;]
-&#39;abc&#39;
-
-&gt; var propKey = &#39;someProperty&#39;;
-&gt; obj[propKey]
-&#39;abc&#39;
-</code></pre><h3 id="非标识符"><a href="#非标识符" class="headerlink" title="非标识符:"></a>非标识符:</h3><pre><code>&gt; var obj = { &#39;not an identifier&#39;: 123 };
-&gt; obj[&#39;not an identifier&#39;]
-123
-</code></pre><h3 id="表达式，转换成字符串"><a href="#表达式，转换成字符串" class="headerlink" title="表达式，转换成字符串:"></a>表达式，转换成字符串:</h3><pre><code>&gt; var obj = { &#39;6&#39;: &#39;bar&#39; };
-&gt; obj[3+3]  // key: the string &#39;6&#39;
-&#39;bar&#39;
-</code></pre><h3 id="用中括号调用方法"><a href="#用中括号调用方法" class="headerlink" title="用中括号调用方法"></a>用中括号调用方法</h3><pre><code>&gt; var obj = { myMethod: function () { return true } };
-&gt; obj[&#39;myMethod&#39;]()
-true
-</code></pre><h3 id="用中括号设置属性"><a href="#用中括号设置属性" class="headerlink" title="用中括号设置属性"></a>用中括号设置属性</h3><pre><code>&gt; var obj = {};
-&gt; obj[&#39;anotherProperty&#39;] = &#39;def&#39;;
-&gt; obj.anotherProperty
-&#39;def&#39;
-</code></pre><h3 id="用中括号删除属性"><a href="#用中括号删除属性" class="headerlink" title="用中括号删除属性"></a>用中括号删除属性</h3><pre><code>&gt; var obj = { &#39;not an identifier&#39;: 1, prop: 2 };
-&gt; Object.keys(obj)
-[ &#39;not an identifier&#39;, &#39;prop&#39; ]
-&gt; delete obj[&#39;not an identifier&#39;]
-true
-&gt; Object.keys(obj)
-[ &#39;prop&#39; ]
-</code></pre>
       
     </div>
     
@@ -567,6 +489,35 @@ true
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weChatPay.png" alt="Frankl 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/aLiPay.jpg" alt="Frankl 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -724,11 +675,77 @@ true
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
