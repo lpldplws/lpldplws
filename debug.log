@@ -3839,3 +3839,71 @@
 {"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T04:31:30.340Z","v":0}
 {"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-07-04T04:31:30.340Z","v":0}
 {"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T04:31:30.340Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Rendering post: \u001b[35m2018/06/12/ES6/05.正则的扩展/index.html\u001b[39m","time":"2018-07-04T05:08:52.610Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-07-04T05:09:08.822Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-07-04T05:09:08.822Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-07-04T05:09:08.822Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-07-04T05:09:08.823Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mgenerator-0\u001b[39m","time":"2018-07-04T05:09:08.823Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-07-04T05:09:08.823Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mxml\u001b[39m","time":"2018-07-04T05:09:08.823Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-07-04T05:09:08.823Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-07-04T05:09:08.824Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:09:08.889Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"========================= ATTENTION! ==========================","time":"2018-07-04T05:09:08.890Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:09:08.890Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" NexT repository is moving here: https://github.com/theme-next ","time":"2018-07-04T05:09:08.890Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:09:08.890Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-07-04T05:09:08.890Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:09:08.890Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Theme config loaded.","time":"2018-07-04T05:10:14.828Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Processed: \u001b[35m_config.yml\u001b[39m","time":"2018-07-04T05:10:14.828Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-07-04T05:10:14.981Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mgenerator-0\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mxml\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-07-04T05:10:14.982Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-07-04T05:10:14.984Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:10:15.014Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"========================= ATTENTION! ==========================","time":"2018-07-04T05:10:15.014Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:10:15.014Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" NexT repository is moving here: https://github.com/theme-next ","time":"2018-07-04T05:10:15.014Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:10:15.015Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-07-04T05:10:15.015Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:10:15.015Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Rendering post: \u001b[35m2018/06/12/ES6/05.正则的扩展/index.html\u001b[39m","time":"2018-07-04T05:10:39.429Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-07-04T05:12:10.422Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mgenerator-0\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mxml\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-07-04T05:12:10.423Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-07-04T05:12:10.425Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:10.456Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"========================= ATTENTION! ==========================","time":"2018-07-04T05:12:10.456Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:10.456Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" NexT repository is moving here: https://github.com/theme-next ","time":"2018-07-04T05:12:10.456Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:10.456Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-07-04T05:12:10.456Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:10.458Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2018-07-04T05:12:29.678Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2018-07-04T05:12:29.678Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2018-07-04T05:12:29.678Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2018-07-04T05:12:29.678Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mgenerator-0\u001b[39m","time":"2018-07-04T05:12:29.678Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2018-07-04T05:12:29.678Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mxml\u001b[39m","time":"2018-07-04T05:12:29.679Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2018-07-04T05:12:29.679Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2018-07-04T05:12:29.869Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:30.033Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"========================= ATTENTION! ==========================","time":"2018-07-04T05:12:30.034Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:30.034Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" NexT repository is moving here: https://github.com/theme-next ","time":"2018-07-04T05:12:30.034Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:30.034Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":" It's rebase to v6.0.0 and future maintenance will resume there","time":"2018-07-04T05:12:30.034Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":9108,"level":40,"msg":"===============================================================","time":"2018-07-04T05:12:30.034Z","v":0}
