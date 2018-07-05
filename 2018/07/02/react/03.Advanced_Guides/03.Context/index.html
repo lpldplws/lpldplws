@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react document," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Context(上下文) Context provides a way to pass data through the component tree without having to pass props down manually at every level.Context提供了一种通过组件树传递数据的方法，而无需在每层组件之间手动传递props。  In a typical React">
+<meta name="keywords" content="react document">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03.Advanced Guides -- 03.Context">
+<meta property="og:url" content="www.lpldplws.cn/2018/07/02/react/03.Advanced_Guides/03.Context/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="Context(上下文) Context provides a way to pass data through the component tree without having to pass props down manually at every level.Context提供了一种通过组件树传递数据的方法，而无需在每层组件之间手动传递props。  In a typical React">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-05T04:43:37.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03.Advanced Guides -- 03.Context">
+<meta name="twitter:description" content="Context(上下文) Context provides a way to pass data through the component tree without having to pass props down manually at every level.Context提供了一种通过组件树传递数据的方法，而无需在每层组件之间手动传递props。  In a typical React">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/07/02/react/03.Advanced_Guides/03.Context/"/>
+
+
+
+
+
+  <title>03.Advanced Guides -- 03.Context | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/07/02/react/03.Advanced_Guides/03.Context/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">03.Advanced Guides -- 03.Context</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-02T10:15:32+08:00">
+                2018-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-document/" itemprop="url" rel="index">
+                    <span itemprop="name">react document</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/02/react/03.Advanced_Guides/03.Context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/07/02/react/03.Advanced_Guides/03.Context/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/02/react/03.Advanced_Guides/03.Context/" class="leancloud_visitors" data-flag-title="03.Advanced Guides -- 03.Context">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Context-上下文"><a href="#Context-上下文" class="headerlink" title="Context(上下文)"></a>Context(上下文)</h2><blockquote>
+<p>Context provides a way to pass data through the component tree without having to pass props down manually at every level.<br>Context提供了一种通过组件树传递数据的方法，而无需在每层组件之间手动传递props。</p>
+</blockquote>
+<p>In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.</p>
+<p>在一个典型的React应用中，数据是从顶向下（从父元素向子元素）提供props传递的，但是这对于某些特定类型的props（例如本地配置的首选项，UI主题）来说，在一个应用的多个组件之间传递实在太过笨重。Context提供了一种在组件之间共享这些值，且不需要显示地在每层组件之间传递props的方法。</p>
+<ul>
+<li><a href="#when-to-use-context">When to Use Context(什么时候使用Context)</a></li>
+<li><a href="#API">[API]</a><ul>
+<li><a href="#reactcreatecontext">React.createContext</a></li>
+<li><a href="#provider">Provider</a></li>
+<li><a href="#consumer">Consumer</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#dynamic-context">Dynamic Context（动态上下文）</a></li>
+<li><a href="#updating-context-from-a-nested-component">Updating Context from a Nested Component（从一个嵌套的组件里更新上下文）</a></li>
+<li><a href="#consuming-multiple-contexts">Consuming Multiple Contexts（使用多个上下文）</a></li>
+<li><a href="#accessing-context-in-lifecycle-methods">Accessing Context in Lifecycle Methods（在生命周期方法中访问上下文）</a></li>
+<li><a href="#consuming-context-with-a-hoc">Consuming Context with a HOC（提供HOC使用上下文）</a></li>
+<li><a href="#forwarding-refs-to-context-consumers">Forwarding Refs to Context Consumers（通过Refs传给上下文使用者）</a></li>
+</ul>
+</li>
+<li><a href="#caveats">Caveats（注意事项）</a></li>
+<li><a href="#legacy-api">Legacy API（遗留的API）</a></li>
+</ul>
+<h3 id="When-to-Use-Context-什么时候使用上下文"><a href="#When-to-Use-Context-什么时候使用上下文" class="headerlink" title="When to Use Context(什么时候使用上下文)"></a><a name="when-to-use-context">When to Use Context(什么时候使用上下文)</a></h3><p>Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language. For example, in the code below we manually thread through a “theme” prop in order to style the Button component:</p>
+<p>上下文旨在共享可被视为React组件树中的“全局”数据，例如当前经过身份验证的用户，主题或首选语言。例如，在下面的代码中，我们手动穿过“theme”参数以设置Button组件的样式：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;Toolbar theme="dark" /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Toolbar(props) &#123;</span><br><span class="line">  // The Toolbar component must take an extra "theme" prop</span><br><span class="line">  // and pass it to the ThemedButton. This can become painful</span><br><span class="line">  // if every single button in the app needs to know the theme</span><br><span class="line">  // because it would have to be passed through all components.</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ThemedButton theme=&#123;props.theme&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">function ThemedButton(props) &#123;</span><br><span class="line">  return &lt;Button theme=&#123;props.theme&#125; /&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Using context, we can avoid passing props through intermediate elements:</p>
+<p>使用context，我们可以变通过中间元素传参。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Context lets us pass a value deep into the component tree</span></span><br><span class="line"><span class="comment">// without explicitly threading it through every component.</span></span><br><span class="line"><span class="comment">// Create a context for the current theme (with "light" as the default).</span></span><br><span class="line">const <span class="type">ThemeContext</span> = <span class="type">React</span>.createContext(<span class="symbol">'ligh</span>t');</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// Use a Provider to pass the current theme to the tree below.</span></span><br><span class="line">    <span class="comment">// Any component can read it, no matter how deep it is.</span></span><br><span class="line">    <span class="comment">// In this example, we're passing "dark" as the current value.</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;<span class="type">ThemeContext</span>.<span class="type">Provider</span> value=<span class="string">"dark"</span>&gt;</span><br><span class="line">        &lt;<span class="type">Toolbar</span> /&gt;</span><br><span class="line">      &lt;/<span class="type">ThemeContext</span>.<span class="type">Provider</span>&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A component in the middle doesn't have to</span></span><br><span class="line"><span class="comment">// pass the theme down explicitly anymore.</span></span><br><span class="line">function <span class="type">Toolbar</span>(props) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;<span class="type">ThemedButton</span> /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function <span class="type">ThemedButton</span>(props) &#123;</span><br><span class="line">  <span class="comment">// Use a Consumer to read the current theme context.</span></span><br><span class="line">  <span class="comment">// React will find the closest theme Provider above and use its value.</span></span><br><span class="line">  <span class="comment">// In this example, the current theme is "dark".</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span><br><span class="line">      &#123;theme =&gt; &lt;<span class="type">Button</span> &#123;...props&#125; theme=&#123;theme&#125; /&gt;&#125;</span><br><span class="line">    &lt;/<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note<br>Don’t use context just to avoid passing props a few levels down. Stick to cases where the same data needs to be accessed in many components at multiple levels.</p>
+<p>注意：<br>不要仅仅为了避免向下几层组件传参就使用context。尤其是在多个层次的组件中访问相同数据的情况。</p>
+</blockquote>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a><a name="API">API</a></h3><h4 id="React-createContext"><a href="#React-createContext" class="headerlink" title="React.createContext"></a><a name="reactcreatecontext">React.createContext</a></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;Provider, Consumer&#125; = React.createContext(defaultValue);</span><br></pre></td></tr></table></figure>
+<p>Creates a <code>{ Provider, Consumer }</code> pair. When React renders a context Consumer, it will read the current context value from the closest matching Provider above it in the tree.</p>
+<p>创造一对<code>{ Provider, Consumer }</code>。当React渲染上下文Consumer时，它会从react树中与它最接近的Provider上读取当前context值。</p>
+<p>The <code>defaultValue</code> argument is only used by a Consumer when it does not have a matching Provider above it in the tree. This can be helpful for testing components in isolation without wrapping them. Note: passing <code>undefined</code> as a Provider value does not cause Consumers to use <code>defaultValue</code>.</p>
+<p><code>defaultValue</code>参数仅在使用者在树中没有与之匹配的Provider时使用。这有助于在不没有对应的provider包围它们的情况下单独测试组件。注意：将<code>undefined</code>作为Provider值传递不会导致使用者使用<code>defaultValue</code>。</p>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a><a name="provider">Provider</a></h3><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">value</span>=</span></span><span class="template-tag">&#123;/* <span class="name">some</span> value */&#125;</span><span class="xml"><span class="tag">&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>A React component that allows Consumers to subscribe to context changes.</p>
+<p>一个可以让使用者获取context改变的react组件。</p>
+<p>Accepts a value <code>prop</code> to be passed to Consumers that are descendants of this Provider. One Provider can be connected to many Consumers. Providers can be nested to override values deeper within the tree.</p>
+<p>接受作为此Provider的后代使用者的值<code>prop</code>。一个Provider可以连接到许多使用者者。可以通过嵌套来覆盖树中更深层的值。</p>
+<h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a><a name="consumer">Consumer</a></h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;Consumer&gt;</span></span><br><span class="line">  &#123;value =&gt; <span class="comment">/* render something based on the context value */</span>&#125;</span><br><span class="line"><span class="params">&lt;/Consumer&gt;</span></span><br></pre></td></tr></table></figure>
+<p>A React component that subscribes to context changes.</p>
+<p>一个接受context变化的React组件。</p>
+<p>Requires a <a href="https://reactjs.org/docs/render-props.html#using-props-other-than-render" target="_blank" rel="noopener">function as a child</a>. The function receives the current context value and returns a React node. The <code>value</code> argument passed to the function will be equal to the <code>value</code> prop of the closest Provider for this context above in the tree. If there is no Provider for this context above, the <code>value</code> argument will be equal to the <code>defaultValue</code> that was passed to createContext().</p>
+<p>需要一个<a href="https://reactjs.org/docs/render-props.html#using-props-other-than-render" target="_blank" rel="noopener">作为子元素的函数</a>。该函数接收当前context值并返回React节点。传递给函数的<code>value</code>参数将等于React组件树中与此context最近的Provider的prop值。如果父组件没有此context的Provider，则<code>value</code>参数将等于传递给createContext（）的<code>defaultValue</code>。</p>
+<blockquote>
+<p>Note<br>For more information about the ‘function as a child’ pattern, see <a href="https://reactjs.org/docs/render-props.html" target="_blank" rel="noopener">render props</a>.</p>
+<p>注意<br>想查看更多有关于‘将函数作为一个子元素’的信息，请看<a href="https://reactjs.org/docs/render-props.html" target="_blank" rel="noopener">渲染参数</a></p>
+</blockquote>
+<p>All Consumers that are descendants of a Provider will re-render whenever the Provider’s <code>value</code> prop changes. The propagation from Provider to its descendant Consumers is not subject to the <code>shouldComponentUpdate</code> method, so the Consumer is updated even when an ancestor component bails out of the update.</p>
+<p>作为Provider后代的所有使用者将在Provider的<code>value</code>发生变化时重新呈现。从Provider到其后代的使用者的传递不受<code>shouldComponentUpdate</code>方法的限制，因此即使祖先组件退出更新，使用者也会更新。</p>
+<p>Changes are determined by comparing the new and old values using the same algorithm as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description" target="_blank" rel="noopener">Object.is</a>.</p>
+<p>改变是通过<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description" target="_blank" rel="noopener">Object.is</a>相同的算法比较新旧值来确定更改。</p>
+<blockquote>
+<p>Note<br>The way changes are determined can cause some issues when passing objects as value: see <a href="https://reactjs.org/docs/context.html#caveats" target="_blank" rel="noopener">Caveats</a>.</p>
+<p>注意：<br>确定更改的方式可能会在将对象作为值传递时导致一些问题：请参阅<a href="https://reactjs.org/docs/context.html#caveats" target="_blank" rel="noopener">警告</a>。</p>
+</blockquote>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a><a name="examples">Examples</a></h3><h4 id="Dynamic-Context（动态上下文）"><a href="#Dynamic-Context（动态上下文）" class="headerlink" title="Dynamic Context（动态上下文）"></a><a name="dynamic-context">Dynamic Context（动态上下文）</a></h4><p>A more complex example with dynamic values for the theme:</p>
+<p>一个将theme作为动态值的更为复杂的例子：</p>
+<h5 id="theme-context-js"><a href="#theme-context-js" class="headerlink" title="theme-context.js"></a>theme-context.js</h5><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> themes = &#123;</span><br><span class="line">  light: &#123;</span><br><span class="line">    foreground: <span class="string">'#000000'</span>,</span><br><span class="line">    <span class="built_in">background</span>: <span class="string">'#eeeeee'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  dark: &#123;</span><br><span class="line">    foreground: <span class="string">'#ffffff'</span>,</span><br><span class="line">    <span class="built_in">background</span>: <span class="string">'#222222'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ThemeContext = React.createContext(</span><br><span class="line">  themes.dark <span class="comment">// default value</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h5 id="themed-button-js"><a href="#themed-button-js" class="headerlink" title="themed-button.js"></a>themed-button.js</h5><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ThemeContext&#125; from <span class="string">'./theme-context'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> ThemedButton(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;ThemeContext.Consumer&gt;</span><br><span class="line">      &#123;theme =&gt; (</span><br><span class="line">        &lt;button</span><br><span class="line">          &#123;...props&#125;</span><br><span class="line">          style=&#123;&#123;backgroundColor: theme.background&#125;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;/ThemeContext.Consumer&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> ThemedButton;</span><br></pre></td></tr></table></figure>
+<h5 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ThemeContext, themes&#125; <span class="keyword">from</span> <span class="string">'./theme-context'</span>;</span><br><span class="line"><span class="keyword">import</span> ThemedButton <span class="keyword">from</span> <span class="string">'./themed-button'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// An intermediate component that uses the ThemedButton</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Toolbar</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ThemedButton onClick=&#123;props.changeTheme&#125;&gt;</span><br><span class="line">      Change Theme</span><br><span class="line">    &lt;<span class="regexp">/ThemedButton&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">class App extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">  constructor(props) &#123;</span></span><br><span class="line"><span class="regexp">    super(props);</span></span><br><span class="line"><span class="regexp">    this.state = &#123;</span></span><br><span class="line"><span class="regexp">      theme: themes.light,</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    this.toggleTheme = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      this.setState(state =&gt; (&#123;</span></span><br><span class="line"><span class="regexp">        theme:</span></span><br><span class="line"><span class="regexp">          state.theme === themes.dark</span></span><br><span class="line"><span class="regexp">            ? themes.light</span></span><br><span class="line"><span class="regexp">            : themes.dark,</span></span><br><span class="line"><span class="regexp">      &#125;));</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ The ThemedButton button inside the ThemeProvider</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ uses the theme from state while the one outside uses</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ the default dark theme</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;Page&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ThemeContext.Provider value=&#123;this.state.theme&#125;&gt;</span></span><br><span class="line"><span class="regexp">          &lt;Toolbar changeTheme=&#123;this.toggleTheme&#125; /</span>&gt;</span><br><span class="line">        &lt;<span class="regexp">/ThemeContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Section&gt;</span></span><br><span class="line"><span class="regexp">          &lt;ThemedButton /</span>&gt;</span><br><span class="line">        &lt;<span class="regexp">/Section&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Page&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span>, document.root);</span></span><br></pre></td></tr></table></figure>
+<h4 id="Updating-Context-from-a-Nested-Component（从一个嵌套的组件里更新上下文）"><a href="#Updating-Context-from-a-Nested-Component（从一个嵌套的组件里更新上下文）" class="headerlink" title="Updating Context from a Nested Component（从一个嵌套的组件里更新上下文）"></a><a name="updating-context-from-a-nested-component">Updating Context from a Nested Component（从一个嵌套的组件里更新上下文）</a></h4><p>It is often necessary to update the context from a component that is nested somewhere deeply in the component tree. In this case you can pass a function down through the context to allow consumers to update the context:</p>
+<p>通常需要从组件树上嵌套层数较深的组件中更新context。在这种情况下，您可以在context中向下传递一个函数，以允许使用者更新context：</p>
+<h5 id="theme-context-js-1"><a href="#theme-context-js-1" class="headerlink" title="theme-context.js"></a>theme-context.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Make sure the shape of the default value passed to</span></span><br><span class="line"><span class="comment">// createContext matches the shape that the consumers expect!</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ThemeContext = React.createContext(&#123;</span><br><span class="line">  theme: themes.dark,</span><br><span class="line">  toggleTheme: <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="theme-toggler-button-js"><a href="#theme-toggler-button-js" class="headerlink" title="theme-toggler-button.js"></a>theme-toggler-button.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ThemeContext&#125; <span class="keyword">from</span> <span class="string">'./theme-context'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ThemeTogglerButton</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// The Theme Toggler Button receives not only the theme</span></span><br><span class="line">  <span class="comment">// but also a toggleTheme function from the context</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ThemeContext.Consumer&gt;</span><br><span class="line">      &#123;(&#123;theme, toggleTheme&#125;) =&gt; (</span><br><span class="line">        &lt;button</span><br><span class="line">          onClick=&#123;toggleTheme&#125;</span><br><span class="line">          style=&#123;&#123;<span class="attr">backgroundColor</span>: theme.background&#125;&#125;&gt;</span><br><span class="line">          Toggle Theme</span><br><span class="line">        &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      )&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>ThemeContext.Consumer&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ThemeTogglerButton;</span><br></pre></td></tr></table></figure>
+<h5 id="app-js-1"><a href="#app-js-1" class="headerlink" title="app.js"></a>app.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ThemeContext, themes&#125; <span class="keyword">from</span> <span class="string">'./theme-context'</span>;</span><br><span class="line"><span class="keyword">import</span> ThemeTogglerButton <span class="keyword">from</span> <span class="string">'./theme-toggler-button'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.toggleTheme = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(<span class="function"><span class="params">state</span> =&gt;</span> (&#123;</span><br><span class="line">        theme:</span><br><span class="line">          state.theme === themes.dark</span><br><span class="line">            ? themes.light</span><br><span class="line">            : themes.dark,</span><br><span class="line">      &#125;));</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// State also contains the updater function so it will</span></span><br><span class="line">    <span class="comment">// be passed down into the context provider</span></span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      theme: themes.light,</span><br><span class="line">      toggleTheme: <span class="keyword">this</span>.toggleTheme,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// The entire state is passed to the provider</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;ThemeContext.Provider value=&#123;<span class="keyword">this</span>.state&#125;&gt;</span><br><span class="line">        &lt;Content /&gt;</span><br><span class="line">      &lt;<span class="regexp">/ThemeContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">function Content() &#123;</span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ThemeTogglerButton /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;App /</span>&gt;, <span class="built_in">document</span>.root);</span><br></pre></td></tr></table></figure>
+<h4 id="Consuming-Multiple-Contexts"><a href="#Consuming-Multiple-Contexts" class="headerlink" title="Consuming Multiple Contexts"></a><a name="consuming-multiple-contexts">Consuming Multiple Contexts</a></h4><p>To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree.</p>
+<p>为了保证context重新渲染的速度更快，React需要让每个context使用者在react组件树中都作为一个独立的子节点。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// <span class="type">Theme</span> context, <span class="keyword">default</span> to light theme</span><br><span class="line"><span class="title">const</span> <span class="type">ThemeContext</span> = <span class="type">React</span>.createContext('light');</span><br><span class="line"></span><br><span class="line">// <span class="type">Signed</span>-<span class="keyword">in</span> user context</span><br><span class="line"><span class="title">const</span> <span class="type">UserContext</span> = <span class="type">React</span>.createContext(&#123;</span><br><span class="line">  name: '<span class="type">Guest'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">App</span> extends <span class="type">React</span>.<span class="type">Component</span> &#123;</span></span><br><span class="line"><span class="class">  render() &#123;</span></span><br><span class="line"><span class="class">    const &#123;signedInUser, theme&#125; = this.props;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    // <span class="type">App</span> component that provides initial context values</span></span><br><span class="line"><span class="class">    return (</span></span><br><span class="line"><span class="class">      &lt;<span class="type">ThemeContext</span>.<span class="type">Provider</span> <span class="title">value</span>=&#123;<span class="title">theme</span>&#125;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="type">UserContext</span>.<span class="type">Provider</span> <span class="title">value</span>=&#123;<span class="title">signedInUser</span>&#125;&gt;</span></span><br><span class="line"><span class="class">          &lt;<span class="type">Layout</span> /&gt;</span></span><br><span class="line"><span class="class">        &lt;/<span class="type">UserContext</span>.<span class="type">Provider</span>&gt;</span></span><br><span class="line"><span class="class">      &lt;/<span class="type">ThemeContext</span>.<span class="type">Provider</span>&gt;</span></span><br><span class="line"><span class="class">    );</span></span><br><span class="line"><span class="class">  &#125;</span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">function <span class="type">Layout</span>() &#123;</span></span><br><span class="line"><span class="class">  return (</span></span><br><span class="line"><span class="class">    &lt;<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">      &lt;<span class="type">Sidebar</span> /&gt;</span></span><br><span class="line"><span class="class">      &lt;<span class="type">Content</span> /&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">  );</span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// <span class="type">A</span> component may consume multiple contexts</span></span><br><span class="line"><span class="class">function <span class="type">Content</span>() &#123;</span></span><br><span class="line"><span class="class">  return (</span></span><br><span class="line"><span class="class">    &lt;<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span></span><br><span class="line"><span class="class">      &#123;<span class="title">theme</span> =&gt; (</span></span><br><span class="line"><span class="class">        &lt;<span class="type">UserContext</span>.<span class="type">Consumer</span>&gt;</span></span><br><span class="line"><span class="class">          &#123;<span class="title">user</span> =&gt; (</span></span><br><span class="line"><span class="class">            &lt;<span class="type">ProfilePage</span> <span class="title">user</span>=&#123;<span class="title">user</span>&#125; <span class="title">theme</span>=&#123;<span class="title">theme</span>&#125; /&gt;</span></span><br><span class="line"><span class="class">          )&#125;</span></span><br><span class="line"><span class="class">        &lt;/<span class="type">UserContext</span>.<span class="type">Consumer</span>&gt;</span></span><br><span class="line"><span class="class">      )&#125;</span></span><br><span class="line"><span class="class">    &lt;/<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span></span><br><span class="line"><span class="class">  );</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>If two or more context values are often used together, you might want to consider creating your own render prop component that provides both.</p>
+<p>如果两个或更多的context值经常一起使用，您可能需要考虑创建您自己的渲染参数的组件来一起提供它们。</p>
+<h4 id="Accessing-Context-in-Lifecycle-Methods"><a href="#Accessing-Context-in-Lifecycle-Methods" class="headerlink" title="Accessing Context in Lifecycle Methods"></a><a name="accessing-context-in-lifecycle-methods">Accessing Context in Lifecycle Methods</a></h4><p>Accessing values from context in lifecycle methods is a relatively common use case. Instead of adding context to every lifecycle method, you just need to pass it as a prop, and then work with it just like you’d normally work with a prop.</p>
+<p>在生命周期方法中从context访问值是一种相对常见的用例。您只需要将其作为prop传递，而不是向每个生命周期方法添加context，然后使用它就像您通常使用prop一样。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// ThemeContext value is this.props.theme</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="comment">// Previous ThemeContext value is prevProps.theme</span></span><br><span class="line">    <span class="comment">// New ThemeContext value is this.props.theme</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123;theme, children&#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;button className=&#123;theme ? <span class="symbol">'dar</span>k' : <span class="symbol">'ligh</span>t'&#125;&gt;</span><br><span class="line">        &#123;children&#125;</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> props =&gt; (</span><br><span class="line">  &lt;<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span><br><span class="line">    &#123;theme =&gt; &lt;<span class="type">Button</span> &#123;...props&#125; theme=&#123;theme&#125; /&gt;&#125;</span><br><span class="line">  &lt;/<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="Consuming-Context-with-a-HOC"><a href="#Consuming-Context-with-a-HOC" class="headerlink" title="Consuming Context with a HOC"></a><a name="consuming-context-with-a-hoc">Consuming Context with a HOC</a></h4><p>Some types of contexts are consumed by many components (e.g. theme or localization). It can be tedious to explicitly wrap each dependency with a <code>&lt;Context.Consumer&gt;</code> element. A <a href="https://reactjs.org/docs/higher-order-components.html" target="_blank" rel="noopener">higher-order component</a> can help with this.</p>
+<p>一些类型的context会被许多组件（例如主题或本地化）使用。使用<code>&lt;Context.Consumer&gt;</code>元素显式地包装每个依赖项可能会很繁琐。这时候<a href="https://reactjs.org/docs/higher-order-components.html" target="_blank" rel="noopener">更高阶的组件</a>可以帮助解决这个问题。</p>
+<p>For example, a button component might consume a theme context like so:</p>
+<p>例如，一个button组件可能会这样使用主题context：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ThemeContext = React.createContext(<span class="string">'light'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ThemedButton</span><span class="params">(props)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ThemeContext.Consumer&gt;</span><br><span class="line">      &#123;theme =&gt; &lt;button className=&#123;theme&#125; &#123;...props&#125; /&gt;&#125;</span><br><span class="line">    &lt;/ThemeContext.Consumer&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>That’s alright for a few components, but what if we wanted to use the theme context in a lot of places?</p>
+<p>这对于几个组件来说是够用了，但是如果我们想在许多地方用主题的context呢？</p>
+<p>We could create a higher-order component called <code>withTheme</code>:</p>
+<p>我们可以创建一个更高级别的组件，叫做<code>withTheme</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ThemeContext = React.createContext(<span class="string">'light'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// This function takes a component...</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">withTheme</span>(<span class="params">Component</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...and returns another component...</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">ThemedComponent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ... and renders the wrapped component with the context theme!</span></span><br><span class="line">    <span class="comment">// Notice that we pass through any additional props as well</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;ThemeContext.Consumer&gt;</span><br><span class="line">        &#123;theme =&gt; <span class="xml"><span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...props</span>&#125; <span class="attr">theme</span>=<span class="string">&#123;theme&#125;</span> /&gt;</span>&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">ThemeContext.Consumer</span>&gt;</span></span></span><br><span class="line"><span class="xml">    );</span></span><br><span class="line"><span class="xml">  &#125;;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Now any component that depends on the theme context can easily subscribe to it using the <code>withTheme</code> function we’ve created:</p>
+<p>现在任何依赖于主题context的组件都通过我们创建的<code>withTheme</code>函数可以轻松的使用它。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Button</span><span class="params">(&#123;theme, <span class="rest_arg">...rest</span>&#125;)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;button className=&#123;theme&#125; &#123;...rest&#125; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ThemedButton = withTheme(Button);</span><br></pre></td></tr></table></figure>
+<h4 id="Forwarding-Refs-to-Context-Consumers"><a href="#Forwarding-Refs-to-Context-Consumers" class="headerlink" title="Forwarding Refs to Context Consumers"></a><a name="forwarding-refs-to-context-consumers">Forwarding Refs to Context Consumers</a></h4><p>One issue with the render prop API is that refs don’t automatically get passed to wrapped elements. To get around this, use <code>React.forwardRef</code>:</p>
+<p>render prop API的一个问题是refs不会自动传递给子元素。要解决此问题，请使用<code>React.forwardRef</code>：</p>
+<h5 id="fancy-button-js"><a href="#fancy-button-js" class="headerlink" title="fancy-button.js"></a>fancy-button.js</h5><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FancyButton</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  focus() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use context to pass the current "theme" to FancyButton.</span></span><br><span class="line"><span class="comment">// Use forwardRef to pass refs to FancyButton as well.</span></span><br><span class="line">export <span class="keyword">default</span> <span class="type">React</span>.forwardRef((props, ref) =&gt; (</span><br><span class="line">  &lt;<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span><br><span class="line">    &#123;theme =&gt; (</span><br><span class="line">      &lt;<span class="type">FancyButton</span> &#123;...props&#125; theme=&#123;theme&#125; ref=&#123;ref&#125; /&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">  &lt;/<span class="type">ThemeContext</span>.<span class="type">Consumer</span>&gt;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
+<h5 id="app-js-2"><a href="#app-js-2" class="headerlink" title="app.js"></a>app.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> FancyButton <span class="keyword">from</span> <span class="string">'./fancy-button'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ref = React.createRef();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Our ref will point to the FancyButton component,</span></span><br><span class="line"><span class="comment">// And not the ThemeContext.Consumer that wraps it.</span></span><br><span class="line"><span class="comment">// This means we can call FancyButton methods like ref.current.focus()</span></span><br><span class="line">&lt;FancyButton ref=&#123;ref&#125; onClick=&#123;handleClick&#125;&gt;</span><br><span class="line">  Click me!</span><br><span class="line">&lt;<span class="regexp">/FancyButton&gt;;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Caveats"><a href="#Caveats" class="headerlink" title="Caveats"></a><a name="caveats">Caveats</a></h3><p>Because context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider’s parent re-renders. For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for <code>value</code>:</p>
+<p>因为上下文使用引用参考标识符来确定何时重新渲染，所以当Provider的父级重新渲染时，使用者可能会触发一些无意的渲染。例如，下面的代码将在每次Provider重新渲染时重新呈现所有使用者，因为始终会为<code>value</code>创建新对象：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;<span class="type">Provider</span> value=&#123;&#123;something: <span class="symbol">'somethin</span>g'&#125;&#125;&gt;</span><br><span class="line">        &lt;<span class="type">Toolbar</span> /&gt;</span><br><span class="line">      &lt;/<span class="type">Provider</span>&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To get around this, lift the value into the parent’s state:</p>
+<p>为了解决此问题，将value放在父组件的state中：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      value: &#123;something: <span class="symbol">'somethin</span>g'&#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;<span class="type">Provider</span> value=&#123;<span class="keyword">this</span>.state.value&#125;&gt;</span><br><span class="line">        &lt;<span class="type">Toolbar</span> /&gt;</span><br><span class="line">      &lt;/<span class="type">Provider</span>&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###<a name="legacy-api">Legacy API</a></p>
+<blockquote>
+<p>Note<br>React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the <a href="https://reactjs.org/docs/legacy-context.html" target="_blank" rel="noopener">legacy context docs here</a>.</p>
+<p>注意：<br>之前版本的React附带有实验context的API。所有16.x版本都支持旧的API，但应用程序应当使用新版本的API。 遗留API将在未来的主版本的React中删除。您可以在[此处阅读旧版<a href="https://reactjs.org/docs/legacy-context.html" target="_blank" rel="noopener">context文档</a>。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/07/02/react/03.Advanced_Guides/03.Context/" title="03.Advanced Guides -- 03.Context">www.lpldplws.cn/2018/07/02/react/03.Advanced_Guides/03.Context/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react-document/" rel="tag"># react document</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/30/react/03.Advanced_Guides/02.Code_Spliting/" rel="next" title="03.Advanced Guides -- 02.Code-Splitting">
+                <i class="fa fa-chevron-left"></i> 03.Advanced Guides -- 02.Code-Splitting
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-上下文"><span class="nav-number">1.</span> <span class="nav-text">Context(上下文)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#When-to-Use-Context-什么时候使用上下文"><span class="nav-number">1.1.</span> <span class="nav-text">When to Use Context(什么时候使用上下文)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-createContext"><span class="nav-number">1.2.1.</span> <span class="nav-text">React.createContext</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provider"><span class="nav-number">1.3.</span> <span class="nav-text">Provider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consumer"><span class="nav-number">1.4.</span> <span class="nav-text">Consumer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">1.5.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Context（动态上下文）"><span class="nav-number">1.5.1.</span> <span class="nav-text">Dynamic Context（动态上下文）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#theme-context-js"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">theme-context.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#themed-button-js"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">themed-button.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-js"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">app.js</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Updating-Context-from-a-Nested-Component（从一个嵌套的组件里更新上下文）"><span class="nav-number">1.5.2.</span> <span class="nav-text">Updating Context from a Nested Component（从一个嵌套的组件里更新上下文）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#theme-context-js-1"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">theme-context.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#theme-toggler-button-js"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">theme-toggler-button.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-js-1"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">app.js</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consuming-Multiple-Contexts"><span class="nav-number">1.5.3.</span> <span class="nav-text">Consuming Multiple Contexts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accessing-Context-in-Lifecycle-Methods"><span class="nav-number">1.5.4.</span> <span class="nav-text">Accessing Context in Lifecycle Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consuming-Context-with-a-HOC"><span class="nav-number">1.5.5.</span> <span class="nav-text">Consuming Context with a HOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Forwarding-Refs-to-Context-Consumers"><span class="nav-number">1.5.6.</span> <span class="nav-text">Forwarding Refs to Context Consumers</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#fancy-button-js"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">fancy-button.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#app-js-2"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">app.js</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caveats"><span class="nav-number">1.6.</span> <span class="nav-text">Caveats</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "topRight";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "topRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
