@@ -4778,3 +4778,5 @@
 {"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":621,"level":40,"msg":"===============================================================","time":"2018-07-05T04:44:07.654Z","v":0}
 {"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":621,"level":20,"msg":"Rendering page: \u001b[35mcategories/index.html\u001b[39m","time":"2018-07-05T04:44:18.862Z","v":0}
 {"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":621,"level":20,"msg":"Rendering category: \u001b[35mcategories/react-document/index.html\u001b[39m","time":"2018-07-05T04:44:28.738Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":621,"level":30,"msg":"Have a nice day","time":"2018-07-05T05:02:05.529Z","v":0}
+{"name":"hexo","hostname":"chanpindeMacBook-Pro.local","pid":621,"level":20,"msg":"Database saved","time":"2018-07-05T05:02:05.688Z","v":0}
