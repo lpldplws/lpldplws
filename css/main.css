@@ -445,7 +445,7 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: calc(100% - 252px);
+  width: calc(100% - 180px);
 }
 @media (min-width: 1600px) {
   .container .header-inner {
@@ -457,7 +457,7 @@ body {
 }
 .main-inner {
   margin: 0 auto;
-  width: calc(100% - 252px);
+  width: calc(100% - 180px);
 }
 @media (min-width: 1600px) {
   .container .main-inner {
@@ -474,7 +474,7 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: calc(100% - 252px);
+  width: calc(100% - 180px);
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
@@ -1168,7 +1168,7 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .site-nav {
     display: none;
-    margin: 0 -10px;
+    margin: 0 30px;
     padding: 0 10px;
     clear: both;
     border-top: 1px solid #ddd;
@@ -1609,7 +1609,7 @@ pre .javascript .function {
 }
 .posts-expand .post-eof {
   display: block;
-  margin: 80px auto 60px;
+  margin: 40px auto 30px;
   width: 8%;
   height: 1px;
   background: #ccc;
@@ -1830,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d942f6;
+  background: #ff5c4a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1949,6 +1949,30 @@ pre .javascript .function {
 }
 .post-toc .nav .active-current > a:hover {
   color: #fc6423;
+}
+.meplayer-container {
+  margin-top: 35px;
+}
+.meplayer-meta {
+  margin-left: 100px;
+}
+.meplayer-meta-title {
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
+.meplayer-meta-author {
+  margin-top: 0px;
+}
+.meplayer-lyric {
+  top: 50%;
+  left: 75%;
+  width: 120px;
+  height: 100%;
+  margin-top: -45px;
+  margin-left: -120px;
+}
+.meplayer-control-play {
+  top: 20px;
 }
 .footer {
   font-size: 14px;
@@ -2613,14 +2637,15 @@ pre .javascript .function {
   top: 0;
   overflow: hidden;
   padding: 0;
-  width: 240px;
+  width: 312px;
+  margin-left: -40px;
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   border-radius: initial;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 240px;
+    width: 312px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2672,7 +2697,8 @@ pre .javascript .function {
   float: right;
   box-sizing: border-box;
   padding: 40px;
-  width: calc(100% - 252px);
+  width: calc(100% - 180px);
+  margin-right: -110px;
   background: #fff;
   min-height: 700px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
@@ -2828,7 +2854,7 @@ pre .javascript .function {
   background-color: #fff;
 }
 .site-nav-toggle {
-  left: 20px;
+  left: 60px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -2853,7 +2879,8 @@ pre .javascript .function {
 }
 .sidebar-inner {
   box-sizing: border-box;
-  width: 240px;
+  width: 312px;
+  margin-left: -40px;
   color: #555;
   background: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
@@ -2893,6 +2920,7 @@ pre .javascript .function {
 .links-of-author-item a {
   border-bottom: none;
   text-decoration: underline;
+  text-align: center;
 }
 .feed-link {
   border-top: 1px dotted #ccc;
@@ -2948,7 +2976,7 @@ pre .javascript .function {
 }
 .links-of-blogroll {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 45px;
   padding: 3px 0 0;
   border-top: 1px dotted #ccc;
 }
@@ -2988,6 +3016,7 @@ pre .javascript .function {
   background: initial;
   box-shadow: initial;
   border-radius: initial;
+  margin-right: -110px;
 }
 .post-block {
   padding: 40px;
@@ -3071,6 +3100,7 @@ pre .javascript .function {
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
     padding: 10px;
+    margin-right: 0px;
   }
   .posts-expand {
     margin: initial;
@@ -3097,6 +3127,7 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .content-wrap {
     padding: 8px;
+    margin-right: 0px;
   }
   .posts-expand {
     margin: initial;
