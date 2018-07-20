@@ -22,6 +22,23 @@
   <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
 
 
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
 
 
 
@@ -459,7 +476,8 @@
           正则的扩展1.RegExp 构造函数在 ES5 中，RegExp构造函数的参数有两种情况。
 第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。
 123var regex = new RegExp('xyz', 'i');// 等价于var regex = /xyz/i;
-
+第二种情况是，参数是一个正则表示式，这时会返回一个原有正则表达式的拷贝。
+123var regex 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -631,7 +649,8 @@
           字符串的扩展ES6 加强了对 Unicode 的支持，并且扩展了字符串对象。
 1.字符的 Unicode 表示法JavaScript 允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的 Unicode 码点。
 12"\u0061"// "a"
-但是，这种表示法只限于码点在\u0000~\u
+但是，这种表示法只限于码点在\u0000~\uFFFF之间的字符。超出这个范围的字符，必须用两个双字节的形式表示。
+12345"\uD842\uD
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -804,7 +823,9 @@
 以前，为变量赋值，只能直接指定值。
 123let a = 1;let b = 2;let c = 3;
 ES6 允许写成下面这样。
-1let [a, 
+1let [a, b, c] = [1, 2, 3];
+上面代码表示，可以从数组中提取值，按照对应位置，对变量赋值。
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -974,7 +995,8 @@ ES6 允许写成下面这样。
         
           
           Let 和 Const 命令1. Let 命令基本用法:ES6 新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
-1234567&#123;  let a = 10;  var b = 1;&#125;a // ReferenceError:
+1234567&#123;  let a = 10;  var b = 1;&#125;a // ReferenceError: a is not defined.b // 1
+上面代码在代码块之中，分别用let和var声明了两
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1145,7 +1167,7 @@ ES6 允许写成下面这样。
           
           ECMAScript 6 简介ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
 
-1.ECMAScript 和 Java
+1.ECMAScript 和 JavaScript 的关系一个常见的问题是，ECMAScript 和 JavaScript 到底是什么关系
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1315,7 +1337,9 @@ ES6 允许写成下面这样。
         
           
           Handling Events(处理事件)Handling events with React elements is very similar to handling events on DOM elements. There are some syntactic differences:
-用Re
+用React元素处理事件与在DOM元素上处理事件非常相似。这里有一些语法不同：
+
+React events
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1486,7 +1510,9 @@ ES6 允许写成下面这样。
           
           State and LifecycleConsider the ticking clock example from one of the previous sections.
 考虑在前几章节中涉及到的秒钟案例。
-So far we have only learned one way to upda
+So far we have only learned one way to update the UI.
+直到现在，我们都只学了一种更新UI的方法。
+We call ReactDOM.
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1656,7 +1682,9 @@ So far we have only learned one way to upda
         
           
           git problem – git&amp;gerrit邮箱不匹配Git邮箱不匹配问题 does not match your user account
-在活动比较多，使用分支开发的时候，从远端拉取分支，在完成fetch-&gt;rebase-&gt;修改代码以后，执行gerrit push指令时，
+在活动比较多，使用分支开发的时候，从远端拉取分支，在完成fetch-&gt;rebase-&gt;修改代码以后，执行gerrit push指令时，提示用户信息不匹配。类似于下图所示：
+
+123remote: ERROR:  In commit 0
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1826,7 +1854,8 @@ So far we have only learned one way to upda
         
           
           Components and PropsComponents let you split the UI into independent, reusable pieces, and think about each piece in isolation.
-组件可以让您将用户界面分成独立的，可重复使用
+组件可以让您将用户界面分成独立的，可重复使用的部分，并且每一部分都相互独立。
+Conceptually, components are like
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1997,7 +2026,9 @@ So far we have only learned one way to upda
           
           Rendering ElementsElements are the smallest building blocks of React apps.
 元素是React 应用中最小的构建组块。
-An element describes what you want to see on the scree
+An element describes what you want to see on the screen:
+以下是一个描述了您在在屏幕上想看到的元素：
+1const element = &lt;h1&g
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2143,6 +2174,25 @@ An element describes what you want to see on the scree
             </div>
           
           
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
           
 
           
@@ -2204,7 +2254,6 @@ An element describes what you want to see on the scree
           
 
         </div>
-      </section>
 
       
 

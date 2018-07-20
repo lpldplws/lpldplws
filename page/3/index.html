@@ -22,6 +22,23 @@
   <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
 
 
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
 
 
 
@@ -459,7 +476,8 @@
           Introducing JSXConsider this variable declaration:
 考虑以下变量声明：
 1const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
-This funny tag syntax is neither a s
+This funny tag syntax is neither a string nor HTML.
+It is called JSX, and it is a synt
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -628,7 +646,7 @@ This funny tag syntax is neither a s
       
         
           
-          Hello WorldThe easiest way to get started with React is to use this Hello World example code on CodePen. You don’t need to install anything; you can j
+          Hello WorldThe easiest way to get started with React is to use this Hello World example code on CodePen. You don’t need to install anything; you can just open it in another tab and follow along as we 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -799,7 +817,7 @@ This funny tag syntax is neither a s
           
           CDN Links(CDN链接)The UMD builds of React and ReactDOM are available over a CDN.
 React和ReactDOM的UMD版本可通过CDN获得。
-12&lt;script crossorigin src="https://unp
+12&lt;script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"&gt;&lt;/
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -970,7 +988,7 @@ React和ReactDOM的UMD版本可通过CDN获得。
           
           Add React to an Existing Application(在一个已存的项目中添加React)You don’t need to rewrite your app to start using React.
 您不必重写您的应用程序来开始使用React
-We recommend addi
+We recommend adding React to a small part of your application, such
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1140,7 +1158,9 @@ We recommend addi
         
           
           Add React to a New Application(在一个新的应用上添加React)The easiest way to get started on a new React project is by using a starter kit.
-最简单的开始一个新的React项目的方式是使
+最简单的开始一个新的React项目的方式是使用一个入门套件。
+
+Note:This page describes setting up a si
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1311,7 +1331,7 @@ We recommend addi
           
           Try React(尝试使用React)Try React online or set up your local development environment.
 设置在线的react或您本地的react环境。
-Online(在线)If you’re just interested in play
+Online(在线)If you’re just interested in playing around with React, you can use an online code 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1480,7 +1500,9 @@ Online(在线)If you’re just interested in play
       
         
           
-          JavaScript对象与继承–单一对象说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的
+          JavaScript对象与继承–单一对象说真的，这次的博客我写了三个小时硬是一点都没写出来，洋洋洒洒把自己最近的心情写了1000多字，但是感觉自己太幼稚，又删了;然后打算写大三时候给前女友写的主界面和音乐播放器，想了想，算了吧，往事随风，又删了，现在两手空空，然后纠结了半个小时，只能是写写无关痛痒的问题。
+哈哈哈在一小时后我终于找到了这个比较符合我的情况的内容哈哈哈
+原文在Objects and 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1651,7 +1673,7 @@ Online(在线)If you’re just interested in play
           
           Javascript闭包及相关问题基本概念：闭包是指有权访问另一个函数作用域中的变量的函数。
 当某个函数第一次被调用时，会创建一个执行环境及相应的作用域链，并把作用域链赋值给一个特殊的内部属性[[scope]]。然后使用this，arguments和其他的值初始化函数的活动对象。
-123456789
+12345678910function compare(value1, value2) &#123;    if(va
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1821,7 +1843,9 @@ Online(在线)If you’re just interested in play
         
           
           JavaScrip学习笔记（1）JavaScript函数表达式和函数声明首先，来了解一下函数表达式和函数声明：
-在ECMAScript中，创建函数的最常用的两个方法是函数表达式和函数声明，两者还是有一定的区别，在ECMA规范中提到：函数声明必须带有标示符（Identifier）（就是大家常说的函数名
+在ECMAScript中，创建函数的最常用的两个方法是函数表达式和函数声明，两者还是有一定的区别，在ECMA规范中提到：函数声明必须带有标示符（Identifier）（就是大家常说的函数名称），而函数表达式则可以省略这个标示符，即：
+函数声明:
+function 函数名称 (参数：可选)
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1992,7 +2016,7 @@ Online(在线)If you’re just interested in play
           
           2.5~2.9所遇问题一.开发所遇问题在这次开发过程中，是真正自己做的第一个迭代版本，在开发中主要遇到的问题有：从理清思路到代码的实现；代码的格式规范与模块化；如何与后台人员沟通好。
 1.从理清思路到代码的实现
-这部分内容主要是因为自己以前写的代码只考虑到最后呈现的效果，没有具体深入探讨如何高效的写
+这部分内容主要是因为自己以前写的代码只考虑到最后呈现的效果，没有具体深入探讨如何高效的写代码，拿生庆哥的话讲就是：没有真正明白要做什么。这个做什么不仅仅是你要实现的效果是什么，还包括你对整
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2138,6 +2162,25 @@ Online(在线)If you’re just interested in play
             </div>
           
           
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
           
 
           
@@ -2199,7 +2242,6 @@ Online(在线)If you’re just interested in play
           
 
         </div>
-      </section>
 
       
 

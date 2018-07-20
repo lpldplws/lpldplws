@@ -22,6 +22,23 @@
   <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
 
 
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
 
 
 
@@ -456,7 +473,7 @@
       
         
           
-          Error Boundaries(错误边界)In the past, JavaScript errors inside components used to corrupt React’s internal state and cause it to emit cryptic errors on n
+          Error Boundaries(错误边界)In the past, JavaScript errors inside components used to corrupt React’s internal state and cause it to emit cryptic errors on next renders. These errors were always caused by an
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -626,7 +643,9 @@
         
           
           Context(上下文)
-Context provides a way to pass data through the component tree without having to pass props down manually at every level.Context提供了一种通过组件
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.Context提供了一种通过组件树传递数据的方法，而无需在每层组件之间手动传递props。
+
+In a typical React 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -795,7 +814,7 @@ Context provides a way to pass data through the component tree without having to
       
         
           
-          Code-Splitting(代码拆分)Bundling(打包)Most React apps will have their files “bundled” using tools like Webpack or Browserify. Bundling is the process of fol
+          Code-Splitting(代码拆分)Bundling(打包)Most React apps will have their files “bundled” using tools like Webpack or Browserify. Bundling is the process of following imported files and merging them into a sing
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -964,7 +983,7 @@ Context provides a way to pass data through the component tree without having to
       
         
           
-          Accessibility(可访问性)Why Accessibility?(为什么要考虑可访问性？)Web accessibility (also referred to as a11y) is the design and creation of websites that can be used
+          Accessibility(可访问性)Why Accessibility?(为什么要考虑可访问性？)Web accessibility (also referred to as a11y) is the design and creation of websites that can be used by everyone. Accessibility support is necessary t
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1135,7 +1154,8 @@ Context provides a way to pass data through the component tree without having to
           
           react组件之间的通信说 React 组件间通讯之前，我们先来讨论一下 React 组件究竟有多少种层级间的关系。假设我们开发的项目是一个纯 React 的项目，那我们项目应该有如下类似的关系：
 
-父子：Parent 与 Child_1、Child_2、Child_1_1、Child_1_2、Ch
+父子：Parent 与 Child_1、Child_2、Child_1_1、Child_1_2、Child_2_1
+兄弟：Child_1 与 Child_2、Child_1_1 与 Child_2、e
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1304,7 +1324,8 @@ Context provides a way to pass data through the component tree without having to
       
         
           
-          Symbol概 述ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6
+          Symbol概 述ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入Symbol的原因。
+ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1473,7 +1494,8 @@ Context provides a way to pass data through the component tree without having to
       
         
           
-          对象的扩展1.属性的简洁表示法 ES6 允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。    123456const foo = 'bar';const baz = &#123;foo&#125;;baz // &#123;foo: "bar"&#125;// 等同于const 
+          对象的扩展1.属性的简洁表示法 ES6 允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。    123456const foo = 'bar';const baz = &#123;foo&#125;;baz // &#123;foo: "bar"&#125;// 等同于const baz = &#123;foo: foo&#125;;
+上面代码表明，ES6 允许在对象之中，直接写
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1643,7 +1665,7 @@ Context provides a way to pass data through the component tree without having to
         
           
           数组的扩展1.扩展运算符含义扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
-12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3
+12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...document.querySelectorAll('div')]// [&lt;d
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1813,7 +1835,7 @@ Context provides a way to pass data through the component tree without having to
         
           
           函数的扩展1.函数的扩展基本用法ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法。
-12345678function log(x, y) &#123;  y = y || 'World';  console.log(x, y);&#125;log('Hello') // Hello 
+12345678function log(x, y) &#123;  y = y || 'World';  console.log(x, y);&#125;log('Hello') // Hello Worldlog('Hello', 'China') // Hello Chinalog('Hell
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1984,7 +2006,8 @@ Context provides a way to pass data through the component tree without having to
           
           数值的扩展1.二进制和八进制表示法ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。
 120b111110111 === 503 // true0o767 === 503 // true
-从 ES5 开始，在严格模式之中，八进制就不再允许使用前缀0表示，ES6
+从 ES5 开始，在严格模式之中，八进制就不再允许使用前缀0表示，ES6 进一步明确，要使用前缀0o表示。
+12345678910// 非严格模式(function()&#
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2130,6 +2153,25 @@ Context provides a way to pass data through the component tree without having to
             </div>
           
           
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
           
 
           
@@ -2191,7 +2233,6 @@ Context provides a way to pass data through the component tree without having to
           
 
         </div>
-      </section>
 
       
 

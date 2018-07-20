@@ -22,6 +22,23 @@
   <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
 
 
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
 
 
 
@@ -458,6 +475,10 @@
           
           Problem 23.Missing NumberGiven an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.
 Example 1
+
+Input: [3,0,1]Output: 2
+
+Example 2Input: [9,6,4,
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -627,7 +648,13 @@ Example 1
         
           
           Problem 22.Maximum Product of Three NumbersGiven an integer array, find three numbers whose product is maximum and output the maximum product.
-Example
+Example 1:
+
+Input: [1,2,3]Output: 6
+
+Example 2:
+
+Input: [
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -796,7 +823,7 @@ Example
       
         
           
-          Problem 21. Image SmootherGiven a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of
+          Problem 21. Image SmootherGiven a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (roundin
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -965,7 +992,7 @@ Example
       
         
           
-          Problem 20:Contains DuplicateGiven an array of integers, find if the array contains any duplicates. Your function should return true if any value appe
+          Problem 20:Contains DuplicateGiven an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should ret
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1134,7 +1161,8 @@ Example
       
         
           
-          Problem 19: Degree of an ArrayGiven a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of a
+          Problem 19: Degree of an ArrayGiven a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.
+Your task is to find the s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1303,7 +1331,8 @@ Example
       
         
           
-          Problem 18: Two Sum II - Input array is sortedGiven an array of integers that is already sorted in ascending order, find two numbers such that they ad
+          Problem 18: Two Sum II - Input array is sortedGiven an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+The function two
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1472,7 +1501,8 @@ Example
       
         
           
-          Problem 17: Majority ElementGiven an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ ti
+          Problem 17: Majority ElementGiven an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty an
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1642,7 +1672,7 @@ Example
         
           
           Problem 16: Best Time to Buy and Sell Stock IISay you have an array for which the ith element is the price of a given stock on day i.
-Design an algori
+Design an algorithm to find the maximum profit. You may complete a
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1811,7 +1841,8 @@ Design an algori
       
         
           
-          Problem 15: 1-bit and 2-bit CharactersWe have two special characters. The first character can be represented by one bit 0. The second character can be
+          Problem 15: 1-bit and 2-bit CharactersWe have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
+Now given a s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1980,7 +2011,8 @@ Design an algori
       
         
           
-          Problem 14: Move ZeroesGiven an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero ele
+          Problem 14: Move ZeroesGiven an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12],
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2126,6 +2158,25 @@ Design an algori
             </div>
           
           
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
           
 
           
@@ -2187,7 +2238,6 @@ Design an algori
           
 
         </div>
-      </section>
 
       
 

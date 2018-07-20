@@ -22,6 +22,23 @@
   <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
 
 
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
 
 
 
@@ -456,7 +473,8 @@
       
         
           
-          Problem 13: Find All Numbers Disappeared in an ArrayGiven an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and 
+          Problem 13: Find All Numbers Disappeared in an ArrayGiven an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -625,7 +643,7 @@
       
         
           
-          Problem 12: Max Area of IslandGiven a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionall
+          Problem 12: Max Area of IslandGiven a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all fou
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -794,7 +812,8 @@
       
         
           
-          Problem 11: Shortest Word DistanceGiven a list of words and two words word1 and word2, return the shortest distance between these two words in the lis
+          Problem 11: Shortest Word DistanceGiven a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+For example,Assume that words = [&quot;practice
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -966,7 +985,7 @@
           Problem 10: Max Consecutive OnesGiven a binary array, find the maximum number of consecutive 1s in this array.
 Example 1:
 
-Input: [1,1,0,1,1,1]Output:
+Input: [1,1,0,1,1,1]Output: 3Explanation: The first two digits or the last th
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1135,7 +1154,8 @@ Input: [1,1,0,1,1,1]Output:
       
         
           
-          Problem 9:Reshape the MatrixIn MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size
+          Problem 9:Reshape the MatrixIn MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data.
+You’re given a matrix
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1305,7 +1325,8 @@ Input: [1,1,0,1,1,1]Output:
         
           
           Problem 8: Toeplitz MatrixA matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.
-Now given an M x N matrix, return
+Now given an M x N matrix, return True if and only if the matrix is Toeplitz.
+Examp
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1474,7 +1495,7 @@ Now given an M x N matrix, return
       
         
           
-          Problem 7:Array Partition IGiven an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an
+          Problem 7:Array Partition IGiven an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i fro
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1645,7 +1666,8 @@ Now given an M x N matrix, return
           
           1.22~1.26所遇问题1.导入css文件时，import和link的区别
 &lt;link&gt;标签是html标签，除了可以引入CSS之外还可以定义RSS，定义rel属性等，而@import只能引入CSS样式；
-&lt;link&gt;标签引用的CSS文件会在页面加载时与html同时加载，而@
+&lt;link&gt;标签引用的CSS文件会在页面加载时与html同时加载，而@import引入的CSS文件会等页面全部加载完以后再加载；
+@import标签必须放在页面样式表的顶
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1815,7 +1837,7 @@ Now given an M x N matrix, return
         
           
           Problem six: Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
-Once you pay the cost, you
+Once you pay the cost, you can either climb one or two steps. You need to fi
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1985,7 +2007,7 @@ Once you pay the cost, you
         
           
           Problem five: Largest Number At Least Twice of OthersIn a given integer array nums, there is always exactly one largest element.
-Find whether the larg
+Find whether the largest element in the array is at least twice as much
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2131,6 +2153,25 @@ Find whether the larg
             </div>
           
           
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
           
 
           
@@ -2192,7 +2233,6 @@ Find whether the larg
           
 
         </div>
-      </section>
 
       
 
