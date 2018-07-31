@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetCode String -- 3.Judge Route Circle]]></title>
+    <url>%2F2018%2F07%2F31%2FleetCode%2Fstring%2F03.judge_route_circle%2F</url>
+    <content type="text"><![CDATA[Judge Route CircleInitially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle. Example 1:Input: “UD”Output: true Example 2:input: “LL”Output: false solution： 1.定义一个对象，保存四个方向的值，只要左右，上下对应相等即可： 123456789101112131415161718/** * @param &#123;string&#125; moves * @return &#123;boolean&#125; */var judgeCircle = function(moves) &#123; let storage = &#123; R: 0, L: 0, U: 0, D: 0 &#125; for (var i in moves) &#123; storage[moves[i]] += 1; &#125; return (storage['R'] == storage['L'] &amp;&amp; storage['U'] === storage['D'])&#125;; 2.这道题的思想大体类似，选择switch进行判断： 1234567891011121314151617181920212223242526var judgeCircle = function(moves) &#123; let start = [0, 0] for (let i = 0; i &lt; moves.length; i++) &#123; switch (moves[i]) &#123; case 'U': start = [start[0], start[1] + 1] break case 'D': start = [start[0], start[1] - 1] break case 'L': start = [start[0] - 1, start[1]] break case 'R': start = [start[0] + 1, start[1]] break &#125; &#125; if (start.join('') === '00') &#123; return true &#125; else &#123; return false &#125;&#125;;]]></content>
+      <categories>
+        <category>leetCode</category>
+      </categories>
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetCode String -- 2.Unique Morse Code Words]]></title>
+    <url>%2F2018%2F07%2F31%2FleetCode%2Fstring%2F02.unique_morse_code_words%2F</url>
+    <content type="text"><![CDATA[Unique Morse Code WordsInternational Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on. For convenience, the full table for the 26 letters of the English alphabet is given below: 1[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."] Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cab” can be written as “-.-.-….-“, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word. Return the number of different transformations among all words we have. Example:Input: words = [“gin”, “zen”, “gig”, “msg”]Output: 2Explanation:The transformation of each word is:“gin” -&gt; “–…-.”“zen” -&gt; “–…-.”“gig” -&gt; “–…–.”“msg” -&gt; “–…–.” There are 2 different transformations, “–…-.” and “–…–.”. Note:The length of words will be at most 100.Each words[i] will have length in range [1, 12].words[i] will only consist of lowercase letters. solution： 1.使用map 和set一一对应，代码如下： 12345678910111213141516/*** @param &#123;string[]&#125; words* @return &#123;number&#125;*/const letters = 'abcdefghijklmnopqrstuvwxyz';const morseCode = ['.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..'];const mapMorse = new Map(morseCode.map((code, index) =&gt; [letters[index], code]));var uniqueMorseRepresentations = function(words) &#123; const transformations = new Set(); words.forEach((w) =&gt; &#123; transformations.add(w.split('').map( l =&gt; mapMorse.get(l)).join('')); &#125;); return transformations.size;&#125;; 2.在学习其他人的代码时，看到了一个比较厉害的例子，一行搞定： 12345678/** * @param &#123;string[]&#125; words * @return &#123;number&#125; */var uniqueMorseRepresentations = function(words) &#123; return new Set(words.map(word =&gt; [...word].map(val =&gt; [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."].slice(val.charCodeAt(0) - 'a'.charCodeAt(0), val.charCodeAt(0) - 'a'.charCodeAt(0) + 1)).join(''))).size&#125;; 也就是： 1234let uniqueMorseRepresentations = function (words) &#123; let code = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."]; return new Set(words.map(word =&gt; [...word].map(val =&gt; code[val.charCodeAt(0) - 'a'.charCodeAt(0)]).join(''))).size&#125;; mark一下。]]></content>
+      <categories>
+        <category>leetCode</category>
+      </categories>
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetCode String -- 1.To Lower Case]]></title>
+    <url>%2F2018%2F07%2F31%2FleetCode%2Fstring%2F01.to_lower_case%2F</url>
+    <content type="text"><![CDATA[To Lower CaseImplement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase. Example 1: Input: “Hello”Output: “hello” Example 2: Input: “here”Output: “here” Example 3: Input: “LOVELY”Output: “lovely” solution： 直接想到的办法就是使用js的toLowerCase()： 1234567/** * @param &#123;string&#125; str * @return &#123;string&#125; */var toLowerCase = function(str) &#123; return str.toLowerCase();&#125;; 第二种是拆分当前字符串，根据ASCII码判断是否是大写字母，是的话转为小写： 12345678910/** * @param &#123;string&#125; str * @return &#123;string&#125; */var toLowerCase = function(str) &#123; return str.split("").map((code) =&gt; &#123; const unicode = code.charCodeAt(0); return unicode &gt;= 65 &amp;&amp; unicode &lt;= 90 ? String.fromCharCode(unicode + 32) : code &#125;).join("")&#125;;]]></content>
+      <categories>
+        <category>leetCode</category>
+      </categories>
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[07.classes]]></title>
     <url>%2F2018%2F07%2F31%2FpureMaterial%2F07.classes%2F</url>
     <content type="text"><![CDATA[What do you mean; classes in JavaScript?JavaScript is a prototype-based language, so what are ES6 classes really? They’re syntactic sugar on top of prototypical inheritance – a device to make the language more inviting to programmers coming from other paradigms who might not be all that familiar with prototype chains. Many features in ES6 (such as destructuring) are, in fact, syntactic sugar – and classes are no exception. I like to clarify this because it makes it much easier to understand the underlying technology behind ES6 classes. There is no huge restructuring of the language, they just made it easier for people used to classes to leverage prototypal inheritance. While I may dislike the term “classes” for this particular feature, I have to say that the syntax is in fact much easier to work with than regular prototypal inheritance syntax in ES5, and that’s a win for everyone – regardless of them being called classes or not. Now that that’s out of the way, I’ll assume you understand prototypal inheritance – just because you’re reading a blog about JavaScript. Here’s how you would describe a Car that can be instantiated, fueled up, and move. 12345678910111213141516171819function Car () &#123; this.fuel = 0; this.distance = 0;&#125;Car.prototype.move = function () &#123; if (this.fuel &lt; 1) &#123; throw new RangeError('Fuel tank is depleted') &#125; this.fuel-- this.distance += 2&#125;Car.prototype.addFuel = function () &#123; if (this.fuel &gt;= 60) &#123; throw new RangeError('Fuel tank is full') &#125; this.fuel++&#125; To move the car, you could use the following piece of code. 12345var car = new Car()car.addFuel()car.move()car.move()// &lt;- RangeError: 'Fuel tank is depleted' Neat. What about with ES6 classes? The syntax is very similar to declaring an object, except we precede it with class Name, where Name is the name for our class. Here we are leveraging the method signature notation we covered yesterday to declare the methods using a shorter syntax. The constructor is just like the constructor method in ES5, so you can use that to initialize any variables your instances may have. 12345678910111213141516171819class Car &#123; constructor () &#123; this.fuel = 0 this.distance = 0 &#125; move () &#123; if (this.fuel &lt; 1) &#123; throw new RangeError('Fuel tank is depleted') &#125; this.fuel-- this.distance += 2 &#125; addFuel () &#123; if (this.fuel &gt;= 60) &#123; throw new RangeError('Fuel tank is full') &#125; this.fuel++ &#125;&#125; In case you haven’t noticed, and for some obscure reason that escapes me, commas are invalid in-between properties or methods in a class, as opposed to object literals where commas are (still) mandatory. That discrepancy is bound to cause headaches to people trying to decide whether they want a plain object literal or a class instead, but the code does look sort of cleaner without the commas here. Many times “classes” have static methods. Think of your friend the Array for example. Arrays have instance methods like .filter, .reduce, and .map. The Array “class” itself has static methods as well, like Array.isArray. In ES5 code, it’s pretty easy to add these kind of methods to our Car “class”. 123456function Car () &#123; this.topSpeed = Math.random()&#125;Car.isFaster = function (left, right) &#123; return left.topSpeed &gt; right.topSpeed&#125; In ES6 class notation, we can use precede our method with static, following a similar syntax as that of get and set. Again, just sugar on top of ES5, as it’s quite trivial to transpile this down into ES5 notation. 12345678class Car &#123; constructor () &#123; this.topSpeed = Math.random() &#125; static isFaster (left, right) &#123; return left.topSpeed &gt; right.topSpeed &#125;&#125; One sweet aspect of ES6 class sugar is that you also get an extends keyword that enables you to easily “inherit” from other “classes”. We all know Tesla cars move further while using the same amount of fuel, thus the code below shows how Tesla extends Car and “overrides” (a concept you might be familiar with if you’ve ever played around with C#.aspx)) the move method to cover a larger distance. 123456class Tesla extends Car &#123; move () &#123; super.move() this.distance += 4 &#125;&#125; The special super keyword identifies the Car class we’ve inherited from – and since we’re speaking about C#, it’s akin to base. It’s raison d’être is that most of the time we override a method by re-implementing it in the inheriting class, – Tesla in our example – we’re supposed to call the method on the base class as well. This way we don’t have to copy logic over to the inheriting class whenever we re-implement a method. That’d be particularly lousy since whenever a base class changes we’d have to paste their logic into every inheriting class, turning our codebase into a maintainability nightmare. If you now did the following, you’ll notice the Tesla car moves two places because of base.move(), which is what every regular car does as well, and it moves an additional four places because Tesla is just that good. 12345var car = new Tesla()car.addFuel()car.move()console.log(car.distance)// &lt;- 6 The most common thing you’ll have to override is the constructor method. Here you can just call super(), passing any arguments that the base class needs. Tesla cars are twice as fast, so we just call the base Car constructor with twice the advertised speed. 12345678910class Car &#123; constructor (speed) &#123; this.speed = speed &#125;&#125;class Tesla extends Car &#123; constructor (speed) &#123; super(speed * 2) &#125;&#125;]]></content>
@@ -431,189 +464,189 @@
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 23.Missing Number]]></title>
-    <url>%2F2018%2F02%2F02%2FleetCode%2F23.Missing_Number%2F</url>
+    <url>%2F2018%2F02%2F02%2FleetCode%2Farray%2F23.Missing_Number%2F</url>
     <content type="text"><![CDATA[Problem 23.Missing NumberGiven an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array. Example 1 Input: [3,0,1]Output: 2 Example 2Input: [9,6,4,2,3,5,7,0,1]Output: 8 Note:Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity? Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. solution 1.这道题也是比较简单，只要先对数组排好序，然后跟序数进行对比，返回不相等的下标即可。 123456789var missingNumber = function(nums) &#123; nums.sort(function(a,b)&#123;return a-b;&#125;); for (var i = 0; i &lt; nums.length; i++) &#123; if(nums[i] != i) &#123; return i; &#125; &#125; return nums.length;&#125;; 复杂度分析：Time Complexity：O(n2), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 22.Maximum Product of Three Numbers]]></title>
-    <url>%2F2018%2F02%2F02%2FleetCode%2F22.Maximum_Product_of_Three_Numbers%2F</url>
+    <url>%2F2018%2F02%2F02%2FleetCode%2Farray%2F22.Maximum_Product_of_Three_Numbers%2F</url>
     <content type="text"><![CDATA[Problem 22.Maximum Product of Three NumbersGiven an integer array, find three numbers whose product is maximum and output the maximum product. Example 1: Input: [1,2,3]Output: 6 Example 2: Input: [1,2,3,4]Output: 24 Note: The length of the given array will be in range [3,104] and all elements are in the range [-1000, 1000]. Multiplication of any three numbers in the input won’t exceed the range of 32-bit signed integer. solution: 1.因为最短数组长度为3，所以不要考虑数组长度小于3的情况。本题的元素大小可能为负数，若都为正数或都为负数，则取前三个元素，若有正数有负数，通过查资料可以得到，此时3个数之积的最大值为max(第一大数第二大数第三大数， 第一大数最小数倒数第二小数)。这个方法可以记住。 1234var maximumProduct = function(nums) &#123; nums.sort(function(a,b)&#123;return b-a;&#125;); return Math.max(nums[nums.length - 1] * nums[nums.length - 2] * nums[0], nums[0] * nums[1] * nums[2]);&#125;; 复杂度分析：Time Complexity：O(n2), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 21. Image Smoother]]></title>
-    <url>%2F2018%2F02%2F02%2FleetCode%2F21.Image_Smoother%2F</url>
+    <url>%2F2018%2F02%2F02%2FleetCode%2Farray%2F21.Image_Smoother%2F</url>
     <content type="text"><![CDATA[Problem 21. Image SmootherGiven a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (rounding down) of all the 8 surrounding cells and itself. If a cell has less than 8 surrounding cells, then use as many as you can. Example 1: Input:[[1,1,1], [1,0,1], [1,1,1]]Output:[[0, 0, 0], [0, 0, 0], [0, 0, 0]]Explanation:For the point (0,0), (0,2), (2,0), (2,2): floor(3/4) = floor(0.75) = 0For the point (0,1), (1,0), (1,2), (2,1): floor(5/6) = floor(0.83333333) = 0For the point (1,1): floor(8/9) = floor(0.88888889) = 0 Note: The value in the given matrix is in the range of [0, 255]. The length and width of the given matrix are in the range of [1, 150]. solution: 1.这道题想了半天没想出什么好点的方法，就用最笨的方法写了，判断周围八个位置是否正常，如果正常，就计算到总额里并得到平均值。注意，js里不满1会向上取整，所以应该用Math.floor()。代码如下： 123456789101112131415161718192021222324252627282930var imageSmoother = function(M) &#123; var nx = M.length; var ny = M[0].length; var res = new Array(nx); for(var n = 0; n &lt; nx; n++)&#123; res[n] = new Array(ny); &#125; ; for (var i = 0; i &lt; nx; i++) &#123; for (var j = 0; j &lt; ny; j++) &#123; res[i][j] = smooth(M, i, j); &#125; &#125; return res; &#125; var smooth = function(M, x, y) &#123; var nx = M.length; var ny = M[0].length; var sum = 0; var count = 0; for (var i = -1; i &lt;= 1; i++) &#123; for (var j = -1; j &lt;= 1; j++) &#123; if (x + i &lt; 0 || x + i &gt;= nx || y + j &lt; 0 || y + j &gt;= ny) &#123; continue; &#125; count++; sum += M[x + i][y + j]; &#125; &#125; return Math.floor(sum / count); &#125; 复杂度分析： Time Complexity：O(r X c),r为M.length,c为M[0].length.]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 20.Contains Duplicate]]></title>
-    <url>%2F2018%2F01%2F31%2FleetCode%2F20.Contains_Duplicate%2F</url>
+    <url>%2F2018%2F01%2F31%2FleetCode%2Farray%2F20.Contains_Duplicate%2F</url>
     <content type="text"><![CDATA[Problem 20:Contains DuplicateGiven an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct. solution: 1.先对数组进行sort，然后除去特殊情况下判断只要元素周围两侧元素有一个相同，就返回true，否则为false。 123456789101112var containsDuplicate = function(nums) &#123; nums.sort(function(a,b)&#123;return a-b&#125;); if(nums.length == 0) return false; if(nums.length == 1) return false; if(nums.length == 2 &amp;&amp; nums[0] ==nums[1]) return true; for(var i = 1; i &lt; nums.length - 1; i++) &#123; if(nums[i] == nums[i-1] || nums[i] == nums[i+1]) &#123; return true; &#125; &#125; return false;&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 19.Degree of an Array]]></title>
-    <url>%2F2018%2F01%2F31%2FleetCode%2F19.Degree_of_an_Array%2F</url>
+    <url>%2F2018%2F01%2F31%2FleetCode%2Farray%2F19.Degree_of_an_Array%2F</url>
     <content type="text"><![CDATA[Problem 19: Degree of an ArrayGiven a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements. Your task is to find the smallest possible length of a (contiguous) subarray of nums, that has the same degree as nums. Example 1: Input: [1, 2, 2, 3, 1]Output: 2Explanation:The input array has a degree of 2 because both elements 1 and 2 appear twice.Of the subarrays that have the same degree:[1, 2, 2, 3, 1], [1, 2, 2, 3], [2, 2, 3, 1], [1, 2, 2], [2, 2, 3], [2, 2]The shortest length is 2. So return 2. Example 2: Input: [1,2,2,3,1,4,2]Output: 6 Note: nums.length will be between 1 and 50,000. nums[i] will be an integer between 0 and 49,999. solution: 1.本题本来想用数组的方式解决，但感觉比较麻烦，所以选择map来解决 1234567891011121314151617181920var findShortestSubArray = function(nums) &#123; var m = new Map(), degree = 1, whichDegree = nums[0] for (var i = 0; i &lt; nums.length; i++) &#123; if (m.has(nums[i])) &#123; var pos = m.get(nums[i]) pos.push(i) if (pos.length &gt; degree) &#123; degree = pos.length whichDegree = nums[i] &#125; else if (pos.length == degree &amp;&amp; pos[pos.length - 1] - pos[0] &lt; m.get(whichDegree)[m.get(whichDegree).length - 1] - m.get(whichDegree)[0]) &#123; degree = pos.length whichDegree = nums[i] &#125; &#125; else m.set(nums[i], [i]) &#125; return m.get(whichDegree)[m.get(whichDegree).length - 1] - m.get(whichDegree)[0] + 1&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 18.Two Sum II - Input array is sorted]]></title>
-    <url>%2F2018%2F01%2F31%2FleetCode%2F18.Two_Sum_II_Input_array_is_sorted%2F</url>
+    <url>%2F2018%2F01%2F31%2FleetCode%2Farray%2F18.Two_Sum_II_Input_array_is_sorted%2F</url>
     <content type="text"><![CDATA[Problem 18: Two Sum II - Input array is sortedGiven an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution and you may not use the same element twice. Input: numbers={2, 7, 11, 15}, target=9Output: index1=1, index2=2 solution: 1.因为已经是升序的，所以只要从数组头尾往中间收拢，就必然会找到对应的两个数。 1234567891011var twoSum = function(numbers, target) &#123; var left = 0, right= numbers.length - 1; var sum = 0; while (left &lt; right) &#123; sum = numbers[left] + numbers[right]; if (sum == target)&#123;return [left + 1, right + 1];&#125; else if(sum &lt; target) left++; else right--; &#125; return [];&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 17.Majority Element]]></title>
-    <url>%2F2018%2F01%2F30%2FleetCode%2F17.Majority_Element%2F</url>
+    <url>%2F2018%2F01%2F30%2FleetCode%2Farray%2F17.Majority_Element%2F</url>
     <content type="text"><![CDATA[Problem 17: Majority ElementGiven an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element always exist in the array. Credits:Special thanks to @ts for adding this problem and creating all test cases. solution: 1.这里比较取巧，因为内容全部为数字，所以sort按序排序然后选择中位数即可。 1234var majorityElement = function(nums) &#123; nums.sort(function(a,b)&#123;return a-b;&#125;); return nums[Math.floor(nums.length/2)];&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 16.Best Time to Buy and Sell Stock II]]></title>
-    <url>%2F2018%2F01%2F30%2FleetCode%2F16.Best_Time_to_Buy_and_Sell_Stock_II%2F</url>
+    <url>%2F2018%2F01%2F30%2FleetCode%2Farray%2F16.Best_Time_to_Buy_and_Sell_Stock_II%2F</url>
     <content type="text"><![CDATA[Problem 16: Best Time to Buy and Sell Stock IISay you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again). solution: 1.题目信息请见之前的题目地址，这道题的思路比较奇特，因为可以选择多次，所以只要后一次大于前一次，即可以在总额上加上差值，因为若后面的数继续大于前面的数，累加的差值等于之后的差值。若后面的小，则可以跳过，因为前面的内容已经得到最多的利润。 12345678var maxProfit = function(prices) &#123; var maxprofit = 0; for(var i = 0; i &lt; prices.length; i++) &#123; if (prices[i] &gt; prices[i - 1]) maxprofit += prices[i] - prices[i - 1]; &#125; return maxprofit;&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 15.1-bit and 2-bit Characters]]></title>
-    <url>%2F2018%2F01%2F30%2FleetCode%2F15.1_bit_and_2_bit_Characters%2F</url>
+    <url>%2F2018%2F01%2F30%2FleetCode%2Farray%2F15.1_bit_and_2_bit_Characters%2F</url>
     <content type="text"><![CDATA[Problem 15: 1-bit and 2-bit CharactersWe have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11). Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero. Example 1: Input:bits = [1, 0, 0]Output: TrueExplanation:The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character. Example 2: Input:bits = [1, 1, 1, 0]Output: FalseExplanation:The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character. Note: 1 &lt;= len(bits) &lt;= 1000. bits[i] is always 0 or 1. solution: 1.近期因为时间比较紧，所以只用一种方法解决。本题选择递归，当前元素若为1，则删掉前两个，当前元素为0，则删除一个，直到最后长度为0或时，返回false或true。 1234567var isOneBitCharacter = function(bits) &#123; if(bits.length==0) return false; else if(bits.length==1) return true; if(bits[0]==0)bits.splice(0,1); else bits.splice(0,2); return isOneBitCharacter(bits)&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 14.Move Zeroes]]></title>
-    <url>%2F2018%2F01%2F27%2FleetCode%2F14.Move_Zeroes%2F</url>
+    <url>%2F2018%2F01%2F27%2FleetCode%2Farray%2F14.Move_Zeroes%2F</url>
     <content type="text"><![CDATA[Problem 14: Move ZeroesGiven an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements. For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0]. Note: You must do this in-place without making a copy of the array. Minimize the total number of operations. Credits: Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. solution: 这跟之前做的题很类似，只要注意在splice之后要对i减一即可。 12345678910111213var moveZeroes = function(nums) &#123; var sumZero = 0; for(var i = 0; i &lt; nums.length; i++) &#123; if(nums[i] == 0) &#123; nums.splice(i, 1); i--; sumZero++; &#125; &#125; for(var n = 0; n &lt; sumZero; n++) &#123; nums.push(0); &#125;&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 13.Find All Numbers Disappeared in an Array]]></title>
-    <url>%2F2018%2F01%2F27%2FleetCode%2F13.Find_All_Numbers_Disappeared_in_an_Array%2F</url>
+    <url>%2F2018%2F01%2F27%2FleetCode%2Farray%2F13.Find_All_Numbers_Disappeared_in_an_Array%2F</url>
     <content type="text"><![CDATA[Problem 13: Find All Numbers Disappeared in an ArrayGiven an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements of [1, n] inclusive that do not appear in this array. Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space. Example: Input:[4,3,2,7,8,2,3,1] Output:[5,6] solution: 1.本来想最简单的方法就是先筛选出1 ≤ a[i] ≤ n 中哪个元素不再数组里，然后push到最后一位在splice之前的内容，但是要求without extra space and in O(n) runtime，所以选择其他的方法。这里选择先将数组排序，然后判断哪个元素不是对应位置上的数字，最后push到数组中。 12345678910111213141516var findDisappearedNumbers = function(nums) &#123; var res = []; for (var i = 0; i &lt; nums.length; i++) &#123; if (nums[i] != nums[nums[i] - 1]) &#123; var inchange = nums[nums[i] - 1]; nums[nums[i] - 1] = nums[i]; nums[i] = inchange; i--; &#125; &#125; for (var j = 0; j &lt; nums.length; j++) &#123; if (nums[j] != j + 1) res.push(j + 1); &#125; return res;&#125;; 复杂度分析：Time Complexity：O(n), n为数组长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 12.Max Area of Island]]></title>
-    <url>%2F2018%2F01%2F27%2FleetCode%2F12.Max_Area_of_Island%2F</url>
+    <url>%2F2018%2F01%2F27%2FleetCode%2Farray%2F12.Max_Area_of_Island%2F</url>
     <content type="text"><![CDATA[Problem 12: Max Area of IslandGiven a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water. Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.) Example 1: [[0,0,1,0,0,0,0,1,0,0,0,0,0], [0,0,0,0,0,0,0,1,1,1,0,0,0], [0,1,1,0,1,0,0,0,0,0,0,0,0], [0,1,0,0,1,1,0,0,1,0,1,0,0], [0,1,0,0,1,1,0,0,1,1,1,0,0], [0,0,0,0,0,0,0,0,0,0,1,0,0], [0,0,0,0,0,0,0,1,1,1,0,0,0], [0,0,0,0,0,0,0,1,1,0,0,0,0]] Given the above grid, return 6. Note the answer is not 11, because the island must be connected 4-directionally. Example 2: [[0,0,0,0,0,0,0,0]] Given the above grid, return 0. Note: The length of each dimension in the given grid does not exceed 50. solution: 因为选取最多的相邻的1，本来打算遍历一遍，如果当前元素右边和下边为1，则对右下方元素加对应的值，但是边界条件判断比较复杂。所以，选择递归实现，虽然实现很简单，但是时间复杂度相对较高，做了比较多重复的操作。以下为对应代码： 12345678910111213141516171819var maxAreaOfIsland = function(grid) &#123; var res = 0; for(var i = 0; i &lt; grid.length; i++)&#123; for(var j = 0; j &lt; grid[0].length; j++)&#123; if(grid[i][j] == 1) res = Math.max(res, helper(grid, i, j)); &#125; &#125; return res;&#125;;var helper = function(grid, r, c) &#123; if(r &lt; 0 || r &gt;= grid.length || c &lt; 0 || c &gt;= grid[0].length) return 0; var res = 0; if(grid[r][c] == 1)&#123; grid[r][c] = 0; res = 1 + helper(grid, r-1, c) + helper(grid, r+1, c) + helper(grid, r, c-1) + helper(grid, r, c+1); &#125; return res;&#125; 复杂度分析：Time Complexity：O(r X c), r为行的个数，c为列的个数。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 11.Shortest Word Distance]]></title>
-    <url>%2F2018%2F01%2F27%2FleetCode%2F11.Shortest_Word_Distance%2F</url>
+    <url>%2F2018%2F01%2F27%2FleetCode%2Farray%2F11.Shortest_Word_Distance%2F</url>
     <content type="text"><![CDATA[Problem 11: Shortest Word DistanceGiven a list of words and two words word1 and word2, return the shortest distance between these two words in the list. For example,Assume that words = [&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]. Given word1 = &quot;coding&quot;, word2 = &quot;practice&quot;, return 3.Given word1 = &quot;makes&quot;, word2 = &quot;coding&quot;, return 1. Note: You may assume that word1 does not equal to word2, and word1 and word2 are both in the list. solution: 根据题意，选出最近的两个对应的单词的间距，因为所选单词最短的间距即相邻间距，所以最小的匹配值间距的绝对值即是所求答案。 1234567891011121314151617var shortestDistance = function(words, word1, word2) &#123; var index1 = -1, index2 = -1; var minDistance = words.length; var currentDistance; for (var i = 0; i &lt; words.length; i++) &#123; if (words[i] == word1) &#123; index1 = i; &#125; else if (words[i] == word2) &#123; index2 = i; &#125; if (index1 != -1 &amp;&amp; index2 != -1) &#123; minDistance = Math.min(minDistance, Math.abs(index1 - index2)); &#125; &#125; return minDistance;&#125;; 复杂度分析：Time Complexity：O(n), n为数组的长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 10.Max Consecutive Ones]]></title>
-    <url>%2F2018%2F01%2F26%2FleetCode%2F10.Max_Consecutive_Ones%2F</url>
+    <url>%2F2018%2F01%2F26%2FleetCode%2Farray%2F10.Max_Consecutive_Ones%2F</url>
     <content type="text"><![CDATA[Problem 10: Max Consecutive OnesGiven a binary array, find the maximum number of consecutive 1s in this array. Example 1: Input: [1,1,0,1,1,1]Output: 3Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000 solution: 1.这道题算是福利题了，只要确定最长的1的长度就行了，所以直接判断即可： 123456789var findMaxConsecutiveOnes = function(nums) &#123; var res = 0; var cnt = 0; for (var i = 0; i&lt; nums.length; i++) &#123; cnt = (nums[i] == 0) ? 0 : cnt + 1; res = Math.max(res, cnt); &#125; return res;&#125;; 复杂度分析：Time Complexity：O(n),n为nums的长度； 2.除此之外还看到一个人的另一种比较有趣的方法，因为是01串，那么连续1的和跟个数相等，所以我们可以计算和，通过加上num，再乘以num来计算，如果当前数字是0，那么sum就被重置为0，还是要更新结果res。 123456789var findMaxConsecutiveOnes = function(nums) &#123; var res = 0; var cnt = 0; for (var i = 0; i&lt; nums.length; i++) &#123; cnt = (cnt + nums[i]) * nums[i]; res = Math.max(res, cnt); &#125; return res;&#125;; 复杂度分析：Time Complexity：O(n),n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 9.Reshape the Matrix]]></title>
-    <url>%2F2018%2F01%2F26%2FleetCode%2F9.Reshape_the_Matrix%2F</url>
+    <url>%2F2018%2F01%2F26%2FleetCode%2Farray%2F09.Reshape_the_Matrix%2F</url>
     <content type="text"><![CDATA[Problem 9:Reshape the MatrixIn MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data. You’re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively. The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were. If the ‘reshape’ operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix. Example 1: Input:nums =[[1,2], [3,4]]r = 1, c = 4Output:[[1,2,3,4]]Explanation:The row-traversing of nums is [1,2,3,4]. The new reshaped matrix is a 1 * 4 matrix, fill it row by row by using the previous list. Example 2: Input:nums =[[1,2], [3,4]]r = 2, c = 4Output:[[1,2], [3,4]]Explanation:There is no way to reshape a 2 X 2 matrix to a 2 X 4 matrix. So output the original matrix. Note:The height and width of the given matrix is in range [1, 100].The given r and c are all positive. solution: 做这道题时主要的问题在于如何创建一个二维数组，因为js创建二维数组时出现问题，所以选择设两个一维数组，先判断是否符合要求，不符合返回原数组，然后将元素通过concat添加到一个一维数组中，然后根据所给的r,c一一赋值即可。这道题主要纠结在如何设置一个空的二维数组以及如何对二维数组进行赋值。最后回避了这个问题。 1234567891011121314151617var matrixReshape = function(nums, r, c) &#123; var result_storage = []; var result = []; if(nums.length * nums[0].length != r * c) &#123; return nums; &#125; for(var i=0; i &lt; nums.length; i++) &#123; result_storage = result_storage.concat(nums[i]); &#125; for(var i = 0; i &lt; r; i++) &#123; result.push([]); for(var j = 0; j &lt; c ; j++)&#123; result[i][j] = result_storage[i * c + j]; &#125; &#125; return result;&#125;; 复杂度分析：Time Complexity：O(r X c), r为矩阵的横向长度，c为矩阵的纵向长度。 2.经过查询过后，发现二维数组不是通过创建`var result = new Array[][]这样的形式创建，而是通过先创建一个一维数组，再对其中的元素设置为数组的形式创建多维数组。接下来就对数组中的内容进行判断，若没有到下一行，则继续对下一位内容赋值，若倒下一行，则换行输入。12345678910111213141516171819202122var matrixReshape = function(nums, r, c) &#123; var result = new Array(r); for(var n = 0; n &lt; result.length; n++)&#123; result[n] = new Array(c); &#125; var rows = 0; var cols = 0; var count = 0; if(nums.length == 0 || nums.length * nums[0].length != r * c) return nums; for (var i = 0; i &lt; nums.length; i ++) &#123; for (var j = 0; j &lt; nums[0].length; j++) &#123; result[rows][cols] = nums[i][j]; cols++; if (cols == c) &#123; rows++; cols = 0; &#125; &#125; &#125; return result;&#125;; 复杂度分析：Time Complexity：O(num.length X num[0].length), 与上述方法的复杂度类似，不过更直观一些。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 8.Toeplitz Matrix]]></title>
-    <url>%2F2018%2F01%2F26%2FleetCode%2F8.Toeplitz_Matrix%2F</url>
+    <url>%2F2018%2F01%2F26%2FleetCode%2Farray%2F08.Toeplitz_Matrix%2F</url>
     <content type="text"><![CDATA[Problem 8: Toeplitz MatrixA matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element. Now given an M x N matrix, return True if and only if the matrix is Toeplitz. Example 1: Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]Output: TrueExplanation:123451239512 In the above grid, the diagonals are “[9]”, “[5, 5]”, “[1, 1, 1]”, “[2, 2, 2]”, “[3, 3]”, “[4]”, and in each diagonal all elements are the same, so the answer is True. Example 2: Input: matrix = [[1,2],[2,2]]Output: FalseExplanation:The diagonal “[1, 2]” has different elements. Note: matrix will be a 2D array of integers. matrix will have a number of rows and columns in range [1, 20]. matrix[i][j] will be integers in range [0, 99]. solution: 1.通过画图可得，从左上角的元素开始，如果每行（最后一行除外）元素可以与右下方（每行最后一个元素除外）的元素相等，既符合要求，所以可以选择遍历得到答案。 目前就只有这一种比较好的解法，所以就先写一个算法了。 12345678910var isToeplitzMatrix = function(matrix) &#123; for(var r = 0; r &lt; matrix.length - 1; r++) &#123; for(var c = 0; c &lt; matrix[0].length - 1; c++) &#123; if(matrix[r][c] != matrix[r+1][c+1]) &#123; return false; &#125; &#125; &#125; return true;&#125;; 复杂度分析：Time Complexity: O(m X n), m为矩阵的横向长度，n为矩阵的纵向长度。]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 7.Array Partition I]]></title>
-    <url>%2F2018%2F01%2F26%2FleetCode%2F7.array_partition_I%2F</url>
+    <url>%2F2018%2F01%2F26%2FleetCode%2Farray%2F07.array_partition_I%2F</url>
     <content type="text"><![CDATA[Problem 7:Array Partition IGiven an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible. Example 1: Input: [1,4,3,2]Output: 4Explanation: n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4). Note: n is a positive integer, which is in the range of [1, 10000]. All the integers in the array will be in the range of [-10000, 10000]. solution: 1.这道题比较简单的做法是对数组排序，然后隔一个数字取一个，就可以保证数组中所有的每两个数字的最小值的总和是最小值。 目前也没有找到比这个更简单的算法，所以就先写一个算法了。 123456789var arrayPairSum = function(nums) &#123; var sum = 0; var i = 0; nums.sort(function(a, b)&#123;return a-b;&#125;); for(var i = 0; i&lt; nums.length; i+=2) &#123; sum+=nums[i]; &#125; return sum;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -629,68 +662,68 @@
   </entry>
   <entry>
     <title><![CDATA[leetCode Array --6.Min Cost Climbing Stairs]]></title>
-    <url>%2F2018%2F01%2F25%2FleetCode%2F6.Min_Cost_Climbing_Stairs%2F</url>
+    <url>%2F2018%2F01%2F25%2FleetCode%2Farray%2F06.Min_Cost_Climbing_Stairs%2F</url>
     <content type="text"><![CDATA[Problem six: Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1. Example 1: Input: cost = [10, 15, 20] Output: 15 Explanation: Cheapest is start on cost[1], pay that cost and go to the top. Example 2: Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1] Output: 6 Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3]. Note: cost will have a length in the range [2, 1000]. Every cost[i] will be an integer in the range [0, 999]. solution: 1.第一眼看这道题，显然是一道递归题，照着这个思路做很容易就做出来了。12345678var minCostClimbingStairs = function(cost) &#123; for(var i=2;i&lt;=cost.length-1;i++)&#123; cost[i]=cost[i]+Math.min(cost[i-1],cost[i-2]); &#125; return Math.min(cost[cost.length-1],cost[cost.length-2]);&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度； 同理，也有一种类似的解法，三个元素三个元素的比较，最后一个元素的最小值就是前两个元素的最小值加上对应的值。123456789var minCostClimbingStairs = function(cost) &#123; var firstElement = 0, secondElement = 0, thirdElement = 0; for(var i=2;i &lt;= cost.length;i++)&#123; thirdElement = Math.min(secondElement + cost[i-1], firstElement + cost[i-2]); firstElement = secondElement; secondElement = thirdElement; &#125; return thirdElement;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 5.Largest Number At Least Twice of Others]]></title>
-    <url>%2F2018%2F01%2F25%2FleetCode%2F5.Largest_Number_At_Least_Twice_of_Others%2F</url>
+    <url>%2F2018%2F01%2F25%2FleetCode%2Farray%2F05.Largest_Number_At_Least_Twice_of_Others%2F</url>
     <content type="text"><![CDATA[Problem five: Largest Number At Least Twice of OthersIn a given integer array nums, there is always exactly one largest element. Find whether the largest element in the array is at least twice as much as every other number in the array. If it is, return the index of the largest element, otherwise return -1. Example 1: Input: nums = [3, 6, 1, 0] Output: 1 Explanation: 6 is the largest integer, and for every other number in the array x, 6 is more than twice as big as x. The index of value 6 is 1, so we return 1. Example 2: Input: nums = [1, 2, 3, 4] Output: -1 Explanation: 4 isn’t at least as big as twice the value of 3, so we return -1. Note: nums will have a length in the range [1, 50]. Every nums[i] will be an integer in the range [0, 99]. solution: 1.最开始想到的是用sort()函数来解决这个问题，但是需要注意两点：在sort函数中添加判断数字大小的函数，否则会将数字视为字符串，用最开始的数字进行排序；再一个就是在复制数组时，不能直接使用‘=’进行复制操作，因为这样其实传递的是数组地址，如果这样赋值，在对原先数组进行操作时，其实会对新建的数组进行修改。123456789101112131415161718192021222324252627282930313233function sequence(a,b)&#123; if (a&gt;b) &#123; return 1; &#125;else if(a&lt;b)&#123; return -1 &#125;else&#123; return 0; &#125;&#125;;var dominantIndex = function(nums) &#123; var nums_copy; nums_copy = []; for(var m = 0; m &lt; nums.length; m++) &#123; nums_copy[m] = nums[m]; &#125; nums.sort(sequence); if(nums.length == 1) return 0; if(nums[nums.length - 2] &gt; 0) &#123; if(nums[nums.length - 1]/nums[nums.length - 2] &gt;= 2) &#123; for(var i = 0; i &lt; nums_copy.length; i++) &#123; if(nums_copy[i] == nums[nums.length -1]) return i; &#125; &#125; else return -1; &#125; else &#123; for(var n = 0; n &lt; nums_copy.length; n++) &#123; if(nums_copy[n] == nums[nums.length -1]) return n; &#125; &#125;&#125;; 复杂度分析：Time Complexity: O(n), n为nums的长度； 2.一开始以为上述方法比较简单，但实际写下来还有需要细节要注意，因此，先选出数组中的最大值，在与数组中的所有元素进行对比，当有元素大于nums[maxIndex]的1/2时，返回-1，否则返回该最大值下标。123456789101112var dominantIndex = function(nums) &#123; var maxIndex = 0; for (var i = 0; i &lt; nums.length; ++i) &#123; if (nums[i] &gt; nums[maxIndex]) maxIndex = i; &#125; for (var i = 0; i &lt; nums.length; ++i) &#123; if (maxIndex != i &amp;&amp; nums[maxIndex] &lt; 2 * nums[i]) return -1; &#125; return maxIndex;&#125;; 复杂度分析：Time Complexity: O(n), n为nums的长度;]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 4.longest continuous increasing subsequence]]></title>
-    <url>%2F2018%2F01%2F25%2FleetCode%2F4.longest_continuous_increasing_subsequence%2F</url>
+    <url>%2F2018%2F01%2F25%2FleetCode%2Farray%2F04.longest_continuous_increasing_subsequence%2F</url>
     <content type="text"><![CDATA[Problem four: longest continuous increasing subsequenceGiven an unsorted array of integers, find the length of longest continuous increasing subsequence (subarray). Example 1: Input: [1,3,5,4,7] Output: 3 Explanation: The longest continuous increasing subsequence is [1,3,5], its length is 3. Even though [1,3,5,7] is also an increasing subsequence, it’s not a continuous one where 5 and 7 are separated by 4. Example 2: Input: [2,2,2,2,2] Output: 1 Explanation: The longest continuous increasing subsequence is [2], its length is 1. Note: Length of the array will not exceed 10,000. solution: 1.直观的想法是遍历数组时，当数字持续增加时用一个数字存储累加的总和，在减少时与另一个初始为0的数字对比，如果大于这个存放之前的最长长度的数字，则替换该值，并重置计数的大小。最后，比较最后一次累加数值的大小，返回最大值。1234567891011121314151617181920var findLengthOfLCIS = function(nums) &#123; var num = 1; var maxLength = 0; if(nums.length == 0) return 0; for(var i = 1; i &lt; nums.length; i++) &#123; if(nums[i] &gt; nums[i-1]) &#123; num++; &#125; else &#123; if(num &gt; maxLength) &#123; maxLength = num; &#125; num = 1; &#125; &#125; if(num &gt; maxLength) return num; else return maxLength;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度； 2.因为累加的子串是在nums[i-1] &gt;= nums[i]时发生变化的，也就是说我们将变化的元素下标记录下来，当前一个元素大于后一个元素时，将当前元素下标赋值给anchor，在累加的过程中，ans会用之前的最长串与现在的累加的串的长度作对比，保留最长串。12345678910var findLengthOfLCIS = function(nums) &#123; var ans = 0; var anchor = 0; for (var i = 0; i &lt; nums.length; ++i) &#123; if (i &gt; 0 &amp;&amp; nums[i-1] &gt;= nums[i]) anchor = i; ans = Math.max(ans, i - anchor + 1); &#125; return ans;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode Array -- 3.Best Time to Buy and Sell Stock]]></title>
-    <url>%2F2018%2F01%2F23%2FleetCode%2F3.Best_Time_to_Buy_and_sell_stock%2F</url>
+    <url>%2F2018%2F01%2F23%2FleetCode%2Farray%2F03.Best_Time_to_Buy_and_sell_stock%2F</url>
     <content type="text"><![CDATA[Problem three: Best Time to Buy and Sell StockSay you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit. Example 1: Input: [7, 1, 5, 3, 6, 4]Output: 5max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price) Example 2: Input: [7, 6, 4, 3, 1]Output: 0In this case, no transaction is done, i.e. max profit = 0. solution: 1.这道题主要考察的是边界条件的判断，首先，将第二个元素与第一个元素进行对比，如果第二个元素大，则设置maxProfit，minPrice和maxPrice，如果第一个元素大，设置maxPrice，minPrice。若不为前两个元素，需要考虑下一个元素与之前最小的元素比较是否会大于之前的maxProfit，若大于，则设置maxProfit和maxPrice，否则设置minPrice。以此类推，最后返回maxProfit。 1234567891011121314151617181920212223242526272829var maxProfit = function(prices) &#123; var maxProfit = 0; var maxPrice = 0; var minPrice = 0; for(var i = 1; i &lt; prices.length; i++) &#123; if(i == 1) &#123; if((prices[i] - prices[i-1]) &gt; maxProfit) &#123; maxProfit = prices[i] - prices[i-1]; minPrice = prices[i - 1]; maxPrice = prices[i]; &#125; else &#123; minPrice = prices[i]; maxPrice = prices[i-1]; &#125; &#125;else &#123; if((prices[i] - minPrice) &gt; maxProfit) &#123; maxProfit = prices[i] - minPrice; maxPrice = prices[i]; &#125; else&#123; if(minPrice &gt; prices[i]) &#123; minPrice = prices[i]; &#125; &#125; &#125; &#125; return maxProfit;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度； 2.接下来换一种思想比较简单的方法，现在需要找到最大的差值，且大的数在后面，小的数在前面，所以，可以两层嵌套，比较元素后面的值并选出最大的值。1234567891011var maxProfit = function(prices) &#123; var maxprofit = 0; for (var i = 0; i &lt; prices.length - 1; i++) &#123; for (var j = i + 1; j &lt; prices.length; j++) &#123; var profit = prices[j] - prices[i]; if (profit &gt; maxprofit) maxprofit = profit; &#125; &#125; return maxprofit; &#125;; 复杂度分析：Time Complexity：O(n2), 循环n(n-1)/2遍，效果很差。 3.接下来的方法和第一种类似，先去一个特别大的最小值和特别大的最大值，然后进行遍历，若当前元素小于最小值，则替换最小值，否则就与最小值比较，若大于最大差值，则替换最大差值。这个方法与第一种比不需要保存最大值。1234567891011var maxProfit = function(prices) &#123; var minprice = 9999999; var maxprofit = 0; for (var i = 0; i &lt; prices.length; i++) &#123; if (prices[i] &lt; minprice) minprice = prices[i]; else if (prices[i] - minprice &gt; maxprofit) maxprofit = prices[i] - minprice; &#125; return maxprofit; &#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode Array -- 2.Remove Element]]></title>
-    <url>%2F2018%2F01%2F23%2FleetCode%2F2.remove_element%2F</url>
+    <url>%2F2018%2F01%2F23%2FleetCode%2Farray%2F02.remove_element%2F</url>
     <content type="text"><![CDATA[Problem two: Remove ElementGiven an array and a value, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory. The order of elements can be changed. It doesn’t matter what you leave beyond the new length. Example: Given nums = [3,2,2,3], val = 3, Your function should return length = 2, with the first two elements of nums being 2. solution: 1.最直接的方法是使用数组自带的splice方法，需要注意的是当remove掉相符合的元素后，要将下标减一，不然会造成数组减少一个元素后，原元素后面的元素序号会提前一个，会忽略掉下一个元素。 123456789var removeElement = function(nums, val) &#123; for(var i = 0; i&lt; nums.length; i++) &#123; if(nums[i] == val) &#123; nums.splice(i, 1); i -= 1; &#125; &#125; return nums.length;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度； 2.另一种方法是在遍历数组过程中，如果元素的值等于对应的value，则将当前元素与最后一个元素交换位置，然后将数组长度减1，变相的去除数组的重复项，可惜的是，这种方法和splice()消耗的时间几近相同。12345678910111213var removeElement = function(nums, val) &#123; var i = 0; var num = nums.length; while (i &lt; num) &#123; if (nums[i] == val) &#123; nums[i] = nums[num - 1]; num--; &#125; else &#123; i++; &#125; &#125; return num;&#125;; 复杂度分析：Time Complexity：O(n), n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[leetCode Array -- 1.Find Pivot Index]]></title>
-    <url>%2F2018%2F01%2F23%2FleetCode%2F1.find_pivot_index%2F</url>
+    <url>%2F2018%2F01%2F23%2FleetCode%2Farray%2F01.find_pivot_index%2F</url>
     <content type="text"><![CDATA[Problem one: Find Pivot IndexGiven an array of integers nums, write a method that returns the “pivot” index of this array. We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index. If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index. Example 1: Input:nums = [1, 7, 3, 6, 5, 6]Output: 3Explanation:The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.Also, 3 is the first index where this occurs. Example 2: Input:nums = [1, 2, 3]Output: -1Explanation:There is no index that satisfies the conditions in the problem statement. Note: The length of nums will be in the range [0, 10000]. Each element nums[i] will be an integer in the range [-1000, 1000]. solution: 直接想到的是遍历数组，将每个元素左侧的元素和与右侧元素和比较，相同则返回对应元素下标。（若第一个元素右侧和为0，则返回第一个元素下标）。否则返回-1；123456789101112131415161718 var pivotIndex = function(nums) &#123; var leftSum = 0; var rightSum = 0; for(var i = 0; i &lt; nums.length; i++) &#123; if(i == 0) &#123; leftSum =0; &#125;else&#123; leftSum += nums[i-1]; &#125; for(var n = i+1; n &lt; nums.length; n++) &#123; rightSum += nums[n]; &#125; if(leftSum == rightSum) return i; rightSum = 0; &#125; return -1;&#125;; 复杂度分析：Time Complexity：O(n2), n为nums的长度； 上一种方法的问题在于要用两遍for循环，时间复杂度过高，所以尽量减少嵌套：123456789101112 var pivotIndex = function(nums) &#123; var leftSum =0; var sum = 0; for(var i = 0; i&lt; nums.length; i++) sum += nums[i]; for (var n = 0; n &lt; nums.length; n++) &#123; if (leftSum == (sum - leftSum - nums[n])) return n; leftSum += nums[n]; &#125; return -1;&#125; 复杂度分析：Time Complexity: O(n), n为nums的长度；]]></content>
       <categories>
         <category>leetCode</category>
       </categories>
       <tags>
-        <tag>leetCode array</tag>
+        <tag>leetCode</tag>
       </tags>
   </entry>
   <entry>
