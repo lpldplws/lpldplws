@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="pure material," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Fun with Native ArraysIn JavaScript, arrays can be created with the Array constructor, or using the [] convenience shortcut, which is also the preferred approach. Arrays inherit from the Object protot">
+<meta name="keywords" content="pure material">
+<meta property="og:type" content="article">
+<meta property="og:title" content="extra --- 01.Fun with Native Arrays">
+<meta property="og:url" content="www.lpldplws.cn/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="Fun with Native ArraysIn JavaScript, arrays can be created with the Array constructor, or using the [] convenience shortcut, which is also the preferred approach. Arrays inherit from the Object protot">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/z0Hun2i.png">
+<meta property="og:updated_time" content="2018-07-31T05:57:16.720Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="extra --- 01.Fun with Native Arrays">
+<meta name="twitter:description" content="Fun with Native ArraysIn JavaScript, arrays can be created with the Array constructor, or using the [] convenience shortcut, which is also the preferred approach. Arrays inherit from the Object protot">
+<meta name="twitter:image" content="https://i.imgur.com/z0Hun2i.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/"/>
+
+
+
+
+
+  <title>extra --- 01.Fun with Native Arrays | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <img src='http://www.lpldplws.cn/images/favicon.jpg' style="display:none;"/>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">extra --- 01.Fun with Native Arrays</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T13:39:47+08:00">
+                2018-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/pure-material/" itemprop="url" rel="index">
+                    <span itemprop="name">pure material</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/" class="leancloud_visitors" data-flag-title="extra --- 01.Fun with Native Arrays">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Fun-with-Native-Arrays"><a href="#Fun-with-Native-Arrays" class="headerlink" title="Fun with Native Arrays"></a>Fun with Native Arrays</h2><p>In JavaScript, arrays can be created with the <code>Array</code> constructor, or using the <code>[]</code> convenience shortcut, which is also the preferred approach. Arrays inherit from the <code>Object</code> prototype and they haven’t a special value for <code>typeof</code>, they return <code>&#39;object&#39;</code> too. Using <code>[] instanceof Array</code>, however, returns true. That being said, there are also <em>Array-like objects</em> which complicate matters, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments" target="_blank" rel="noopener">such as strings, or the <code>arguments</code> object</a>. The <code>arguments</code> object is not an instance of <code>Array</code>, but it still has a <code>length</code> property, and its values are indexed, so it can be looped like any Array.</p>
+<p>In this article I’ll go over a few of the methods on the <code>Array</code> prototype, and explore the possibilities each of these methods unveil.</p>
+<ul>
+<li>Looping with <code>.forEach</code></li>
+<li>Asserting with <code>.some</code> and <code>.every</code></li>
+<li>Subtleties in <code>.join</code> and <code>.concat</code></li>
+<li>Stacks and queues with <code>.pop</code>, <code>.push</code>, <code>.shift</code>, and <code>.unshift</code></li>
+<li>Model mapping with <code>.map</code></li>
+<li>Querying with <code>.filter</code></li>
+<li>Ordering with <code>.sort</code></li>
+<li>Computing with <code>.reduce</code>, <code>.reduceRight</code></li>
+<li>Copying a <code>.slice</code></li>
+<li>The power of <code>.splice</code></li>
+<li>Lookups with <code>.indexOf</code></li>
+<li>The <code>in</code> operator</li>
+<li>Going in <code>.reverse</code></li>
+</ul>
+<p><img src="https://i.imgur.com/z0Hun2i.png" alt="console.png"></p>
+<p>You can copy and paste any of the examples in your browser’s console, I sure did!</p>
+<h3 id="Looping-with-forEach"><a href="#Looping-with-forEach" class="headerlink" title="Looping with .forEach"></a><a href="#looping-with-foreach">Looping with <code>.forEach</code></a></h3><p>This is one of the simplest methods in a native JavaScript Array. Unsurprisingly unsupport in IE7 and IE8.</p>
+<p><code>forEach</code> takes a callback which is invoked once for each element in the array, and gets passed three arguments.</p>
+<ul>
+<li><code>value</code> containing the current array element</li>
+<li><code>index</code> is the element’s position in the array</li>
+<li><code>array</code> is a reference to the array</li>
+</ul>
+<p>Furthermore, we could pass an optional second argument which will become the context (<code>this</code>) for each function call.</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'_'</span>, <span class="string">'t'</span>, <span class="string">'a'</span>, <span class="string">'n'</span>, <span class="string">'i'</span>, <span class="string">'f'</span>, <span class="string">']'</span>].forEach(<span class="keyword">function</span> (<span class="keyword">value</span>, index, array) &#123;</span><br><span class="line">	<span class="keyword">this</span>.push(String.fromCharCode(<span class="keyword">value</span>.charCodeAt() + index + <span class="number">2</span>))</span><br><span class="line">&#125;, <span class="keyword">out</span> = [])</span><br><span class="line"></span><br><span class="line"><span class="keyword">out</span>.join(<span class="string">''</span>)</span><br><span class="line"><span class="comment">// &lt;- 'awesome'</span></span><br></pre></td></tr></table></figure>
+<p>I cheated with <code>.join</code> which we didn’t cover <em>yet</em>, but we’ll look at it soon. In this case, it joins together the different elements in the array, effectively doing something like <code>out[0] + &#39;&#39; + out[1] + &#39;&#39; + out[2] + &#39;&#39; + out[n]</code>. We <strong>can’t break <code>forEach</code> loops</strong>, and throwing exceptions wouldn’t be very sensible. Luckily, we have other options available to us in those cases where we might want to short-circuit a loop.</p>
+<h3 id="Asserting-with-some-and-every"><a href="#Asserting-with-some-and-every" class="headerlink" title="Asserting with .some and .every"></a><a href="#asserting-with-some-and-every">Asserting with <code>.some</code> and <code>.every</code></a></h3><p>If you’ve ever worked with .NET’s enumerables, these methods are the <em>poorly named</em> cousins of <a href="http://msdn.microsoft.com/en-us/library/bb534972(v=vs.110" target="_blank" rel="noopener"><code>.Any(x =&gt; x.IsAwesome)</code></a>.aspx) and <a href="http://msdn.microsoft.com/en-us/library/bb548541(v=vs.110" target="_blank" rel="noopener"><code>.All(x =&gt; x.IsAwesome)</code></a>.aspx).</p>
+<p>These methods are similar to <code>.forEach</code> in that they also take a callback with <code>value</code>, <code>index</code>, and <code>array</code>, which can be context-bound passing a second argument. The MDN docs describe <code>.some</code>:</p>
+<blockquote>
+<p><code>some</code> executes the callback function once for each element present in the array until it finds one where <code>callback</code> returns a <code>true</code> value. If such an element is found, <code>some</code> immediately returns <code>true</code>. Otherwise, <code>some</code> returns <code>false</code>. <code>callback</code> is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.</p>
+</blockquote>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">max = -Infinity</span><br><span class="line">satisfied = [10, <span class="number">12</span>, <span class="number">10</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">23</span>].<span class="keyword">some</span>(<span class="keyword">function</span> (<span class="keyword">value</span>, <span class="keyword">index</span>, <span class="keyword">array</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">value</span> &gt; <span class="built_in">max</span>) <span class="built_in">max</span> = <span class="keyword">value</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">value</span> &lt; <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">max</span>)</span><br><span class="line">// &lt;- <span class="number">12</span></span><br><span class="line"></span><br><span class="line">satisfied</span><br><span class="line">// &lt;- <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>Note that the function stopped looping after it hit the first item which satisfied the callback’s condition <code>value &lt; 10</code>. <code>.every</code> works in the same way, but short-circuits happen when your callback returns <code>false</code>, rather than <code>true</code>.</p>
+<h3 id="Subtleties-in-join-and-concat"><a href="#Subtleties-in-join-and-concat" class="headerlink" title="Subtleties in .join and .concat"></a><a href="#subtleties-in-join-and-concat">Subtleties in <code>.join</code> and <code>.concat</code></a></h3><p>The <code>.join</code> method is often confused with <code>.concat</code>. <code>.join(separator)</code> creates a string, resulting of taking every element in the array and separating them by <code>separator</code>. If no <code>separator</code> is provided, it’ll default to a comma <code>&#39;,&#39;</code>. <code>.concat</code> works by creating new arrays which are shallow copies of the source arrays.</p>
+<ul>
+<li><code>.concat</code> has the signature: <code>array.concat(val, val2, val3, valn)</code></li>
+<li><code>.concat</code> returns a new array</li>
+<li><code>array.concat()</code> with no arguments returns a shallow copy of the array</li>
+</ul>
+<p>Shallow copy means that the copy will hold the same object references as the source array, which is generally a good thing. For example:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; foo: 'bar' &#125;</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, a]</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">c</span> = b.concat()</span><br><span class="line"></span><br><span class="line">console.log(b === <span class="built_in">c</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"></span><br><span class="line">b[<span class="number">3</span>] === a &amp;&amp; <span class="built_in">c</span>[<span class="number">3</span>] === a</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<h3 id="Stacks-and-queues-with-pop-push-shift-and-unshift"><a href="#Stacks-and-queues-with-pop-push-shift-and-unshift" class="headerlink" title="Stacks and queues with .pop, .push, .shift, and .unshift"></a><a href="#stacks-and-queues-with-pop-push-shift-and-unshift">Stacks and queues with <code>.pop</code>, <code>.push</code>, <code>.shift</code>, and <code>.unshift</code></a></h3><p>Nowadays, everyone knows that <em>adding elements to the end of an array</em> is done using <code>.push</code>. Did you know that you can push many elements at once using <code>[].push(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;z&#39;)</code>?</p>
+<p>The <code>.pop</code> method is the counterpart of the most common use for <code>.push</code>. It’ll return the last element in the array, and remove it from the array at the same time. If the array is empty, <a href="http://stackoverflow.com/questions/7452341/what-does-void-0-mean" target="_blank" rel="noopener"><code>void 0</code> (<code>undefined</code>)</a> is returned. Using <code>.push</code> and <code>.pop</code> we could easily create a <a href="http://en.wikipedia.org/wiki/LIFO_(computing" target="_blank" rel="noopener">LIFO (last in first out)</a>) stack.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>._stack = []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Stack.prototype.next = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>._stack.pop()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Stack.prototype.add = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>._stack.push.apply(<span class="keyword">this</span>._stack, <span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stack = <span class="keyword">new</span> Stack()</span><br><span class="line">stack.add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">stack.next()</span><br><span class="line"><span class="comment">// &lt;- 3</span></span><br></pre></td></tr></table></figure>
+<p>Inversely, we could create a <a href="http://en.wikipedia.org/wiki/FIFO" target="_blank" rel="noopener">FIFO (first in first out)</a> queue using <code>.unshift</code> and <code>.shift</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>._queue = []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Queue.prototype.next = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>._queue.shift()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Queue.prototype.add = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>._queue.unshift.apply(<span class="keyword">this</span>._queue, <span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">queue = <span class="keyword">new</span> Queue()</span><br><span class="line">queue.add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">queue.next()</span><br><span class="line"><span class="comment">// &lt;- 1</span></span><br></pre></td></tr></table></figure>
+<p>Using <code>.shift</code> (or <code>.pop</code>) is an easy way to loop through a set of array elements, while draining the array in the process.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">list</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">while (item = <span class="type">list</span>.shift()) &#123;</span><br><span class="line">	console.log(item)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">list</span></span><br><span class="line"><span class="comment">// &lt;- []</span></span><br></pre></td></tr></table></figure>
+<h3 id="Model-mapping-with-map"><a href="#Model-mapping-with-map" class="headerlink" title="Model mapping with .map"></a><a href="#model-mapping-with-map">Model mapping with <code>.map</code></a></h3><blockquote>
+<p><code>map</code> calls a provided callback function once for each element in an array, in order, and constructs a new array from the results. <code>callback</code> is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values.</p>
+</blockquote>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener"><code>Array.prototype.map</code></a> method has the same signature we’ve seen in <code>.forEach</code>, <code>.some</code>, and <code>.every</code>: <code>.map(fn(value, index, array), thisArgument)</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">values = [<span class="keyword">void</span> <span class="number">0</span>, <span class="literal">null</span>, <span class="literal">false</span>, <span class="string">''</span>]</span><br><span class="line">values[<span class="number">7</span>] = <span class="keyword">void</span> <span class="number">0</span></span><br><span class="line">result = values.map(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)</span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// &lt;- [undefined, null, false, '', undefined × 3, undefined]</span></span><br></pre></td></tr></table></figure>
+<p>The <code>undefined × 3</code> values explain that while <code>.map</code> won’t run for deleted or unassigned array elements, they’ll be still included in the resulting array. Mapping is very useful for casting or transforming arrays.</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// casting</span></span><br><span class="line">[<span class="number">1</span>, <span class="string">'2'</span>, <span class="string">'30'</span>, <span class="string">'9'</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">parseInt</span>(value, <span class="number">10</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 1, 2, 30, 9</span></span><br><span class="line"></span><br><span class="line">[<span class="number">97</span>, <span class="number">119</span>, <span class="number">101</span>, <span class="number">115</span>, <span class="number">111</span>, <span class="number">109</span>, <span class="number">101</span>].map(<span class="built_in">String</span>.fromCharCode).join(<span class="string">''</span>)</span><br><span class="line"><span class="comment">// &lt;- 'awesome'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// a commonly used pattern is mapping to new objects</span></span><br><span class="line">items.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attribute">id:</span><span class="string"> item.id</span>,</span><br><span class="line">		<span class="attribute">name</span>: computeName(item)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Querying-with-filter"><a href="#Querying-with-filter" class="headerlink" title="Querying with .filter"></a><a href="#querying-with-filter">Querying with <code>.filter</code></a></h3><blockquote>
+<p><code>filter</code> calls a provided callback function once for each element in an array, and constructs a new array of all the values for which <code>callback</code> returns a <code>true</code> value. <code>callback</code> is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the <code>callback</code> test are simply skipped, and <strong>are not included</strong> in the new array.</p>
+</blockquote>
+<p>Same as usual: <code>.filter(fn(value, index, array), thisArgument)</code>. Think of it as the <code>.Where(x =&gt; x.IsAwesome)</code> LINQ expression (if you’re into C#), or the <code>WHERE</code> SQL clause. Considering <code>.filter</code> only returns elements which pass the <code>callback</code> test with a truthy value, there are some interesting use cases.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">void</span> <span class="number">0</span>, <span class="literal">null</span>, <span class="literal">false</span>, <span class="string">''</span>, <span class="number">1</span>].filter(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> value</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &lt;- [1]</span></span><br><span class="line"></span><br><span class="line">[<span class="keyword">void</span> <span class="number">0</span>, <span class="literal">null</span>, <span class="literal">false</span>, <span class="string">''</span>, <span class="number">1</span>].filter(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !value</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &lt;- [void 0, null, false, '']</span></span><br></pre></td></tr></table></figure>
+<h3 id="Ordering-with-sort-compareFunction"><a href="#Ordering-with-sort-compareFunction" class="headerlink" title="Ordering with .sort(compareFunction)"></a><a href="#ordering-with-sort-comparefunction">Ordering with <code>.sort(compareFunction)</code></a></h3><blockquote>
+<p>If <code>compareFunction</code> is not supplied, elements are sorted by converting them to strings and comparing strings in lexicographic (“dictionary” or “telephone book,” not numerical) order. For example, “80” comes before “9” in lexicographic order, but in a numeric sort 9 comes before 80.</p>
+</blockquote>
+<p>Like most sorting functions, <code>Array.prototype.sort(fn(a,b))</code> takes a callback which tests two elements, and should produce one of three return values:</p>
+<ul>
+<li>return value <code>&lt; 0</code> if <code>a</code> comes before <code>b</code></li>
+<li>return value <code>=== 0</code> if both <code>a</code> and <code>b</code> are considered equivalent</li>
+<li>return value <code>&gt; 0</code> if <code>a</code> comes after <code>b</code></li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">9</span>,<span class="number">80</span>,<span class="number">3</span>,<span class="number">10</span>,<span class="number">5</span>,<span class="number">6</span>].sort()</span><br><span class="line"><span class="comment">// &lt;- [10, 3, 5, 6, 80, 9]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">9</span>,<span class="number">80</span>,<span class="number">3</span>,<span class="number">10</span>,<span class="number">5</span>,<span class="number">6</span>].sort(function (a, b) &#123;</span><br><span class="line">	return a - b</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &lt;- [3, 5, 6, 9, 10, 80]</span></span><br></pre></td></tr></table></figure>
+<h3 id="Computing-with-reduce-reduceRight"><a href="#Computing-with-reduce-reduceRight" class="headerlink" title="Computing with .reduce, .reduceRight"></a><a href="#computing-with-reduce-reduceright">Computing with <code>.reduce</code>, <code>.reduceRight</code></a></h3><p>Reduce functions are, at first, hard to wrap our heads around. These functions loop through the array, from left-to-right <em>(<code>.reduce</code>)</em> or right-to-left <em>(<code>.reduceRight</code>)</em>, each invocation receives the partial result so far, and the operation results in a single aggregated return value.</p>
+<p>Both methods have the following signature: <code>.reduce(callback(previousValue, currentValue, index, array), initialValue)</code>.</p>
+<p>The <code>previousValue</code> will be the value returned in the last callback invocation, or <code>initialValue</code> the first time around. <code>currentValue</code> contains the current element, while <code>index</code> indicates the array position for the element. <code>array</code> is simply a reference to the array <code>.reduce</code> was called on.</p>
+<p>One of the typical use cases for <code>.reduce</code> is the sum function.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.sum = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">partial, value</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> partial + value</span><br><span class="line">	&#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">10</span>].sum()</span><br><span class="line"><span class="comment">// &lt;- 28</span></span><br></pre></td></tr></table></figure>
+<p>Say we wanted to join a few strings together. We could use <code>.join</code> to that purpose. In the case of objects, though, <code>.join</code> wouldn’t work as we expected, unless the objects had a reasonable <code>valueOf</code> or <code>toString</code> representation. However, we might use <code>.reduce</code> as a string builder for those objects.</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">concat</span> <span class="params">(input)</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">input</span>.reduce(<span class="function"><span class="keyword">function</span> <span class="params">(partial, value)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (partial) &#123;</span><br><span class="line">			partial += <span class="string">', '</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> partial + value.name</span><br><span class="line">	&#125;, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">concat</span>([</span><br><span class="line">	&#123; name: <span class="string">'George'</span> &#125;,</span><br><span class="line">	&#123; name: <span class="string">'Sam'</span> &#125;,</span><br><span class="line">	&#123; name: <span class="string">'Pear'</span> &#125;</span><br><span class="line">])</span><br><span class="line">// &lt;- <span class="string">'George, Sam, Pear'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Copying-a-slice"><a href="#Copying-a-slice" class="headerlink" title="Copying a .slice"></a><a href="#copying-a-slice">Copying a <code>.slice</code></a></h3><p>Similarly to <code>.concat</code>, calls to <code>.slice</code> without any arguments produce a shallow copy of the source array. Slice takes two arguments, a <code>begin</code> and an <code>end</code> position. <code>Array.prototype.slice</code> can be used to convert array-like objects into real arrays.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array<span class="selector-class">.prototype</span><span class="selector-class">.slice</span><span class="selector-class">.call</span>(&#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, length: <span class="number">2</span> &#125;)</span><br><span class="line"><span class="comment">// &lt;- ['a', 'b']</span></span><br></pre></td></tr></table></figure>
+<p>This won’t work with <code>.concat</code>, because it’ll wrap the array-like object in a real array, instead.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array<span class="selector-class">.prototype</span><span class="selector-class">.concat</span><span class="selector-class">.call</span>(&#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, length: <span class="number">2</span> &#125;)</span><br><span class="line"><span class="comment">// &lt;- [&#123; 0: 'a', 1: 'b', length: 2 &#125;]</span></span><br></pre></td></tr></table></figure>
+<p>Other than that, another common use for <code>.slice</code> is <em>removing the first few elements</em> from a list of arguments (an array-like object, which we could cast to a real array).</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format</span> (<span class="params">text, bold</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bold) &#123;</span><br><span class="line">		text = <span class="string">'&lt;b&gt;'</span> + text + <span class="string">'&lt;/b&gt;'</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> values = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">	values.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">		text = text.replace(<span class="string">'%s'</span>, value)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">format(<span class="string">'some%sthing%s %s'</span>, <span class="literal">true</span>, <span class="string">'some'</span>, <span class="string">'other'</span>, <span class="string">'things'</span>)</span><br><span class="line"><span class="comment">// &lt;- &lt;b&gt;somesomethingother things&lt;/b&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="The-power-of-splice"><a href="#The-power-of-splice" class="headerlink" title="The power of .splice"></a><a href="#the-power-of-splice">The power of <code>.splice</code></a></h3><p><code>.splice</code> is one of my favorite native array functions. It allows you to remove elements, insert new ones, and to do both in the same position, using just one function call. Note that this function alters the source array, unlike <code>.concat</code> or <code>.slice</code>.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var source = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</span><br><span class="line">var spliced = source.splice(<span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>)</span><br><span class="line"></span><br><span class="line">console.log(source)</span><br><span class="line"><span class="comment">// &lt;- [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13]</span></span><br><span class="line"></span><br><span class="line">spliced</span><br><span class="line"><span class="comment">// &lt;- [8, 8, 8, 8]</span></span><br></pre></td></tr></table></figure>
+<p>As you might’ve noted, it also returns the removed elements. This might come in handy if you want to loop a section of the array and then forget about it.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var source = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]</span><br><span class="line">var spliced = source.splice(<span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">spliced.forEach(function (value) &#123;</span><br><span class="line">	console.log('removed', value)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &lt;- removed 10</span></span><br><span class="line"><span class="comment">// &lt;- removed 11</span></span><br><span class="line"><span class="comment">// &lt;- removed 12</span></span><br><span class="line"><span class="comment">// &lt;- removed 13</span></span><br><span class="line"></span><br><span class="line">console.log(source)</span><br><span class="line"><span class="comment">// &lt;- [1, 2, 3, 8, 8, 8, 8, 8, 9]</span></span><br></pre></td></tr></table></figure>
+<h3 id="Lookups-with-indexOf"><a href="#Lookups-with-indexOf" class="headerlink" title="Lookups with .indexOf"></a><a href="#lookups-with-indexof">Lookups with <code>.indexOf</code></a></h3><p>With <code>.indexOf</code>, we can look up array element positions. If it can’t find a match, <code>-1</code> is returned. A pattern I find myself using a lot, is when I have comparisons such as <code>a === &#39;a&#39; || a === &#39;b&#39; || a === &#39;c&#39;</code>, or even with just two comparsions. You could just use <code>.indexOf</code>, like so: <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].indexOf(a) !== -1</code>.</p>
+<p>Note that objects will be found only if the same reference is provided. A second argument can provide the start index at which to begin searching.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = &#123; foo: <span class="string">'bar'</span> &#125;</span><br><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">b</span> = [<span class="selector-tag">a</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">console.log(<span class="selector-tag">b</span>.indexOf(<span class="number">1</span>))</span><br><span class="line"><span class="comment">// &lt;- -1</span></span><br><span class="line"></span><br><span class="line">console.log(<span class="selector-tag">b</span>.indexOf(&#123; foo: <span class="string">'bar'</span> &#125;))</span><br><span class="line"><span class="comment">// &lt;- -1</span></span><br><span class="line"></span><br><span class="line">console.log(<span class="selector-tag">b</span>.indexOf(a))</span><br><span class="line"><span class="comment">// &lt;- 0</span></span><br><span class="line"></span><br><span class="line">console.log(<span class="selector-tag">b</span>.indexOf(<span class="selector-tag">a</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// &lt;- -1</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">b</span>.indexOf(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// &lt;- 1</span></span><br></pre></td></tr></table></figure>
+<p>If you want to go in the reverse direction, <code>.lastIndexOf</code> will do the trick.</p>
+<h3 id="The-in-operator"><a href="#The-in-operator" class="headerlink" title="The in operator"></a><a href="#the-in-operator">The <code>in</code> operator</a></h3><p>A common rookie mistake during interviews is to confuse <code>.indexOf</code> with the <code>in</code> operator, and hand-scribbling things such as:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="keyword">in</span> a</span><br><span class="line"><span class="comment">// &lt;- true, but because of the 2!</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="keyword">in</span> a</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>The problem here was that the <code>in</code> operator checks the object key for a value, rather than searching for values. This is, of course, much faster than using <code>.indexOf</code>.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [<span class="number">3</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> in a === !!a[<span class="number">1</span>]</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>The <code>in</code> operator is similar to casting the value at the provided key to a boolean value. The <code>!!</code> expression is used by some developers to negate a value, and then negate it again. <em>Effectively casting to boolean</em> any truthy value to <code>true</code>, and any falsy value to <code>false</code>.</p>
+<h3 id="Going-in-reverse"><a href="#Going-in-reverse" class="headerlink" title="Going in .reverse"></a><a href="#going-in-reverse">Going in <code>.reverse</code></a></h3><p>This method will take the elements in an array and reverse them in place.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span>.reverse()</span><br><span class="line"><span class="comment">// [8, 7, 1, 1]</span></span><br></pre></td></tr></table></figure>
+<p>Rather than a copy, the array itself is modified. In a future article we’ll expand on these concepts to see how we could create an <code>_</code>-like library, such as <a href="http://underscorejs.org/" target="_blank" rel="noopener">Underscore</a> or <a href="http://lodash.com/" target="_blank" rel="noopener">Lo-Dash</a>.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/" title="extra --- 01.Fun with Native Arrays">www.lpldplws.cn/2018/07/31/pureMaterial/extra.01.fun_with_native_arrays/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/pure-material/" rel="tag"># pure material</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/31/pureMaterial/05.template_literals/" rel="next" title="05.Template Literals">
+                <i class="fa fa-chevron-left"></i> 05.Template Literals
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/31/pureMaterial/06.object_literals/" rel="prev" title="06.Object Literals">
+                06.Object Literals <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block">
+      
+        <!--MOB SHARE BEGIN-->
+ <div class="-mob-share-ui-button -mob-share-open" style="background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui" style="display: none">
+     <ul class="-mob-share-list">
+         <li class="-mob-share-weibo"><p>新浪微博</p></li>
+         <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+         <li class="-mob-share-qzone"><p>QQ空间</p></li>
+         <li class="-mob-share-qq"><p>QQ好友</p></li>
+         <li class="-mob-share-weixin"><p>微信</p></li>
+         <li class="-mob-share-douban"><p>豆瓣</p></li>
+         <li class="-mob-share-renren"><p>人人网</p></li>
+         <li class="-mob-share-kaixin"><p>开心网</p></li>
+         <li class="-mob-share-facebook"><p>Facebook</p></li>
+         <li class="-mob-share-twitter"><p>Twitter</p></li>
+         <li class="-mob-share-pocket"><p>Pocket</p></li>
+         <li class="-mob-share-google"><p>Google+</p></li>
+         <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+         <li class="-mob-share-mingdao"><p>明道</p></li>
+         <li class="-mob-share-pengyou"><p>朋友网</p></li>
+         <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+         <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+         <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+     </ul>
+     <div class="-mob-share-close">取消</div>
+ </div>
+ <div class="-mob-share-ui-bg"></div>
+ <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=26afb7d19666e"></script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+
+      
+      <!--noindex-->
+      </section>
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc">
+
+          
+            
+          
+
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fun-with-Native-Arrays"><span class="nav-number">1.</span> <span class="nav-text">Fun with Native Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Looping-with-forEach"><span class="nav-number">1.1.</span> <span class="nav-text">Looping with .forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Asserting-with-some-and-every"><span class="nav-number">1.2.</span> <span class="nav-text">Asserting with .some and .every</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subtleties-in-join-and-concat"><span class="nav-number">1.3.</span> <span class="nav-text">Subtleties in .join and .concat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacks-and-queues-with-pop-push-shift-and-unshift"><span class="nav-number">1.4.</span> <span class="nav-text">Stacks and queues with .pop, .push, .shift, and .unshift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-mapping-with-map"><span class="nav-number">1.5.</span> <span class="nav-text">Model mapping with .map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Querying-with-filter"><span class="nav-number">1.6.</span> <span class="nav-text">Querying with .filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordering-with-sort-compareFunction"><span class="nav-number">1.7.</span> <span class="nav-text">Ordering with .sort(compareFunction)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computing-with-reduce-reduceRight"><span class="nav-number">1.8.</span> <span class="nav-text">Computing with .reduce, .reduceRight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Copying-a-slice"><span class="nav-number">1.9.</span> <span class="nav-text">Copying a .slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-power-of-splice"><span class="nav-number">1.10.</span> <span class="nav-text">The power of .splice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lookups-with-indexOf"><span class="nav-number">1.11.</span> <span class="nav-text">Lookups with .indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-in-operator"><span class="nav-number">1.12.</span> <span class="nav-text">The in operator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Going-in-reverse"><span class="nav-number">1.13.</span> <span class="nav-text">Going in .reverse</span></a></li></ol></li></ol></div>
+          
+
+        </div>
+      </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
