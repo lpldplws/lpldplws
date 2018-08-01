@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="pure material," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="promises Promises are a very involved paradigm, so we’ll take it slow.  Here’s a table of contents with the topics we’ll cover in this article. Feel free to skip topics you’re comfortable about.  What">
+<meta name="keywords" content="pure material">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12.promises">
+<meta property="og:url" content="www.lpldplws.cn/2018/08/01/pureMaterial/12.promises/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="promises Promises are a very involved paradigm, so we’ll take it slow.  Here’s a table of contents with the topics we’ll cover in this article. Feel free to skip topics you’re comfortable about.  What">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/uwWnUq4.png">
+<meta property="og:image" content="https://i.imgur.com/JiIrWWg.gif">
+<meta property="og:image" content="https://i.imgur.com/dIdrAcK.gif">
+<meta property="og:image" content="https://i.imgur.com/3NNoO38.gif">
+<meta property="og:image" content="https://i.imgur.com/9OoMVfo.gif">
+<meta property="og:updated_time" content="2018-08-01T06:00:09.068Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="12.promises">
+<meta name="twitter:description" content="promises Promises are a very involved paradigm, so we’ll take it slow.  Here’s a table of contents with the topics we’ll cover in this article. Feel free to skip topics you’re comfortable about.  What">
+<meta name="twitter:image" content="https://i.imgur.com/uwWnUq4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/08/01/pureMaterial/12.promises/"/>
+
+
+
+
+
+  <title>12.promises | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <img src='http://www.lpldplws.cn/images/favicon.jpg' style="display:none;"/>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/08/01/pureMaterial/12.promises/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">12.promises</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-01T16:58:47+08:00">
+                2018-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/pure-material/" itemprop="url" rel="index">
+                    <span itemprop="name">pure material</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/01/pureMaterial/12.promises/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/08/01/pureMaterial/12.promises/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/01/pureMaterial/12.promises/" class="leancloud_visitors" data-flag-title="12.promises">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="promises"><a href="#promises" class="headerlink" title="promises"></a>promises</h2><blockquote>
+<p>Promises are a very involved paradigm, so we’ll take it slow.</p>
+</blockquote>
+<p>Here’s a table of contents with the topics we’ll cover in this article. Feel free to skip topics you’re comfortable about.</p>
+<ul>
+<li><a href="#what-is-a-promise">What is a Promise?</a> – we define <code>Promise</code> and look at a simple example in JavaScript<ul>
+<li><a href="#callbacks-and-events">Callbacks and Events</a> – alternative ways to handle asynchronous code flows</li>
+<li><a href="#gist-of-a-promise">Gist of a <code>Promise</code></a> – a first glimpse at how promises work</li>
+</ul>
+</li>
+<li><a href="#promises-in-time">Promises in Time</a> – a brief history of promises</li>
+<li><a href="#then-again">Then, Again</a> – an analysis of <code>.then</code> and <code>.catch</code></li>
+<li><a href="#creating-a-promise-from-scratch">Creating a Promise From Scratch</a></li>
+<li><a href="#settling-a-promise">Settling a Promise</a> – discusses states of a <code>Promise</code></li>
+<li><a href="#paying-a-promise-with-another-promise">Paying a Promise with another Promise</a> – explains promise chaining</li>
+<li><a href="#transforming-values-in-promises">Transforming Values in Promises</a> – shows how to turn a result into something else in the context of promises</li>
+<li><a href="#leveraging-promiseall-and-promiserace">Leveraging <code>Promise.all</code> and <code>Promise.race</code></a></li>
+</ul>
+<p>Shall we?</p>
+<h1 id="What-is-a-Promise"><a href="#What-is-a-Promise" class="headerlink" title="What is a Promise?"></a><a href="#what-is-a-promise">What is a <code>Promise</code>?</a></h1><p>Promises are usually vaguely defined as <em>“a proxy for a value that will eventually become available”</em>. They can be used for both synchronous and asynchronous code flows, although they make asynchronous flows easier to reason about – once you’ve mastered promises, that is.</p>
+<p>Consider as an example the <em>upcoming</em> <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalFetch/fetch#Syntax" target="_blank" rel="noopener"><code>fetch</code></a> API. This API is a simplification of <code>XMLHttpRequest</code>. It aims to be super simple to use for the most basic use cases: making a <code>GET</code> request against a resource relative to the current page over <code>http(s)</code> – it also provides a comprehensive API that caters to advanced use cases as well, but that’s not our focus for now. In it’s most basic incarnation, you can make a request for <code>GET foo</code> like so.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'foo'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>The <code>fetch(&#39;foo&#39;)</code> statement doesn’t seem <a href="http://buff.ly/1NRZf70" target="_blank" rel="noopener">all that exciting</a>. It makes a <em>“fire-and-forget”</em> <code>GET</code> request against <code>foo</code> relative to the resource we’re currently on. The <code>fetch</code> method returns a <code>Promise</code>. You can chain a <code>.then</code> callback that will be executed once the <code>foo</code> resource finishes loading.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'foo'</span>)</span></span>.then(response =&gt; <span class="comment">/* do something */</span>)</span><br></pre></td></tr></table></figure>
+<p>Promises offer an alternative to callbacks and events.</p>
+<h2 id="Callbacks-and-Events"><a href="#Callbacks-and-Events" class="headerlink" title="Callbacks and Events"></a><a href="#callbacks-and-events">Callbacks and Events</a></h2><p>If the <code>fetch</code> API used callbacks, you’d get one last parameter that then gets executed whenever fetching ends. Typical asynchronous code flow conventions dictate that we allocate the first parameter for errors <em>(that may or may not occur)</em> during the <em>fetching process</em>. The rest of the parameters can be used to pass in resulting data. Often, a single parameter is used.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'foo'</span>, (err, res)</span></span> =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="comment">// handle error</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// handle response</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>The callback wouldn’t be invoked until the <code>foo</code> resource has been fetched, so its execution remains asynchronous and non-blocking. Note that in this model you could only specify <strong>a single callback</strong>, and that callback would be responsible for <em>all functionality</em> derived from the response.</p>
+<p>Another option might have been to use an <em>event-driven</em> API model. In this model the object returned by <code>fetch</code> would be able to listen <code>.on</code> events, binding as many event handlers as needed for any events. Typically there’s an <code>error</code> event for when things go awry and a <code>data</code> event that’s called when the operation completes successfully.</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">fetch</span>(<span class="string">'foo'</span>)</span><br><span class="line">  <span class="selector-class">.on</span>(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">    <span class="comment">// handle error</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="selector-class">.on</span>(<span class="string">'data'</span>, res =&gt; &#123;</span><br><span class="line">    <span class="comment">// handle response</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>In this case, errors usually end up in hard exceptions if no event listener is attached – but that depends on what event emitter implementation is used. Promises are a bit different.</p>
+<h2 id="Gist-of-a-Promise"><a href="#Gist-of-a-Promise" class="headerlink" title="Gist of a Promise"></a><a href="#gist-of-a-promise">Gist of a <code>Promise</code></a></h2><p>Instead of binding event listeners through <code>.on</code>, promises offer a slightly different API. The snippet of code shown below displays the actual API of the <code>fetch</code> method, which returns a <code>Promise</code> object. Much like with events, you can bind as many listeners as you’d like with both <code>.catch</code> and <code>.then</code>. Note how there’s no need for an event type anymore with the declarative methods used by promises.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">p</span> = fetch(<span class="string">'foo'</span>)</span><br><span class="line"><span class="selector-tag">p</span>.then(res =&gt; &#123;</span><br><span class="line">  <span class="comment">// handle response</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="selector-tag">p</span>.catch(error =&gt; &#123;</span><br><span class="line">  <span class="comment">// handle error</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>See [this example][(<a href="http://buff.ly/1KtWGUD" target="_blank" rel="noopener">http://buff.ly/1KtWGUD</a>)] on Promisees</p>
+<p>Also note that <code>.then</code> is able to register a reaction to rejections as its second argument. The above could be expressed as the following piece of code.</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">fetch</span>(<span class="string">'foo'</span>)</span><br><span class="line">  <span class="selector-class">.then</span>(</span><br><span class="line">    res =&gt; &#123;</span><br><span class="line">      <span class="comment">// handle response</span></span><br><span class="line">    &#125;,</span><br><span class="line">    err =&gt; &#123;</span><br><span class="line">      <span class="comment">// handle error</span></span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<p>See [this example][(<a href="http://buff.ly/1V8xpHI" target="_blank" rel="noopener">http://buff.ly/1V8xpHI</a>)] on Promisees</p>
+<p>Just like you can omit the error reaction in <code>.then(fulfillment)</code>, you can also omit the reaction to <em>fulfillment</em>. Using <code>.then(null, rejection)</code> is equivalent to <code>.catch(rejection)</code>. Note that <code>.then</code> and <code>.catch</code> return <strong>a new promise every time</strong>. That’s important because chaining can have wildly different results depending on where you append a <code>.then</code> or a <code>.catch</code> call onto. See the <a href="http://buff.ly/1Pqh5ex" target="_blank" rel="noopener">following example</a> to understand the difference.</p>
+<p><img src="https://i.imgur.com/uwWnUq4.png" alt="Differences when chaining promises"></p>
+<p>We’ll get more in depth into these two methods in a bit. Let’s look at a brief history of promises before doing that.</p>
+<h1 id="Promises-in-Time"><a href="#Promises-in-Time" class="headerlink" title="Promises in Time"></a><a href="#promises-in-time">Promises in Time</a></h1><p>Promises aren’t all that new. Like <em>most things in computer science</em>, the earliest mention of Promises can be traced all the way back to the <a href="https://en.wikipedia.org/wiki/Futures_and_promises" target="_blank" rel="noopener">late seventies</a>. According to the <em>Internet</em>, they made their first appearance in JavaScript in 2007 – in a library called <code>MochiKit</code>. Then <code>Dojo</code> adopted it, and <code>jQuery</code> followed shortly after that.</p>
+<p>Then the <a href="https://promisesaplus.com/" target="_blank" rel="noopener">Promises/A+</a> specification came out from the CommonJS group <em>(now famous for their CommonJS module specification)</em>. In its earliest incarnations, Node.js shipped with promises. Some time later, they were removed from core and everyone switched over to callbacks. Now, promises ship with the ES6 standard and V8 has already implemented them a while back.</p>
+<blockquote>
+<p>The ES6 standard implements <strong>Promises/A+</strong> natively. In the latest versions of Node.js you can use promises without any libraries. They’re also available on Chrome 32+, Firefox 29+, and Safari 7.1+.</p>
+</blockquote>
+<p>Shall we go back to the <code>Promise</code> API?</p>
+<h1 id="Then-Again"><a href="#Then-Again" class="headerlink" title="Then, Again"></a><a href="#then-again">Then, Again</a></h1><p>Going back to our example – here’s some of the code we had. In the simplest use case, this is all we wanted.</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">fetch</span>(<span class="string">'foo'</span>)<span class="selector-class">.then</span>(res =&gt; &#123;</span><br><span class="line">  <span class="comment">// handle response</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>What if an error happens in one of the reactions passed to <code>.then</code>? You can catch those with <code>.catch</code>. The example in the snippet below <a href="http://buff.ly/1Jo8NyJ" target="_blank" rel="noopener">logs the error</a> caught when trying to access <code>prop</code> from the <em>undefined <code>a</code> property</em> in <code>res</code>.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'foo'</span>)</span></span></span><br><span class="line">  .then(res =&gt; res<span class="selector-class">.a</span><span class="selector-class">.prop</span><span class="selector-class">.that</span><span class="selector-class">.does</span><span class="selector-class">.not</span><span class="selector-class">.exist</span>)</span><br><span class="line">  .catch(err =&gt; console.error(err.message))</span><br><span class="line"><span class="comment">// &lt;- 'Cannot read property "prop" of undefined'</span></span><br></pre></td></tr></table></figure>
+<p>Note that <em>where</em> you tack your reactions onto matters. The following example <strong>won’t</strong> print the <code>err.message</code> twice – only once. That’s because no errors happened in the first <code>.catch</code>, so the rejection branch for that promise wasn’t executed. Check out <a href="http://buff.ly/1gLqKjU" target="_blank" rel="noopener">the Promisee</a> for a visual explanation of the code below.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'foo'</span>)</span></span></span><br><span class="line">  .then(res =&gt; res<span class="selector-class">.a</span><span class="selector-class">.prop</span><span class="selector-class">.that</span><span class="selector-class">.does</span><span class="selector-class">.not</span><span class="selector-class">.exist</span>)</span><br><span class="line">  .catch(err =&gt; console.error(err.message))</span><br><span class="line">  .catch(err =&gt; console.error(err.message))</span><br><span class="line"><span class="comment">// &lt;- 'Cannot read property "prop" of undefined'</span></span><br></pre></td></tr></table></figure>
+<p>In contrast, the snippet found below <em>will</em> <a href="http://buff.ly/1PqlHS2" target="_blank" rel="noopener">print the <code>err.message</code> twice</a>. It works by saving a reference to the promise returned by <code>.then</code>, and then tacking two <code>.catch</code> reactions onto it. The second <code>.catch</code> in the previous example was capturing errors produced in the promise returned from the first <code>.catch</code>, while in this case both <code>.catch</code> branch off of <code>p</code>.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">p</span> = fetch(<span class="string">'foo'</span>).then(res =&gt; res<span class="selector-class">.a</span><span class="selector-class">.prop</span><span class="selector-class">.that</span><span class="selector-class">.does</span><span class="selector-class">.not</span><span class="selector-class">.exist</span>)</span><br><span class="line"><span class="selector-tag">p</span>.catch(err =&gt; console.error(err.message))</span><br><span class="line"><span class="selector-tag">p</span>.catch(err =&gt; console.error(err.message))</span><br><span class="line"><span class="comment">// &lt;- 'Cannot read property "prop" of undefined'</span></span><br><span class="line"><span class="comment">// &lt;- 'Cannot read property "prop" of undefined'</span></span><br></pre></td></tr></table></figure>
+<p>Here’s another example that puts that difference the spotlight. The second catch is triggered this time because it’s <a href="http://buff.ly/1Jo9KHf" target="_blank" rel="noopener">bound to the rejection branch</a> on the first <code>.catch</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'foo'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.a.prop.that.does.not.exist)</span><br><span class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(err.message) &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(err.message))</span><br><span class="line"><span class="comment">// &lt;- 'Cannot read property "prop" of undefined'</span></span><br></pre></td></tr></table></figure>
+<p>If the first <code>.catch</code> call didn’t return anything, then <a href="http://buff.ly/1Jo9KHf" target="_blank" rel="noopener">nothing would be printed</a>.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'foo'</span>)</span></span></span><br><span class="line">  .then(res =&gt; res<span class="selector-class">.a</span><span class="selector-class">.prop</span><span class="selector-class">.that</span><span class="selector-class">.does</span><span class="selector-class">.not</span><span class="selector-class">.exist</span>)</span><br><span class="line">  .catch(err =&gt; &#123;&#125;)</span><br><span class="line">  .catch(err =&gt; console.error(err.message))</span><br><span class="line"><span class="comment">// nothing happens</span></span><br></pre></td></tr></table></figure>
+<p>We should observe, then, that promises can be chained “arbitrarily”, that is to say: as we just saw, you can save a reference to any point in the promise chain and then tack more promises on top of it. This is one of the fundamental points to understanding promises.</p>
+<blockquote>
+<p>You can save a reference to any point in the promise chain.</p>
+</blockquote>
+<p>In fact, the last example can be represented as shown below. This snippet makes it much easier to understand what we’ve discussed so far. Glance over it and then I’ll give you some bullet points.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> p1 = fetch(<span class="string">'foo'</span>)</span><br><span class="line"><span class="selector-tag">var</span> p2 = p1.then(res =&gt; res<span class="selector-class">.a</span><span class="selector-class">.prop</span><span class="selector-class">.that</span><span class="selector-class">.does</span><span class="selector-class">.not</span><span class="selector-class">.exist</span>)</span><br><span class="line"><span class="selector-tag">var</span> p3 = p2.catch(err =&gt; &#123;&#125;)</span><br><span class="line"><span class="selector-tag">var</span> p4 = p3.catch(err =&gt; console.error(err.message))</span><br></pre></td></tr></table></figure>
+<p>Good boy! Have some bullet points. Or you could just look at the <a href="http://buff.ly/1NS1Uxl" target="_blank" rel="noopener">Promisees visualization</a>.</p>
+<ol>
+<li><code>fetch</code> returns a <strong>brand new</strong> <code>p1</code> promise</li>
+<li><code>p1.then</code> returns a <strong>brand new</strong> <code>p2</code> promise</li>
+<li><code>p2.catch</code> returns a <strong>brand new</strong> <code>p3</code> promise</li>
+<li><code>p3.catch</code> returns a <strong>brand new</strong> <code>p4</code> promise</li>
+<li>When <code>p1</code> is settled <em>(fulfilled)</em>, the <code>p1.then</code> reaction is executed</li>
+<li>After that <code>p2</code>, which is awaiting the pending result of <code>p1.then</code> is settled</li>
+<li>Since <code>p2</code> was <em>rejected</em>, <code>p2.catch</code> reactions are executed <em>(instead of the <code>p2.then</code> branch)</em></li>
+<li>The <code>p3</code> promise from <code>p2.catch</code> is <em>fulfilled</em>, even though it doesn’t produce any value nor an error</li>
+<li>Because <code>p3</code> succeeded, <code>p3.catch</code> is never executed – the <code>p3.then</code> branch would’ve been used instead</li>
+</ol>
+<p>You should think of promises as <strong>a tree structure</strong>. It all starts with a single promise, which we’ll later see how to construct. You then add a branch with <code>.then</code> or <code>.catch</code>. You can tack as many <code>.then</code> or <code>.catch</code> calls as you want onto each branch, creating new branches, and so on.</p>
+<h1 id="Creating-a-Promise-From-Scratch"><a href="#Creating-a-Promise-From-Scratch" class="headerlink" title="Creating a Promise From Scratch"></a><a href="#creating-a-promise-from-scratch">Creating a Promise From Scratch</a></h1><p>You should now understand how promises work like a tree where you can add branches where you need them, as you need them. But how do you create a promise from scratch? Writing these kinds of <code>Promise</code> tutorials is hard because its a chicken and egg situation. People hardly have a need to create a promise from scratch, since libraries usually take care of that. In this article, for instance, I purposely started explaining things using <code>fetch</code>, which internally creates a new promise object. Then, each call to <code>.then</code> or <code>.catch</code> on the promise created by fetch also creates a promise internally, and those promises depend on their parent when it comes to deciding whether the fulfillment branch or the rejection branch should be executed.</p>
+<p>Promises can be created from scratch by using <code>new Promise(resolver)</code>. The <code>resolver</code> parameter is a method that will be used to resolve the promise. It takes two arguments, a <code>resolve</code> method and a <code>reject</code> method. These promises are fulfilled and rejected, respectively, on the next tick – as <a href="http://buff.ly/1LzF6k8" target="_blank" rel="noopener">seen on Promisees</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> resolve()) <span class="comment">// promise is fulfilled</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> reject()) <span class="comment">// promise is rejected</span></span><br></pre></td></tr></table></figure>
+<p>Resolving and rejecting promises without a value isn’t that useful, though. Usually promises will resolve to some <code>result</code>, like the response from an AJAX call as we saw with <code>fetch</code>. Similarly, you’ll probably want to state the <code>reason</code> for your rejections – typically using an <code>Error</code> object. The code below codifies what you’ve just read (see the <a href="http://buff.ly/1KxmM9p" target="_blank" rel="noopener">visualization</a>, too).</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> resolve(&#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;))</span><br><span class="line">  .then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line">  <span class="comment">// &lt;- &#123; foo: 'bar' &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span></span><br><span class="line">  reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'failed to deliver on my promise to you'</span>)))</span><br><span class="line">  .catch(<span class="function"><span class="params">reason</span> =&gt;</span> <span class="built_in">console</span>.log(reason))</span><br><span class="line">  <span class="comment">// &lt;- Error: failed to deliver on my promise to you</span></span><br></pre></td></tr></table></figure>
+<p>As you may have guessed, there’s nothing inherently synchronous about promises. Fulfillment and rejection can both be completely asynchronous. That’s the whole point of promises! The promise below is fulfilled <a href="http://buff.ly/1PxIwmX" target="_blank" rel="noopener">after two seconds</a> elapse.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
+<p>It’s important to note that only the first call made to either of these methods will have an impact – once a promise is settled, it’s result can’t change. The example below creates a promise that’s fulfilled in the alloted time or rejected after a generous timeout <a href="http://buff.ly/1Owr5po" target="_blank" rel="noopener">(visualization)</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolveUnderThreeSeconds</span> (<span class="params">delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(resolve, delay)</span><br><span class="line">    setTimeout(reject, <span class="number">3000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">resolveUnderThreeSeconds(<span class="number">2000</span>) <span class="comment">// resolves!</span></span><br><span class="line">resolveUnderThreeSeconds(<span class="number">7000</span>) <span class="comment">// fulfillment took so long, it was rejected.</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/JiIrWWg.gif" alt="See the promises unfold with this animation."></p>
+<p>Besides returning resolution values, you could also resolve with <em>another promise</em>. What happens in those cases? In the following snippet we create a promise <code>p</code> that will be rejected in three seconds. We also create a promise <code>p2</code> that will be resolved with <code>p</code> in a second. Since <code>p</code> is still two seconds out, resolving <code>p2</code> won’t have an immediate effect. Two seconds later, when <code>p</code> is rejected, <code>p2</code> will be rejected as well, with the same rejection reason that was provided to <code>p</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'fail'</span>)), <span class="number">3000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(p), <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p2.then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line">p2.catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</span><br><span class="line"><span class="comment">// &lt;- Error: fail</span></span><br></pre></td></tr></table></figure>
+<p>In the <a href="http://bit.ly/2c2n5hx" target="_blank" rel="noopener">animation</a> shown below we can observe how <code>p2</code> becomes blocked <em>– marked in yellow –</em> waiting for a settlement in <code>p</code>.</p>
+<p><img src="https://i.imgur.com/dIdrAcK.gif" alt="Animation of a promise blocking another one."></p>
+<p>Note that this behavior is only possible for fulfillment branches using <code>resolve</code>. If you try to replicate the same behavior with <code>reject</code> you’ll find that the <code>p2</code> promise is just rejected with the <code>p</code> promise as the rejection <code>reason</code>.</p>
+<h1 id="Using-Promise-resolve-and-Promise-reject"><a href="#Using-Promise-resolve-and-Promise-reject" class="headerlink" title="Using Promise.resolve and Promise.reject"></a><a href="#using-promiseresolve-and-promisereject">Using <code>Promise.resolve</code> and <code>Promise.reject</code></a></h1><p>Sometimes you want to create a Promise but you don’t want to go through the trouble of using the constructor. The following statement creates a promise that’s fulfilled with a result of <code>&#39;foo&#39;</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> resolve(<span class="string">'foo'</span>))</span><br></pre></td></tr></table></figure>
+<p>If you already know the value a promise should be fulfilled with, you can use <code>Promise.resolve</code> instead. The following statement is equivalent to the previous one.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'foo'</span>)</span><br></pre></td></tr></table></figure>
+<p>Similarly, if you already know the rejection reason, you can use <code>Promise.reject</code>. The next statement creates a promise that’s going to settle into a rejection, with <code>reason</code>.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Promise</span><span class="selector-class">.reject</span>(<span class="selector-tag">reason</span>)</span><br></pre></td></tr></table></figure>
+<p>What else should we know about settling a promise?</p>
+<h1 id="Settling-a-Promise"><a href="#Settling-a-Promise" class="headerlink" title="Settling a Promise"></a><a href="#settling-a-promise">Settling a Promise</a></h1><p>Promises can exist in three states: pending, fulfilled, and rejected. Pending is the default state. From there, a promise can be <em>“settled”</em> into either fulfillment or rejection. Once a promise is settled, all reactions that are waiting on it are evaluated. Those on the correct branch <em>– <code>.then</code> for fulfillment and <code>.catch</code> for rejections –</em> are executed.</p>
+<p>From this point on, the promise is <em>settled</em>. If at a later point in time another reaction is chained onto the settled promise, the appropriate branch for that reaction is executed in the next tick of the program. In the example below, <code>p</code> is resolved with a value of <code>100</code> after two seconds. Then, <code>100</code> is printed onto the screen. Two seconds later, another <code>.then</code> branch is added onto <code>p</code>, but since <code>p</code> has already fulfilled, the new branch gets executed right away.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="number">100</span>), <span class="number">2000</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p.then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line"><span class="comment">// &lt;- 100</span></span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> p.then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result * <span class="number">20</span>)), <span class="number">4000</span>)</span><br><span class="line"><span class="comment">// &lt;- 2000</span></span><br></pre></td></tr></table></figure>
+<p>A promise can return another promise – this is what enables and powers most of their asynchronous behavior. In the <a href="#creating-a-promise-from-scratch">previous section</a>, when creating a promise from scratch, we saw that we can <code>resolve</code> with another promise. We can also return promises when calling <code>.then</code>.</p>
+<h1 id="Paying-a-Promise-with-another-Promise"><a href="#Paying-a-Promise-with-another-Promise" class="headerlink" title="Paying a Promise with another Promise"></a><a href="#paying-a-promise-with-another-promise">Paying a Promise with another Promise</a></h1><p>The example below shows how we use a promise and <code>.then</code> another promise that will only be settled once the returned promise also settles. Once that happens, we get back the response from the wrapped promise, and we use the <code>res.url</code> to figure out what random article we were graced with.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'foo'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> fetch(<span class="string">'/articles/random'</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> <span class="built_in">console</span>.log(response.url))</span><br><span class="line"><span class="comment">// &lt;- 'http://ponyfoo.com/articles/es6-symbols-in-depth'</span></span><br></pre></td></tr></table></figure>
+<p>Obviously, in the real world, your second <code>fetch</code> would probably depend on the response from the first one. Here’s another example of returning a promise, where we <a href="http://buff.ly/1VbxElo" target="_blank" rel="noopener">randomly <code>fulfill</code> or <code>reject</code></a> after a second.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? resolve : reject, <span class="number">1000</span>)</span><br><span class="line">  &#125;))</span><br><span class="line"></span><br><span class="line">p.then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'okay!'</span>))</span><br><span class="line">p.catch(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'boo!'</span>))</span><br></pre></td></tr></table></figure>
+<p>The animation for this one is super fun!</p>
+<p><img src="https://i.imgur.com/3NNoO38.gif" alt="Animation of the code shown right above"></p>
+<p>Okay it’s <strong>not</strong> <em>that fun</em>. I did have fun making the Promisees tool itself!</p>
+<h1 id="Transforming-Values-in-Promises"><a href="#Transforming-Values-in-Promises" class="headerlink" title="Transforming Values in Promises"></a><a href="#transforming-values-in-promises">Transforming Values in Promises</a></h1><p>You’re not just limited to returning other promises from your <code>.then</code> and <code>.catch</code> callbacks. You could also return values, transforming what you had. The example below first creates a promise fulfilled with <code>[1, 2, 3]</code> and then has a fulfillment branch on top of that which maps thoes values into <code>[2, 4, 6]</code>. Calling <code>.then</code> on that branch of the promise will produce the doubled values.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">  .then(<span class="function"><span class="params">values</span> =&gt;</span> values.map(<span class="function"><span class="params">value</span> =&gt;</span> value * <span class="number">2</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">values</span> =&gt;</span> <span class="built_in">console</span>.log(values))</span><br><span class="line">  <span class="comment">// &lt;- [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
+<p>Note that you can do the same thing in rejection branches. An interesting fact that may catch your eye is that if a <code>.catch</code> branch goes smoothly without errors, then it will be fulfilled with the returned value. That means that if you still want to have an error for that branch, you should <code>throw</code> again. The following piece of code takes an internal error and <strong>masks it</strong> behind a generic <em>“Internal Server Error”</em> message as to not leak off potentially dangerous information to its clients <a href="http://buff.ly/1LA2FcS" target="_blank" rel="noopener">(visualization)</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Database ds.214.53.4.12 connection timeout!'</span>))</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Internal Server Error'</span>) &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.info(error))</span><br><span class="line">  <span class="comment">// &lt;- Error: Internal Server Error</span></span><br></pre></td></tr></table></figure>
+<p>Mapping promise results is particularly useful when dealing with multiple concurrent promises. Let’s see how that looks like.</p>
+<h1 id="Leveraging-Promise-all-and-Promise-race"><a href="#Leveraging-Promise-all-and-Promise-race" class="headerlink" title="Leveraging Promise.all and Promise.race"></a><a href="#leveraging-promiseall-and-promiserace">Leveraging <code>Promise.all</code> and <code>Promise.race</code></a></h1><p>A tremendously common scenario – even more so for those used to Node.js – is to have a dependency on things A and B before being able to do thing C. I’ll proceed that lousy description of the scenario with multiple code snippets. Suppose you wanted to pull the homepage for both Google and Twitter, and then print out the length of each of their responses. Here’s how that looks in the most näive approach possible, with a hypothetical <code>request(url, done)</code> method.</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">request('https<span class="symbol">://google</span>.com', function (<span class="name">err</span>, goog) &#123;</span><br><span class="line">  request('https<span class="symbol">://twitter</span>.com', function (<span class="name">err</span>, twit) &#123;</span><br><span class="line">    console.log(<span class="name">goog</span>.length, twit.length)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Of course, that’s going to run in series you say! Why would we wait on Google’s response before pulling Twitter’s? The following piece fixes the problem. It’s also ridiculously long, though, right?</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> results = &#123;&#125;</span><br><span class="line"><span class="function"><span class="title">request</span><span class="params">(<span class="string">'https://google.com'</span>, function (err, goog)</span></span> &#123;</span><br><span class="line">  results<span class="selector-class">.goog</span> = goog</span><br><span class="line">  done()</span><br><span class="line">&#125;)</span><br><span class="line"><span class="function"><span class="title">request</span><span class="params">(<span class="string">'https://twitter.com'</span>, function (err, twit)</span></span> &#123;</span><br><span class="line">  results<span class="selector-class">.twit</span> = twit</span><br><span class="line">  done()</span><br><span class="line">&#125;)</span><br><span class="line">function done () &#123;</span><br><span class="line">  <span class="keyword">if</span> (Object.keys(results)<span class="selector-class">.length</span> &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(results<span class="selector-class">.goog</span><span class="selector-class">.length</span>, results<span class="selector-class">.twit</span><span class="selector-class">.length</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Since nobody wants to be writing code like that, utility libraries like <code>async</code> and <code>contra</code> make this much shorter for you. You can use <code>contra.concurrent</code> to run these methods at the same time and execute a callback once they all ended. Here’s how that’d look like.</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contra.concurrent(&#123;</span><br><span class="line">  goog: <span class="function"><span class="keyword">function</span> <span class="params">(next)</span></span> &#123;</span><br><span class="line">    request(<span class="string">'https://google.com'</span>, <span class="built_in">next</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  twit: <span class="function"><span class="keyword">function</span> <span class="params">(next)</span></span> &#123;</span><br><span class="line">    request(<span class="string">'https://twitter.com'</span>, <span class="built_in">next</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> <span class="params">(err, results)</span></span> &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(results.goog.length, results.twit.length)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>For the very common <em>“I just want a method that appends that magical <code>next</code> parameter at the end”</em> use case, there’s also <code>contra.curry</code> <em>(equivalent of <code>async.apply</code>)</em> to make the code even shorter.</p>
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">contra.concurrent(&#123;</span><br><span class="line">  <span class="attribute">goog</span>: contra<span class="variable">.curry</span>(request, 'https://google<span class="variable">.com</span>'),</span><br><span class="line">  twit: contra<span class="variable">.curry</span>(request, 'https://twitter<span class="variable">.com</span>')</span><br><span class="line">&#125;, function (err, results) &#123;</span><br><span class="line">  console<span class="variable">.log</span>(results<span class="variable">.goog</span><span class="variable">.length</span>, results<span class="variable">.twit</span><span class="variable">.length</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Promises already make the “run this after this other thing in series” use case very easy, using <code>.then</code> as we saw in several examples earlier. For the <em>“run these things concurrently”</em> use case, we can use <code>Promise.all</code> <a href="http://buff.ly/1Pyen6L" target="_blank" rel="noopener">(visualization here)</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([</span><br><span class="line">  fetch(<span class="string">'/'</span>),</span><br><span class="line">  fetch(<span class="string">'foo'</span>)</span><br><span class="line">])</span><br><span class="line">  .then(<span class="function"><span class="params">responses</span> =&gt;</span> responses.map(<span class="function"><span class="params">response</span> =&gt;</span> response.statusText))</span><br><span class="line">  .then(<span class="function"><span class="params">status</span> =&gt;</span> <span class="built_in">console</span>.log(status.join(<span class="string">', '</span>)))</span><br><span class="line">  <span class="comment">// &lt;- 'OK, Not Found'</span></span><br></pre></td></tr></table></figure>
+<p>Note that even if a single dependency is rejected, the <code>Promise.all</code> method will be rejected entirely as well.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([</span><br><span class="line">  <span class="built_in">Promise</span>.reject(),</span><br><span class="line">  fetch(<span class="string">'/'</span>),</span><br><span class="line">  fetch(<span class="string">'foo'</span>)</span><br><span class="line">])</span><br><span class="line">  .then(<span class="function"><span class="params">responses</span> =&gt;</span> responses.map(<span class="function"><span class="params">response</span> =&gt;</span> response.statusText))</span><br><span class="line">  .then(<span class="function"><span class="params">status</span> =&gt;</span> <span class="built_in">console</span>.log(status.join(<span class="string">', '</span>)))</span><br><span class="line">  <span class="comment">// nothing happens</span></span><br></pre></td></tr></table></figure>
+<p>In summary, <code>Promise.all</code> has two possible outcomes.</p>
+<ul>
+<li>Settle with <em>a single</em> rejection <code>reason</code> as soon as one of its dependencies is rejected</li>
+<li>Settle with <em>all</em> fulfillment <code>results</code> as soon as all of its dependencies are fulfilled</li>
+</ul>
+<p>Then there’s <code>Promise.race</code>. This is a similar method to <code>Promise.all</code>, except the first promise to settle will “win” the race, and its value will be passed along to branches of the race. If you run the <a href="http://buff.ly/1gRYr3p" target="_blank" rel="noopener">visualization</a> for the following piece of code a few times, you’ll notice that this race doesn’t have a clear winner. It depends on the server and the network!</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Promise.race([</span><br><span class="line">  fetch(<span class="string">'/'</span>),</span><br><span class="line">  fetch(<span class="string">'foo'</span>)</span><br><span class="line">])</span><br><span class="line">  .<span class="keyword">then</span>(response =&gt; console.<span class="built_in">log</span>(response.statusText))</span><br><span class="line">  // &lt;- <span class="string">'OK'</span>, <span class="literal">or</span> maybe <span class="string">'Not Found'</span>.</span><br></pre></td></tr></table></figure>
+<p>Rejections will also finish the race, and the race promise will be rejected. As a closing note we may indicate that this could be useful for scenarios where we want to time out a promise we otherwise have no control over. For instance, the following race does make sense.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'/resource-that-may-take-a-while'</span>),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">5000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">])</span><br><span class="line">p.then(<span class="function"><span class="params">response</span> =&gt;</span> <span class="built_in">console</span>.log(response))</span><br><span class="line">p.catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</span><br></pre></td></tr></table></figure>
+<p>To close this article, I’ll leave you with <a href="http://buff.ly/1PyhnQC" target="_blank" rel="noopener">a visualization</a>. It shows the race between a resource and a timeout as shown in the code above.</p>
+<p><img src="https://i.imgur.com/9OoMVfo.gif" alt="Race between a resource and a timeout"></p>
+<p>Race between a resource and a timeout</p>
+<p>Here’s hoping I didn’t make promises even harder to understand for you!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/08/01/pureMaterial/12.promises/" title="12.promises">www.lpldplws.cn/2018/08/01/pureMaterial/12.promises/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/pure-material/" rel="tag"># pure material</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/01/pureMaterial/11.generators/" rel="next" title="11.generators">
+                <i class="fa fa-chevron-left"></i> 11.generators
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/01/pureMaterial/13.map/" rel="prev" title="13.map">
+                13.map <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block">
+      
+        <!--MOB SHARE BEGIN-->
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui" style="display: none">
+     <ul class="-mob-share-list">
+         <li class="-mob-share-weibo"><p>新浪微博</p></li>
+         <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+         <li class="-mob-share-qzone"><p>QQ空间</p></li>
+         <li class="-mob-share-qq"><p>QQ好友</p></li>
+         <li class="-mob-share-weixin"><p>微信</p></li>
+         <li class="-mob-share-douban"><p>豆瓣</p></li>
+         <li class="-mob-share-renren"><p>人人网</p></li>
+         <li class="-mob-share-kaixin"><p>开心网</p></li>
+         <li class="-mob-share-facebook"><p>Facebook</p></li>
+         <li class="-mob-share-twitter"><p>Twitter</p></li>
+         <li class="-mob-share-pocket"><p>Pocket</p></li>
+         <li class="-mob-share-google"><p>Google+</p></li>
+         <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+         <li class="-mob-share-mingdao"><p>明道</p></li>
+         <li class="-mob-share-pengyou"><p>朋友网</p></li>
+         <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+         <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+         <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+     </ul>
+     <div class="-mob-share-close">取消</div>
+ </div>
+ <div class="-mob-share-ui-bg"></div>
+ <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=26afb7d19666e"></script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+
+      
+      <!--noindex-->
+      </section>
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc">
+
+          
+            
+          
+
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#promises"><span class="nav-number">1.</span> <span class="nav-text">promises</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-a-Promise"><span class="nav-number"></span> <span class="nav-text">What is a Promise?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Callbacks-and-Events"><span class="nav-number">1.</span> <span class="nav-text">Callbacks and Events</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gist-of-a-Promise"><span class="nav-number">2.</span> <span class="nav-text">Gist of a Promise</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promises-in-Time"><span class="nav-number"></span> <span class="nav-text">Promises in Time</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Then-Again"><span class="nav-number"></span> <span class="nav-text">Then, Again</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creating-a-Promise-From-Scratch"><span class="nav-number"></span> <span class="nav-text">Creating a Promise From Scratch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-Promise-resolve-and-Promise-reject"><span class="nav-number"></span> <span class="nav-text">Using Promise.resolve and Promise.reject</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Settling-a-Promise"><span class="nav-number"></span> <span class="nav-text">Settling a Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Paying-a-Promise-with-another-Promise"><span class="nav-number"></span> <span class="nav-text">Paying a Promise with another Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transforming-Values-in-Promises"><span class="nav-number"></span> <span class="nav-text">Transforming Values in Promises</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Leveraging-Promise-all-and-Promise-race"><span class="nav-number"></span> <span class="nav-text">Leveraging Promise.all and Promise.race</span></a></div>
+          
+
+        </div>
+      </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

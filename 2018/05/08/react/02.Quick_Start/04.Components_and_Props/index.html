@@ -488,10 +488,10 @@
 <p>类通常有一些额外的特性，我们会在<a href="https://reactjs.org/docs/state-and-lifecycle.html" target="_blank" rel="noopener">下一章节</a>讨论这些内容。在此之前，我们将会使用更为简洁的函数组件。</p>
 <h3 id="Rendering-a-Component-渲染一个组件"><a href="#Rendering-a-Component-渲染一个组件" class="headerlink" title="Rendering a Component(渲染一个组件)"></a>Rendering a Component(渲染一个组件)</h3><p>Previously, we only encountered React elements that represent DOM tags:</p>
 <p>在此之前，我们仅仅遇到过使用DOM标签表示的React元素：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">div</span> /&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;<span class="keyword">div</span> /&gt;;</span><br></pre></td></tr></table></figure>
 <p>However, elements can also represent user-defined components:</p>
 <p>然而，元素也可以代表用户自定义的组件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">"Sara"</span> /&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">const element</span> = &lt;Welcome name=<span class="string">"Sara"</span> /&gt;;</span><br></pre></td></tr></table></figure>
 <p>When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”.</p>
 <p>当React遇到一个用户自定义的组件时，他就会传递JSX属性作为单一的对象给它们的组件。我们称之为对象的“属性”。</p>
 <p>For example, this code renders “Hello, Sara” on the page:</p>
@@ -564,7 +564,7 @@
 <p>这样的函数是<a href="https://en.wikipedia.org/wiki/Pure_function" target="_blank" rel="noopener">“纯函数”</a>，因为它们不会试图改变它们的输入，并总会对于相同的输入返回相同的值。</p>
 <p>In contrast, this function is impure because it changes its own input:</p>
 <p>相反的，下面这个函数就是动机不纯的，因为它会改变它本身的输入：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withdraw</span>(<span class="params">account, amount</span>) </span>&#123;</span><br><span class="line">  account.total -= amount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withdraw</span><span class="params">(account, amount)</span> </span>&#123;</span><br><span class="line">  account.total -= amount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>React is pretty flexible but it has a single strict rule:</p>
 <p>React十分灵活，但是它有一个特别严格的规定：</p>
 <p><strong>All React components must act like pure functions with respect to their props.</strong></p>
@@ -651,7 +651,7 @@
     <div class="post-spread" style="display:block">
       
         <!--MOB SHARE BEGIN-->
- <div class="-mob-share-ui-button -mob-share-open" style="background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
  <div class="-mob-share-ui" style="display: none">
      <ul class="-mob-share-list">
          <li class="-mob-share-weibo"><p>新浪微博</p></li>
@@ -746,7 +746,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -757,7 +757,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -768,7 +768,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

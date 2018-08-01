@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端问题," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.22~1.26所遇问题1.导入css文件时，import和link的区别 &amp;lt;link&amp;gt;标签是html标签，除了可以引入CSS之外还可以定义RSS，定义rel属性等，而@import只能引入CSS样式； &amp;lt;link&amp;gt;标签引用的CSS文件会在页面加载时与html同时加载，而@import引入的CSS文件会等页面全部加载完以后再加载； @import标签必须放在页面样式表的顶">
+<meta name="keywords" content="前端问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.22~1.26所遇问题">
+<meta property="og:url" content="www.lpldplws.cn/2018/01/25/blog/problem/1.22~1.16_questions/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="1.22~1.26所遇问题1.导入css文件时，import和link的区别 &amp;lt;link&amp;gt;标签是html标签，除了可以引入CSS之外还可以定义RSS，定义rel属性等，而@import只能引入CSS样式； &amp;lt;link&amp;gt;标签引用的CSS文件会在页面加载时与html同时加载，而@import引入的CSS文件会等页面全部加载完以后再加载； @import标签必须放在页面样式表的顶">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/import-import.gif">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/link-import.gif">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/link-with-import.gif">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/link-blocks-import.gif">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/link-blocks-import-not-ie.gif">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/many-imports.gif">
+<meta property="og:image" content="http://stevesouders.com/tests/atimport/import-import.gif">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/157/537/1575372319-5a5eabae0c326_articlex">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/537/919/537919608-5a5eac73b8e6c_articlex">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/164/511/1645114860-5a5eb3d394158_articlex">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/318/356/3183561786-5a5eb42f8c31d_articlex">
+<meta property="og:updated_time" content="2018-07-03T09:03:38.632Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1.22~1.26所遇问题">
+<meta name="twitter:description" content="1.22~1.26所遇问题1.导入css文件时，import和link的区别 &amp;lt;link&amp;gt;标签是html标签，除了可以引入CSS之外还可以定义RSS，定义rel属性等，而@import只能引入CSS样式； &amp;lt;link&amp;gt;标签引用的CSS文件会在页面加载时与html同时加载，而@import引入的CSS文件会等页面全部加载完以后再加载； @import标签必须放在页面样式表的顶">
+<meta name="twitter:image" content="http://stevesouders.com/tests/atimport/import-import.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/01/25/blog/problem/1.22~1.16_questions/"/>
+
+
+
+
+
+  <title>1.22~1.26所遇问题 | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <img src='http://www.lpldplws.cn/images/favicon.jpg' style="display:none;"/>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/01/25/blog/problem/1.22~1.16_questions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">1.22~1.26所遇问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T14:01:43+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端常见问题/" itemprop="url" rel="index">
+                    <span itemprop="name">前端常见问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/25/blog/problem/1.22~1.16_questions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/01/25/blog/problem/1.22~1.16_questions/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/25/blog/problem/1.22~1.16_questions/" class="leancloud_visitors" data-flag-title="1.22~1.26所遇问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-22-1-26所遇问题"><a href="#1-22-1-26所遇问题" class="headerlink" title="1.22~1.26所遇问题"></a>1.22~1.26所遇问题</h2><h3 id="1-导入css文件时，import和link的区别"><a href="#1-导入css文件时，import和link的区别" class="headerlink" title="1.导入css文件时，import和link的区别"></a>1.导入css文件时，import和link的区别</h3><ol>
+<li><code>&lt;link&gt;</code>标签是html标签，除了可以引入CSS之外还可以定义RSS，定义rel属性等，而@import只能引入CSS样式；</li>
+<li><code>&lt;link&gt;</code>标签引用的CSS文件会在页面加载时与html同时加载，而@import引入的CSS文件会等页面全部加载完以后再加载；</li>
+<li>@import标签必须放在页面样式表的顶部，而<code>&lt;link&gt;</code>不必；</li>
+</ol>
+<p>那为什么会有很多人建议使用link标签，而非import呢？在Steve Souders（编写过《高性能网站建设指南》等书）的博客中通过一些实例来说明<strong>don’t use @import</strong>。<br>以下节选部分内容并进行翻译：</p>
+<p>原文链接<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="noopener">http://www.stevesouders.com/blog/2009/04/09/dont-use-import/</a><br>——————————————————————————————————————<br><strong>LINK vs. @import</strong></p>
+<p>There are two ways to include a stylesheet in your web page. You can use the LINK tag:</p>
+<p>以下有两种将样式表引入到您的网页中的方式。您可以使用LINK标签：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">'stylesheet'</span> href=<span class="string">'a.css'</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>Or you can use the @import rule:</p>
+<p>或者您可以使用@import规则：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'a.css'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>I prefer using LINK for simplicity—you have to remember to put @import at the top of the style block or else it won’t work. It turns out that avoiding @import is better for performance, too.</p>
+<p>为了简单起见，我更倾向于使用LINK。如果您使用@import的话，您必须将它放在样式内容的顶部，否则它将无法显示。事实证明，处于性能来说，避免使用@import也是一个更好的选择。</p>
+<p><strong>@import @import</strong></p>
+<p>I’m going to walk through the different ways LINK and @import can be used. In these examples, there are two stylesheets: a.css and b.css. Each stylesheet is configured to take two seconds to download to make it easier to see the performance impact. The first example uses @import to pull in these two stylesheets. In this example, called @import @import, the HTML document contains the following style block:</p>
+<p>我将在不同的情况下使用LINK和@import。在这些例子中，有两个样式表：a.css和b.css。每个样式表都需要花费两秒钟的时间下载，以便更容易地观测性能。第一个示例中，我们使用@import来下载这两个样式表。我们叫这个例子为<code>@import @import</code>在这个示例中，HTML文档包含以下样式块：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'a.css'</span>);</span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'b.css'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>If you always use @import in this way, there are no performance problems, although we’ll see below it could result in JavaScript errors due to race conditions. The two stylesheets are downloaded in parallel, as shown in Figure 1. (The first tiny request is the HTML document.) The problems arise when @import is embedded in other stylesheets or is used in combination with LINK.</p>
+<p>如果您总是使用@import的方式，不会有什么性能方面的问题，尽管可能由于竞争的原因导致JavaScript报错。如图1所示，这两个样式表是并行下载的。（第一个请求时HTML文档），但是，当@import与LINK结合使用引入其他样式表时，问题就出现了。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/import-import.gif" alt="只使用@import"><br>    <figcaption><br>        只使用@import<br>    </figcaption><br></figure>
+
+<p>由此可见，只使用@import是没有问题的。</p>
+<p><strong>LINK @import</strong></p>
+<p>The LINK @import example uses LINK for a.css, and @import for b.css:</p>
+<p>LINK @import示例中使用LINK标签引入a.css，使用@import引入b.css：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">type</span>=<span class="string">'text/css'</span> <span class="attr">href</span>=<span class="string">'a.css'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'b.css'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>In IE (tested on 6, 7, and 8), this causes the stylesheets to be downloaded sequentially, as shown in Figure 2. Downloading resources in parallel is key to a faster page. As shown here, this behavior in IE causes the page to take a longer time to finish.</p>
+<p>在IE（在IE6， 7， 8下测试）中，如下图所示，这将导致样式表按顺序下载，而并行下载资源是让页面加载更快的关键。如图所示，在IE中的这会导致页面花费较长的时间完成渲染。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-import.gif" alt="混合使用@import和link标签"><br>    <figcaption><br>        混合使用@import和link标签<br>    </figcaption><br></figure>
+
+<p><strong>LINK with @import</strong></p>
+<p>In the LINK with @import example, a.css is inserted using LINK, and a.css has an @import rule to pull in b.css:</p>
+<p>在使用LINK中使用@import的示例中，a.css使用LINK嵌入在DOM中，而a.css中则通过@import导入b.css：<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> the <span class="type">HTML</span> document:</span><br><span class="line">&lt;link rel=<span class="symbol">'stylesheet'</span> <span class="keyword">type</span>=<span class="symbol">'text</span>/css' href=<span class="symbol">'a</span>.css'&gt;</span><br><span class="line"><span class="keyword">in</span> a.css:</span><br><span class="line">@import url(<span class="symbol">'b</span>.css');</span><br></pre></td></tr></table></figure></p>
+<p>This pattern also prevents the stylesheets from loading in parallel, but this time it happens on all browsers. When we stop and think about it, we shouldn’t be too surprised. The browser has to download a.css and parse it. At that point, the browser sees the @import rule and starts to fetch b.css.</p>
+<p>这种方式也可以防止样式表的并行加载，但是这次它发生在所有的浏览器上。其实仔细想一想，我们都不应该感到惊讶。浏览器必须先下载a.css并解析它，只有解析它后，浏览器才会看到@import规则并开始加载b.css。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-with-import.gif" alt="在link标签引入@import"><br>    <figcaption><br>       在link标签引入@import<br>    </figcaption><br></figure>
+
+<p><strong>LINK blocks @import</strong></p>
+<p>A slight variation on the previous example with surprising results in IE: LINK is used for a.css and for a new stylesheet called proxy.css. proxy.css is configured to return immediately; it contains an @import rule for b.css.</p>
+<p>在IE中与上述结果有些许不同：对a.css和名为proxy.css的样式表使用LINK引入。而proxy.css会立即执行并渲染; 注意，它包含一个b.css的@import规则</p>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> the <span class="type">HTML</span> document:</span><br><span class="line">&lt;link rel=<span class="symbol">'stylesheet'</span> <span class="keyword">type</span>=<span class="symbol">'text</span>/css' href=<span class="symbol">'a</span>.css'&gt;</span><br><span class="line">&lt;link rel=<span class="symbol">'stylesheet'</span> <span class="keyword">type</span>=<span class="symbol">'text</span>/css' href=<span class="symbol">'proxy</span>.css'&gt;</span><br><span class="line"><span class="keyword">in</span> proxy.css:</span><br><span class="line">@import url(<span class="symbol">'b</span>.css');</span><br></pre></td></tr></table></figure>
+<p>The results of this example in IE, LINK blocks @import, are shown in Figure 4. The first request is the HTML document. The second request is a.css (two seconds). The third (tiny) request is proxy.css. The fourth request is b.css (two seconds). Surprisingly, IE won’t start downloading b.css until a.css finishes. In all other browsers, this blocking issue doesn’t occur, resulting in a faster page as shown in Figure 5.</p>
+<p>在IE中的LINK bock @import例子里，第一个请求时HTML文件，第二个请求是a.css（花费了两秒），第三个请求（很短）是proxy.css。第四个请求时b.css（花费了两秒）。令人惊奇的是，IE不会等到a.css结束后再开始下载b.css。在所有其他的浏览器里，这种加速渲染页面的情况不会发生。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-blocks-import.gif" alt="LINK blocks @import embedded in other stylesheets in IE"><br>     <figcaption><br>        LINK blocks @import embedded in other stylesheets in IE<br>     </figcaption><br></figure>
+
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/link-blocks-import-not-ie.gif" alt=" LINK doesn't block @import embedded stylesheets in browsers other than IE"><br>     <figcaption><br>         LINK doesn’t block @import embedded stylesheets in browsers other than IE<br>     </figcaption><br></figure>
+
+<p><strong>many @imports</strong></p>
+<p>The many @imports example shows that using @import in IE causes resources to be downloaded in a different order than specified. This example has six stylesheets (each takes two seconds to download) followed by a script (a four second download).</p>
+<p>在many @imports例子中显示了在IE中使用@import会导致不同于指定的顺序下载资源。这个例子有六个样式表（每个需要两秒钟下载），后面是一个脚本（四秒钟的下载）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'a.css'</span>);</span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'b.css'</span>);</span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'c.css'</span>);</span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'d.css'</span>);</span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'e.css'</span>);</span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'f.css'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'one.js'</span> <span class="attr">type</span>=<span class="string">'text/javascript'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Looking at Figure 6, the longest bar is the four second script. Even though it was listed last, it gets downloaded first in IE. If the script contains code that depends on the styles applied from the stylesheets (a la getElementsByClassName, etc.), then unexpected results may occur because the script is loaded before the stylesheets, despite the developer listing it last.</p>
+<p>看下图，最长的一条是一个四秒的脚本。尽管它位于最后，但是它在IE中是最早下载下来的。如果脚本包括依赖于样式表中的样式，会有未知的结果发生，因为脚本不是按照预期的顺序在样式之后加载的。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/many-imports.gif" alt="多个import"><br>     <figcaption><br>        多个import<br>     </figcaption><br></figure>
+
+<p><strong>LINK LINK</strong></p>
+<p>It’s simpler and safer to use LINK to pull in stylesheets:</p>
+<p>使用LINK加载样式更快捷也更安全：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="attribute">rel</span>=<span class="string">'stylesheet'</span> <span class="attribute">type</span>=<span class="string">'text/css'</span> <span class="attribute">href</span>=<span class="string">'a.css'</span>&gt;</span><br><span class="line">&lt;link <span class="attribute">rel</span>=<span class="string">'stylesheet'</span> <span class="attribute">type</span>=<span class="string">'text/css'</span> <span class="attribute">href</span>=<span class="string">'b.css'</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>Using LINK ensures that stylesheets will be downloaded in parallel across all browsers. The LINK LINK example demonstrates this, as shown in Figure 7. Using LINK also guarantees resources are downloaded in the order specified by the developer.</p>
+<p>使用LINK会确保样式表会在所有的浏览器中都并行下载。这个LINK LINK的例子证明了这点，使用LINk也保证资源会按开发者的顺序加载。</p>
+<figure><br>    <img src="http://stevesouders.com/tests/atimport/import-import.gif" alt="使用link加载样式表"><br>     <figcaption><br>        使用link加载样式表<br>     </figcaption><br></figure>
+
+<p>These issues need to be addressed in IE. It’s especially bad that resources can end up getting downloaded in a different order. All browsers should implement a small lookahead when downloading stylesheets to extract any @import rules and start those downloads immediately. Until browsers make these changes, I recommend avoiding @import and instead using LINK for inserting stylesheets.</p>
+<p>这些问题在IE中都需要解决。尤其是资源会以不同的顺序下载的问题尤为糟糕。所有的浏览器都应该在下载样式表的时候就提取任何@import规则并立即开始下载。在浏览器进行这些更改之前，我建议避免使用@import，而应使用LINK来引入样式表。</p>
+<p>The load times of these resources are exaggerated to make it easy to see what’s happening. But for people with slow connections, especially those in some of the world’s emerging markets, these response times may not be that far from reality. The takeaways are:</p>
+<ol>
+<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
+<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
+</ol>
+<p>因为这些资源的加载时间被夸大，所有我们很容易看到发生了什么事情。但是对于那些网速慢的人来说，网络的响应时间也许并不那么块。 原因是：</p>
+<ol>
+<li>在样式表中使用@import会使得页面的整体下载时间再增加一倍。</li>
+<li>在IE中使用@import会导致资源的下载顺序发生改变。这可能会导致样式表花费更长的时间来下载，因此会阻碍渲染，使页面加载的更慢。</li>
+</ol>
+<h3 id="2-微格式"><a href="#2-微格式" class="headerlink" title="2.微格式"></a>2.微格式</h3><p>对应官网为：<a href="http://microformats.org/" target="_blank" rel="noopener">http://microformats.org/</a></p>
+<h4 id="微格式产生背景："><a href="#微格式产生背景：" class="headerlink" title="微格式产生背景："></a>微格式产生背景：</h4><p>由于早期HTML中缺少相应的元素，很难突出显示人、地点或日期等类型的信息。为了解决这个问题，有一组开发人员决定开发一套标准的命名约定盒标记模式来表示这些数据。这些命名约定基于vCard（电子名片）和iCalendar（日历数据交换）等现有的数据格式，现在称为微格式（microformat)。</p>
+<h4 id="微格式定义："><a href="#微格式定义：" class="headerlink" title="微格式定义："></a>微格式定义：</h4><p>建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。</p>
+<h4 id="微格式意义："><a href="#微格式意义：" class="headerlink" title="微格式意义："></a>微格式意义：</h4><p>微格式按照某种已有的被广泛应用的标准，通过对内容块的语义标记，可以让外部应用程序、聚合程序和搜索引擎能够做以下事情：</p>
+<ol>
+<li>在捉取Web内容时，能够更为准确地识别内容块的语义；</li>
+<li>对内容进行操作，包括提供访问、校对，还可以将其转化成其他的相关格式，提供给外部程序和Web服务使用。</li>
+</ol>
+<p>因此，微格式实际上就是为现有的HTML元素添加元数据和其他属性以增强语义化。</p>
+<p>常见的微格式是hCard</p>
+<p>hCard是一种微格式，用来发布个人，公司，组织，地点等详细的联系信息。它可以包含在(X)HTML，Atom，RSS等可扩展置标语言中。hCard使用vCard（RFC 2426）的属性和值来实现这些功能。</p>
+<p>它可以使分析器（比如其他网站，Firefox的Operator插件）获得详细的信息，并通过别的网站或者地图工具进行显示，或者载入到地址簿等其他程序。</p>
+<p>example：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span>&gt;</span><br><span class="line">     &lt;<span class="keyword">div</span>&gt;Joe Doe&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">     &lt;<span class="keyword">div</span>&gt;The Example Company&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">     &lt;<span class="keyword">div</span>&gt;<span class="number">604</span><span class="number">-555</span><span class="number">-1234</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">     &lt;<span class="keyword">a</span> href=<span class="string">"http://example.com/"</span>&gt;<span class="keyword">http</span>://example.com/&lt;/<span class="keyword">a</span>&gt;</span><br><span class="line"> &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<p> 如下代码添加了微格式后，成为:<br> <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">"vcard"</span>&gt;</span><br><span class="line">    &lt;div <span class="keyword">class</span>=<span class="string">"fn"</span>&gt;Joe Doe&lt;/div&gt;</span><br><span class="line">    &lt;div <span class="keyword">class</span>=<span class="string">"org"</span>&gt;The Example Company&lt;/div&gt;</span><br><span class="line">    &lt;div <span class="keyword">class</span>=<span class="string">"tel"</span>&gt;<span class="number">604</span><span class="number">-555</span><span class="number">-1234</span>&lt;/div&gt;</span><br><span class="line">    &lt;a <span class="keyword">class</span>=<span class="string">"url"</span> href=<span class="string">"http://example.com/"</span>&gt;http:<span class="comment">//example.com/&lt;/a&gt;</span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 这里，正式名称（class=”fn”），组织（class=”org”），电话号码（class=”tel”）和url（class=”url”）分别用相应的class标示；同时，所有内容都包含在class=”vcard”里。</p>
+<p> 以上就是微格式的大体内容。</p>
+<h3 id="外边距叠加"><a href="#外边距叠加" class="headerlink" title="外边距叠加"></a>外边距叠加</h3><p>首先，先说明是什么导致的外边距叠加。</p>
+<p>首先，外边距叠加是因为<strong>外边距塌陷(margin collapse)</strong>导致的。实际它也是由于一个缺省值的设定而导致的。在Chrome浏览器里，这个缺省值就是由-webkit-margin-collapse规定的。-webkit-margin-collapse的缺省值就是collapse，所以导致塌陷。这个属性还有另外2个取值：一个是discard，一个是separate。下面我们来具体看一下它们的不同表现形式。</p>
+<h4 id="webkit-margin-collapse-collapse"><a href="#webkit-margin-collapse-collapse" class="headerlink" title="-webkit-margin-collapse: collapse"></a>-webkit-margin-collapse: collapse</h4><p>我们先从简单的看起。假定我们有这样一个<code>&lt;div&gt;</code>，这个<code>&lt;div&gt;</code>里面有3个<code>&lt;p&gt;</code>，如果我们什么也不设，它就是这个样子：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/157/537/1575372319-5a5eabae0c326_articlex" alt="未设置-webkit-margin-collapse"></p>
+<p>会看到每一个<code>&lt;p&gt;</code>下面都有一个下边距。现在我们加上<code>margin: 20px 0;</code>表示为每一个<code>&lt;p&gt;</code>增加一个20px的上边距和一个20px的下边距，现在再看一下效果：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/537/919/537919608-5a5eac73b8e6c_articlex" alt="-webkit-margin-collapse: collapse"></p>
+<p>这时我们看到虽然第一个<code>&lt;p&gt;</code>有20px的上边距，但第2个<code>&lt;p&gt;</code>的20px上边距已经被第一个<code>&lt;p&gt;</code>的下边距『吃掉』了，这就是我们大家所熟知的外边距塌陷。</p>
+<h4 id="webkit-margin-collapse-separate"><a href="#webkit-margin-collapse-separate" class="headerlink" title="-webkit-margin-collapse: separate"></a>-webkit-margin-collapse: separate</h4><p>现在我们来看一下第2种情况，如果我们设定<code>-webkit-margin-collapse: separate</code>之后会怎么样：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/164/511/1645114860-5a5eb3d394158_articlex" alt="-webkit-margin-collapse: separate"></p>
+<p>现在我们看到塌陷的外边距回来了。</p>
+<h4 id="webkit-margin-collapse-discard"><a href="#webkit-margin-collapse-discard" class="headerlink" title="-webkit-margin-collapse: discard"></a>-webkit-margin-collapse: discard</h4><p>那么第3种取值<code>discard</code>是什么作用呢？</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/318/356/3183561786-5a5eb42f8c31d_articlex" alt="-webkit-margin-collapse: discard"></p>
+<p>外边距完全没有了。</p>
+<p>所以，如果我们想强制所有元素边距都不塌陷，那么该怎么办呢？</p>
+<p>我们不能再简单地同时设置上下边距为<code>margin: 20px 0;</code>而应该更精确控制，给<code>&lt;p&gt;</code>只设置下边距为20px就可以了，这样我们就实现了在强制不塌陷的情况下依然保持了行与行之间的距离。</p>
+<p>Tips:<br>『外边距塌陷』其实是W3C早期标准为了一时方便而引入的一个过度设计，它的设计初衷是为了简化，但结果在CSS高度发展的情况下反倒造成了更大的混乱，使得前端工程师无法一目了然地知道自己的代码结果，不明白自己明明已经设置好的<code>margin-top: 20px;</code>怎么就会没有了？结果被人告知还要学习外边距塌陷这样的知识。这样的错误责任不在于工程师没有好好学习，而根本原因在于CSS本身设计的缺陷，才导致了工程师学习成本的增加，并且还增加了浏览器开发者的工作量，需要特意为外边距塌陷开发额外的代码。无论如何，这是一件各方成本都增加的双输设计。</p>
+<p>至于水平方向上为什么没有外边距叠加，我也不知道呀，也许当时就是为了解决垂直方向上外边距累加的问题吧，定义上就是这么定义的。</p>
+<p>最后总结一下W3C中外边距叠加的内容</p>
+<blockquote>
+<p>In CSS, the adjoining margins of two or more boxes (which might or might not be siblings) can combine to form a single margin. Margins that combine this way are said to collapse, and the resulting combined margin is called a collapsed margin.</p>
+</blockquote>
+<p>在CSS中，两个或多个毗邻的普通流中的盒子（可能是父子元素，也可能是兄弟元素）在垂直方向上的外边距会发生叠加，这种形成的外边距称之为外边距叠加。</p>
+<p>我们可以注意定义中的几个关键字：毗邻、两个或多个、垂直方向和普通流。</p>
+<h4 id="毗邻"><a href="#毗邻" class="headerlink" title="毗邻"></a>毗邻</h4><p>毗邻说明了他们的位置关系，没有被 padding、border、clear 和 line box 分隔开。</p>
+<h4 id="两个或多个"><a href="#两个或多个" class="headerlink" title="两个或多个"></a>两个或多个</h4><p>两个或多个盒子是指元素之间的相互影响，单个元素不会存在外边距叠加的情况。</p>
+<h4 id="垂直方向"><a href="#垂直方向" class="headerlink" title="垂直方向"></a>垂直方向</h4><blockquote>
+<p>Horizontal margins never collapse.</p>
+</blockquote>
+<p>只有垂直方向的外边距会发生外边距叠加。水平方向的外边距不存在叠加的情况。</p>
+<h4 id="普通流-in-flow"><a href="#普通流-in-flow" class="headerlink" title="普通流(in flow)"></a>普通流(in flow)</h4><p>什么是普通流？W3C 只对 out of flow 作了定义：</p>
+<blockquote>
+<p>An element is called out of flow if it is floated, absolutely positioned, or is the root element.An element is called in-flow if it is not out-of-flow.</p>
+</blockquote>
+<p>从定义中我们可以知道只要不是 float、absolutely positioned 和 root element 时就是 in flow。</p>
+<h4 id="什么时候会发生外边距叠加"><a href="#什么时候会发生外边距叠加" class="headerlink" title="什么时候会发生外边距叠加"></a>什么时候会发生外边距叠加</h4><p>外边距叠加存在两种情况：一是父子外边距叠加；二是兄弟外边距叠加。</p>
+<p>W3C 对于什么是毗邻的外边距也有定义：</p>
+<blockquote>
+<p>Two margins are adjoining if and only if: - both belong to in-flow block-level boxes that participate in the same block formatting context - no line boxes, no clearance, no padding and no border separate them - both belong to vertically-adjacent box edges, i.e. form one of the following pairs:</p>
+<ul>
+<li>top margin of a box and top margin of its first in-flow child</li>
+<li>bottom margin of box and top margin of its next in-flow following sibling</li>
+<li>bottom margin of a last in-flow child and bottom margin of its parent if the &gt; parent has “auto” computed height</li>
+<li>top and bottom margins of a box that does not establish a new block formatting context and that has zero computed “min-height”, zero or “auto” computed “height”, and no in-flow children</li>
+</ul>
+</blockquote>
+<p>从定义中我们可以很清楚的知道要符合哪些情况才会发生外边距折叠：</p>
+<ul>
+<li>都属于普通流的块级盒子且参与到相同的块级格式上下文中</li>
+<li>没有被padding、border、clear和line box分隔开</li>
+<li>都属于垂直毗邻盒子边缘：<ul>
+<li>盒子的top margin和它第一个普通流子元素的top margin</li>
+<li>盒子的bottom margin和它下一个普通流兄弟的top margin</li>
+<li>盒子的bottom margin和它父元素的bottom margin</li>
+<li>盒子的top margin和bottom margin，且没有创建一个新的块级格式上下文，且有被计算为0的min-height，被计算为0或auto的height，且没有普通流子元素</li>
+</ul>
+</li>
+</ul>
+<h4 id="如何避免外边距叠加"><a href="#如何避免外边距叠加" class="headerlink" title="如何避免外边距叠加"></a>如何避免外边距叠加</h4><p>上面讲了外边距的叠加，那如何避免呢，其实只要破坏上面讲到的四个条件中的任何一个即可：毗邻、两个或多个、普通流和垂直方向。</p>
+<p>W3C也对此做了总结：</p>
+<blockquote>
+<ul>
+<li>Margins between a floated box and any other box do not collapse (not even between a float and its in-flow children).</li>
+<li>Margins of elements that establish new block formatting contexts (such as floats and elements with “overflow” other than “visible”) do not collapse with their in-flow children.</li>
+<li>Margins of absolutely positioned boxes do not collapse (not even with their in-flow children).</li>
+<li>Margins of inline-block boxes do not collapse (not even with their in-flow children).</li>
+<li>The bottom margin of an in-flow block-level element always collapses with the top margin of its next in-flow block-level sibling, unless that sibling has clearance.</li>
+<li>The top margin of an in-flow block element collapses with its first in-flow block-level child”s top margin if the element has no top border, no top padding, and the child has no clearance.</li>
+<li>The bottom margin of an in-flow block box with a “height” of “auto” and a “min-height” of zero collapses with its last in-flow block-level child”s bottom margin if the box has no bottom padding and no bottom border and the child”s bottom margin does not collapse with a top margin that has clearance.</li>
+<li>A box”s own margins collapse if the “min-height” property is zero, and it has neither top or bottom borders nor top or bottom padding, and it has a “height” of either 0 or “auto”, and it does not contain a line box, and all of its in-flow children”s margins (if any) collapse.</li>
+</ul>
+</blockquote>
+<ul>
+<li>浮动元素不会与任何元素发生叠加，也包括它的子元素</li>
+<li>创建了 BFC 的元素不会和它的子元素发生外边距叠加</li>
+<li>绝对定位元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>inline-block 元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>普通流中的块级元素的 margin-bottom 永远和它相邻的下一个块级元素的 margin-top 叠加，除非相邻的兄弟元素 clear</li>
+<li>普通流中的块级元素（没有 border-top、没有 padding-top）的 margin-top 和它的第一个普通流中的子元素（没有clear）发生 margin-top 叠加</li>
+<li>普通流中的块级元素（height为 auto、min-height为0、没有 border-bottom、没有 padding-bottom）和它的最后一个普通流中的子元素（没有自身发生margin叠加或clear）发生 margin-bottom叠加</li>
+<li>如果一个元素的 min-height 为0、没有 border、没有padding、高度为0或者auto、不包含子元素，那么它自身的外边距会发生叠加</li>
+</ul>
+<p>以上就是外边距叠加的主要内容。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/01/25/blog/problem/1.22~1.16_questions/" title="1.22~1.26所遇问题">www.lpldplws.cn/2018/01/25/blog/problem/1.22~1.16_questions/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端问题/" rel="tag"># 前端问题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/25/leetCode/array/06.Min_Cost_Climbing_Stairs/" rel="next" title="leetCode Array --6.Min Cost Climbing Stairs">
+                <i class="fa fa-chevron-left"></i> leetCode Array --6.Min Cost Climbing Stairs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/26/leetCode/array/07.array_partition_I/" rel="prev" title="leetCode Array -- 7.Array Partition I">
+                leetCode Array -- 7.Array Partition I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block">
+      
+        <!--MOB SHARE BEGIN-->
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui" style="display: none">
+     <ul class="-mob-share-list">
+         <li class="-mob-share-weibo"><p>新浪微博</p></li>
+         <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+         <li class="-mob-share-qzone"><p>QQ空间</p></li>
+         <li class="-mob-share-qq"><p>QQ好友</p></li>
+         <li class="-mob-share-weixin"><p>微信</p></li>
+         <li class="-mob-share-douban"><p>豆瓣</p></li>
+         <li class="-mob-share-renren"><p>人人网</p></li>
+         <li class="-mob-share-kaixin"><p>开心网</p></li>
+         <li class="-mob-share-facebook"><p>Facebook</p></li>
+         <li class="-mob-share-twitter"><p>Twitter</p></li>
+         <li class="-mob-share-pocket"><p>Pocket</p></li>
+         <li class="-mob-share-google"><p>Google+</p></li>
+         <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+         <li class="-mob-share-mingdao"><p>明道</p></li>
+         <li class="-mob-share-pengyou"><p>朋友网</p></li>
+         <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+         <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+         <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+     </ul>
+     <div class="-mob-share-close">取消</div>
+ </div>
+ <div class="-mob-share-ui-bg"></div>
+ <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=26afb7d19666e"></script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+
+      
+      <!--noindex-->
+      </section>
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc">
+
+          
+            
+          
+
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-22-1-26所遇问题"><span class="nav-number">1.</span> <span class="nav-text">1.22~1.26所遇问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-导入css文件时，import和link的区别"><span class="nav-number">1.1.</span> <span class="nav-text">1.导入css文件时，import和link的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-微格式"><span class="nav-number">1.2.</span> <span class="nav-text">2.微格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#微格式产生背景："><span class="nav-number">1.2.1.</span> <span class="nav-text">微格式产生背景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微格式定义："><span class="nav-number">1.2.2.</span> <span class="nav-text">微格式定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微格式意义："><span class="nav-number">1.2.3.</span> <span class="nav-text">微格式意义：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外边距叠加"><span class="nav-number">1.3.</span> <span class="nav-text">外边距叠加</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webkit-margin-collapse-collapse"><span class="nav-number">1.3.1.</span> <span class="nav-text">-webkit-margin-collapse: collapse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webkit-margin-collapse-separate"><span class="nav-number">1.3.2.</span> <span class="nav-text">-webkit-margin-collapse: separate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webkit-margin-collapse-discard"><span class="nav-number">1.3.3.</span> <span class="nav-text">-webkit-margin-collapse: discard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#毗邻"><span class="nav-number">1.3.4.</span> <span class="nav-text">毗邻</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个或多个"><span class="nav-number">1.3.5.</span> <span class="nav-text">两个或多个</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直方向"><span class="nav-number">1.3.6.</span> <span class="nav-text">垂直方向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#普通流-in-flow"><span class="nav-number">1.3.7.</span> <span class="nav-text">普通流(in flow)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么时候会发生外边距叠加"><span class="nav-number">1.3.8.</span> <span class="nav-text">什么时候会发生外边距叠加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何避免外边距叠加"><span class="nav-number">1.3.9.</span> <span class="nav-text">如何避免外边距叠加</span></a></li></ol></li></ol></li></ol></div>
+          
+
+        </div>
+      </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

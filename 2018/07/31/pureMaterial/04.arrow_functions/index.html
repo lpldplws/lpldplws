@@ -474,7 +474,7 @@
 <p>Here’s how the syntax looks like if we have a single argument and just want to return the results for an expression.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="params">num</span> =&gt;</span> num * <span class="number">2</span>)</span><br><span class="line"><span class="comment">// &lt;- [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
 <p>The ES5 equivalent would be as below.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123; <span class="keyword">return</span> num * <span class="number">2</span> &#125;)</span><br><span class="line"><span class="comment">// &lt;- [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> <span class="params">(num)</span> </span>&#123; <span class="keyword">return</span> num * <span class="number">2</span> &#125;)</span><br><span class="line"><span class="comment">// &lt;- [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
 <p>If we need to declare more arguments <em>(or no arguments)</em>, we’ll have to use parenthesis.</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].map((num, index) =&gt; num * <span class="number">2</span> + index)</span><br><span class="line"><span class="comment">// &lt;- [2, 5, 8, 11]</span></span><br></pre></td></tr></table></figure>
 <p>You might want to have some other statements and not just an expression to return. In this case you’ll have to use bracket notation.</p>
@@ -576,7 +576,7 @@
     <div class="post-spread" style="display:block">
       
         <!--MOB SHARE BEGIN-->
- <div class="-mob-share-ui-button -mob-share-open" style="background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
  <div class="-mob-share-ui" style="display: none">
      <ul class="-mob-share-list">
          <li class="-mob-share-weibo"><p>新浪微博</p></li>
@@ -671,7 +671,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -682,7 +682,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -693,7 +693,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
