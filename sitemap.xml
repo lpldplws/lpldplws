@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>www.lpldplws.cn/2018/08/02/leetCode/string/11.rotated_digits/</loc>
+    
+    <lastmod>2018-08-02T02:42:27.744Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.lpldplws.cn/2018/08/02/leetCode/string/10.count_binary_substrings/</loc>
+    
+    <lastmod>2018-08-02T02:40:05.544Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.lpldplws.cn/2018/08/02/leetCode/string/09.detect_capital/</loc>
+    
+    <lastmod>2018-08-02T02:34:48.881Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.lpldplws.cn/2018/08/01/leetCode/string/08.goat_latin/</loc>
+    
+    <lastmod>2018-08-01T10:17:46.928Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.lpldplws.cn/2018/08/01/leetCode/string/07.longest_uncommon_subsequence_I/</loc>
     
     <lastmod>2018-08-01T07:34:18.262Z</lastmod>
@@ -82,13 +110,6 @@
     <loc>www.lpldplws.cn/2018/08/01/pureMaterial/08.let_const_temporal_dead_zone/</loc>
     
     <lastmod>2018-08-01T05:45:01.848Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.lpldplws.cn/2018/07/31/blog/summary/01.string/</loc>
-    
-    <lastmod>2018-07-31T10:10:51.345Z</lastmod>
     
   </url>
   
