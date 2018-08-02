@@ -494,7 +494,7 @@
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">getModel</span> (type) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></span><br><span class="line">    [<span class="keyword">type</span>]: &#123;</span><br><span class="line">      message: <span class="symbol">'hello</span>, this <span class="keyword">is</span> doge',</span><br><span class="line">      date: <span class="keyword">new</span> Date()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Neat. What else?</p>
 <h2 id="Method-Definitions"><a href="#Method-Definitions" class="headerlink" title="Method Definitions"></a><a href="#method-definitions">Method Definitions</a></h2><p>Typically in ES5 you declare methods on an object like so:</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  bar: <span class="function"><span class="keyword">function</span> <span class="params">(baz)</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  bar: <span class="function"><span class="keyword">function</span> (<span class="params">baz</span>) </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>While getters and setters have a syntax like this, where there’s no need for the <code>function</code> keyword. It’s just inferred from context.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cart = &#123;</span><br><span class="line">  _wheels: <span class="number">4</span>,</span><br><span class="line">  <span class="function"><span class="keyword">get</span> <span class="title">wheels</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._wheels</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">set</span> <span class="title">wheels</span> (<span class="params"><span class="keyword">value</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">value</span> &lt; <span class="keyword">this</span>._wheels) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'hey, come back here!'</span>)  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>._wheels = <span class="keyword">value</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Starting in ES6, you can declare regular methods with a similar syntax, only difference is it’s not prefixed by <code>get</code> or <code>set</code>.</p>
@@ -675,7 +675,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -686,7 +686,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -697,7 +697,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

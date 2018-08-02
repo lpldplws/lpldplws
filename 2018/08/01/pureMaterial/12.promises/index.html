@@ -573,7 +573,7 @@
 <p>If you already know the value a promise should be fulfilled with, you can use <code>Promise.resolve</code> instead. The following statement is equivalent to the previous one.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'foo'</span>)</span><br></pre></td></tr></table></figure>
 <p>Similarly, if you already know the rejection reason, you can use <code>Promise.reject</code>. The next statement creates a promise that’s going to settle into a rejection, with <code>reason</code>.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Promise</span><span class="selector-class">.reject</span>(<span class="selector-tag">reason</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.reject(reason)</span><br></pre></td></tr></table></figure>
 <p>What else should we know about settling a promise?</p>
 <h1 id="Settling-a-Promise"><a href="#Settling-a-Promise" class="headerlink" title="Settling a Promise"></a><a href="#settling-a-promise">Settling a Promise</a></h1><p>Promises can exist in three states: pending, fulfilled, and rejected. Pending is the default state. From there, a promise can be <em>“settled”</em> into either fulfillment or rejection. Once a promise is settled, all reactions that are waiting on it are evaluated. Those on the correct branch <em>– <code>.then</code> for fulfillment and <code>.catch</code> for rejections –</em> are executed.</p>
 <p>From this point on, the promise is <em>settled</em>. If at a later point in time another reaction is chained onto the settled promise, the appropriate branch for that reaction is executed in the next tick of the program. In the example below, <code>p</code> is resolved with a value of <code>100</code> after two seconds. Then, <code>100</code> is printed onto the screen. Two seconds later, another <code>.then</code> branch is added onto <code>p</code>, but since <code>p</code> has already fulfilled, the new branch gets executed right away.</p>
@@ -609,7 +609,7 @@
 <li>Settle with <em>all</em> fulfillment <code>results</code> as soon as all of its dependencies are fulfilled</li>
 </ul>
 <p>Then there’s <code>Promise.race</code>. This is a similar method to <code>Promise.all</code>, except the first promise to settle will “win” the race, and its value will be passed along to branches of the race. If you run the <a href="http://buff.ly/1gRYr3p" target="_blank" rel="noopener">visualization</a> for the following piece of code a few times, you’ll notice that this race doesn’t have a clear winner. It depends on the server and the network!</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Promise.race([</span><br><span class="line">  fetch(<span class="string">'/'</span>),</span><br><span class="line">  fetch(<span class="string">'foo'</span>)</span><br><span class="line">])</span><br><span class="line">  .<span class="keyword">then</span>(response =&gt; console.<span class="built_in">log</span>(response.statusText))</span><br><span class="line">  // &lt;- <span class="string">'OK'</span>, <span class="literal">or</span> maybe <span class="string">'Not Found'</span>.</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'/'</span>),</span><br><span class="line">  fetch(<span class="string">'foo'</span>)</span><br><span class="line">])</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> <span class="built_in">console</span>.log(response.statusText))</span><br><span class="line">  <span class="comment">// &lt;- 'OK', or maybe 'Not Found'.</span></span><br></pre></td></tr></table></figure>
 <p>Rejections will also finish the race, and the race promise will be rejected. As a closing note we may indicate that this could be useful for scenarios where we want to time out a promise we otherwise have no control over. For instance, the following race does make sense.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="string">'/resource-that-may-take-a-while'</span>),</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">5000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">])</span><br><span class="line">p.then(<span class="function"><span class="params">response</span> =&gt;</span> <span class="built_in">console</span>.log(response))</span><br><span class="line">p.catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</span><br></pre></td></tr></table></figure>
 <p>To close this article, I’ll leave you with <a href="http://buff.ly/1PyhnQC" target="_blank" rel="noopener">a visualization</a>. It shows the race between a resource and a timeout as shown in the code above.</p>
@@ -791,7 +791,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -802,7 +802,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -813,7 +813,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
