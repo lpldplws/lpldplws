@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="pure material," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Why Reflection?Many strongly typed languages have long offered a reflection API (such as Python or C#), whereas JavaScript hardly has a need for a reflection API – it already being a dynamic language.">
+<meta name="keywords" content="pure material">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16.reflection">
+<meta property="og:url" content="www.lpldplws.cn/2018/08/02/pureMaterial/16.reflection/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="Why Reflection?Many strongly typed languages have long offered a reflection API (such as Python or C#), whereas JavaScript hardly has a need for a reflection API – it already being a dynamic language.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-02T08:22:54.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="16.reflection">
+<meta name="twitter:description" content="Why Reflection?Many strongly typed languages have long offered a reflection API (such as Python or C#), whereas JavaScript hardly has a need for a reflection API – it already being a dynamic language.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/08/02/pureMaterial/16.reflection/"/>
+
+
+
+
+
+  <title>16.reflection | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <img src='http://www.lpldplws.cn/images/favicon.jpg' style="display:none;"/>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/08/02/pureMaterial/16.reflection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">16.reflection</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T16:38:47+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/pure-material/" itemprop="url" rel="index">
+                    <span itemprop="name">pure material</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/02/pureMaterial/16.reflection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/08/02/pureMaterial/16.reflection/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/02/pureMaterial/16.reflection/" class="leancloud_visitors" data-flag-title="16.reflection">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Why-Reflection"><a href="#Why-Reflection" class="headerlink" title="Why Reflection?"></a><a href="#why-reflection">Why Reflection?</a></h1><p>Many strongly typed languages have long offered a reflection API <em>(such as <a href="http://www.diveintopython.net/power_of_introspection/" target="_blank" rel="noopener">Python</a> or <a href="http://www.codeproject.com/Articles/17269/Reflection-in-C-Tutorial" target="_blank" rel="noopener">C#</a>)</em>, whereas JavaScript hardly has a need for a reflection API – it <em>already being</em> a dynamic language. The introduction of ES6 features a few <strong>new extensibility points</strong> where the developer gets access to <em>previously internal aspects</em> of the language – yes, I’m talking about <a href="/articles/es6-proxies-in-depth"><code>Proxy</code></a>.</p>
+<p>You could argue that <strong>JavaScript already has reflection features in ES5</strong>, even though they weren’t ever called that by either the specification or the community. Methods like <code>Array.isArray</code>, <code>Object.getOwnPropertyDescriptor</code>, and even <code>Object.keys</code> are classical examples of what you’d find <strong>categorized as reflection</strong> in other languages. The <code>Reflect</code> built-in is, going forward, going to house future methods in the category. That makes a lot of sense, right? Why would you have <strong>super reflection<em>y</em> static methods</strong> like <code>getOwnPropertyDescriptor</code> <em>(or even <code>create</code>)</em> in <code>Object</code>? After all, <code>Object</code> is meant to be a base prototype, and not so much a repository of reflection methods. Having a dedicated interface that exposes most reflection methods makes more sense.</p>
+<h1 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a><a href="#reflect"><code>Reflect</code></a></h1><p>We’ve mentioned the <code>Reflect</code> object in passing the past few days. Much like <code>Math</code>, <code>Reflect</code> is a static object you can’t <code>new</code> up nor <em>call</em>, and all of its methods are static. The _traps in <a href="/articles/es6-proxies-in-depth">ES6 proxies</a> <em>(covered <a href="/articles/es6-proxy-traps-in-depth">here</a> and <a href="/articles/more-es6-proxy-traps-in-depth">here</a>)</em> are <strong>mapped one-to-one</strong> to the <code>Reflect</code> API. For every <em>trap</em>, there’s a matching reflection method in <code>Reflect</code>.</p>
+<p>The reflection API in JavaScript has <em>a number of benefits</em> that are worth examining.</p>
+<h2 id="Return-Values-in-Reflect-vs-Reflection-Through-Object"><a href="#Return-Values-in-Reflect-vs-Reflection-Through-Object" class="headerlink" title="Return Values in Reflect vs Reflection Through Object"></a><a href="#return-values-in-reflect-vs-reflection-through-object">Return Values in <code>Reflect</code> vs Reflection Through <code>Object</code></a></h2><p>The <code>Reflect</code> equivalents to reflection methods on <code>Object</code> also provide more <strong>meaningful</strong> <em>return values</em>. For instance, the <code>Reflect.defineProperty</code> method returns a boolean value indicating whether the property was successfully defined. Meanwhile, its <code>Object.defineProperty</code> counterpart returns the object it got as its first argument <em>– not very <strong>useful</strong>.</em></p>
+<p>To illustrate, below is a code snippet showing how to verify <code>Object.defineProperty</code> worked.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, <span class="string">'foo'</span>, &#123; <span class="attr">value</span>: <span class="string">'bar'</span> &#125;)</span><br><span class="line">  <span class="comment">// yay!</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="comment">// oops.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As opposed to a <em>much more natural</em> <code>Reflect.defineProperty</code> experience.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> yay = <span class="built_in">Reflect</span>.defineProperty(target, <span class="string">'foo'</span>, &#123; <span class="attr">value</span>: <span class="string">'bar'</span> &#125;)</span><br><span class="line"><span class="keyword">if</span> (yay) &#123;</span><br><span class="line">  <span class="comment">// yay!</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// oops.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This way we avoided a <code>try</code>/<code>catch</code> block and made our code a little more maintainable in the process.</p>
+<h2 id="Keyword-Operators-as-First-Class-Citizens"><a href="#Keyword-Operators-as-First-Class-Citizens" class="headerlink" title="Keyword Operators as First Class Citizens"></a><a href="#keyword-operators-as-first-class-citizens">Keyword Operators as First Class Citizens</a></h2><p>Some of these reflection methods provide programmatic alternatives of doing things that were previously only possible through keywords. For example, <code>Reflect.deleteProperty(target, key)</code> is equivalent to the <code>delete target[key]</code> expression. Before ES6, if you wanted a method call to result in a <code>delete</code> call, you’d have to create a dedicated utility method that wrapped <code>delete</code> on your behalf.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> target = &#123; foo: <span class="string">'bar'</span>, baz: <span class="string">'wat'</span> &#125;</span><br><span class="line">delete target.foo</span><br><span class="line">console.log(target)</span><br><span class="line"><span class="comment">// &lt;- &#123; baz: 'wat' &#125;</span></span><br></pre></td></tr></table></figure>
+<p>Today, with ES6, you already have such a method in <code>Reflect.deleteProperty</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123; <span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">baz</span>: <span class="string">'wat'</span> &#125;</span><br><span class="line"><span class="built_in">Reflect</span>.deleteProperty(target, <span class="string">'foo'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(target)</span><br><span class="line"><span class="comment">// &lt;- &#123; baz: 'wat' &#125;</span></span><br></pre></td></tr></table></figure>
+<p>Just like <code>deleteProperty</code>, there’s a few other methods that make it easy to do other things too.</p>
+<h2 id="Easier-to-mix-new-with-Arbitrary-Argument-Lists"><a href="#Easier-to-mix-new-with-Arbitrary-Argument-Lists" class="headerlink" title="Easier to mix new with Arbitrary Argument Lists"></a><a href="#easier-to-mix-new-with-arbitrary-argument-lists">Easier to mix <code>new</code> with Arbitrary Argument Lists</a></h2><p>In ES5, this is a hard problem: How do you create a <code>new Foo</code> passing an arbitrary number of arguments? You can’t do it directly, and it’s <a href="https://github.com/bevacqua/dominus/blob/master/src/apply.js#L4-L14" target="_blank" rel="noopener">super verbose</a> if you need to do it anyways. You have to create an intermediary object that gets passed the arguments as an <code>Array</code>. Then you have <em>that</em> object’s constructor return the result of applying the constructor of the object you originally intended to <code>.apply</code>. Straightforward, right? <em>– What do you mean <strong>no</strong>?</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> proto = Dominus.prototype</span><br><span class="line">Applied.prototype = proto</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Applied</span> (<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Dominus.apply(<span class="keyword">this</span>, args)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">apply</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Applied(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Using <code>apply</code> is actually easy, thankfully.</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">apply</span>([<span class="string">'.foo'</span>, <span class="string">'.bar'</span>])</span><br><span class="line"><span class="built_in">apply</span>.<span class="built_in">call</span>(null, <span class="string">'.foo'</span>, <span class="string">'.bar'</span>)</span><br></pre></td></tr></table></figure>
+<p>But that was <em>insane</em>, right? <strong>Who does that?</strong> Well, in ES5, everyone who has a valid reason to do it! Luckily ES6 has less insane approaches to this problem. One of them is simply to use the <a href="http://www.diveintopython.net/power_of_introspection/" target="_blank" rel="noopener">spread operator</a>.</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Dominus(.<span class="built_in">..args</span>)</span><br></pre></td></tr></table></figure>
+<p>Another alternative is to go the <code>Reflect</code> route.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.construct(Dominus, args)</span><br></pre></td></tr></table></figure>
+<p>Both of these are tremendously simpler than what I had to do in the <a href="https://github.com/bevacqua/dominus/blob/master/src/apply.js#L4-L14" target="_blank" rel="noopener"><code>dominus</code></a> codebase.</p>
+<h2 id="Function-Application-The-Right-Way"><a href="#Function-Application-The-Right-Way" class="headerlink" title="Function Application, The Right Way"></a><a href="#function-application-the-right-way">Function Application, The Right Way</a></h2><p>In ES5 if we want to call a method with an arbitrary number of arguments, we can use <code>.apply</code> passing a <code>this</code> context and our arguments.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn.apply(ctx, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<p>If we fear <code>fn</code> might shadow <code>apply</code> with a property of their own, we can rely on a safer but way more verbose alternative.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Function</span><span class="selector-class">.prototype</span><span class="selector-class">.apply</span><span class="selector-class">.call</span>(<span class="selector-tag">fn</span>, <span class="selector-tag">ctx</span>, <span class="selector-attr">[1, 2, 3]</span>)</span><br></pre></td></tr></table></figure>
+<p>In ES6, you can use <a href="/articles/es6-spread-and-butter-in-depth">spread</a> as an alternative to <code>.apply</code> for an arbitrary number of arguments.</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fn</span>(<span class="params">...[1, 2, 3]</span>)</span></span><br></pre></td></tr></table></figure>
+<p>That doesn’t solve your problems when you need to define a <code>this</code> context, though. You could go back to the <code>Function.prototype</code> way but that’s <em>way</em> too verbose. Here’s how <code>Reflect</code> can help.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Reflect.<span class="built_in">apply</span>(fn, ctx, <span class="built_in">args</span>)</span><br></pre></td></tr></table></figure>
+<p>Naturally, one of the most fitting use cases for <code>Reflect</code> API methods is default behavior in <a href="/articles/es6-proxies-in-depth"><code>Proxy</code></a> <a href="/articles/es6-proxy-traps-in-depth">traps</a>.</p>
+<h2 id="Default-Behavior-in-Proxy-Traps"><a href="#Default-Behavior-in-Proxy-Traps" class="headerlink" title="Default Behavior in Proxy Traps"></a><a href="#default-behavior-in-proxy-traps">Default Behavior in <code>Proxy</code> Traps</a></h2><p>We’ve already talked about how <em>traps</em> are mapped one-to-one to <code>Reflect</code> methods. We haven’t yet touched on the fact that their interfaces match as well. That is to say, <em>both their arguments and their return values match</em>. In code, this means you could do something like this to get the default <code>get</code> <em>trap</em> behavior in your <a href="/articles/es6-proxies-in-depth">proxy handlers</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  get () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(...arguments)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123; <span class="attr">a</span>: <span class="string">'b'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(proxy.a)</span><br><span class="line"><span class="comment">// &lt;- 'b'</span></span><br></pre></td></tr></table></figure>
+<p>There is, in fact, nothing stopping you from making that <code>handler</code> even simpler. Of course, at this point you’d be better off leaving the <em>trap</em> out entirely.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> handler = &#123;</span><br><span class="line">  get: Reflect.get</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The important take-away here is that you could set up a trap in your proxy handlers, wire up some custom functionality that ends up throwing or logging a console statement, and then in the default case you could just use the one-liner recipe found below.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return Reflect[<span class="string">trapName</span>](<span class="link">...arguments</span>)</span><br></pre></td></tr></table></figure>
+<p>Certainly puts me at ease when it comes to demystifying <a href="/articles/es6-proxies-in-depth"><code>Proxy</code></a>.</p>
+<h2 id="Lastly-There’s-proto"><a href="#Lastly-There’s-proto" class="headerlink" title="Lastly, There’s __proto__"></a><a href="#lastly-there-s-proto">Lastly, There’s <code>__proto__</code></a></h2><p>Yesterday we talked about how the <a href="/articles/more-es6-proxy-traps-in-depth">legacy <code>__proto__</code> is part of the ES6 specification</a> but still strongly advised against and how you should use <code>Object.setPrototypeOf</code> and <code>Object.getPrototypeOf</code> instead. Turns out, there’s also <code>Reflect</code> counterparts to those methods you could use. Think of these methods as <em>getter and setters</em> for <code>__proto__</code> but without the cross-browser discrepancies.</p>
+<blockquote>
+<p>I wouldn’t just hop onto the “<code>setPrototypeOf</code> all the things” bandwagon just yet. In fact, I hope there never is a train pulling that wagon to begin with.</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/08/02/pureMaterial/16.reflection/" title="16.reflection">www.lpldplws.cn/2018/08/02/pureMaterial/16.reflection/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/pure-material/" rel="tag"># pure material</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/02/pureMaterial/15.proxy/" rel="next" title="15.proxy">
+                <i class="fa fa-chevron-left"></i> 15.proxy
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/pureMaterial/17.number/" rel="prev" title="17.number">
+                17.number <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block">
+      
+        <!--MOB SHARE BEGIN-->
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui" style="display: none">
+     <ul class="-mob-share-list">
+         <li class="-mob-share-weibo"><p>新浪微博</p></li>
+         <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+         <li class="-mob-share-qzone"><p>QQ空间</p></li>
+         <li class="-mob-share-qq"><p>QQ好友</p></li>
+         <li class="-mob-share-weixin"><p>微信</p></li>
+         <li class="-mob-share-douban"><p>豆瓣</p></li>
+         <li class="-mob-share-renren"><p>人人网</p></li>
+         <li class="-mob-share-kaixin"><p>开心网</p></li>
+         <li class="-mob-share-facebook"><p>Facebook</p></li>
+         <li class="-mob-share-twitter"><p>Twitter</p></li>
+         <li class="-mob-share-pocket"><p>Pocket</p></li>
+         <li class="-mob-share-google"><p>Google+</p></li>
+         <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+         <li class="-mob-share-mingdao"><p>明道</p></li>
+         <li class="-mob-share-pengyou"><p>朋友网</p></li>
+         <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+         <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+         <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+     </ul>
+     <div class="-mob-share-close">取消</div>
+ </div>
+ <div class="-mob-share-ui-bg"></div>
+ <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=26afb7d19666e"></script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+
+      
+      <!--noindex-->
+      </section>
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc">
+
+          
+            
+          
+
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-Reflection"><span class="nav-number">1.</span> <span class="nav-text">Why Reflection?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reflect"><span class="nav-number">2.</span> <span class="nav-text">Reflect</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Return-Values-in-Reflect-vs-Reflection-Through-Object"><span class="nav-number">2.1.</span> <span class="nav-text">Return Values in Reflect vs Reflection Through Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Keyword-Operators-as-First-Class-Citizens"><span class="nav-number">2.2.</span> <span class="nav-text">Keyword Operators as First Class Citizens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Easier-to-mix-new-with-Arbitrary-Argument-Lists"><span class="nav-number">2.3.</span> <span class="nav-text">Easier to mix new with Arbitrary Argument Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Application-The-Right-Way"><span class="nav-number">2.4.</span> <span class="nav-text">Function Application, The Right Way</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Default-Behavior-in-Proxy-Traps"><span class="nav-number">2.5.</span> <span class="nav-text">Default Behavior in Proxy Traps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lastly-There’s-proto"><span class="nav-number">2.6.</span> <span class="nav-text">Lastly, There’s __proto__</span></a></li></ol></li></ol></div>
+          
+
+        </div>
+      </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

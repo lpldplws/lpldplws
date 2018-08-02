@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="pure material," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Number Improvements in ES6There’s a number of changes coming to Number in ES6 – see what I did there? First off, let’s raise the curtain with a summary of the features we’ll be talking about. We’ll go">
+<meta name="keywords" content="pure material">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17.number">
+<meta property="og:url" content="www.lpldplws.cn/2018/08/02/pureMaterial/17.number/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="Number Improvements in ES6There’s a number of changes coming to Number in ES6 – see what I did there? First off, let’s raise the curtain with a summary of the features we’ll be talking about. We’ll go">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/GrB4w7R.jpg">
+<meta property="og:image" content="https://i.imgur.com/buOiD1I.png">
+<meta property="og:updated_time" content="2018-08-02T08:24:48.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="17.number">
+<meta name="twitter:description" content="Number Improvements in ES6There’s a number of changes coming to Number in ES6 – see what I did there? First off, let’s raise the curtain with a summary of the features we’ll be talking about. We’ll go">
+<meta name="twitter:image" content="https://i.imgur.com/GrB4w7R.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/08/02/pureMaterial/17.number/"/>
+
+
+
+
+
+  <title>17.number | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <img src='http://www.lpldplws.cn/images/favicon.jpg' style="display:none;"/>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/08/02/pureMaterial/17.number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">17.number</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T16:58:47+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/pure-material/" itemprop="url" rel="index">
+                    <span itemprop="name">pure material</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/02/pureMaterial/17.number/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/08/02/pureMaterial/17.number/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/02/pureMaterial/17.number/" class="leancloud_visitors" data-flag-title="17.number">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Number-Improvements-in-ES6"><a href="#Number-Improvements-in-ES6" class="headerlink" title="Number Improvements in ES6"></a><a href="#number-improvements-in-es6"><code>Number</code> Improvements in ES6</a></h1><p>There’s a number of changes coming to <code>Number</code> in ES6 <em>– see what I did there?</em> First off, let’s raise the curtain with a summary of the features we’ll be talking about. We’ll go over all of the following changes to <code>Number</code> today.</p>
+<ul>
+<li><a href="#binary-and-octal-literals">Binary and Octal Literals</a> <em>– using <code>0b</code> and <code>0o</code></em></li>
+<li><a href="#numberisnan"><code>Number.isNaN</code></a></li>
+<li><a href="#numberisfinite"><code>Number.isFinite</code></a></li>
+<li><a href="#numberparseint"><code>Number.parseInt</code></a></li>
+<li><a href="#numberparsefloat"><code>Number.parseFloat</code></a></li>
+<li><a href="#numberisinteger"><code>Number.isInteger</code></a></li>
+<li><a href="#numberepsilon"><code>Number.EPSILON</code></a></li>
+<li><a href="#numbermax-safe-integer"><code>Number.MAX_SAFE_INTEGER</code></a></li>
+<li><a href="#numbermin-safe-integer"><code>Number.MIN_SAFE_INTEGER</code></a></li>
+<li><a href="#numberissafeinteger"><code>Number.isSafeInteger</code></a></li>
+</ul>
+<p><img src="https://i.imgur.com/GrB4w7R.jpg" alt="The curtain is raising..."></p>
+<p>The curtain is raising…</p>
+<h2 id="Binary-and-Octal-Literals"><a href="#Binary-and-Octal-Literals" class="headerlink" title="Binary and Octal Literals"></a><a href="#binary-and-octal-literals">Binary and Octal Literals</a></h2><p>Before ES6, your best bet when it comes to binary representation of integers was to just pass them to <code>parseInt</code> with a radix of <code>2</code>.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'101'</span>, <span class="number">2</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 5</span></span><br></pre></td></tr></table></figure>
+<p>In ES6 you could also use the <code>0b</code> prefix to represent binary integer literals. You could also use <code>0B</code> but I suggest you stick with the lower-case option.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(<span class="number">0b001</span>)</span><br><span class="line">// &lt;- <span class="number">1</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="number">0b010</span>)</span><br><span class="line">// &lt;- <span class="number">2</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="number">0b011</span>)</span><br><span class="line">// &lt;- <span class="number">3</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="number">0b100</span>)</span><br><span class="line">// &lt;- <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>Same goes for octal literals. In ES3, <code>parseInt</code> interpreted strings of digits starting with a <code>0</code> as an octal value. That meant things got weird quickly when you forgot to specify a radix of <code>10</code> <em>– and that soon became a best practice.</em></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'01'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 1</span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'08'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 0</span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'8'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 8</span></span><br></pre></td></tr></table></figure>
+<p>When ES5 came around, it got rid of the octal interpretation in <code>parseInt</code> – although <strong>it’s still recommended</strong> you specify a <code>radix</code> for backwards compatibility purposes. If you actually wanted octal, you could get those using a radix of <code>8</code>, anyways.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'100'</span>, <span class="string">'8'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 64</span></span><br></pre></td></tr></table></figure>
+<p>When it comes to ES6, you can now use the <code>0o</code> prefix for octal literals. You could also use <code>0O</code>, but that’s going to look very confusing in some typefaces, so I suggest you stick with the <code>0o</code> notation.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0o010</span>)</span><br><span class="line"><span class="comment">// &lt;- 8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0o100</span>)</span><br><span class="line"><span class="comment">// &lt;- 64</span></span><br></pre></td></tr></table></figure>
+<p>Keep in mind that octal literals aren’t actually going to crop up everywhere in your front-end applications anytime soon, so you shouldn’t worry too much about the seemingly odd choice <em>(font clarity wise)</em> of a <code>0o</code> prefix. Besides, most of us use editors that have no trouble at all differentiating between <code>0o</code>, <code>0O</code>, <code>00</code>, <code>OO</code>, and <code>oo</code>.</p>
+<p><img src="https://i.imgur.com/buOiD1I.png" alt="Those characters render just fine in Sublime Text 3"></p>
+<p>Those characters render just fine in Sublime Text 3</p>
+<p>If you’re now perplexed and left wondering <em>“what about hexadecimal?”</em>, don’t you worry, those were already part of the language in ES5, and you can still use them. The prefix for literal <em>hexadecimal</em> notation is either <code>0x</code>, or <code>0X</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0x0ff</span>)</span><br><span class="line"><span class="comment">// &lt;- 255</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0xf00</span>)</span><br><span class="line"><span class="comment">// &lt;- 3840</span></span><br></pre></td></tr></table></figure>
+<p>Enough with number literals, let’s talk about something else. The first four additions to <code>Number</code> that we’ll be discussing – <code>Number.isNaN</code>, <code>Number.isFinite</code>, <code>Number.parseInt</code>, and <code>Number.parseFloat</code> – already existed in ES5, but in the global namespace. In addition, the methods in <code>Number</code> are slightly different in that they don’t coerce non-numeric values into numbers before producing a result.</p>
+<h2 id="Number-isNaN"><a href="#Number-isNaN" class="headerlink" title="Number.isNaN"></a><a href="#numberisnan"><code>Number.isNaN</code></a></h2><p>This method is almost identical to ES5 global <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/isNaN" target="_blank" rel="noopener"><code>isNaN</code></a> method. <code>Number.isNaN</code> returns whether the provided <code>value</code> equals <code>NaN</code>. This is a very different question from <em>“is this not a number?”</em>.</p>
+<p>The snippet shown below quickly shows that anything that’s not <code>NaN</code> when passed to <code>Number.isNaN</code> will return <code>false</code>, while passing <code>NaN</code> into it will yield <code>true</code>.</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isNaN(<span class="number">123</span>)</span><br><span class="line">// &lt;- <span class="literal">false</span>, integers are not <span class="literal">NaN</span></span><br><span class="line"><span class="built_in">Number</span>.isNaN(Infinity)</span><br><span class="line">// &lt;- <span class="literal">false</span>, Infinity is not <span class="literal">NaN</span></span><br><span class="line"><span class="built_in">Number</span>.isNaN('ponyfoo')</span><br><span class="line">// &lt;- <span class="literal">false</span>, 'ponyfoo' is not <span class="literal">NaN</span></span><br><span class="line"><span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>)</span><br><span class="line">// &lt;- <span class="literal">true</span>, <span class="literal">NaN</span> is <span class="literal">NaN</span></span><br><span class="line"><span class="built_in">Number</span>.isNaN('pony<span class="string">'/'</span>foo')</span><br><span class="line">// &lt;- <span class="literal">true</span>, 'pony<span class="string">'/'</span>foo' is <span class="literal">NaN</span>, <span class="literal">NaN</span> is <span class="literal">NaN</span></span><br></pre></td></tr></table></figure>
+<p>The ES5 <code>global.isNaN</code> method, in contrast, casts non-numeric values passed to it <em>before evaluating them against <code>NaN</code></em>. That produces significantly different results. The example below produces incosistent results because, unlike <code>Number.isNaN</code>, <code>isNaN</code> casts the <code>value</code> passed to it through <code>Number</code> first.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isNaN</span><span class="params">(<span class="string">'ponyfoo'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- true, because Number('ponyfoo') is NaN</span></span><br><span class="line"><span class="function"><span class="title">isNaN</span><span class="params">(new Date()</span></span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>While <code>Number.isNaN</code> is more precise than its global <code>isNaN</code> counterpart because it doesn’t incur in casting, it’s still going to confuse people <strong>because reasons.</strong></p>
+<ol>
+<li><code>global.isNaN</code> casts input through <code>Number(value)</code> before comparison</li>
+<li><code>Number.isNaN</code> <em>doesn’t</em></li>
+<li>Neither <code>Number.isNaN</code> nor <code>global.isNaN</code> answer the <em>“is this not a number?”</em> question</li>
+<li>They answer whether <code>value</code> <em>– or <code>Number(value)</code> –</em> is <code>NaN</code></li>
+</ol>
+<p>In most cases, what you actually want is to know whether a value identifies as a number <em>– <code>typeof NaN === &#39;number&#39;</code> –</em> and <em>is</em> a number. The method below does just that. Note that it’d work with both <code>global.isNaN</code> and <code>Number.isNaN</code> due to type checking. Everything that reports a <code>typeof</code> value of <code>&#39;number&#39;</code> is a number, except <code>NaN</code>, so we <em>weed those out</em> to avoid false positives!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp; !<span class="built_in">Number</span>.isNaN(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You can use that method to figure out whether anything is <strong>an actual number</strong> or not. Here’s some examples of what constitutes actual JavaScript numbers or not.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isNumber</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="function"><span class="title">isNumber</span><span class="params">(Infinity)</span></span></span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="function"><span class="title">isNumber</span><span class="params">(NaN)</span></span></span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="function"><span class="title">isNumber</span><span class="params">(<span class="string">'ponyfoo'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="function"><span class="title">isNumber</span><span class="params">(new Date()</span></span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>Speaking of <code>isNumber</code>, isn’t there something like that in the language already? <em>Sort of.</em></p>
+<h2 id="Number-isFinite"><a href="#Number-isFinite" class="headerlink" title="Number.isFinite"></a><a href="#numberisfinite"><code>Number.isFinite</code></a></h2><p>The <em>rarely-advertised</em> <code>isFinite</code> method has been available since ES3 and it returns whether the provided <code>value</code> <strong>matches none of</strong>: <code>Infinity</code>, <code>-Infinity</code>, and <code>NaN</code>.</p>
+<p>Want to take a guess about the difference between <code>global.isFinite</code> and <code>Number.isFinite</code>?</p>
+<blockquote>
+<p>Correct! the <code>global.isFinite</code> method coerces values through <code>Number(value)</code>, while <code>Number.isFinite</code> doesn’t. Here are a few examples using <code>global.isFinite</code>. This means that values that can be coerced into <em>non-<code>NaN</code></em> numbers will be considered finite numbers by <code>global.isNumber</code> <em>– even though they’re aren’t actually numbers!</em></p>
+</blockquote>
+<p>In most cases <code>isFinite</code> will be good enough, just like <code>isNaN</code>, but when it comes to non-numeric values it’ll start acting up and producing unexpected results due to its <code>value</code> coercion into numbers.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isFinite</span><span class="params">(NaN)</span></span></span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="function"><span class="title">isFinite</span><span class="params">(Infinity)</span></span></span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="function"><span class="title">isFinite</span><span class="params">(-Infinity)</span></span></span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="function"><span class="title">isFinite</span><span class="params">(null)</span></span></span><br><span class="line"><span class="comment">// &lt;- true, because Number(null) is 0</span></span><br><span class="line"><span class="function"><span class="title">isFinite</span><span class="params">(<span class="string">'10'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- true, because Number('10') is 10</span></span><br></pre></td></tr></table></figure>
+<p>Using <code>Number.isFinite</code> is just an all-around safer bet as it doesn’t incur in unwanted casting. You could always do <code>Number.isFinite(Number(value))</code> if you did want the <code>value</code> to be casted into its numeric representation.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isFinite(<span class="literal">NaN</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isFinite(<span class="literal">Infinity</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isFinite(-<span class="literal">Infinity</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isFinite(<span class="literal">null</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isFinite(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>Once again, the discrepancy doesn’t do any good to the language, but <code>Number.isFinite</code> is consistently more useful than <code>isFinite</code>. Creating a polyfill for the <code>Number.isFinite</code> version is mostly a matter of type-checking.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isFinite = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp; <span class="built_in">isFinite</span>(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Number-parseInt"><a href="#Number-parseInt" class="headerlink" title="Number.parseInt"></a><a href="#numberparseint"><code>Number.parseInt</code></a></h2><p>This method works the same as <code>parseInt</code>. In fact, it is the same.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseInt === <span class="built_in">parseInt</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>The <code>parseInt</code> method keeps producing inconsistencies, though – even if it didn’t even change, <strong>that’s the problem</strong>. Before ES6, <code>parseInt</code> had support for hexadecimal literal notation in strings. Specifying the <code>radix</code> is not even necessary, <code>parseInt</code> infers that based on the <code>0x</code> prefix.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'0xf00'</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 3840</span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'0xf00'</span>, <span class="number">16</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 3840</span></span><br></pre></td></tr></table></figure>
+<p>If you hardcoded another <code>radix</code>, <em>– and this is <strong>yet another reason</strong> for doing so –</em> <code>parseInt</code> would bail after the first non-digit character.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'0xf00'</span>, <span class="number">10</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 0</span></span><br><span class="line"><span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'5xf00'</span>, <span class="number">10</span>)</span></span></span><br><span class="line"><span class="comment">// &lt;- 5, illustrating there's no special treatment here</span></span><br></pre></td></tr></table></figure>
+<p>So far, it’s all good. Why wouldn’t I want <code>parseInt</code> to drop <code>0x</code> from hexadecimal strings? It sounds good, although you may argue that <strong>that’s doing too much</strong>, and you’d be <em>probably right</em>.</p>
+<p>The aggravating issue, however, is that <code>parseInt</code> hasn’t changed at all. Therefore, binary and octal literal notation in strings won’t work.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">parseInt('<span class="number">0b011</span>')</span><br><span class="line">// &lt;- <span class="number">0</span></span><br><span class="line">parseInt('<span class="number">0b011</span>', <span class="number">2</span>)</span><br><span class="line">// &lt;- <span class="number">0</span></span><br><span class="line">parseInt('<span class="number">0o800</span>')</span><br><span class="line">// &lt;- <span class="number">0</span></span><br><span class="line">parseInt('<span class="number">0o800</span>', <span class="number">8</span>)</span><br><span class="line">// &lt;- <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>It’ll be up to you to get rid of the prefix before <code>parseInt</code>. Remember to <em>hard-code</em> the <code>radix</code>, though!</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parseInt('<span class="number">0b011</span>'.slice(<span class="number">2</span>), <span class="number">2</span>)</span><br><span class="line">// &lt;- <span class="number">3</span></span><br><span class="line">parseInt('<span class="number">0o110</span>'.slice(<span class="number">2</span>), <span class="number">8</span>)</span><br><span class="line">// &lt;- <span class="number">72</span></span><br></pre></td></tr></table></figure>
+<p>What’s <em>even weirder</em> is that the <code>Number</code> method is <strong>perfectly able to cast</strong> these strings into the correct numbers.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number('<span class="number">0b011</span>')</span><br><span class="line">// &lt;- <span class="number">3</span></span><br><span class="line">Number('<span class="number">0o110</span>')</span><br><span class="line">// &lt;- <span class="number">72</span></span><br></pre></td></tr></table></figure>
+<p>I’m not sure what drove them to keep <code>Number.parseInt</code> identical to <code>parseInt</code>. If it were up to me, I would’ve made it different so that it worked just like <code>Number</code> – which <em>is</em> able to <strong>coerce octal and binary</strong> number literal strings into the appropriate <em>base ten</em> numbers.</p>
+<p>It might be that this was a more involved <em>“fork”</em> of <code>parseInt</code> than just <em>“not coercing <code>input</code> into a numeric representation”</em> as we observed in <code>Number.isNaN</code> and <code>Number.isFinite</code>, but I’m just guessing here.</p>
+<h2 id="Number-parseFloat"><a href="#Number-parseFloat" class="headerlink" title="Number.parseFloat"></a><a href="#numberparsefloat"><code>Number.parseFloat</code></a></h2><p>Just like <code>parseInt</code>, <code>parseFloat</code> was just added to <code>Number</code> without any modifications whatsoever.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.parseFloat === <span class="built_in">parseFloat</span></span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>In this case, however, <code>parseFloat</code> already didn’t have any special behavior with regard to hexadecimal literal strings, meaning that this is in fact the only method that won’t introduce any confusion, other than it being ported over to <code>Number</code> for <em>completeness’ sake</em>.</p>
+<h2 id="Number-isInteger"><a href="#Number-isInteger" class="headerlink" title="Number.isInteger"></a><a href="#numberisinteger"><code>Number.isInteger</code></a></h2><p>This is a new method coming in ES6. It returns <code>true</code> if the provided <code>value</code> is <strong>a finite number</strong> that <em>doesn’t have a decimal part</em>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="literal">Infinity</span>))</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(-<span class="literal">Infinity</span>))</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="literal">NaN</span>))</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="literal">null</span>))</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">0</span>))</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">-10</span>))</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">10.3</span>))</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>If you want to look at a a polyfill for <code>isInteger</code>, you might want to consider the following code snippet. The modulus operator returns the remainder of dividing the same operands <em>– effectively: the decimal part.</em> If that’s <code>0</code>, that means the number is an integer.</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Number</span>.isInteger = <span class="function"><span class="keyword">function</span></span> (<span class="keyword">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">Number</span>.isFinite(<span class="keyword">value</span>) &amp;&amp; <span class="keyword">value</span> % <span class="number">1</span> === <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Floating point arithmetic is well-documented as being kind of ridiculous. What is this <code>Number.EPSILON</code> thing?</p>
+<h2 id="Number-EPSILON"><a href="#Number-EPSILON" class="headerlink" title="Number.EPSILON"></a><a href="#numberepsilon"><code>Number.EPSILON</code></a></h2><p>Let me answer that question with a piece of code.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number.EPSILON</span><br><span class="line"><span class="comment">// &lt;- 2.220446049250313e-16, wait what?</span></span><br><span class="line">Number<span class="selector-class">.EPSILON</span><span class="selector-class">.toFixed</span>(<span class="number">20</span>)</span><br><span class="line"><span class="comment">// &lt;- '0.00000000000000022204', got it</span></span><br></pre></td></tr></table></figure>
+<p>Ok, so <code>Number.EPSILON</code> is <strong>a terribly small number</strong>. What good is it for? Remember that thing about how floating point sum makes no sense? Here’s the canonical example, I’m sure you remember it – <em>Yeah, I know.</em></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span></span><br><span class="line"><span class="comment">// &lt;- 0.30000000000000004</span></span><br><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span></span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>Let’s try that one more time.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> - <span class="number">0.3</span></span><br><span class="line"><span class="comment">// &lt;- 5.551115123125783e-17, what the hell?</span></span><br><span class="line"><span class="number">5.551115123125783e-17</span>.toFixed(<span class="number">20</span>)</span><br><span class="line"><span class="comment">// &lt;- '0.00000000000000005551', got it</span></span><br></pre></td></tr></table></figure>
+<p><em>So what?</em> You can use <code>Number.EPSILON</code> to figure out whether the difference is small enough to fall under the <em>“floating point arithmetic is ridiculous and the difference is negligible”</em> category.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5.551115123125783</span>e-<span class="number">17</span> &lt; Number.EPSILON</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>Can we trust that? Well, <code>0.00000000000000005551</code> is indeed smaller than <code>0.00000000000000022204</code>. What do you mean you don’t trust me? Here they are side by side.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0<span class="selector-class">.00000000000000005551</span></span><br><span class="line">0<span class="selector-class">.00000000000000022204</span></span><br></pre></td></tr></table></figure>
+<p>See? <code>Number.EPSILON</code> is <em>larger</em> than the difference. We can use <code>Number.EPSILON</code> as an acceptable margin of error due to floating point arithmetic rounding operations.</p>
+<p>Thus, the following piece of code figures out whether the result of a floating point operation is within the expected margin of error. We use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs" target="_blank" rel="noopener"><code>Math.abs</code></a> because that way the order of <code>left</code> and <code>right</code> won’t matter. In other words, <code>withinErrorMargin(left, right)</code> will produce the same result as <code>withinErrorMargin(right, left)</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withinErrorMargin</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.abs(left - right) &lt; <span class="built_in">Number</span>.EPSILON</span><br><span class="line">&#125;</span><br><span class="line">withinErrorMargin(<span class="number">0.1</span> + <span class="number">0.2</span>, <span class="number">0.3</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">withinErrorMargin(<span class="number">0.2</span> + <span class="number">0.2</span>, <span class="number">0.3</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>While, yes, you <strong>could</strong> do this, it’s probably unnecessarily complicated unless you have to deal with very low-level mathematics. You’ll be better of pulling a library like <a href="https://github.com/josdejong/mathjs" target="_blank" rel="noopener"><code>mathjs</code></a> into your project.</p>
+</blockquote>
+<p>Last but not least, there’s the other weird aspect of number representation in JavaScript. <strong>Not every integer</strong> can be represented <em>precisely</em>, either.</p>
+<h2 id="Number-MAX-SAFE-INTEGER"><a href="#Number-MAX-SAFE-INTEGER" class="headerlink" title="Number.MAX_SAFE_INTEGER"></a><a href="#numbermax-safe-integer"><code>Number.MAX_SAFE_INTEGER</code></a></h2><p>This is the largest integer that can be safely and precisely represented in JavaScript, or any language that represents integers using <em>floating point</em> as specified by <a href="https://en.wikipedia.org/wiki/IEEE_floating_point" target="_blank" rel="noopener">IEEE-754</a> for that matter. The code below show just how large that number is. If we need to be able to deal with numbers larger than that, then I would once again point you to <a href="https://github.com/josdejong/mathjs" target="_blank" rel="noopener"><code>mathjs</code></a>, or maybe <strong>try another language</strong> for your computationally intensive services.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_SAFE_INTEGER === Math.pow(<span class="number">2</span>, <span class="number">53</span>) - <span class="number">1</span></span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">Number.MAX_SAFE_INTEGER === <span class="number">9007199254740991</span></span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>And you know what they say – <em>If there’s a maximum…</em></p>
+<h2 id="Number-MIN-SAFE-INTEGER"><a href="#Number-MIN-SAFE-INTEGER" class="headerlink" title="Number.MIN_SAFE_INTEGER"></a><a href="#numbermin-safe-integer"><code>Number.MIN_SAFE_INTEGER</code></a></h2><p>Right, nobody says that. However, there’s a <code>Number.MIN_SAFE_INTEGER</code> regardless, and it’s the negative value of <code>Number.MAX_SAFE_INTEGER</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER === -<span class="built_in">Number</span>.MAX_SAFE_INTEGER</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER === <span class="number">-9007199254740991</span></span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>How exactly can you leverage these two constants, I hear you say? In the case of the overflow problem, you don’t have to implement your own <code>withinErrorMargin</code> method like you had to do for floating point precision. Instead, a <code>Number.isSafeInteger</code> is provided to you.</p>
+<h2 id="Number-isSafeInteger"><a href="#Number-isSafeInteger" class="headerlink" title="Number.isSafeInteger"></a><a href="#numberissafeinteger"><code>Number.isSafeInteger</code></a></h2><p>This method returns <code>true</code> for any integer in the <code>[MIN_SAFE_INTEGER, MAX_SAFE_INTEGER]</code> range. There’s no type coercion here either. The input must be numeric, an integer, and within the aforementioned bounds in order for the method to return <code>true</code>. Here’s a quite comprehensive set of examples for you to stare at.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="string">'a'</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="literal">null</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="literal">NaN</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="literal">Infinity</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(-<span class="literal">Infinity</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MIN_SAFE_INTEGER - <span class="number">1</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MIN_SAFE_INTEGER)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="number">1</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="number">1.2</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MAX_SAFE_INTEGER)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MAX_SAFE_INTEGER + <span class="number">1</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>As <a href="http://www.2ality.com/2015/04/numbers-math-es6.html" target="_blank" rel="noopener">Dr. Axel Rauschmayer points out</a> in his article about ES6 numbers, when we want to verify if the result of an operation is within bounds, we must verify not only the result but also both operands. The reason for that is one <em>(or both)</em> of the operands may be out of bounds, while the result is <em>“safe”</em> <strong>(but incorrect)</strong>. Similarly, the result may be out of bounds itself, so checking all of <code>left</code>, <code>right</code>, and the result of <code>left op right</code> is necessary to verify that we can indeed trust the result.</p>
+<p>In all of the examples below, <strong>the result is incorrect</strong>. Here’s the first example, where both operands are safe even though the result is not.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Number.isSafeInteger(<span class="number">9007199254740000</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">Number.isSafeInteger(<span class="number">993</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">Number.isSafeInteger(<span class="number">9007199254740000</span> + <span class="number">993</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="number">9007199254740000</span> + <span class="number">993</span></span><br><span class="line"><span class="comment">// &lt;- 9007199254740992, should be 9007199254740993</span></span><br></pre></td></tr></table></figure>
+<p>In this example one of the operands wasn’t within range, so we can’t trust the result to be accurate.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Number.isSafeInteger(<span class="number">9007199254740993</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line">Number.isSafeInteger(<span class="number">990</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">Number.isSafeInteger(<span class="number">9007199254740993</span> + <span class="number">990</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="number">9007199254740993</span> + <span class="number">990</span></span><br><span class="line"><span class="comment">// &lt;-  9007199254741982, should be 9007199254741983</span></span><br></pre></td></tr></table></figure>
+<p>Note that in the example above, a subtraction would produce a result within bounds, and that result would <em>also</em> be inaccurate.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Number.isSafeInteger(<span class="number">9007199254740993</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line">Number.isSafeInteger(<span class="number">990</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">Number.isSafeInteger(<span class="number">9007199254740993</span> - <span class="number">990</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="number">9007199254740993</span> - <span class="number">990</span></span><br><span class="line"><span class="comment">// &lt;-  9007199254740002, should be 9007199254740003</span></span><br></pre></td></tr></table></figure>
+<p>It doesn’t take a genius to figure out the case where both operands are out of bounds but the result is <em>deemed “safe”</em>, even though the result is incorrect.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Number.isSafeInteger(<span class="number">9007199254740993</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line">Number.isSafeInteger(<span class="number">9007199254740995</span>)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line">Number.isSafeInteger(<span class="number">9007199254740993</span> - <span class="number">9007199254740995</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="number">9007199254740993</span> - <span class="number">9007199254740995</span></span><br><span class="line"><span class="comment">// &lt;- -4, should be -2</span></span><br></pre></td></tr></table></figure>
+<p>Thus, as you can see, we can conclude that the only safe way to assert whether an operation is correct is with a method like the one below. If we can’t ascertain that the operation and both its operands are within bounds, then the result may be inaccurate, and that’s a problem. It’s best to <code>throw</code> in those situations and have a way to error-correct, but that’s specific to your programs. The important part is to actually catch these kinds of difficult bugs to deal with.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trusty</span> (<span class="params">left, right, result</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    <span class="built_in">Number</span>.isSafeInteger(left) &amp;&amp;</span><br><span class="line">    <span class="built_in">Number</span>.isSafeInteger(right) &amp;&amp;</span><br><span class="line">    <span class="built_in">Number</span>.isSafeInteger(result)</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">'Operation cannot be trusted!'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You could then use that every step of the way to ensure all operands remain safely within bounds. I’ve highlighted the unsafe values in the examples below. Note that even though none of the operations in my examples return accurate results, certain operations and numbers <em>may do so</em> even when operands are out of bounds. The problem is that that <strong>can’t be guaranteed</strong> <em>– therefore the operation can’t be trusted.</em></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">trusty(<span class="number">9007199254740000</span>, <span class="number">993</span>, <span class="number">9007199254740000</span> + <span class="number">993</span>)</span><br><span class="line"><span class="comment">// &lt;- RangeError: Operation cannot be trusted!</span></span><br><span class="line">trusty(<span class="number">9007199254740993</span>, <span class="number">990</span>, <span class="number">9007199254740993</span> + <span class="number">990</span>)</span><br><span class="line"><span class="comment">// &lt;- RangeError: Operation cannot be trusted!</span></span><br><span class="line">trusty(<span class="number">9007199254740993</span>, <span class="number">990</span>, <span class="number">9007199254740993</span> - <span class="number">990</span>)</span><br><span class="line"><span class="comment">// &lt;- RangeError: Operation cannot be trusted!</span></span><br><span class="line">trusty(<span class="number">9007199254740993</span>, <span class="number">9007199254740995</span>, <span class="number">9007199254740993</span> - <span class="number">9007199254740995</span>)</span><br><span class="line"><span class="comment">// &lt;- RangeError: Operation cannot be trusted!</span></span><br><span class="line">trusty(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// &lt;- 3</span></span><br></pre></td></tr></table></figure>
+<p>I don’t think I want to write about floating point again for a while. <em>Time to scrub myself up.</em></p>
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a><a href="#conclusions">Conclusions</a></h1><p>While some of the hacks to guard against rounding errors and overflow safety are <em>nice to have</em>, they don’t attack the heart of the problem: <em>math with the <a href="https://en.wikipedia.org/wiki/IEEE_floating_point" target="_blank" rel="noopener">IEEE-754</a> standard is hard.</em></p>
+<p>These days JavaScript runs on all the things, so it’d be nice if a better standard were to be <em>implemented alongside <a href="https://en.wikipedia.org/wiki/IEEE_floating_point" target="_blank" rel="noopener">IEEE-754</a></em>. Roughly a year ago, <em>Douglas Crockford</em> came up with <a href="http://dec64.com/" target="_blank" rel="noopener">DEC64</a>, but opinions on its merits range from <em>“this is genius!”</em> to <em>“this is the work of a madman”</em> – I guess that’s the norm when it comes to most of the stuff Crockford publishes, though.</p>
+<p>It’d be nice, to eventually see the day where JavaScript is able to <em>precisely</em> compute decimal arithmetic as well as able to represent large integers safely. That day we’ll probably have something <strong>alongside</strong> <em>floating point</em>.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/08/02/pureMaterial/17.number/" title="17.number">www.lpldplws.cn/2018/08/02/pureMaterial/17.number/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/pure-material/" rel="tag"># pure material</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/02/pureMaterial/16.reflection/" rel="next" title="16.reflection">
+                <i class="fa fa-chevron-left"></i> 16.reflection
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block">
+      
+        <!--MOB SHARE BEGIN-->
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui" style="display: none">
+     <ul class="-mob-share-list">
+         <li class="-mob-share-weibo"><p>新浪微博</p></li>
+         <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+         <li class="-mob-share-qzone"><p>QQ空间</p></li>
+         <li class="-mob-share-qq"><p>QQ好友</p></li>
+         <li class="-mob-share-weixin"><p>微信</p></li>
+         <li class="-mob-share-douban"><p>豆瓣</p></li>
+         <li class="-mob-share-renren"><p>人人网</p></li>
+         <li class="-mob-share-kaixin"><p>开心网</p></li>
+         <li class="-mob-share-facebook"><p>Facebook</p></li>
+         <li class="-mob-share-twitter"><p>Twitter</p></li>
+         <li class="-mob-share-pocket"><p>Pocket</p></li>
+         <li class="-mob-share-google"><p>Google+</p></li>
+         <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+         <li class="-mob-share-mingdao"><p>明道</p></li>
+         <li class="-mob-share-pengyou"><p>朋友网</p></li>
+         <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+         <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+         <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+     </ul>
+     <div class="-mob-share-close">取消</div>
+ </div>
+ <div class="-mob-share-ui-bg"></div>
+ <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=26afb7d19666e"></script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+
+      
+      <!--noindex-->
+      </section>
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc">
+
+          
+            
+          
+
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Number-Improvements-in-ES6"><span class="nav-number">1.</span> <span class="nav-text">Number Improvements in ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-and-Octal-Literals"><span class="nav-number">1.1.</span> <span class="nav-text">Binary and Octal Literals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isNaN"><span class="nav-number">1.2.</span> <span class="nav-text">Number.isNaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isFinite"><span class="nav-number">1.3.</span> <span class="nav-text">Number.isFinite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-parseInt"><span class="nav-number">1.4.</span> <span class="nav-text">Number.parseInt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-parseFloat"><span class="nav-number">1.5.</span> <span class="nav-text">Number.parseFloat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isInteger"><span class="nav-number">1.6.</span> <span class="nav-text">Number.isInteger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-EPSILON"><span class="nav-number">1.7.</span> <span class="nav-text">Number.EPSILON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-MAX-SAFE-INTEGER"><span class="nav-number">1.8.</span> <span class="nav-text">Number.MAX_SAFE_INTEGER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-MIN-SAFE-INTEGER"><span class="nav-number">1.9.</span> <span class="nav-text">Number.MIN_SAFE_INTEGER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-isSafeInteger"><span class="nav-number">1.10.</span> <span class="nav-text">Number.isSafeInteger</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusions"><span class="nav-number">2.</span> <span class="nav-text">Conclusions</span></a></li></ol></div>
+          
+
+        </div>
+      </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

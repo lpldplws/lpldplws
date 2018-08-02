@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+    <link href="https://www.newraina.com/mePlayer/dist/meplayer.css" rel="stylesheet">
+    <style>
+        .meplayer-meta-time-tick {
+            margin-top:10px !important;
+        }
+        .meplayer-control-play {
+            right:-15px !important;
+        }
+        .meplayer-control-play .icon-pause {
+            left:52% !important;
+        }
+        .meplayer-lyric {
+            width: 150px !important;
+            margin-left: -83px !important;
+        }
+    </style>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="eedHk7Al-RbPChTtgjvTm8V1dET0AGyXDzxnjDCXthU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="pure material," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ES6 ProxiesProxies are a quite interesting feature coming in ES6. In a nutshell, you can use a Proxy to determine behavior whenever the properties of a target object are accessed. A handler object can">
+<meta name="keywords" content="pure material">
+<meta property="og:type" content="article">
+<meta property="og:title" content="15.proxy">
+<meta property="og:url" content="www.lpldplws.cn/2018/08/02/pureMaterial/15.proxy/index.html">
+<meta property="og:site_name" content="Frankl&#39;s Personal Blog">
+<meta property="og:description" content="ES6 ProxiesProxies are a quite interesting feature coming in ES6. In a nutshell, you can use a Proxy to determine behavior whenever the properties of a target object are accessed. A handler object can">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-02T08:22:18.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="15.proxy">
+<meta name="twitter:description" content="ES6 ProxiesProxies are a quite interesting feature coming in ES6. In a nutshell, you can use a Proxy to determine behavior whenever the properties of a target object are accessed. A handler object can">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.lpldplws.cn/2018/08/02/pureMaterial/15.proxy/"/>
+
+
+
+
+
+  <title>15.proxy | Frankl's Personal Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121839770-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <img src='http://www.lpldplws.cn/images/favicon.jpg' style="display:none;"/>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frankl's Personal Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.lpldplws.cn/2018/08/02/pureMaterial/15.proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frankl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frankl's Personal Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">15.proxy</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T16:18:47+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/pure-material/" itemprop="url" rel="index">
+                    <span itemprop="name">pure material</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/02/pureMaterial/15.proxy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="www.lpldplws.cn/2018/08/02/pureMaterial/15.proxy/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/02/pureMaterial/15.proxy/" class="leancloud_visitors" data-flag-title="15.proxy">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ES6-Proxies"><a href="#ES6-Proxies" class="headerlink" title="ES6 Proxies"></a><a href="#es6-proxies">ES6 Proxies</a></h1><p>Proxies are a quite interesting feature coming in ES6. In a nutshell, you can use a <code>Proxy</code> to determine behavior whenever the properties of a <code>target</code> object are accessed. A <code>handler</code> object can be used to configure <em>traps</em> for your <code>Proxy</code>, as we’ll see in a bit.</p>
+<p>By default, proxies don’t do much – in fact they don’t do anything. If you don’t set any <em>“options”</em>, your <code>proxy</code> will just work as a <em>pass-through</em> to the <code>target</code> object – MDN calls this a <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Proxy#No-op_forwarding_proxy" target="_blank" rel="noopener">“no-op forwarding <code>Proxy</code>“</a>, which makes sense.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> handler = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line">proxy.a = <span class="string">'b'</span></span><br><span class="line"><span class="built_in">console</span>.log(target.a)</span><br><span class="line"><span class="comment">// &lt;- 'b'</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.c === <span class="literal">undefined</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>We can make our proxy a bit more interesting by adding traps. Traps allow you to intercept interactions with <code>target</code> in different ways, as long as those interactions happen through <code>proxy</code>. We could use a <code>get</code> <em>trap</em> to log every attempt to pull a value out of a property in <code>target</code>. Let’s try that next.</p>
+<h2 id="get"><a href="#get" class="headerlink" title="get"></a><a href="#get"><code>get</code></a></h2><p>The proxy below is able to track any and every <strong>property access</strong> event because it has a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/get" target="_blank" rel="noopener"><code>handler.get</code></a> trap. It can also be used to <em>transform</em> the value we get out of accessing any given property. We can already imagine <code>Proxy</code> becoming a staple when it comes to developer tooling.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> handler = &#123;</span><br><span class="line">  get (target, key) &#123;</span><br><span class="line">    console.info(`Get on property <span class="string">"$&#123;key&#125;"</span>`)</span><br><span class="line">    return target[key]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> target = &#123;&#125;</span><br><span class="line"><span class="selector-tag">var</span> proxy = new Proxy(target, handler)</span><br><span class="line">proxy<span class="selector-class">.a</span> = <span class="string">'b'</span></span><br><span class="line">proxy.a</span><br><span class="line"><span class="comment">// &lt;- 'Get on property "a"'</span></span><br><span class="line">proxy.b</span><br><span class="line"><span class="comment">// &lt;- 'Get on property "b"'</span></span><br></pre></td></tr></table></figure>
+<p>Of course, your getter doesn’t necessarily have to return the original <code>target[key]</code> value. How about finally making those <code>_prop</code> properties actually private?</p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a><a href="#set"><code>set</code></a></h2><p>Know how we usually define conventions such as Angular’s <em>dollar signs</em> where properties prefixed by a single dollar sign should hardly be accessed from an application and properties prefixed by two dollar signs should <strong>not be accessed at all</strong>? We usually do something like that ourselves in our applications, typically in the form of underscore-prefixed variables.</p>
+<p>The <code>Proxy</code> in the example below prevents property access for both <code>get</code> and <code>set</code> <em>(via a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/set" target="_blank" rel="noopener"><code>handler.set</code></a> trap)</em> while accessing <code>target</code> through <code>proxy</code>. Note how <code>set</code> always returns <code>true</code> here? – this means that setting the property <code>key</code> to a given <code>value</code> should <em>succeed</em>. If the return value for the <code>set</code> trap is <code>false</code>, setting the property value will throw a <code>TypeError</code> under strict mode, and otherwise fail silently.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  <span class="keyword">get</span> (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'get'</span>)</span><br><span class="line">    <span class="keyword">return</span> target[<span class="keyword">key</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> (target, <span class="keyword">key</span>, <span class="keyword">value</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'set'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> invariant (<span class="keyword">key</span>, <span class="keyword">action</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">    throw <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="string">`Invalid attempt to $&#123;action&#125; private "$&#123;key&#125;" property`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> Proxy(target, <span class="keyword">handler</span>)</span><br><span class="line">proxy.a = <span class="string">'b'</span></span><br><span class="line">console.log(proxy.a)</span><br><span class="line">// &lt;- <span class="string">'b'</span></span><br><span class="line">proxy._prop</span><br><span class="line">// &lt;- <span class="keyword">Error</span>: Invalid attempt <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">private</span> <span class="string">"_prop"</span> property</span><br><span class="line">proxy._prop = <span class="string">'c'</span></span><br><span class="line">// &lt;- <span class="keyword">Error</span>: Invalid attempt <span class="keyword">to</span> <span class="keyword">set</span> <span class="keyword">private</span> <span class="string">"_prop"</span> property</span><br></pre></td></tr></table></figure>
+<p><em>You do remember string interpolation with <a href="/articles/es6-template-strings-in-depth">template literals</a>, right?</em></p>
+<p>It might be worth mentioning that the <code>target</code> object <em>(the object being proxied)</em> should often be completely hidden from accessors in proxying scenarios. Effectively <strong>preventing direct access</strong> to the <code>target</code> and instead forcing access to <code>target</code> exclusively through <code>proxy</code>. Consumers of <code>proxy</code> will get to access <code>target</code> through the <code>Proxy</code> object, but will have to <strong>obey your access rules</strong> – such as <em>“properties prefixed with <code>_</code> are off-limits”</em>.</p>
+<p>To that end, you could simply wrap your proxied object in a method, and then return the <code>proxy</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxied</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> handler = &#123;</span><br><span class="line">    get (target, key) &#123;</span><br><span class="line">      invariant(key, <span class="string">'get'</span>)</span><br><span class="line">      <span class="keyword">return</span> target[key]</span><br><span class="line">    &#125;,</span><br><span class="line">    set (target, key, value) &#123;</span><br><span class="line">      invariant(key, <span class="string">'set'</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">invariant</span> (<span class="params">key, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (key[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Invalid attempt to <span class="subst">$&#123;action&#125;</span> private "<span class="subst">$&#123;key&#125;</span>" property`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Usage stays the same, except now access to <code>target</code> is completely governed by <code>proxy</code> and its mischievous traps. At this point, any <code>_prop</code> properties in <code>target</code> are completely inaccessible through the proxy, and since <code>target</code> can’t be accessed directly from outside the <code>proxied</code> method, they’re sealed off from consumers for good.</p>
+<p>You might be tempted to argue that you could achieve the same behavior in ES5 simply by using variables privately scoped to the <code>proxied</code> method, without the need for the <code>Proxy</code> itself. The big difference is that proxies allow you to “privatize” property access <strong>on different layers</strong>. Imagine an underlying <code>underling</code> object that already has several <em>“private”</em> properties, which you still access in some other <code>middletier</code> module that has intimate knowledge of the internals of <code>underling</code>. The <code>middletier</code> module could return a <code>proxied</code> version of <code>underling</code> without having to map the API onto an entirely new object in order to protect those internal variables. Just locking access to any of the “private” properties would suffice!</p>
+<p>Here’s a use case on schema validation using proxies.</p>
+<h2 id="Schema-Validation-with-Proxies"><a href="#Schema-Validation-with-Proxies" class="headerlink" title="Schema Validation with Proxies"></a><a href="#schema-validation-with-proxies">Schema Validation with Proxies</a></h2><p>While, yes, <em>you could</em> set up schema validation on the <code>target</code> object itself, doing it on a <code>Proxy</code> means that you separate the validation concerns from the <code>target</code> object, which will go on to live as a <strong>POJO</strong> <em>(Plain Old JavaScript Object)</em> happily ever after. Similarly, you can use the proxy as an intermediary for access to many different objects that conform to a schema, without having to rely on prototypal inheritance or <a href="/articles/es6-classes-in-depth">ES6 <code>class</code> classes</a>.</p>
+<p>In the example below, <code>person</code> is a plain model object, and we’ve also defined a <code>validator</code> object with a <code>set</code> trap that will be used as the <code>handler</code> for a <code>proxy</code> validator of people models. As long as the <code>person</code> properties are set through <code>proxy</code>, the model invariants will be satisfied according to our validation rules.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> validator = &#123;</span><br><span class="line">  set (target, key, value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (key === <span class="string">'age'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">'number'</span> || <span class="built_in">Number</span>.isNaN(value)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Age must be a number'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (value &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Age must be a positive number'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = &#123; <span class="attr">age</span>: <span class="number">27</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(person, validator)</span><br><span class="line">proxy.age = <span class="string">'foo'</span></span><br><span class="line"><span class="comment">// &lt;- TypeError: Age must be a number</span></span><br><span class="line">proxy.age = <span class="literal">NaN</span></span><br><span class="line"><span class="comment">// &lt;- TypeError: Age must be a number</span></span><br><span class="line">proxy.age = <span class="number">0</span></span><br><span class="line"><span class="comment">// &lt;- TypeError: Age must be a positive number</span></span><br><span class="line">proxy.age = <span class="number">28</span></span><br><span class="line"><span class="built_in">console</span>.log(person.age)</span><br><span class="line"><span class="comment">// &lt;- 28</span></span><br></pre></td></tr></table></figure>
+<p>There’s also a particularly “severe” type of proxies that allows us to completely shut off access to <code>target</code> whenever we deem it necessary.</p>
+<h2 id="Revocable-Proxies"><a href="#Revocable-Proxies" class="headerlink" title="Revocable Proxies"></a><a href="#revocable-proxies">Revocable Proxies</a></h2><p>We can use <code>Proxy.revocable</code> in a similar way to <code>Proxy</code>. The main differences are that the return value will be <code>{ proxy, revoke }</code>, and that once <code>revoke</code> is called the <code>proxy</code> <strong>will throw</strong> on <em>any operation</em>. Let’s go back to our pass-through <code>Proxy</code> example and make it <code>revocable</code>. Note that we’re <em>not using</em> the <code>new</code> operator here. Calling <code>revoke()</code> over and over has no effect.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> target = &#123;&#125;</span><br><span class="line"><span class="selector-tag">var</span> handler = &#123;&#125;</span><br><span class="line"><span class="selector-tag">var</span> &#123;proxy, revoke&#125; = Proxy.revocable(target, handler)</span><br><span class="line">proxy<span class="selector-class">.a</span> = <span class="string">'b'</span></span><br><span class="line">console.log(proxy.a)</span><br><span class="line"><span class="comment">// &lt;- 'b'</span></span><br><span class="line"><span class="function"><span class="title">revoke</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">revoke</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">revoke</span><span class="params">()</span></span></span><br><span class="line">console.log(proxy.a)</span><br><span class="line"><span class="comment">// &lt;- TypeError: illegal operation attempted on a revoked proxy</span></span><br></pre></td></tr></table></figure>
+<p>This type of <code>Proxy</code> is particularly useful because you can now completely cut off access to the <code>proxy</code> granted to a consumer. You start by passing of a revocable <code>Proxy</code> and keeping around the <code>revoke</code> method <em>(hey, maybe you can <a href="/articles/es6-weakmaps-sets-and-weaksets-in-depth">use a <code>WeakMap</code></a> for that)</em>, and when its clear that the consumer shouldn’t have access to <code>target</code> anymore, – not even through <code>proxy</code> – you <code>.revoke()</code> the hell out of their access. <em>Goodbye consumer!</em></p>
+<p>Furthermore, since <code>revoke</code> is available on the same scope where your <code>handler</code> traps live, you could set up <strong>extremely paranoid rules</strong> such as <em>“if a consumer attempts to access a private property more than once, revoke their <code>proxy</code> entirely”</em>.</p>
+<h1 id="Proxy-Trap-Handlers"><a href="#Proxy-Trap-Handlers" class="headerlink" title="Proxy Trap Handlers"></a>Proxy Trap Handlers</h1><p>An interesting aspect of proxies is how you can use them to intercept just about any interaction with a <code>target</code> object – not just <code>get</code> or <code>set</code> operations. Below are some of the traps you can set up, here’s a summary.</p>
+<ul>
+<li><a href="#has"><code>has</code></a> – traps <code>in</code> operator</li>
+<li><a href="#deleteproperty"><code>deleteProperty</code></a> – traps <code>delete</code> operator</li>
+<li><a href="#defineproperty"><code>defineProperty</code></a> – traps <code>Object.defineProperty</code> and declarative alternatives</li>
+<li><a href="#enumerate"><code>enumerate</code></a> – traps <code>for..in</code> loops</li>
+<li><a href="#ownkeys"><code>ownKeys</code></a> – traps <code>Object.keys</code> and related methods</li>
+<li><a href="#apply"><code>apply</code></a> – traps <em>function calls</em></li>
+</ul>
+<p>We’ll bypass <code>get</code> and <code>set</code>, because we <a href="/articles/es6-proxies-in-depth">already covered those two</a> yesterday; and there’s a few more traps that aren’t listed here that will make it into an article published tomorrow. <em>Stay tuned!</em></p>
+<h3 id="has"><a href="#has" class="headerlink" title="has"></a><code>has</code></h3><p>You can use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/has" target="_blank" rel="noopener"><code>handler.has</code></a> to <em>“hide”</em> any property you want. It’s a trap for the <code>in</code> operator. In the <a href="/articles/es6-proxies-in-depth#set"><code>set</code></a> trap example we prevented changes and even access to <em><code>_</code>-prefixed</em> properties, but unwanted accessors could still ping our proxy to figure out whether these properties are actually there or not. <em>Like <a href="https://en.wikipedia.org/wiki/Goldilocks_and_the_Three_Bears" target="_blank" rel="noopener">Goldilocks</a></em>, we have three options here.</p>
+<ul>
+<li>We can let <code>key in proxy</code> <em>fall through</em> to <code>key in target</code></li>
+<li>We can <code>return false</code> <em>(or <code>true</code>)</em> – even though <code>key</code> <strong>may or may not</strong> actually be there</li>
+<li>We can <code>throw</code> an error and deem the question <strong>invalid</strong> in the first place</li>
+</ul>
+<p>The last option is quite harsh, and I imagine it being indeed a valid choice in some situations – but you would be acknowledging that the property <em>(or “property space”)</em> is, in fact, <em>protected</em>. It’s often best to just smoothly indicate that the property is not <code>in</code> the object. Usually, a fall-through case where you just return the result of the <code>key in target</code> expression is a good default case to have.</p>
+<p>In our example, we probably want to <code>return false</code> for properties in the <em><code>_</code>-prefixed “property space”</em> and the default of <code>key in target</code> for all other properties. This will keep our inaccessible properties well hidden from unwanted visitors.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  <span class="keyword">get</span> (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'get'</span>)</span><br><span class="line">    <span class="keyword">return</span> target[<span class="keyword">key</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> (target, <span class="keyword">key</span>, <span class="keyword">value</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'set'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  has (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">key</span> <span class="keyword">in</span> target</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> invariant (<span class="keyword">key</span>, <span class="keyword">action</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">    throw <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="string">`Invalid attempt to $&#123;action&#125; private "$&#123;key&#125;" property`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note how accessing properties through the proxy will now return <code>false</code> whenever accessing one of our private properties, with the consumer being none the wiser – completely unaware that we’ve intentionally hid the property from them.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123; <span class="attr">_prop</span>: <span class="string">'foo'</span>, <span class="attr">pony</span>: <span class="string">'foo'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'pony'</span> <span class="keyword">in</span> proxy)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'_prop'</span> <span class="keyword">in</span> proxy)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'_prop'</span> <span class="keyword">in</span> target)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>Sure, we could’ve thrown an exception instead. That’d be useful in situations where attempts to access properties in the private space is seen more of <strong>as a mistake that results in broken modularity</strong> than as a <em>security concern</em> in code that aims to be embedded into third party websites.</p>
+<blockquote>
+<p>It really depends on your use case!</p>
+</blockquote>
+<h3 id="deleteProperty"><a href="#deleteProperty" class="headerlink" title="deleteProperty"></a><code>deleteProperty</code></h3><p>I use the <code>delete</code> operator a lot. Setting a property to <code>undefined</code> clears its value, but the property is still part of the object. Using the <code>delete</code> operator on a property with code like <code>delete foo.bar</code> means that the <code>bar</code> property will be forever gone from the <code>foo</code> object.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> foo = &#123; bar: <span class="string">'baz'</span> &#125;</span><br><span class="line">foo<span class="selector-class">.bar</span> = <span class="string">'baz'</span></span><br><span class="line">console.log(<span class="string">'bar'</span> <span class="keyword">in</span> foo)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line">delete foo.bar</span><br><span class="line">console.log(<span class="string">'bar'</span> <span class="keyword">in</span> foo)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>Remember our <a href="/articles/es6-proxies-in-depth#set"><code>set</code></a> trap example where we prevented access to <em><code>_</code>-prefixed</em> properties? That code had a problem. Even though you couldn’t change the value of <code>_prop</code>, you could remove the property entirely using the <code>delete</code> operator. Even through the <code>proxy</code> object!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123; <span class="attr">_prop</span>: <span class="string">'foo'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'_prop'</span> <span class="keyword">in</span> proxy)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="keyword">delete</span> proxy._prop</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'_prop'</span> <span class="keyword">in</span> proxy)</span><br><span class="line"><span class="comment">// &lt;- false</span></span><br></pre></td></tr></table></figure>
+<p>You can use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/deleteProperty" target="_blank" rel="noopener"><code>handler.deleteProperty</code></a> to prevent a <code>delete</code> operation from working. Just like with the <code>get</code> and <code>set</code> traps, throwing in the <code>deleteProperty</code> trap will be enough to prevent the deletion of a property.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  <span class="keyword">get</span> (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'get'</span>)</span><br><span class="line">    <span class="keyword">return</span> target[<span class="keyword">key</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> (target, <span class="keyword">key</span>, <span class="keyword">value</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'set'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  deleteProperty (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'delete'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> invariant (<span class="keyword">key</span>, <span class="keyword">action</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">    throw <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="string">`Invalid attempt to $&#123;action&#125; private "$&#123;key&#125;" property`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If we run the exact same piece of code we tried earlier, we’ll run into the exception while trying to delete <code>_prop</code> from the <code>proxy</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123; <span class="attr">_prop</span>: <span class="string">'foo'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'_prop'</span> <span class="keyword">in</span> proxy)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="keyword">delete</span> proxy._prop</span><br><span class="line"><span class="comment">// &lt;- Error: Invalid attempt to delete private "_prop" property</span></span><br></pre></td></tr></table></figure>
+<p>Deleting properties in your <code>_private</code> property space is no longer possible for consumers interacting with <code>target</code> through the <code>proxy</code>.</p>
+<h3 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty"></a><code>defineProperty</code></h3><p>We typically use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener"><code>Object.defineProperty(obj, key, descriptor)</code></a> in two types of situations.</p>
+<ol>
+<li>When we wanted to ensure cross-browser support of <em>getters and setters</em></li>
+<li>Whenever we want to define a custom property accessor</li>
+</ol>
+<p>Properties added by hand are read-write, they are deletable, and they are enumerable. Properties added through <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener"><code>Object.defineProperty</code></a>, <em>in contrast</em>, default to being <em>read-only</em>, <em>write-only</em>, <em>non-deletable</em>, and <em>non-enumerable</em> – in other words, the property starts off being completely <strong>immutable</strong>. You can customize these aspects of the property descriptor, and you can find them below – alongside with their <em>default values</em> when using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener"><code>Object.defineProperty</code></a>.</p>
+<ul>
+<li><code>configurable: false</code> disables most changes to the property descriptor and makes the property <em>undeletable</em></li>
+<li><code>enumerable: false</code> hides the property from <code>for..in</code> loops and <code>Object.keys</code></li>
+<li><code>value: undefined</code> is the initial value for the property</li>
+<li><code>writable: false</code> makes the property value immutable</li>
+<li><code>get: undefined</code> is a method that acts as the getter for the property</li>
+<li><code>set: undefined</code> is a method that receives the new <code>value</code> and updates the property’s <code>value</code></li>
+</ul>
+<p>Note that when defining a property you’ll have to choose between using <code>value</code> and <code>writable</code> or <code>get</code> and <code>set</code>. When choosing the former you’re configuring a <em>data descriptor</em> – this is the kind you get when declaring properties like <code>foo.bar = &#39;baz&#39;</code>, it has a <code>value</code> and it <em>may or may not</em> be <code>writable</code>. When choosing the latter you’re creating an <em>accessor descriptor</em>, which is entirely defined by the methods you can use to <code>get()</code> or <code>set(value)</code> the value for the property.</p>
+<p>The code sample below shows how property descriptors are completely different depending on whether you went for the declarative option or through the programmatic API.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">var</span> <span class="string">target</span> <span class="string">=</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="string">target.foo</span> <span class="string">=</span> <span class="string">'bar'</span></span><br><span class="line"><span class="string">console.log(Object.getOwnPropertyDescriptor(target,</span> <span class="string">'foo'</span><span class="string">))</span></span><br><span class="line"><span class="string">//</span> <span class="string">&lt;-</span> <span class="string">&#123;</span> <span class="attr">value:</span> <span class="string">'bar'</span><span class="string">,</span> <span class="attr">writable:</span> <span class="literal">true</span><span class="string">,</span> <span class="attr">enumerable:</span> <span class="literal">true</span><span class="string">,</span> <span class="attr">configurable:</span> <span class="literal">true</span> <span class="string">&#125;</span></span><br><span class="line"><span class="string">Object.defineProperty(target,</span> <span class="string">'baz'</span><span class="string">,</span> <span class="string">&#123;</span> <span class="attr">value:</span> <span class="string">'ponyfoo'</span> <span class="string">&#125;)</span></span><br><span class="line"><span class="string">console.log(Object.getOwnPropertyDescriptor(target,</span> <span class="string">'baz'</span><span class="string">))</span></span><br><span class="line"><span class="string">//</span> <span class="string">&lt;-</span> <span class="string">&#123;</span> <span class="attr">value:</span> <span class="string">'ponyfoo'</span><span class="string">,</span> <span class="attr">writable:</span> <span class="literal">false</span><span class="string">,</span> <span class="attr">enumerable:</span> <span class="literal">false</span><span class="string">,</span> <span class="attr">configurable:</span> <span class="literal">false</span> <span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>Now that we went over a blitzkrieg overview of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener"><code>Object.defineProperty</code></a>, we can move on to the trap.</p>
+<h4 id="It’s-a-Trap"><a href="#It’s-a-Trap" class="headerlink" title="It’s a Trap"></a>It’s a Trap</h4><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/defineProperty" target="_blank" rel="noopener"><code>handler.defineProperty</code></a> trap can be used to intercept calls to <code>Object.defineProperty</code>. You get the <code>key</code> and the <code>descriptor</code> being used. The example below completely prevents the addition of properties through the <code>proxy</code>. How cool is it that this intercepts the declarative <code>foo.bar = &#39;baz&#39;</code> property declaration alternative as well? <em>Quite cool!</em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  defineProperty (target, <span class="keyword">key</span>, <span class="keyword">descriptor</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> Proxy(target, <span class="keyword">handler</span>)</span><br><span class="line">proxy.foo = <span class="string">'bar'</span></span><br><span class="line">// &lt;- TypeError: proxy defineProperty <span class="keyword">handler</span> returned <span class="literal">false</span> <span class="keyword">for</span> property <span class="string">'"foo"'</span></span><br></pre></td></tr></table></figure>
+<p>If we go back to our <em>“private properties”</em> example, we could use the <code>defineProperty</code> trap to prevent the creation of private properties through the proxy. We’ll reuse the <code>invariant</code> method we had to <code>throw</code> on attempts to define a property in the <em>“private <code>_</code>-prefixed space”</em>, and that’s it.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  defineProperty (target, <span class="keyword">key</span>, <span class="keyword">descriptor</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'define'</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> invariant (<span class="keyword">key</span>, <span class="keyword">action</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">    throw <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="string">`Invalid attempt to $&#123;action&#125; private "$&#123;key&#125;" property`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You could then try it out on a <code>target</code> object, setting properties with a <code>_</code> prefix will now throw an error. You could make it fail silently by returning <code>false</code> <em>– depends on your use case!</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line">proxy._foo = <span class="string">'bar'</span></span><br><span class="line"><span class="comment">// &lt;- Error: Invalid attempt to define private "_foo" property</span></span><br></pre></td></tr></table></figure>
+<p>Your <code>proxy</code> is now safely hiding <code>_private</code> properties behind a trap that guards them from definition through either <code>proxy[key] = value</code> or <code>Object.defineProperty(proxy, key, { value })</code> <em>– pretty amazing!</em></p>
+<h3 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a><code>enumerate</code></h3><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/enumerate" target="_blank" rel="noopener"><code>handler.enumerate</code></a> method can be used to trap <code>for..in</code> statements. With <a href="#has"><code>has</code></a> we could prevent <code>key in proxy</code> from returning <code>true</code> for any property in our underscored private space, but what about a <code>for..in</code> loop? Even though our <code>has</code> trap hides the property from a <code>key in proxy</code> check, the consumer will accidentally stumble upon the property when using a <code>for..in</code> loop!</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  has (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">key</span> <span class="keyword">in</span> target</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123; _prop: <span class="string">'foo'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> Proxy(target, <span class="keyword">handler</span>)</span><br><span class="line"><span class="keyword">for</span> (let <span class="keyword">key</span> <span class="keyword">in</span> proxy) &#123;</span><br><span class="line">  console.log(<span class="keyword">key</span>)</span><br><span class="line">  // &lt;- <span class="string">'_prop'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We can use the <code>enumerate</code> trap to return an <em>iterator</em> that’ll be used instead of the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in#Description" target="_blank" rel="noopener"><em>enumerable properties</em></a> found in <code>proxy</code> during a <code>for..in</code> loop. The returned iterator must conform to the iterator protocol, such as the iterators returned from any <a href="/articles/es6-iterators-in-depth"><code>Symbol.iterator</code></a> method. Here’s a possible implementation of such a <code>proxy</code> that would return the output of <code>Object.keys</code> minus the properties found in our <em>private space</em>.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  has (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">key</span> <span class="keyword">in</span> target</span><br><span class="line">  &#125;,</span><br><span class="line">  enumerate (target) &#123;</span><br><span class="line">    <span class="keyword">return</span> Object.keys(target).filter(<span class="keyword">key</span> =&gt; <span class="keyword">key</span>[<span class="number">0</span>] !== <span class="string">'_'</span>)[Symbol.iterator]()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123; pony: <span class="string">'foo'</span>, _bar: <span class="string">'baz'</span>, _prop: <span class="string">'foo'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> Proxy(target, <span class="keyword">handler</span>)</span><br><span class="line"><span class="keyword">for</span> (let <span class="keyword">key</span> <span class="keyword">in</span> proxy) &#123;</span><br><span class="line">  console.log(<span class="keyword">key</span>)</span><br><span class="line">  // &lt;- <span class="string">'pony'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now your private properties are hidden from those prying <code>for..in</code> eyes!</p>
+<h3 id="ownKeys"><a href="#ownKeys" class="headerlink" title="ownKeys"></a><code>ownKeys</code></h3><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/ownKeys" target="_blank" rel="noopener"><code>handler.ownKeys</code></a> method may be used to return an <code>Array</code> of properties that will be used as a result for <code>Reflect.ownKeys()</code> <em>– it should include all properties of <code>target</code> (enumerable or not, and symbols too).</em> A default implementation, <em>as seen below</em>, could just call <code>Reflect.ownKeys</code> on the proxied <code>target</code> object. Don’t worry, we’ll get to the <code>Reflect</code> built-in later in the <a href="/articles/tagged/es6-in-depth"><code>es6-in-depth</code></a> series.</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  ownKeys (<span class="keyword">target</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> Reflect.ownKeys(<span class="keyword">target</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Interception wouldn’t affect the output of <code>Object.keys</code> in this case.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;</span><br><span class="line">  _bar: <span class="string">'foo'</span>,</span><br><span class="line">  _prop: <span class="string">'bar'</span>,</span><br><span class="line">  [<span class="built_in">Symbol</span>(<span class="string">'secret'</span>)]: <span class="string">'baz'</span>,</span><br><span class="line">  pony: <span class="string">'ponyfoo'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(proxy)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key)</span><br><span class="line">  <span class="comment">// &lt;- '_bar'</span></span><br><span class="line">  <span class="comment">// &lt;- '_prop'</span></span><br><span class="line">  <span class="comment">// &lt;- 'pony'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Do note that the <code>ownKeys</code> interceptor is used during all of the following operations.</p>
+<ul>
+<li><code>Object.getOwnPropertyNames()</code> – just non-symbol properties</li>
+<li><code>Object.getOwnPropertySymbols()</code> – just symbol properties</li>
+<li><code>Object.keys()</code> – just non-symbol enumerable properties</li>
+<li><code>Reflect.ownKeys()</code> – we’ll get to <code>Reflect</code> later in the series!</li>
+</ul>
+<p>In the use case where we want to shut off access to a property space prefixed by <code>_</code>, we could take the output of <code>Reflect.ownKeys(target)</code> and filter that.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  ownKeys (target) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.ownKeys(target).filter(<span class="function"><span class="params">key</span> =&gt;</span> key[<span class="number">0</span>] !== <span class="string">'_'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If we now used the <code>handler</code> in the snippet above to pull the object keys, we’ll just find the properties in the public, non <code>_</code>-prefixed space.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;</span><br><span class="line">  _bar: <span class="string">'foo'</span>,</span><br><span class="line">  _prop: <span class="string">'bar'</span>,</span><br><span class="line">  [<span class="built_in">Symbol</span>(<span class="string">'secret'</span>)]: <span class="string">'baz'</span>,</span><br><span class="line">  pony: <span class="string">'ponyfoo'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(proxy)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key)</span><br><span class="line">  <span class="comment">// &lt;- 'pony'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Symbol iteration wouldn’t be affected by this as <code>sym[0]</code> yields <code>undefined</code> <em>– and in any case decidedly not <code>&#39;_&#39;</code>.</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;</span><br><span class="line">  _bar: <span class="string">'foo'</span>,</span><br><span class="line">  _prop: <span class="string">'bar'</span>,</span><br><span class="line">  [<span class="built_in">Symbol</span>(<span class="string">'secret'</span>)]: <span class="string">'baz'</span>,</span><br><span class="line">  pony: <span class="string">'ponyfoo'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.getOwnPropertySymbols(proxy)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key)</span><br><span class="line">  <span class="comment">// &lt;- Symbol(secret)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We were able to hide properties prefixed with <code>_</code> from key enumeration while leaving symbols and other properties unaffected.</p>
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h3><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/apply" target="_blank" rel="noopener"><code>handler.apply</code></a> method is quite interesting. You can use it as a trap on any invocation of <code>proxy</code>. All of the following will go through the <code>apply</code> trap for your proxy.</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">proxy(...args)</span><br><span class="line">proxy.call(null, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">proxy.apply(null, [<span class="number">1</span>, <span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<p>The <code>apply</code> method takes three arguments.</p>
+<ul>
+<li><code>target</code> – the function being proxied</li>
+<li><code>ctx</code> – the context passed as <code>this</code> to <code>target</code> when applying a call</li>
+<li><code>args</code> – the arguments passed to <code>target</code> when applying the call</li>
+</ul>
+<p>A naïve implementation might look like <code>target.apply(ctx, args)</code>, but below we’ll be using <code>Reflect.apply(...arguments)</code>. We’ll dig deeper into the <code>Reflect</code> built-in later in the series. For now, just think of them as equivalent, and take into account that the value returned by the <code>apply</code> trap is also going to be used as the result of a function call through <code>proxy</code>.</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> handler = &#123;</span><br><span class="line">  <span class="built_in">apply</span> (target, ctx, <span class="built_in">args</span>) &#123;</span><br><span class="line">    <span class="built_in">return</span> Reflect.<span class="built_in">apply</span>(...arguments)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Besides the obvious <em>“being able to log all parameters of every function call for <code>proxy</code>“</em>, this trap can be used for parameter balancing and to tweak the results of a function call without changing the method itself <em>– and without changing the calling code either.</em></p>
+<p>The example below proxies a <code>sum</code> method through a <code>twice</code> trap handler that doubles the results of <code>sum</code> without affecting the code around it other than using the <code>proxy</code> instead of the <code>sum</code> method directly.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twice = &#123;</span><br><span class="line">  apply (target, ctx, args) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.apply(...arguments) * <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> left + right</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(sum, twice)</span><br><span class="line"><span class="built_in">console</span>.log(proxy(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment">// &lt;- 6</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy(...[<span class="number">3</span>, <span class="number">4</span>]))</span><br><span class="line"><span class="comment">// &lt;- 14</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.call(<span class="literal">null</span>, <span class="number">5</span>, <span class="number">6</span>))</span><br><span class="line"><span class="comment">// &lt;- 22</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.apply(<span class="literal">null</span>, [<span class="number">7</span>, <span class="number">8</span>]))</span><br><span class="line"><span class="comment">// &lt;- 30</span></span><br></pre></td></tr></table></figure>
+<p>Naturally, calling <code>Reflect.apply</code> on the <code>proxy</code> will be caught by the <code>apply</code> <em>trap</em> as well.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.apply(proxy, <span class="literal">null</span>, [<span class="number">9</span>, <span class="number">10</span>])</span><br><span class="line"><span class="comment">// &lt;- 38</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>What else would you use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/apply" target="_blank" rel="noopener"><code>handler.apply</code></a> for?</p>
+</blockquote>
+<h1 id="But-Wait-There’s-More…-Proxy-Trap-Handlers"><a href="#But-Wait-There’s-More…-Proxy-Trap-Handlers" class="headerlink" title="But Wait! There’s More… (Proxy Trap Handlers)"></a>But Wait! There’s More… <em>(Proxy Trap Handlers)</em></h1><p>This article covers all the trap handlers that weren’t covered by the two previous articles on proxies. For the most part, the traps that we discussed yesterday had to do with property manipulation, while the first five traps we’ll dig into today have mostly to do with the object being proxied <em>itself</em>. The last two have to do with properties once again – but they’re a bit more involved than yesterday’s traps, which were much easier to “fall into” <em>(the trap – muahaha)</em> in your everyday code.</p>
+<ul>
+<li><a href="#construct"><code>construct</code></a> – traps usage of the <code>new</code> operator</li>
+<li><a href="#getprototypeof"><code>getPrototypeOf</code></a> – traps internal calls to <code>[[GetPrototypeOf]]</code></li>
+<li><a href="#setprototypeof"><code>setPrototypeOf</code></a> – traps calls to <code>Object.setPrototypeOf</code></li>
+<li><a href="#isextensible"><code>isExtensible</code></a> – traps calls to <code>Object.isExtensible</code></li>
+<li><a href="#preventextensions"><code>preventExtensions</code></a> – traps calls to <code>Object.preventExtensions</code></li>
+<li><a href="#getownpropertydescriptor"><code>getOwnPropertyDescriptor</code></a> – traps calls to <code>Object.getOwnPropertyDescriptor</code></li>
+</ul>
+<h3 id="construct"><a href="#construct" class="headerlink" title="construct"></a><code>construct</code></h3><p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/construct" target="_blank" rel="noopener"><code>handler.construct</code></a> method to trap usage of the <code>new</code> operator. Here’s a quick <em>“default implementation”</em> that doesn’t alter the behavior of <code>new</code> at all. <em>Remember our friend the <a href="/articles/es6-spread-and-butter-in-depth">spread operator</a>?</em></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  construct (<span class="keyword">target</span>, args) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">target</span>(...args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you use the <code>handler</code> options above, the <code>new</code> behavior you’re already used to would remain unchanged. That’s great because it means whatever you’re trying to accomplish you can still fall back to the <strong>default behavior</strong> <em>– and that’s always important.</em></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function target (<span class="selector-tag">a</span>, <span class="selector-tag">b</span>, c) &#123;</span><br><span class="line">  this<span class="selector-class">.a</span> = a</span><br><span class="line">  this<span class="selector-class">.b</span> = b</span><br><span class="line">  this<span class="selector-class">.c</span> = c</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> proxy = new Proxy(target, handler)</span><br><span class="line">console.log(new proxy(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"><span class="comment">// &lt;- &#123; a: 1, b: 2, c: 3 &#125;</span></span><br></pre></td></tr></table></figure>
+<p>Obvious use cases for <code>construct</code> traps include data massaging in the arguments, doing things that should always be done around a call to <code>new proxy()</code>, logging and tracking object creation, and swapping implementations entirely. Imagine a proxy like the following in situations where you have inheritance <em>“branching”</em>.</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Automobile</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Automobile</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SurveillanceVan</span> <span class="keyword">extends</span> <span class="title">Automobile</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SUV</span> <span class="keyword">extends</span> <span class="title">Automobile</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SportsCar</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;&#125;</span><br><span class="line">function target () &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  construct (target, args) &#123;</span><br><span class="line">    <span class="keyword">var</span> [status] = args</span><br><span class="line">    <span class="keyword">if</span> (status === <span class="symbol">'ns</span>a') &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">SurveillanceVan</span>(...args)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (status === <span class="symbol">'singl</span>e') &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">SportsCar</span>(...args)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">SUV</span>(...args) <span class="comment">// family</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Naturally, you could’ve used a regular method for the branching part, but using the <code>new</code> operator also makes sense in these types of situations, as you’ll end up creating a new object in all code branches anyways.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(new proxy(<span class="string">'nsa'</span>)<span class="selector-class">.constructor</span><span class="selector-class">.name</span>)</span><br><span class="line"><span class="comment">// &lt;- `SurveillanceVan`</span></span><br></pre></td></tr></table></figure>
+<p>The most common use case for <code>construct</code> traps yet may be something simpler, and that’s extending the <code>target</code> object right after creation, <em>– and before anything else happens –</em> in such a way that it better supports the <code>proxy</code> gatekeeper. You might have to add a <code>proxied</code> flag to the <code>target</code> object, or something akin to that.</p>
+<h3 id="getPrototypeOf"><a href="#getPrototypeOf" class="headerlink" title="getPrototypeOf"></a><code>getPrototypeOf</code></h3><p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/getPrototypeOf" target="_blank" rel="noopener"><code>handler.getPrototypeOf</code></a> method as a trap for all of the following.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto" target="_blank" rel="noopener"><code>Object.prototype.__proto__</code></a> property</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf" target="_blank" rel="noopener"><code>Object.prototype.isPrototypeOf()</code></a> method</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf" target="_blank" rel="noopener"><code>Object.getPrototypeOf()</code></a> method</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf" target="_blank" rel="noopener"><code>Reflect.getPrototypeOf()</code></a> method</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener"><code>instanceof</code></a> operator</li>
+</ul>
+<p>You could use this <em>trap</em> to make an object pretend it’s an <code>Array</code>, when accessed through the proxy. However, note that that on its own isn’t sufficient for the <code>proxy</code> to be an actual <code>Array</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  getPrototypeOf: <span class="function"><span class="params">target</span> =&gt;</span> <span class="built_in">Array</span>.prototype</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(proxy <span class="keyword">instanceof</span> <span class="built_in">Array</span>)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.push)</span><br><span class="line"><span class="comment">// &lt;- undefined</span></span><br></pre></td></tr></table></figure>
+<p>Naturally, you could keep on patching your <code>proxy</code> until you get the behavior you want. In this case, you may want to use a <code>get</code> trap to mix the <code>Array.prototype</code> with the actual back-end <code>target</code>. Whenever a property isn’t found on the <code>target</code>, we’ll use reflection to look it up on <code>Array.prototype</code>. It turns out, this is <strong>good enough</strong> for most operations.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  getPrototypeOf: <span class="function"><span class="params">target</span> =&gt;</span> <span class="built_in">Array</span>.prototype,</span><br><span class="line">  get (target, key) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key) || <span class="built_in">Reflect</span>.get(<span class="built_in">Array</span>.prototype, key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(proxy.push)</span><br><span class="line"><span class="comment">// &lt;- function push () &#123; [native code] &#125;</span></span><br><span class="line">proxy.push(<span class="string">'a'</span>, <span class="string">'b'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(proxy)</span><br><span class="line"><span class="comment">// &lt;- &#123; 0: 'a', 1: 'b', length: 2 &#125;</span></span><br></pre></td></tr></table></figure>
+<p>I definitely see some advanced use cases for <code>getPrototypeOf</code> traps in the future, but it’s too early to tell what patterns may come out of it.</p>
+<h3 id="setPrototypeOf"><a href="#setPrototypeOf" class="headerlink" title="setPrototypeOf"></a><code>setPrototypeOf</code></h3><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf" target="_blank" rel="noopener"><code>Object.setPrototypeOf</code></a> method does exactly what its name conveys: it sets the prototype of an object to a reference to another object. It’s considered the proper way of setting the prototype as opposed to using <code>__proto__</code> which is a legacy feature <em>– and now standarized as such.</em></p>
+<p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/setPrototypeOf" target="_blank" rel="noopener"><code>handler.setPrototypeOf</code></a> method to set up a <em>trap</em> for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf" target="_blank" rel="noopener"><code>Object.setPrototypeOf</code></a>. The snippet of code shown below doesn’t alter the default behavior of changing a prototype to the value of <code>proto</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  setPrototypeOf (target, proto) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.setPrototypeOf(target, proto)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> proto = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> target = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line">proxy.setPrototypeOf(proxy, proto)</span><br><span class="line"><span class="built_in">console</span>.log(proxy.prototype === proto)</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br></pre></td></tr></table></figure>
+<p>The field for <code>setPrototypeOf</code> is pretty open. You could simply not call <code>Object.setPrototypeOf</code> and the trap would sink the call into a <em>no-op</em>. You could <code>throw</code> an exception making the failure more explicit – for instance if you deem the new prototype to be invalid or you don’t want consumers pulling the rug from under your feet.</p>
+<p>This is a nice <em>trap</em> to have if you want proxies to have limited access to what they can do with your <code>target</code> object. I would definitely implement a trap like the one below if I had any security concerns at all in a proxy I’m passing away to third party code.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  setPrototypeOf (target, proto) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Changing the prototype is forbidden'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> proto = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> target = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line">proxy.setPrototypeOf(proxy, proto)</span><br><span class="line"><span class="comment">// &lt;- Error: Changing the prototype is forbidden</span></span><br></pre></td></tr></table></figure>
+<p>Then again, you may want to fail silently with no error being thrown at all if you’d rather confuse the consumer – and that may just make them go away.</p>
+<h3 id="isExtensible"><a href="#isExtensible" class="headerlink" title="isExtensible"></a><code>isExtensible</code></h3><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/isExtensible" target="_blank" rel="noopener"><code>handler.isExtensible</code></a> method can be mostly used for logging or auditing calls to <code>Object.isExtensible</code>. This <em>trap</em> is subject to a harsh invariant that puts a hard limit to what you can do with it.</p>
+<blockquote>
+<p>If <code>Object.isExtensible(proxy) !== Object.isExtensible(target)</code>, then a <code>TypeError</code> is thrown.</p>
+</blockquote>
+<p>You could use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/isExtensible" target="_blank" rel="noopener"><code>handler.isExtensible</code></a> trap to <code>throw</code> if you don’t want consumers to know whether the original object is extensible or not, but there seem to be limited situations that would warrant such an <strong>incarnation of evil</strong>. For completeness’ sake, the piece of code below shows a trap for <code>isExtensible</code> that throws errors every once in a while, but otherwise behaves as expected.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  isExtensible (target) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Math</span>.random() &gt; <span class="number">0.1</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'gotta love sporadic obscure errors!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.isExtensible(target)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(proxy))</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(proxy))</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(proxy))</span><br><span class="line"><span class="comment">// &lt;- true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(proxy))</span><br><span class="line"><span class="comment">// &lt;- Error: gotta love sporadic obscure errors!</span></span><br></pre></td></tr></table></figure>
+<p>While this <em>trap</em> is nearly useless other than for auditing purposes and to cover all your bases, the <em>hard-to-break</em> invariant makes sense because there’s also the <code>preventExtensions</code> <em>trap</em>. <strong>That one is a little bit more useful!</strong></p>
+<h3 id="preventExtensions"><a href="#preventExtensions" class="headerlink" title="preventExtensions"></a><code>preventExtensions</code></h3><p>You can use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/preventExtensions" target="_blank" rel="noopener"><code>handler.preventExtensions</code></a> to <em>trap</em> the <code>Object.preventExtensions</code> method. When extensions are prevented on an object, new properties can’t be added any longer <em>– it can’t be extended.</em></p>
+<p>Imagine a scenario where you want to selectively be able to <code>preventExtensions</code> on some objects – but not all of them. In this scenario, you could use a <code>WeakSet</code> to keep track of the objects that should be extensible. If an object is in the set, then the <code>preventExtensions</code> <em>trap</em> should be able to capture those requests and discard them. The snippet below does exactly that. Note that the <em>trap</em> always returns the opposite of <code>Object.isExtensible(target)</code>, because it should report whether the object has been made non-extensible.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mustExtend = <span class="keyword">new</span> <span class="built_in">WeakSet</span>()</span><br><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  preventExtensions (target) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!mustExtend.has(target)) &#123;</span><br><span class="line">      <span class="built_in">Object</span>.preventExtensions(target)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> !<span class="built_in">Object</span>.isExtensible(target)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now that we’ve set up the <code>handler</code> and our <code>WeakSet</code>, we can create a back-end object, a <code>proxy</code>, and add the back-end to our set. Then, you can try <code>Object.preventExtensions</code> on the proxy and you’ll notice it fails to prevent extensions to the object. This is the intended behavior as the <code>target</code> can be found in the <code>mustExtend</code> set.</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="function"><span class="keyword">new</span> <span class="title">Proxy</span>(target, handler)</span></span><br><span class="line"><span class="function"><span class="title">mustExtend</span>.<span class="title">add</span>(target)</span></span><br><span class="line"><span class="function"><span class="title">Object</span>.<span class="title">preventExtensions</span>(proxy)</span></span><br><span class="line"><span class="function"><span class="comment">// &lt;- TypeError: proxy preventExtensions handler returned false</span></span></span><br></pre></td></tr></table></figure>
+<p>If we removed the <code>target</code> from the <code>mustExtend</code> set before calling <code>Object.preventExtensions</code>, then <code>target</code> would be made non-extensible as originally intended.</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="function"><span class="keyword">new</span> <span class="title">Proxy</span>(target, handler)</span></span><br><span class="line"><span class="function"><span class="title">mustExtend</span>.<span class="title">add</span>(target)</span></span><br><span class="line"><span class="function"><span class="title">mustExtend</span>.<span class="title">delete</span>(target)</span></span><br><span class="line"><span class="function"><span class="title">Object</span>.<span class="title">preventExtensions</span>(proxy)</span></span><br><span class="line"><span class="function"><span class="title">console</span>.<span class="title">log</span>(<span class="type">Object</span>.isExtensible(proxy))</span></span><br><span class="line"><span class="function"><span class="comment">// &lt;- false</span></span></span><br></pre></td></tr></table></figure>
+<p>Naturally, you could use this distinction to prevent <code>proxy</code> consumers from making the proxy non-extensible in cases where that could lead to undesired behavior. In most cases, you probably won’t have to deal with this <em>trap</em>, though. That’s because you’re usually going to be working with the <em>back-end <code>target</code></em> for the most part, and not so much with the <code>proxy</code> object itself.</p>
+<h3 id="getOwnPropertyDescriptor"><a href="#getOwnPropertyDescriptor" class="headerlink" title="getOwnPropertyDescriptor"></a><code>getOwnPropertyDescriptor</code></h3><p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/getOwnPropertyDescriptor" target="_blank" rel="noopener"><code>handler.getOwnPropertyDescriptor</code></a> method as a trap for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor" target="_blank" rel="noopener"><code>Object.getOwnPropertyDescriptor</code></a>. It may return a property descriptor, such as the result from <code>Object.getOwnPropertyDescriptor(target, key)</code>; or <code>undefined</code>, signaling that the property doesn’t exist. As usual, you also have the third option of throwing an exception, aborting the operation entirely.</p>
+<p>If we go back to our canonical <em>“private property space”</em> example, we could implement a <em>trap</em> such as the one seen below to prevent consumers from learning about property descriptors of private properties.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">handler</span> = &#123;</span><br><span class="line">  getOwnPropertyDescriptor (target, <span class="keyword">key</span>) &#123;</span><br><span class="line">    invariant(<span class="keyword">key</span>, <span class="string">'get property descriptor for'</span>)</span><br><span class="line">    <span class="keyword">return</span> Object.getOwnPropertyDescriptor(target, <span class="keyword">key</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> invariant (<span class="keyword">key</span>, <span class="keyword">action</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">key</span>[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">    throw <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="string">`Invalid attempt to $&#123;action&#125; private "$&#123;key&#125;" property`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> Proxy(target, <span class="keyword">handler</span>)</span><br><span class="line">Object.getOwnPropertyDescriptor(proxy, <span class="string">'_foo'</span>)</span><br><span class="line">// &lt;- <span class="keyword">Error</span>: Invalid attempt <span class="keyword">to</span> <span class="keyword">get</span> property <span class="keyword">descriptor</span> <span class="keyword">for</span> <span class="keyword">private</span> <span class="string">"_foo"</span> property</span><br></pre></td></tr></table></figure>
+<p>The problem with that approach is that you’re effectively telling consumers that properties with the <code>_</code> prefix are somehow off-limits. It might be best to conceal them entirely by returning <code>undefined</code>. This way, your private properties will behave no differently than properties that are <em>actually absent</em> from the <code>target</code> object.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  getOwnPropertyDescriptor (target, key) &#123;</span><br><span class="line">    <span class="keyword">if</span> (key[<span class="number">0</span>] === <span class="string">'_'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.getOwnPropertyDescriptor(target, key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> target = &#123; <span class="attr">_foo</span>: <span class="string">'bar'</span>, <span class="attr">baz</span>: <span class="string">'tar'</span> &#125;</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(proxy, <span class="string">'wat'</span>))</span><br><span class="line"><span class="comment">// &lt;- undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(proxy, <span class="string">'_foo'</span>))</span><br><span class="line"><span class="comment">// &lt;- undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(proxy, <span class="string">'baz'</span>))</span><br><span class="line"><span class="comment">// &lt;- &#123; value: 'tar', writable: true, enumerable: true, configurable: true &#125;</span></span><br></pre></td></tr></table></figure>
+<p>Usually when you’re trying to hide things it’s best to have them try and behave as if they fell in some other category than the category they’re actually in. Throwing, however, just sends the <em>“there’s something sketchy here, but we can’t quite tell you what that is…”</em> message – and the consumer will eventually find out why that is.</p>
+<blockquote>
+<p>Keep in mind that if debugging concerns outweight security concerns, you probably should go for the <code>throw</code> statement.</p>
+</blockquote>
+<h1 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h1><p>This has certainly been fun. I now have a much better understanding of what proxies can do for me, and I think they’ll be an instant hit once ES6 starts gaining more traction. I for one can’t be more excited about them becoming well-supported in more browsers soon. I wouldn’t hold out my hopes about proxies for Babel, as many of the traps are <strong>ridiculously hard</strong> <em>(or downright impossible)</em> to implement in ES5.</p>
+<p>As we’ve learned over the last few days, there’s <strong>a myriad use cases</strong> for proxies. Off the top of my head, we can use <code>Proxy</code> for all of the following.</p>
+<ul>
+<li>Add validation rules <em>– and enforce them –</em> on plain old JavaScript objects</li>
+<li>Keep track of every interaction that goes through a proxy</li>
+<li>Decorate objects without changing them at all</li>
+<li>Make certain properties on an object completely invisible to the consumer of a proxy</li>
+<li>Revoke access <em>at will</em> when the consumer should no longer be able to use a proxy</li>
+<li>Modify the arguments passed to a proxied method</li>
+<li>Modify the result produced by a proxied method</li>
+<li>Prevent deletion of specific properties through the proxy</li>
+<li>Prevent new definitions from succeeding, according to the desired property descriptor</li>
+<li>Shuffle arguments around in a constructor</li>
+<li>Return a result other than the object being <code>new</code>-ed up in a constructor</li>
+<li>Swap out the prototype of an object for something else</li>
+</ul>
+<p>I can say without a shadow of a doubt that there’s <strong>hundreds more of use cases</strong> for proxies. I’m sure many libraries will adopt a pattern we’ve discussed here in the series where a <em>“back-end”</em> <code>target</code> object is created and used for storage purposes but the consumer is only provided with a <em>“front-end”</em> <code>proxy</code> object with <em>limited and audited interaction</em> with the back-end.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frankl
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="www.lpldplws.cn/2018/08/02/pureMaterial/15.proxy/" title="15.proxy">www.lpldplws.cn/2018/08/02/pureMaterial/15.proxy/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/pure-material/" rel="tag"># pure material</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/02/blog/summary/string_method/" rel="next" title="String Method">
+                <i class="fa fa-chevron-left"></i> String Method
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/pureMaterial/16.reflection/" rel="prev" title="16.reflection">
+                16.reflection <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread" style="display:block">
+      
+        <!--MOB SHARE BEGIN-->
+ <div class="-mob-share-ui-button -mob-share-open" style="display:block;background: darkgrey;width: 20em;margin: 0 auto;">分享</div>
+ <div class="-mob-share-ui" style="display: none">
+     <ul class="-mob-share-list">
+         <li class="-mob-share-weibo"><p>新浪微博</p></li>
+         <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+         <li class="-mob-share-qzone"><p>QQ空间</p></li>
+         <li class="-mob-share-qq"><p>QQ好友</p></li>
+         <li class="-mob-share-weixin"><p>微信</p></li>
+         <li class="-mob-share-douban"><p>豆瓣</p></li>
+         <li class="-mob-share-renren"><p>人人网</p></li>
+         <li class="-mob-share-kaixin"><p>开心网</p></li>
+         <li class="-mob-share-facebook"><p>Facebook</p></li>
+         <li class="-mob-share-twitter"><p>Twitter</p></li>
+         <li class="-mob-share-pocket"><p>Pocket</p></li>
+         <li class="-mob-share-google"><p>Google+</p></li>
+         <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+         <li class="-mob-share-mingdao"><p>明道</p></li>
+         <li class="-mob-share-pengyou"><p>朋友网</p></li>
+         <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+         <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+         <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+     </ul>
+     <div class="-mob-share-close">取消</div>
+ </div>
+ <div class="-mob-share-ui-bg"></div>
+ <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=26afb7d19666e"></script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgxNy8xNDM0OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="Frankl" />
+            
+              <p class="site-author-name" itemprop="name">Frankl</p>
+              <p class="site-description motion-element" itemprop="description">Base on front-end, more than front-end</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lpldplws" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qinhui@bupt.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+            <div class="music-container">
+            </div>
+			<script src="https://www.newraina.com/mePlayer/dist/meplayer.min.js"></script>
+            <script>
+            mePlayer({
+				theme: '',
+				music : {
+                    src : '/lib/music/BestDaysofMyYouth.mp3',
+					title : '尚好的青春',
+					author: '孙燕姿',
+					cover : 'http://www.lpldplws.cn/images/favicon.jpg',
+					lrc   : '[00:02.04]尚好的青春\n[00:02.31]词: 潘协庆\n[00:03.12]曲: 郭文贤\n[00:03.91]演唱：孙燕姿\n[00:16.12]尚好的青春都是你\n[00:21.60]再遥远 都跟随你\n[00:28.68]若滂沱大雨\n[00:30.89]不曾见证\n[00:32.30]海角相偎依\n[00:35.43]衣角怎么会\n[00:38.87]湿淋淋\n[00:41.31]\n[00:42.78]尚好的青春都是你\n[00:48.37]没有片刻不想你\n[00:55.24]就算能真在对的时间\n[00:58.98]遇见对的你\n[01:02.08]遗失的青春怎能回得去\n[01:07.01]\n[01:08.80]千万记得天涯有人在等你\n[01:15.31]风 再疾再狂我也不放弃\n[01:21.74]愿为你\n[01:23.24]直到有一刻能守着你的心\n[01:28.27]就算你不会懂 也不会可惜\n[01:33.58]\n[01:35.31]千万记得天涯有人在等待\n[01:42.00]路程再多遥远不要不回来\n[01:48.29]不去想不去计量你的心\n[01:52.98]有多明白\n[01:54.94]前往幸福的路有多少阻碍\n[02:01.95]就算给你的爱\n[02:04.87]石沉大海\n[02:08.13]青春飞逝就再\n[02:11.41]找不回来\n[02:13.98]\n[02:27.89]尚好的青春都是你\n[02:33.16]没有片刻不想你\n[02:40.20]就算能真在对的时间\n[02:43.79]遇见对的你\n[02:46.84]遗失的青春怎能回得去\n[02:52.10]\n[02:53.75]千万记得天涯有人在等你\n[03:00.21]风 再疾再狂我也不放弃\n[03:06.40]愿为你\n[03:08.09]直到有一刻能守着你的心\n[03:13.04]就算你不会懂\n[03:15.68]也不会可惜\n[03:18.44]\n[03:20.37]千万记得天涯有人在等待\n[03:26.84]路程再多遥远不要不回来\n[03:33.14]不去想不去计量你的心有多明白\n[03:39.73]前往幸福的路有多少阻碍\n[03:47.02]就算给你的爱\n[03:49.81]石沉大海\n[03:53.48]青春飞逝就再\n[03:56.59]找不回来\n[03:59.37]'
+				},
+				target: '.music-container',
+				autoplay: false 
+			}); 
+            </script>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://testudy.cc" title="胡继伟" target="_blank">胡继伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/cnsnake11/blog" title="曹楠" target="_blank">曹楠</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/shengoo/notes" title="生庆" target="_blank">生庆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/jacky-jiang/blog/" title="蒋艺" target="_blank">蒋艺</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.apptranz.com/wk/" title="梁恺韬" target="_blank">梁恺韬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.my358.cn" title="苗志高" target="_blank">苗志高</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hushichao.github.io" title="胡世超" target="_blank">胡世超</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lq1228.github.io/" title="李倩" target="_blank">李倩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://lilywei739.github.io" title="魏莉" target="_blank">魏莉</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/0dd57ee96426" title="于鹏" target="_blank">于鹏</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/user/59532c1c5188250d7a0b2bb7" title="王超健" target="_blank">王超健</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          
+
+        </div>
+
+      
+      <!--noindex-->
+      </section>
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc">
+
+          
+            
+          
+
+          
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6-Proxies"><span class="nav-number">1.</span> <span class="nav-text">ES6 Proxies</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">1.1.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set"><span class="nav-number">1.2.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema-Validation-with-Proxies"><span class="nav-number">1.3.</span> <span class="nav-text">Schema Validation with Proxies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revocable-Proxies"><span class="nav-number">1.4.</span> <span class="nav-text">Revocable Proxies</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Proxy-Trap-Handlers"><span class="nav-number">2.</span> <span class="nav-text">Proxy Trap Handlers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#has"><span class="nav-number">2.0.1.</span> <span class="nav-text">has</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deleteProperty"><span class="nav-number">2.0.2.</span> <span class="nav-text">deleteProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defineProperty"><span class="nav-number">2.0.3.</span> <span class="nav-text">defineProperty</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#It’s-a-Trap"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">It’s a Trap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enumerate"><span class="nav-number">2.0.4.</span> <span class="nav-text">enumerate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ownKeys"><span class="nav-number">2.0.5.</span> <span class="nav-text">ownKeys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">2.0.6.</span> <span class="nav-text">apply</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#But-Wait-There’s-More…-Proxy-Trap-Handlers"><span class="nav-number">3.</span> <span class="nav-text">But Wait! There’s More… (Proxy Trap Handlers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#construct"><span class="nav-number">3.0.1.</span> <span class="nav-text">construct</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getPrototypeOf"><span class="nav-number">3.0.2.</span> <span class="nav-text">getPrototypeOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setPrototypeOf"><span class="nav-number">3.0.3.</span> <span class="nav-text">setPrototypeOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isExtensible"><span class="nav-number">3.0.4.</span> <span class="nav-text">isExtensible</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#preventExtensions"><span class="nav-number">3.0.5.</span> <span class="nav-text">preventExtensions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getOwnPropertyDescriptor"><span class="nav-number">3.0.6.</span> <span class="nav-text">getOwnPropertyDescriptor</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusions"><span class="nav-number">4.</span> <span class="nav-text">Conclusions</span></a></li></ol></div>
+          
+
+        </div>
+      </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frankl</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  	    <!-- custom analytics part create by xiamo -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+});
+</script>
+
+      
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("aUG4vd9Krriqy647ANRoSSer-gzGzoHsz", "kdMloa4KY0uLCvse71kG5F7x");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
