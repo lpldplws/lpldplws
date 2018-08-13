@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>www.lpldplws.cn/2018/08/13/css/sass/</loc>
+    <loc>www.lpldplws.cn/2018/08/13/css/sass_supplement/</loc>
+    
+    <lastmod>2018-08-13T09:50:55.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.lpldplws.cn/2018/08/13/css/sass_refrence/</loc>
+    
+    <lastmod>2018-08-13T08:37:06.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.lpldplws.cn/2018/08/13/css/sass_basics/</loc>
     
     <lastmod>2018-08-13T02:59:14.534Z</lastmod>
     

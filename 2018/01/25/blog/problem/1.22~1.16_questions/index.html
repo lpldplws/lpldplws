@@ -507,7 +507,7 @@
 <p><strong>LINK @import</strong></p>
 <p>The LINK @import example uses LINK for a.css, and @import for b.css:</p>
 <p>LINK @import示例中使用LINK标签引入a.css，使用@import引入b.css：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">type</span>=<span class="string">'text/css'</span> <span class="attr">href</span>=<span class="string">'a.css'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">'b.css'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">'stylesheet'</span> type=<span class="string">'text/css'</span> href=<span class="string">'a.css'</span>&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">@<span class="keyword">import</span> url(<span class="string">'b.css'</span>);</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
 <p>In IE (tested on 6, 7, and 8), this causes the stylesheets to be downloaded sequentially, as shown in Figure 2. Downloading resources in parallel is key to a faster page. As shown here, this behavior in IE causes the page to take a longer time to finish.</p>
 <p>在IE（在IE6， 7， 8下测试）中，如下图所示，这将导致样式表按顺序下载，而并行下载资源是让页面加载更快的关键。如图所示，在IE中的这会导致页面花费较长的时间完成渲染。</p>
 <figure><br>    <img src="http://stevesouders.com/tests/atimport/link-import.gif" alt="混合使用@import和link标签"><br>    <figcaption><br>        混合使用@import和link标签<br>    </figcaption><br></figure>
@@ -831,7 +831,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
