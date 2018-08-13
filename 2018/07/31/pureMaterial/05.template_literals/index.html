@@ -495,7 +495,7 @@
 <figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var text = (</span><br><span class="line">  <span class="symbol">'foo</span>\n' +</span><br><span class="line">  <span class="symbol">'bar</span>\n' +</span><br><span class="line">  <span class="symbol">'baz'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = [</span><br><span class="line">  <span class="string">'foo'</span>,</span><br><span class="line">  <span class="string">'bar'</span>,</span><br><span class="line">  <span class="string">'baz'</span></span><br><span class="line">].<span class="keyword">join</span>(<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
 <p>Instead, you can now just use backticks! Note that spacing matters, so you might still want to use parenthesis in order to keep the first line of text away from the variable declaration.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = (</span><br><span class="line"><span class="string">`foo</span></span><br><span class="line"><span class="string">bar</span></span><br><span class="line"><span class="string">baz`</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var text = (</span><br><span class="line">`foo</span><br><span class="line">bar</span><br><span class="line">baz`)</span><br></pre></td></tr></table></figure>
 <p>Multi-line strings really shine when you have, <em>for instance</em>, a chunk of HTML you want to interpolate some variables to. Much like with <a href="/articles/react-jsx-and-es6-the-weird-parts">JSX</a>, you’re perfectly able to use an expression to iterate over a collection and <code>return</code> yet another template literal to declare list items. This makes it a breeze to declare sub-components in your templates. Note also how I’m <a href="/articles/es6-destructuring-in-depth">using destructuring</a> to avoid having to prefix every expression of mine with <code>article.</code>, I like to think of it as <em>“a <code>with</code> block, but not as insane”</em>.</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var article = &#123;</span><br><span class="line">  title: <span class="string">'Hello Template Literals'</span>,</span><br><span class="line">  teaser: <span class="string">'String interpolation is awesome. Here are some features'</span>,</span><br><span class="line">  body: <span class="string">'Lots and lots of sanitized HTML'</span>,</span><br><span class="line">  <span class="keyword">tag</span><span class="variable">s:</span> [<span class="string">'es6'</span>, <span class="string">'template-literals'</span>, <span class="string">'es6-in-depth'</span>]</span><br><span class="line">&#125;</span><br><span class="line">var &#123;title,teaser,body,<span class="keyword">tags</span>&#125; = article</span><br><span class="line">var html = `<span class="symbol">&lt;article&gt;</span></span><br><span class="line">  <span class="symbol">&lt;header&gt;</span></span><br><span class="line">    <span class="symbol">&lt;h1&gt;</span>$&#123;title&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  <span class="symbol">&lt;section&gt;</span></span><br><span class="line">    <span class="symbol">&lt;div&gt;</span>$&#123;teaser&#125;&lt;/div&gt;</span><br><span class="line">    <span class="symbol">&lt;div&gt;</span>$&#123;body&#125;&lt;/div&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">  <span class="symbol">&lt;footer&gt;</span></span><br><span class="line">    <span class="symbol">&lt;ul&gt;</span></span><br><span class="line">      $&#123;<span class="keyword">tags</span>.<span class="keyword">map</span>(<span class="keyword">tag</span> =&gt; `<span class="symbol">&lt;li&gt;</span>$&#123;<span class="keyword">tag</span>&#125;&lt;/li&gt;`).<span class="keyword">join</span>(<span class="string">'\n      '</span>)&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/footer&gt;</span><br><span class="line">&lt;/article&gt;`</span><br></pre></td></tr></table></figure>
 <p>The above will produce output as shown below. Note how the spacing trick was enough to properly indent the <code>&lt;li&gt;</code> tags.</p>
@@ -697,7 +697,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -708,7 +708,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -719,7 +719,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
